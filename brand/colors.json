@@ -1,0 +1,257 @@
+{
+  "palette": [
+    {
+      "name": "Forge Black",
+      "token": "forge",
+      "hex": "#0B0D11",
+      "rgb": [
+        11,
+        13,
+        17
+      ],
+      "cmyk": [
+        35,
+        24,
+        0,
+        93
+      ],
+      "use": "Primary ground. Every dark surface, the default background, the mark on light grounds."
+    },
+    {
+      "name": "Paper",
+      "token": "paper",
+      "hex": "#F1EFEA",
+      "rgb": [
+        241,
+        239,
+        234
+      ],
+      "cmyk": [
+        0,
+        1,
+        3,
+        5
+      ],
+      "use": "Light ground. Counter-sections, print stock, the mark's light-background field."
+    },
+    {
+      "name": "Ember",
+      "token": "ember",
+      "hex": "#E0663A",
+      "rgb": [
+        224,
+        102,
+        58
+      ],
+      "cmyk": [
+        0,
+        54,
+        74,
+        12
+      ],
+      "use": "The flame. The seam in the mark, italic emphasis, hover sweeps, one accent per screen."
+    },
+    {
+      "name": "Ember Deep",
+      "token": "emberdeep",
+      "hex": "#C9552C",
+      "rgb": [
+        201,
+        85,
+        44
+      ],
+      "cmyk": [
+        0,
+        58,
+        78,
+        21
+      ],
+      "use": "Ember on paper. Use instead of Ember wherever the ground is light."
+    },
+    {
+      "name": "Brass",
+      "token": "brass",
+      "hex": "#D9A45B",
+      "rgb": [
+        217,
+        164,
+        91
+      ],
+      "cmyk": [
+        0,
+        24,
+        58,
+        15
+      ],
+      "use": "The glint. Hairline highlights and the blade line only. Never a fill, never text."
+    },
+    {
+      "name": "Steel",
+      "token": "ink",
+      "hex": "#EDEBE6",
+      "rgb": [
+        237,
+        235,
+        230
+      ],
+      "cmyk": [
+        0,
+        1,
+        3,
+        7
+      ],
+      "use": "Text and the mark on dark grounds."
+    },
+    {
+      "name": "Steel 2",
+      "token": "ink2",
+      "hex": "#B4B6BC",
+      "rgb": [
+        180,
+        182,
+        188
+      ],
+      "cmyk": [
+        4,
+        3,
+        0,
+        26
+      ],
+      "use": "Secondary text on dark grounds."
+    },
+    {
+      "name": "Slate",
+      "token": "muted",
+      "hex": "#767C88",
+      "rgb": [
+        118,
+        124,
+        136
+      ],
+      "cmyk": [
+        13,
+        9,
+        0,
+        47
+      ],
+      "use": "Labels and the device on dark grounds. Large text only."
+    },
+    {
+      "name": "Surface",
+      "token": "surface",
+      "hex": "#141821",
+      "rgb": [
+        20,
+        24,
+        33
+      ],
+      "cmyk": [
+        39,
+        27,
+        0,
+        87
+      ],
+      "use": "Cards and panels on Forge Black."
+    },
+    {
+      "name": "Hairline",
+      "token": "line",
+      "hex": "#1F232B",
+      "rgb": [
+        31,
+        35,
+        43
+      ],
+      "cmyk": [
+        28,
+        19,
+        0,
+        83
+      ],
+      "use": "Rules and borders on dark grounds."
+    },
+    {
+      "name": "Paper 2",
+      "token": "paper2",
+      "hex": "#E6E3DD",
+      "rgb": [
+        230,
+        227,
+        221
+      ],
+      "cmyk": [
+        0,
+        1,
+        4,
+        10
+      ],
+      "use": "Panels on Paper."
+    },
+    {
+      "name": "Graphite",
+      "token": "paperink2",
+      "hex": "#454A55",
+      "rgb": [
+        69,
+        74,
+        85
+      ],
+      "cmyk": [
+        19,
+        13,
+        0,
+        67
+      ],
+      "use": "Secondary text on Paper."
+    },
+    {
+      "name": "Paper Slate",
+      "token": "papermuted",
+      "hex": "#7A7F8A",
+      "rgb": [
+        122,
+        127,
+        138
+      ],
+      "cmyk": [
+        12,
+        8,
+        0,
+        46
+      ],
+      "use": "Labels and the device on Paper. Large text only."
+    },
+    {
+      "name": "Paper Line",
+      "token": "paperline",
+      "hex": "#D3D0C9",
+      "rgb": [
+        211,
+        208,
+        201
+      ],
+      "cmyk": [
+        0,
+        1,
+        5,
+        17
+      ],
+      "use": "Rules and borders on Paper."
+    }
+  ],
+  "contrast": {
+    "ink on forge": 16.32,
+    "ink2 on forge": 9.59,
+    "muted on forge": 4.64,
+    "ember on forge": 5.68,
+    "brass on forge": 8.72,
+    "forge on paper": 16.92,
+    "paperink2 on paper": 7.73,
+    "papermuted on paper": 3.49,
+    "emberdeep on paper": 3.79,
+    "ember on paper": 2.98,
+    "forge on ember": 5.68,
+    "ink on ember": 2.87,
+    "forge on brass": 8.72
+  }
+}

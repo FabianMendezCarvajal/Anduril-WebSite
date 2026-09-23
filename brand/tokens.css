@@ -1,0 +1,36 @@
+/* ANDURIL · brand tokens · v1 (September 2026)
+   Drop into any property. Names match brand/README.md and brand/colors.json. */
+:root {
+  /* Grounds */
+  --and-forge: #0B0D11;        /* Forge Black: the default ground */
+  --and-forge-2: #10131A;
+  --and-surface: #141821;      /* cards on Forge Black */
+  --and-paper: #F1EFEA;        /* Paper: the light ground */
+  --and-paper-2: #E6E3DD;      /* panels on Paper */
+
+  /* Steel (text and the mark on dark grounds) */
+  --and-steel: #EDEBE6;
+  --and-steel-2: #B4B6BC;
+  --and-slate: #767C88;        /* labels, the device; large text only */
+  --and-hairline: #1F232B;
+  --and-hairline-2: #2C313B;
+
+  /* Ink on Paper */
+  --and-graphite: #454A55;
+  --and-paper-slate: #7A7F8A;  /* labels, the device; large text only */
+  --and-paper-line: #D3D0C9;
+
+  /* The flame */
+  --and-ember: #E0663A;        /* on dark grounds */
+  --and-ember-deep: #C9552C;   /* on Paper */
+  --and-brass: #D9A45B;        /* the glint: hairlines and highlights only */
+
+  /* Type */
+  --and-display: "Bricolage Grotesque", "Helvetica Neue", Arial, sans-serif;
+  --and-serif: "Instrument Serif", "Iowan Old Style", Georgia, serif;
+  --and-body: "IBM Plex Sans", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  --and-mono: "IBM Plex Mono", Menlo, Consolas, monospace;
+
+  /* Motion */
+  --and-ease: cubic-bezier(.22, 1, .36, 1);
+}
