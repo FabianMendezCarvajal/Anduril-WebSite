@@ -2,22 +2,22 @@
      Numbers count up when code-injection/footer.html is installed; otherwise they show the final value.
      FIGURES ARE ILLUSTRATIVE. Replace with your own before publishing. -->
 <style>
-  .and-numbers { display:grid; grid-template-columns:repeat(3,1fr); border-top:1px solid #262C36; font-family:"IBM Plex Sans",Arial,sans-serif; color:#ECEFF3; }
-  .and-number { padding:40px 32px 40px 0; border-bottom:1px solid #262C36; display:grid; gap:14px; align-content:start; }
-  .and-number + .and-number { padding-left:32px; border-left:1px solid #262C36; }
-  .and-number .and-big { font-family:"Bricolage Grotesque","Helvetica Neue",Arial,sans-serif; font-weight:800; font-size:clamp(56px,7.5vw,128px); line-height:.9; letter-spacing:-.05em; font-variant-numeric:tabular-nums; }
-  .and-number .and-big small { font-size:.45em; color:#FF5A2D; font-weight:600; letter-spacing:-.02em; }
-  .and-number p { color:#B9C0CB; font-size:15.5px; max-width:30ch; margin:0; line-height:1.55; }
+  .and-numbers { display:grid; grid-template-columns:repeat(3,1fr); border-top:1px solid #1F232B; font-family:"IBM Plex Sans",Arial,sans-serif; color:#EDEBE6; }
+  .and-number { padding:40px 32px 40px 0; border-bottom:1px solid #1F232B; display:grid; gap:14px; align-content:start; }
+  .and-number + .and-number { padding-left:32px; border-left:1px solid #1F232B; }
+  .and-number .and-big { font-family:"Bricolage Grotesque","Helvetica Neue",Arial,sans-serif; font-weight:500; font-size:clamp(56px,7.5vw,124px); line-height:.9; letter-spacing:-.05em; font-variant-numeric:tabular-nums; }
+  .and-number .and-big small { font-family:"Instrument Serif",Georgia,serif; font-style:italic; font-size:.42em; color:#E0663A; font-weight:400; letter-spacing:0; margin-left:.06em; }
+  .and-number p { color:#B4B6BC; font-size:15.5px; max-width:30ch; margin:0; line-height:1.55; }
   .and-cases { display:grid; grid-template-columns:repeat(3,1fr); gap:18px; margin-top:64px; }
-  .and-case { background:#181D25; border:1px solid #262C36; border-radius:16px; padding:28px; display:grid; gap:18px; align-content:start; min-height:300px; position:relative; overflow:hidden; transition:transform .45s cubic-bezier(.22,1,.36,1), border-color .3s; color:#ECEFF3; }
-  .and-case::after { content:""; position:absolute; left:-40%; right:-40%; bottom:-60%; height:70%; background:radial-gradient(closest-side, rgba(255,90,45,.28), transparent); opacity:0; transition:opacity .5s; pointer-events:none; }
-  .and-case:hover { transform:translateY(-6px); border-color:#333B47; } .and-case:hover::after { opacity:1; }
-  .and-case .and-m { font-family:"IBM Plex Mono",Menlo,monospace; font-size:12px; letter-spacing:.12em; text-transform:uppercase; color:#7F8996; }
+  .and-case { background:#141821; border:1px solid #1F232B; border-radius:20px; padding:28px; display:grid; gap:18px; align-content:start; min-height:300px; position:relative; overflow:hidden; transition:transform .45s cubic-bezier(.22,1,.36,1), border-color .3s; color:#EDEBE6; }
+  .and-case::after { content:""; position:absolute; left:-40%; right:-40%; bottom:-60%; height:70%; background:radial-gradient(closest-side, rgba(224,102,58,.28), transparent); opacity:0; transition:opacity .5s; pointer-events:none; }
+  .and-case:hover { transform:translateY(-6px); border-color:#2C313B; } .and-case:hover::after { opacity:1; }
+  .and-case .and-m { font-family:"IBM Plex Mono",Menlo,monospace; font-size:12px; letter-spacing:.12em; text-transform:uppercase; color:#767C88; }
   .and-case h3 { font-family:"Bricolage Grotesque","Helvetica Neue",Arial,sans-serif; font-size:24px; font-weight:600; letter-spacing:-.03em; line-height:1.1; margin:0; }
   .and-case dl { margin:0; display:grid; grid-template-columns:auto 1fr; gap:6px 16px; font-size:14.5px; }
-  .and-case dt { font-family:"IBM Plex Mono",Menlo,monospace; font-size:11px; letter-spacing:.1em; text-transform:uppercase; color:#7F8996; padding-top:3px; }
-  .and-case dd { margin:0; color:#B9C0CB; line-height:1.5; } .and-case dd b { color:#ECEFF3; font-weight:500; }
-  .and-note { font-family:"IBM Plex Mono",Menlo,monospace; font-size:12px; color:#7F8996; margin:22px 0 0; letter-spacing:.04em; }
+  .and-case dt { font-family:"IBM Plex Mono",Menlo,monospace; font-size:11px; letter-spacing:.1em; text-transform:uppercase; color:#767C88; padding-top:3px; }
+  .and-case dd { margin:0; color:#B4B6BC; line-height:1.5; } .and-case dd b { color:#EDEBE6; font-weight:500; }
+  .and-note { font-family:"IBM Plex Mono",Menlo,monospace; font-size:12px; color:#767C88; margin:22px 0 0; letter-spacing:.04em; }
   @media (max-width:900px) { .and-cases { grid-template-columns:1fr; } }
   @media (max-width:800px) { .and-numbers { grid-template-columns:1fr; } .and-number + .and-number { padding-left:0; border-left:0; } }
 </style>

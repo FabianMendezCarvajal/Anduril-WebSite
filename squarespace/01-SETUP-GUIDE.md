@@ -34,16 +34,16 @@ Design → Colors → **Edit palette**:
 
 | Slot | Hex | Used for |
 |---|---|---|
-| White | `#EEF0F2` | steel-white counter sections |
-| Light accent | `#E2E6EA` | subtle panels on light sections |
-| Accent | `#FF5A2D` | ember: buttons, links, labels, overlay menu |
-| Dark accent | `#181D25` | cards on dark sections |
-| Black | `#0E1116` | forge black: the default ground |
+| White | `#F1EFEA` | paper counter sections |
+| Light accent | `#E6E3DD` | subtle panels on light sections |
+| Accent | `#E0663A` | copper: italic emphasis, hover sweeps, small marks |
+| Dark accent | `#141821` | cards on dark sections |
+| Black | `#0B0D11` | forge black: the default ground |
 
 Section themes you will use:
 
-* **Darkest 1** (default): background Black, headings `#ECEFF3`, paragraph `#B9C0CB`, button Accent with text Black.
-* **Lightest 1**: background White, headings Black, paragraph `#3A4454`, button Black with text White.
+* **Darkest 1** (default): background Black, headings `#EDEBE6`, paragraph `#B4B6BC`, primary button `#EDEBE6` with text Black.
+* **Lightest 1**: background White, headings Black, paragraph `#454A55`, primary button Black with text White.
 
 Set the site default theme to **Darkest 1** (Design → Colors → Site default section theme).
 
@@ -53,9 +53,12 @@ Design → Fonts → **Global text styles**.
 
 * Headings: **Bricolage Grotesque** if listed, otherwise **Sora**; the Custom CSS forces Bricolage Grotesque via Google Fonts regardless.
 * Paragraphs: **IBM Plex Sans**. Buttons and miscellaneous: **IBM Plex Mono**.
+* The serif italic counterpoint (**Instrument Serif**) loads from the CSS. To use it, select a word in any heading and press Cmd/Ctrl+I: italics inside headings render in the serif, and in H1/H2 they take the copper colour. The copy files mark these words with *asterisks*.
 
 Sizes (Design → Fonts → Assign styles): Heading 1 ≈ 8 rem desktop, Heading 2 ≈ 4.5 rem, Heading 3 ≈ 1.6 rem,
 Paragraph 1.06 rem, line height 1.6. Heading letter-spacing `-0.04em`. Custom CSS refines these.
+
+Section headings in the copy carry a chapter number (01 to 07) in the eyebrow. Put it on its own line in the Monospace label; it encodes the reading order of the home page.
 
 ## Step 4: Buttons and spacing
 
@@ -67,7 +70,7 @@ Paragraph 1.06 rem, line height 1.6. Heading letter-spacing `-0.04em`. Custom CS
 Design → **Custom CSS** → paste the full contents of `custom-css.css`. Save.
 
 Two lines in that file hide the inline navigation and show the burger on every screen size, which gives the
-full-screen ember overlay menu. If you would rather keep visible links on desktop, comment them out (they are
+full-screen paper overlay menu. If you would rather keep visible links on desktop, comment them out (they are
 marked in the file).
 
 ## Step 6: Code Injection (Core plan or higher)
@@ -89,7 +92,7 @@ Edit → Header.
 3. Elements → **Button** on: text *Book a free org review*, link to Contact, style Primary. It appears inside the overlay menu.
 4. Style: **transparent** background, fixed position on, no blur. The CSS sets `mix-blend-mode: difference` so
    the header inverts over dark and light sections.
-5. Mobile / overlay menu: Design → Colors → **Header menu** theme: background Accent, text Black. The CSS makes the links huge.
+5. Mobile / overlay menu: Design → Colors → **Header menu** theme: background White (paper), text Black. The CSS makes the links large and light.
 
 ## Step 8: Create the pages
 
@@ -134,7 +137,7 @@ Edit → Footer, Darkest 1 theme, two sections:
 
 * Settings → SEO → title format `%p | Anduril · Salesforce consultancy`; description from `copy/home.md`.
 * Each page: Page settings → SEO → paste its meta description.
-* Favicon: a 512×512 ember diamond on forge black. Social sharing image 1200×630: "Salesforce, reforged." on forge black.
+* Favicon: a 512×512 copper diamond on forge black. Social sharing image 1200×630: "Salesforce, *reforged.*" on forge black, the second word in the serif italic.
 * Replace every placeholder: `hello@your-domain.com`, the three case cards, the three numbers, the availability line.
 * Test on a phone: overlay menu opens and closes, form submits, code-block grids stack, the marquee scrolls.
 * Check the header over the light sections: it should invert to dark text automatically.

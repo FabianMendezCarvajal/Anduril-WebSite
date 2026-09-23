@@ -15,7 +15,7 @@ The whole hero is `code-blocks/hero-headline.html`. Text inside it:
 *Top-right meta:* Implementations · Rescues · Integrations · Managed admin
 
 *H1, line 1 (solid):* Salesforce,
-*H1, line 2 (outlined):* reforged.
+*H1, line 2 (serif italic, Cmd/Ctrl+I):* reforged.
 
 *Lede:* Most orgs grew by accident: a field here, a workflow there, three admins ago. We take the shards and rebuild them into a system your team trusts.
 
@@ -34,7 +34,7 @@ Header meta line (Custom CSS + injection): Salesforce consultancy · [local time
 
 ## Manifesto
 
-*Big paragraph (Heading 2 style, weight regular; the words in brackets in the Accent colour):*
+*Big paragraph (Heading 2 style; select the whole paragraph and press Cmd/Ctrl+I so it renders in the serif; the bracketed words in the Accent colour):*
 A Salesforce org is never finished. It is either [maintained on purpose] or it drifts. We are the people you call when it has drifted far enough that [the business has started routing around it.]
 
 *Small note:* Named after the sword in Tolkien that was reforged from broken shards and held. That is the job description.
@@ -43,9 +43,9 @@ A Salesforce org is never finished. It is either [maintained on purpose] or it d
 
 ## Symptoms
 
-*Eyebrow:* Sound familiar
+*Eyebrow:* 01 / Sound familiar
 
-*H2:* Three ways an org tells you it's time.
+*H2:* Three ways an org tells you *it's time.*
 
 *Code Block:* `code-blocks/symptoms-ledger.html`
 
@@ -53,9 +53,9 @@ A Salesforce org is never finished. It is either [maintained on purpose] or it d
 
 ## Services
 
-*Eyebrow:* Services
+*Eyebrow:* 02 / Services
 
-*H2:* From first login to a fully governed org.
+*H2:* From first login to a *fully governed* org.
 
 *Lede:* Six ways to work with us. Fixed-scope where it can be, retained where it should be. Open a row.
 
@@ -65,9 +65,9 @@ A Salesforce org is never finished. It is either [maintained on purpose] or it d
 
 ## Process
 
-*Eyebrow:* Process
+*Eyebrow:* 03 / Process
 
-*H2:* Five stages. No surprises in stage four.
+*H2:* Five stages. *No surprises* in stage four.
 
 *Lede:* You see the plan and the fixed cost before we touch production, and a working demo at the end of every sprint.
 
@@ -77,9 +77,9 @@ A Salesforce org is never finished. It is either [maintained on purpose] or it d
 
 ## Proof
 
-*Eyebrow:* Proof
+*Eyebrow:* 04 / Proof
 
-*H2:* What a rescue looks like in numbers.
+*H2:* What a rescue looks like *in numbers.*
 
 *Code Block:* `code-blocks/proof-numbers.html` (three numbers and three anonymised case cards; all illustrative until you replace them)
 
@@ -87,9 +87,9 @@ A Salesforce org is never finished. It is either [maintained on purpose] or it d
 
 ## Review (light section)
 
-*Eyebrow:* The free review
+*Eyebrow:* 05 / The free review
 
-*H2:* Thirty minutes. Three things to fix. Yours either way.
+*H2:* Thirty minutes. Three things to fix. *Yours either way.*
 
 *Lede:* You share screen, we look at the org together across five dimensions, and you leave with a one-page summary whether or not you hire us.
 
@@ -101,9 +101,9 @@ Right column: `code-blocks/org-health-card.html`
 
 ## About (light section)
 
-*Eyebrow:* About
+*Eyebrow:* 06 / About
 
-*Big paragraph (Heading 3 style, weight medium; bracketed words in Accent):* Anduril is founder-led and [small on purpose.] The consultant who scopes your project is the one who builds it, and the one you can call after launch. No hand-off to a bench, no junior team behind a senior sales call.
+*Big paragraph (Heading 3 style, whole paragraph italic so it renders in the serif; bracketed words in Accent):* Anduril is founder-led and [small on purpose.] The consultant who scopes your project is the one who builds it, and the one you can call after launch. No hand-off to a bench, no junior team behind a senior sales call.
 
 Right column: `code-blocks/principles.html`
 
@@ -111,11 +111,11 @@ Right column: `code-blocks/principles.html`
 
 ## Contact
 
-*Eyebrow:* Contact
+*Eyebrow:* 07 / Contact
 
-*H2 (the bracketed word in Accent):* Let's [reforge] it.
+*H2 (the bracketed word italic, which renders serif and copper):* Let's [reforge] it.
 
-*Email, large, underlined in Accent:* hello@your-domain.com
+*Email, large, serif italic, hairline underline in Accent:* hello@your-domain.com
 
 Contact lines (label in monospace, value in body):
 - RESPONSE TIME — Within one business day

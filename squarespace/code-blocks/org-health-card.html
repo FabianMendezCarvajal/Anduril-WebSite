@@ -1,17 +1,17 @@
 <!-- ANDURIL · Code Block: Org health card (home section 7, right column). Type: HTML. LIGHT (steel-white) section.
      Bars animate in when code-injection/footer.html is installed; otherwise they render at their final width. -->
 <style>
-  .and-diag { background:#EEF0F2; color:#0E1116; border:1px solid #C9D0D8; border-radius:18px; padding:clamp(22px,3vw,34px); display:grid; gap:18px; font-family:"IBM Plex Sans",Arial,sans-serif; }
-  .and-diag-head { display:flex; justify-content:space-between; gap:12px; font-family:"IBM Plex Mono",Menlo,monospace; font-size:11px; letter-spacing:.12em; text-transform:uppercase; color:#6B7686; }
-  .and-diag-head b { color:#E4572E; font-weight:500; }
-  .and-diag-title { font-family:"Bricolage Grotesque","Helvetica Neue",Arial,sans-serif; font-size:clamp(22px,2.2vw,30px); font-weight:700; letter-spacing:-.03em; line-height:1.05; margin:0; }
+  .and-diag { background:#F1EFEA; color:#0B0D11; border:1px solid #D3D0C9; border-radius:18px; padding:clamp(22px,3vw,34px); display:grid; gap:18px; font-family:"IBM Plex Sans",Arial,sans-serif; }
+  .and-diag-head { display:flex; justify-content:space-between; gap:12px; font-family:"IBM Plex Mono",Menlo,monospace; font-size:11px; letter-spacing:.12em; text-transform:uppercase; color:#7A7F8A; }
+  .and-diag-head b { color:#C9552C; font-weight:500; }
+  .and-diag-title { font-family:"Bricolage Grotesque","Helvetica Neue",Arial,sans-serif; font-size:clamp(22px,2.2vw,30px); font-weight:500; letter-spacing:-.03em; line-height:1.05; margin:0; }
   .and-diag-rows { display:grid; gap:14px; }
-  .and-diag-row { display:grid; grid-template-columns:150px 1fr 48px; gap:14px; align-items:center; font-size:14px; color:#3A4454; }
-  .and-diag-row .and-val { font-family:"IBM Plex Mono",Menlo,monospace; font-variant-numeric:tabular-nums; text-align:right; color:#0E1116; }
-  .and-bar { height:6px; background:#E2E6EA; border-radius:3px; overflow:hidden; }
-  .and-bar span { display:block; height:100%; background:linear-gradient(90deg,#E4572E,#F2A93B); }
-  .and-diag-foot { border-top:1px solid #C9D0D8; padding-top:14px; font-size:13.5px; color:#3A4454; display:grid; gap:6px; line-height:1.5; }
-  .and-diag-foot b { color:#0E1116; font-weight:500; }
+  .and-diag-row { display:grid; grid-template-columns:150px 1fr 48px; gap:14px; align-items:center; font-size:14px; color:#454A55; }
+  .and-diag-row .and-val { font-family:"IBM Plex Mono",Menlo,monospace; font-variant-numeric:tabular-nums; text-align:right; color:#0B0D11; }
+  .and-bar { height:6px; background:#E6E3DD; border-radius:3px; overflow:hidden; }
+  .and-bar span { display:block; height:100%; background:linear-gradient(90deg,#C9552C,#D9A45B); }
+  .and-diag-foot { border-top:1px solid #D3D0C9; padding-top:14px; font-size:13.5px; color:#454A55; display:grid; gap:6px; line-height:1.5; }
+  .and-diag-foot b { color:#0B0D11; font-weight:500; }
   @media (max-width:480px) { .and-diag-row { grid-template-columns:104px 1fr 40px; } }
 </style>
 <aside class="and-diag" aria-label="Example org health review">

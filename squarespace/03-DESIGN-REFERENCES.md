@@ -18,23 +18,26 @@ winners. If you want a direct scrape, add `awwwards.com` to the environment's al
 
 ## Patterns the winners share (and how Anduril applies them)
 
-1. **Typography is the hero.** Oversized grotesk headline filling the viewport width, mixed solid and outline
-   weights. → Hero: "Salesforce," solid, "reforged." outlined, at up to 212 px in Bricolage Grotesque.
-2. **Two colours and one accent.** Near-black or off-white ground, one saturated accent, nothing else. → Forge
-   black `#0E1116`, steel-white `#EEF0F2` counter sections, ember `#FF5A2D`.
+1. **Typography is the hero.** Oversized headline filling the viewport width, a grotesk paired with a serif
+   italic (the pairing the Awwwards typography collection returns to most often). → "Salesforce," in Bricolage
+   Grotesque 600, "reforged." in Instrument Serif italic, up to 196 px.
+2. **Two colours and one accent.** Near-black or off-white ground, one accent, nothing else. → Forge
+   black `#0B0D11`, paper `#F1EFEA` sheets, copper `#E0663A` kept for italics, marks and hover sweeps.
 3. **Line-mask reveals and staggered entrances,** not scattered effects. → Headline lines slide up from a
    mask on load; sections fade up once, then stay.
 4. **Meta line in the header:** local time, location, availability. → "07:16 PM local · Taking projects Q4 2026".
-5. **Full-screen overlay menu** in the accent colour with enormous links. → Ember overlay, five links at 112 px.
+5. **Full-screen overlay menu** with enormous links. → Paper overlay, five links at 104 px with serif italic index numbers.
 6. **The hover list.** Services as huge rows that invert on hover and expand on click. → Six rows, black
    fill sweeps in, ember plus-button.
 7. **Marquee ticker** between hero and body. → Clouds and tools scroll as a marquee.
 8. **Sticky card stack** for a sequence. → Five process stages stack under a fixed header offset.
 9. **Numbers that count up** and proof cards with a hover glow. → Results section.
-10. **Custom cursor** that grows over links, using `mix-blend-mode: difference`. → Ember dot.
+10. **Custom cursor** that grows over links, using `mix-blend-mode: difference`. → Thin ring with a centre dot.
 11. **Film grain** overlay at 5 percent. → Present site-wide.
-12. **Giant wordmark footer.** → "ANDURIL" at up to 292 px, fading into the ground.
-13. **The jury's test:** "take away the animation and the static frames still look like someone made them on
+12. **Giant wordmark footer.** → "ANDURIL" at up to 280 px, fading into the ground.
+13. **Sections as sheets.** Light sections with rounded top corners laid over the dark ground, a device that
+    reads as physical paper. → Services, Review and About sit on one paper sheet.
+14. **The jury's test:** "take away the animation and the static frames still look like someone made them on
     purpose." → Every section was checked as a still frame at desktop and phone width before publishing.
 
 ## What was deliberately not copied

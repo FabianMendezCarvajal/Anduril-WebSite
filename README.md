@@ -20,8 +20,9 @@ Start with `squarespace/01-SETUP-GUIDE.md`.
 ## Design in one paragraph
 
 Art-directed after the current run of Awwwards Site of the Day agency sites: typography as the hero, two
-colours and one accent, choreographed motion. Forge black ground, steel-white counter sections, a single ember
-accent. "Salesforce," set solid and "reforged." outlined at up to 212 px in Bricolage Grotesque, a marquee of
-the clouds, services as a hover list that inverts and expands, the five-stage process as a sticky card stack,
-counting numbers, a full-screen ember overlay menu, a custom cursor, film grain, and a giant wordmark footer.
+colours and one accent, choreographed motion. Forge black ground, paper sheets for the light sections, a single
+copper accent used sparingly. Bricolage Grotesque paired with Instrument Serif italic: "Salesforce," in the
+grotesk, "reforged." in the serif, up to 196 px. A marquee of the clouds, services as a hover list that inverts
+and expands, the five-stage process as a sticky card stack, counting numbers, a paper overlay menu, a ring
+cursor, film grain, and a giant wordmark footer.
 No stock photography anywhere. Every effect degrades to a still, complete page without JavaScript.

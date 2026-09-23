@@ -1,43 +1,47 @@
 /* =====================================================================
-   ANDURIL · Squarespace 7.1 Custom CSS  (v2, award-site art direction)
+   ANDURIL · Squarespace 7.1 Custom CSS  (v3, refined)
    Paste into Design → Custom CSS. Works on every plan.
-   Forge black #0E1116 · steel-white #EEF0F2 · ember #FF5A2D / #E4572E
+   Forge black #0B0D11 · steel-white #F1EFEA · ember #E0663A / #C9552C
    ===================================================================== */
 
-@import url('https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,300;12..96,400;12..96,500;12..96,700;12..96,800&family=IBM+Plex+Sans:ital,wght@0,400;0,500;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,300;12..96,400;12..96,500;12..96,600;12..96,700&family=Instrument+Serif:ital@0;1&family=IBM+Plex+Sans:ital,wght@0,400;0,500;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap');
 
 :root {
-  --and-ground: #0E1116; --and-ground-2: #13171D; --and-surface: #181D25;
-  --and-ink: #ECEFF3; --and-ink-2: #B9C0CB; --and-muted: #7F8996;
-  --and-line: #262C36; --and-line-2: #333B47;
-  --and-ember: #FF5A2D; --and-ember-deep: #E4572E; --and-brass: #F2A93B;
-  --and-paper: #EEF0F2; --and-paper-2: #E2E6EA; --and-paper-ink: #0E1116; --and-paper-ink-2: #3A4454; --and-paper-muted: #6B7686; --and-paper-line: #C9D0D8;
+  --and-ground: #0B0D11; --and-ground-2: #10131A; --and-surface: #141821;
+  --and-ink: #EDEBE6; --and-ink-2: #B4B6BC; --and-muted: #767C88;
+  --and-line: #1F232B; --and-line-2: #2C313B;
+  --and-ember: #E0663A; --and-ember-deep: #C9552C; --and-brass: #D9A45B;
+  --and-paper: #F1EFEA; --and-paper-2: #E6E3DD; --and-paper-ink: #0B0D11; --and-paper-ink-2: #454A55; --and-paper-muted: #7A7F8A; --and-paper-line: #D3D0C9;
   --and-display: "Bricolage Grotesque", "Helvetica Neue", Arial, sans-serif;
   --and-body: "IBM Plex Sans", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
   --and-mono: "IBM Plex Mono", Menlo, Consolas, monospace;
+  --and-serif: "Instrument Serif", "Iowan Old Style", Georgia, serif;
   --and-ease: cubic-bezier(.22, 1, .36, 1);
 }
 
 /* ---------- Grain (the craft layer) ---------- */
 body::after {
-  content: ""; position: fixed; inset: 0; z-index: 9990; pointer-events: none; opacity: .055;
+  content: ""; position: fixed; inset: 0; z-index: 9990; pointer-events: none; opacity: .04;
   background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='200' height='200'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/></filter><rect width='200' height='200' filter='url(%23n)'/></svg>");
   background-size: 200px 200px; mix-blend-mode: screen;
 }
 
-/* ---------- Typography ---------- */
+/* ---------- Typography ----------
+   Italic inside any heading becomes Instrument Serif italic: type *word* in the editor and press Cmd/Ctrl+I. */
 h1, h2, h3, h4, .header-title-text a, .sqs-block-quote blockquote {
   font-family: var(--and-display) !important; letter-spacing: -.035em; text-wrap: balance;
 }
-h1 { font-weight: 800 !important; line-height: .9 !important; letter-spacing: -.05em !important; }
-h2 { font-weight: 700 !important; line-height: .96 !important; letter-spacing: -.04em !important; }
-h3, h4 { font-weight: 600 !important; line-height: 1.1 !important; }
+h1 { font-weight: 600 !important; line-height: .9 !important; letter-spacing: -.045em !important; }
+h2 { font-weight: 500 !important; line-height: .98 !important; letter-spacing: -.04em !important; }
+h3, h4 { font-weight: 500 !important; line-height: 1.1 !important; }
+h1 em, h2 em, h3 em, h1 i, h2 i, h3 i, .sqs-block-html p.sqsrte-large em { font-family: var(--and-serif) !important; font-style: italic !important; font-weight: 400 !important; letter-spacing: -.01em; }
+h1 em, h2 em { color: var(--and-ember); }
 body, p, li, .sqs-block-html { font-family: var(--and-body) !important; }
 p { line-height: 1.6; }
 
 /* Eyebrow labels: Monospace-styled text becomes a small tracked label */
 .sqsrte-mono, .sqs-block-html pre {
-  font-family: var(--and-mono) !important; font-size: 12px !important; letter-spacing: .12em; text-transform: uppercase;
+  font-family: var(--and-mono) !important; font-size: 11px !important; letter-spacing: .16em; text-transform: uppercase;
   color: var(--and-muted) !important; background: none !important; padding: 0 !important; margin: 0 0 14px !important; white-space: normal;
 }
 [data-section-theme="white"] .sqsrte-mono, [data-section-theme="lightest-1"] .sqsrte-mono { color: var(--and-paper-muted) !important; }
@@ -51,30 +55,34 @@ p { line-height: 1.6; }
 .page-section:not(:first-child) { border-top: 1px solid var(--and-line); }
 [data-section-theme="white"] + [data-section-theme="white"] { border-top: 0 !important; }
 
+/* Light sections read as paper sheets laid over the dark ground */
+[data-section-theme="white"], [data-section-theme="lightest-1"] { border-radius: 32px 32px 0 0; margin-top: -32px; position: relative; z-index: 1; border-top: 0 !important; }
+[data-section-theme="white"] + [data-section-theme="white"], [data-section-theme="lightest-1"] + [data-section-theme="lightest-1"] { border-radius: 0; margin-top: 0; }
+
 /* ---------- Header: transparent, blends with what it passes over ---------- */
 #header { background: transparent !important; mix-blend-mode: difference; color: #fff !important; }
-#header .header-title-text a { color: #fff !important; letter-spacing: .12em !important; font-weight: 800 !important; font-size: 18px !important; }
-#header .header-title-text a::before { content: ""; display: inline-block; width: 10px; height: 10px; background: var(--and-ember); transform: rotate(45deg); margin-right: 10px; vertical-align: 1px; }
+#header .header-title-text a { color: #fff !important; letter-spacing: .22em !important; font-weight: 600 !important; font-size: 15px !important; }
+#header .header-title-text a::before { content: ""; display: inline-block; width: 8px; height: 8px; background: var(--and-ember); transform: rotate(45deg); margin-right: 10px; vertical-align: 1px; }
 .header-nav-item a, .header-burger-btn { font-family: var(--and-mono) !important; font-size: 12px !important; letter-spacing: .12em; text-transform: uppercase; color: #fff !important; }
 /* Burger on every screen size (the overlay-menu pattern). Comment these two lines out to keep inline links on desktop. */
 .header-nav, .header-actions { display: none !important; }
 .header-burger { display: flex !important; }
 
-/* Overlay menu in ember with huge links */
-.header-menu { background: var(--and-ember) !important; }
-.header-menu-nav-item a { font-family: var(--and-display) !important; font-weight: 800 !important; font-size: clamp(40px, 9vw, 112px) !important; line-height: .95 !important; letter-spacing: -.04em !important; color: #0E1116 !important; transition: transform .35s var(--and-ease); }
-.header-menu-nav-item a:hover { transform: translateX(16px); }
+/* Overlay menu: a paper sheet with large, light links */
+.header-menu { background: var(--and-paper) !important; }
+.header-menu-nav-item a { font-family: var(--and-display) !important; font-weight: 500 !important; font-size: clamp(38px, 8vw, 104px) !important; line-height: 1 !important; letter-spacing: -.04em !important; color: var(--and-paper-ink) !important; transition: transform .4s var(--and-ease), color .3s; }
+.header-menu-nav-item a:hover { transform: translateX(16px); color: var(--and-ember-deep) !important; }
 .header-menu-nav-item--active a { background: none !important; }
-.header-menu-cta a, .header-menu-actions a { font-family: var(--and-mono) !important; font-size: 12px !important; letter-spacing: .12em; text-transform: uppercase; color: #0E1116 !important; }
-.header--menu-open #header { mix-blend-mode: normal; color: #0E1116 !important; }
-.header--menu-open #header .header-title-text a, .header--menu-open .header-burger-btn { color: #0E1116 !important; }
-.header--menu-open .burger-inner .top-bun, .header--menu-open .burger-inner .patty, .header--menu-open .burger-inner .bottom-bun { background: #0E1116 !important; }
+.header-menu-cta a, .header-menu-actions a { font-family: var(--and-mono) !important; font-size: 12px !important; letter-spacing: .12em; text-transform: uppercase; color: #0B0D11 !important; }
+.header--menu-open #header { mix-blend-mode: normal; color: #0B0D11 !important; }
+.header--menu-open #header .header-title-text a, .header--menu-open .header-burger-btn { color: #0B0D11 !important; }
+.header--menu-open .burger-inner .top-bun, .header--menu-open .burger-inner .patty, .header--menu-open .burger-inner .bottom-bun { background: #0B0D11 !important; }
 
 /* ---------- Buttons: pill, mono label, ember sweep on hover ---------- */
 .sqs-block-button-element, .sqs-button-element--primary, .sqs-button-element--secondary,
 .form-wrapper .form-button-wrapper button, .form-wrapper input[type="submit"] {
-  font-family: var(--and-mono) !important; font-size: 13px !important; letter-spacing: .1em !important; text-transform: uppercase !important;
-  padding: 18px 26px !important; border-radius: 999px !important; position: relative; overflow: hidden; isolation: isolate;
+  font-family: var(--and-mono) !important; font-size: 11.5px !important; letter-spacing: .16em !important; text-transform: uppercase !important;
+  padding: 17px 26px !important; border-radius: 999px !important; position: relative; overflow: hidden; isolation: isolate;
   border: 1px solid var(--and-line-2) !important; background: transparent !important; color: var(--and-ink) !important;
   transition: color .35s var(--and-ease), border-color .35s !important; box-shadow: none !important;
 }
@@ -85,13 +93,13 @@ p { line-height: 1.6; }
 .sqs-block-button-element:hover::before, .sqs-button-element--primary:hover::before, .sqs-button-element--secondary:hover::before,
 .form-wrapper .form-button-wrapper button:hover::before { transform: none; }
 .sqs-block-button-element:hover, .sqs-button-element--primary:hover, .sqs-button-element--secondary:hover,
-.form-wrapper .form-button-wrapper button:hover { color: #0E1116 !important; border-color: var(--and-ember) !important; }
-/* Primary = solid ember at rest */
+.form-wrapper .form-button-wrapper button:hover { color: #0B0D11 !important; border-color: var(--and-ember) !important; }
+/* Primary = solid paper at rest, ember sweeps in on hover */
 .sqs-block-button-element--primary, .sqs-button-element--primary, .form-wrapper .form-button-wrapper button, .form-wrapper input[type="submit"] {
-  background: var(--and-ember) !important; color: #0E1116 !important; border-color: var(--and-ember) !important;
+  background: var(--and-ink) !important; color: var(--and-ground) !important; border-color: var(--and-ink) !important;
 }
-.sqs-block-button-element--primary::before, .sqs-button-element--primary::before, .form-wrapper .form-button-wrapper button::before { background: var(--and-ink); }
-.sqs-block-button-element--primary:hover, .sqs-button-element--primary:hover { border-color: var(--and-ink) !important; }
+.sqs-block-button-element--primary::before, .sqs-button-element--primary::before, .form-wrapper .form-button-wrapper button::before { background: var(--and-ember); }
+.sqs-block-button-element--primary:hover, .sqs-button-element--primary:hover { border-color: var(--and-ember) !important; }
 [data-section-theme="white"] .sqs-block-button-element--secondary, [data-section-theme="lightest-1"] .sqs-block-button-element--secondary {
   color: var(--and-paper-ink) !important; border-color: var(--and-paper-ink) !important;
 }
@@ -131,8 +139,10 @@ p { line-height: 1.6; }
 #footer-sections a:hover { color: var(--and-ember) !important; }
 
 /* ---------- Custom cursor (element is injected by code-injection/footer.html) ---------- */
-.and-cursor { position: fixed; z-index: 9999; left: 0; top: 0; width: 10px; height: 10px; border-radius: 50%; background: var(--and-ember); pointer-events: none; mix-blend-mode: difference; transition: width .25s var(--and-ease), height .25s var(--and-ease), background-color .25s; display: none; }
-.and-cursor.is-link { width: 56px; height: 56px; background: #fff; }
+.and-cursor { position: fixed; z-index: 9999; left: 0; top: 0; width: 28px; height: 28px; border-radius: 50%; border: 1px solid rgba(255,255,255,.75); pointer-events: none; mix-blend-mode: difference; transition: width .3s var(--and-ease), height .3s var(--and-ease), background-color .3s, border-color .3s; display: none; }
+.and-cursor::after { content: ""; position: absolute; left: 50%; top: 50%; width: 4px; height: 4px; margin: -2px; border-radius: 50%; background: #fff; }
+.and-cursor.is-link { width: 64px; height: 64px; border-color: transparent; background: rgba(255,255,255,.9); }
+.and-cursor.is-link::after { opacity: 0; }
 @media (pointer: fine) { .and-cursor { display: block; } }
 
 /* ---------- Scroll reveal (classes are added by the footer script) ---------- */
