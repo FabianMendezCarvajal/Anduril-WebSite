@@ -17,6 +17,7 @@ bar animation, the hero glow and the custom cursor.
 | `clients-grid.html` | Home section 8 (chapter 05), About page | Dark |
 | `org-health-card.html` | Home section 9 right column, Contact page | Light |
 | `principles.html` | Home section 10 right column, About page | Light |
+| `etymology.html` | Home section 10 left column under the paragraph, About page | Light |
 | `clouds-list.html` | Clouds page | Dark |
 | `footer-wordmark.html` | Footer, last section | Dark |
 

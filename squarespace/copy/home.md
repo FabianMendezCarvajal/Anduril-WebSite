@@ -12,12 +12,14 @@ Formatting key: *Eyebrow* = small monospace label (Text block → Monospace). *H
 The whole hero is `code-blocks/hero-headline.html`. Text inside it:
 
 *Top-left meta:* ● Independent Salesforce consultancy
-*Top-right meta:* Implementations · Rescues · Integrations · Managed admin
+*Top-right meta:* Andúril · *flame of the west* (serif italic)
 
 *H1, line 1 (solid):* Salesforce,
 *H1, line 2 (serif italic, Cmd/Ctrl+I):* reforged.
 
-*Lede:* Most orgs grew by accident: a field here, a workflow there, three admins ago. We take the shards and rebuild them into a system your team trusts.
+*Lede:* Most orgs grew by accident: a field here, a workflow there, three admins ago. We keep the shards worth keeping and reforge the rest into a system your team trusts.
+
+Under the headline the block draws the *blade line*: a hairline that catches light once on load, with the engraved device at its centre (crescent moon, seven stars, rayed sun, the engraving Tolkien gives the reforged sword).
 
 *Button (primary):* Book a free org review → `/contact`
 *Button (secondary):* What we do → `/services`
@@ -35,17 +37,17 @@ Header meta line (Custom CSS + injection): Salesforce consultancy · [local time
 ## Manifesto
 
 *Big paragraph (Heading 2 style; select the whole paragraph and press Cmd/Ctrl+I so it renders in the serif; the bracketed words in the Accent colour):*
-A Salesforce org is never finished. It is either [maintained on purpose] or it drifts. We are the people you call when it has drifted far enough that [the business has started routing around it.]
+In the story, the sword that broke was not thrown away. The shards were kept, and when the time came they were [reforged into a blade that held.] A Salesforce org deserves the same: keep what still has an edge, [reforge the rest to last.]
 
-*Small note:* Named after the sword in Tolkien that was reforged from broken shards and held. That is the job description.
+*Small note:* Andúril is the reforged sword in Tolkien's Middle-earth, its blade engraved with seven stars between a crescent moon and a rayed sun. That device is our mark, and the reforging is our job description.
 
 ---
 
 ## Symptoms
 
-*Eyebrow:* 01 / Sound familiar
+*Eyebrow:* 01 / The broken blade
 
-*H2:* Three ways an org tells you *it's time.*
+*H2:* Three signs an org has *broken.*
 
 *Code Block:* `code-blocks/symptoms-ledger.html`
 
@@ -65,9 +67,11 @@ A Salesforce org is never finished. It is either [maintained on purpose] or it d
 
 ## Process
 
-*Eyebrow:* 03 / Process
+*Eyebrow:* 03 / The reforging
 
 *H2:* Five stages. *No surprises* in stage four.
+
+Each stage card carries a serif subline from the forge: Gather the shards · Draw the blade · Heat and hammer · Temper and sharpen · Keep the edge. They are inside `code-blocks/process-stack.html`.
 
 *Lede:* You see the plan and the fixed cost before we touch production, and a working demo at the end of every sprint.
 
@@ -77,9 +81,9 @@ A Salesforce org is never finished. It is either [maintained on purpose] or it d
 
 ## Proof
 
-*Eyebrow:* 04 / Proof
+*Eyebrow:* 04 / Renewed
 
-*H2:* What a rescue looks like *in numbers.*
+*H2:* What a reforging looks like *in numbers.*
 
 *Code Block:* `code-blocks/proof-numbers.html` (three numbers and three anonymised case cards; all illustrative until you replace them)
 
@@ -124,6 +128,8 @@ Right column: `code-blocks/org-health-card.html`
 
 *Big paragraph (Heading 3 style, whole paragraph italic so it renders in the serif; bracketed words in Accent):* The consultant who scopes your project is the one who builds it, and [the one you can call after launch.] No hand-off to a bench, no junior team behind a senior sales call.
 
+Under the paragraph: `code-blocks/etymology.html` (the name entry: An·dú·ril, "Flame of the West", with the device).
+
 Right column: `code-blocks/principles.html`
 
 ---
@@ -149,8 +155,8 @@ Line under the submit button: No newsletter, no sequence. One reply from a consu
 ## Footer
 
 Row: Services · Process · Proof · Clients · About · Contact (left) — LinkedIn · Trailblazer · Privacy (right), Monospace style.
-Then `code-blocks/footer-wordmark.html`.
+Then `code-blocks/footer-wordmark.html` (device above the wordmark).
 
 Legal line:
-© 2026 Anduril. All rights reserved.
+© 2026 Anduril. All rights reserved. The name is drawn from J.R.R. Tolkien's Middle-earth; this site is not affiliated with or endorsed by the Tolkien Estate or Middle-earth Enterprises.
 Salesforce, Sales Cloud, Service Cloud, Marketing Cloud, MuleSoft, Tableau and Agentforce are trademarks of Salesforce, Inc. Anduril is an independent consultancy and is not affiliated with or endorsed by Salesforce, Inc.

@@ -15,6 +15,8 @@
 
 Anduril is a founder-led Salesforce consultancy. We are small on purpose: the consultant who scopes your project is the one who builds it, and the one you can call after launch. No hand-off to a bench, no junior team behind a senior sales call.
 
+Under the lede: `code-blocks/etymology.html`.
+
 Right column: Image block. Use a real photo of you at a desk or whiteboard, not a stock image. Caption (monospace): *[Your name], founder. Salesforce-certified since [year].*
 
 ---

@@ -19,13 +19,13 @@ Default theme Darkest 1. "Light" below means Lightest 1 (steel-white).
 | 1 | Blank, full width | Dark | **Code Block** hero | `code-blocks/hero-headline.html` |
 | 2 | Blank, padding small | Dark | **Code Block** marquee | `code-blocks/marquee.html` |
 | 3 | Blank | Dark | Text (manifesto paragraph, serif) + Text (small note) | `copy/home.md` §Manifesto |
-| 4 | Blank | Dark | **Code Block** chapter head (01 Sound familiar), **Code Block** ledger | `copy/home.md` §Symptoms + `code-blocks/symptoms-ledger.html` |
+| 4 | Blank | Dark | **Code Block** chapter head (01 The broken blade), **Code Block** ledger | `copy/home.md` §Symptoms + `code-blocks/symptoms-ledger.html` |
 | 5 | Blank | **Light** | **Code Block** chapter head (02 Services, `light`), **Code Block** services list | `copy/home.md` §Services + `code-blocks/services-list.html` |
-| 6 | Blank | Dark | **Code Block** chapter head (03 Process), **Code Block** process stack | `copy/home.md` §Process + `code-blocks/process-stack.html` |
-| 7 | Blank | Dark | **Code Block** chapter head (04 Proof), **Code Block** proof | `copy/home.md` §Proof + `code-blocks/proof-numbers.html` |
+| 6 | Blank | Dark | **Code Block** chapter head (03 The reforging), **Code Block** process stack | `copy/home.md` §Process + `code-blocks/process-stack.html` |
+| 7 | Blank | Dark | **Code Block** chapter head (04 Renewed), **Code Block** proof | `copy/home.md` §Proof + `code-blocks/proof-numbers.html` |
 | 8 | Blank | Dark | **Code Block** chapter head (05 Clients), **Code Block** clients grid, Text (note) + Button | `copy/home.md` §Clients + `code-blocks/clients-grid.html` |
 | 9 | Blank, then 2 columns | **Light** | **Code Block** chapter head (06 The free review, `light`); below it, left: Text (lede) + Button, right: **Code Block** org-health card | `copy/home.md` §Review + `code-blocks/org-health-card.html` |
-| 10 | Blank, then 2 columns | **Light** | **Code Block** chapter head (07 About, `light`); below it, left: Text (serif paragraph), right: **Code Block** principles | `copy/home.md` §About + `code-blocks/principles.html` |
+| 10 | Blank, then 2 columns | **Light** | **Code Block** chapter head (07 About, `light`); below it, left: Text (serif paragraph) + **Code Block** etymology, right: **Code Block** principles | `copy/home.md` §About + `code-blocks/etymology.html` + `code-blocks/principles.html` |
 | 11 | Blank, then 2 columns | Dark | **Code Block** chapter head (08 Contact); below it, left: Text (email link, contact lines), right: **Form block** | `copy/home.md` §Contact |
 
 Every chapter header is the same block (`code-blocks/chapter-head.html`) with a different number, label and
@@ -66,7 +66,7 @@ depth so the navigation has proper destinations for SEO.
 
 | # | Section | Theme | Blocks | Content |
 |---|---|---|---|---|
-| 1 | Blank, 2 columns | Lightest 1 | Left: Text (eyebrow, H1, lede). Right: Image block (founder photo) | `copy/about.md` §Intro |
+| 1 | Blank, 2 columns | Lightest 1 | Left: Text (eyebrow, H1, lede) + **Code Block** etymology. Right: Image block (founder photo) | `copy/about.md` §Intro + `code-blocks/etymology.html` |
 | 2 | Blank | **Light** | **Code Block** principles | `code-blocks/principles.html` |
 | 2b | Blank | Dark | **Code Block** chapter head (Clients) + **Code Block** clients grid | `code-blocks/clients-grid.html` |
 | 3 | Blank | Lightest 1 | Text (H2 "Certifications") + bullets or badge images | `copy/about.md` §Certifications |

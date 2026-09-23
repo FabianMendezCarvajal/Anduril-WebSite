@@ -79,7 +79,7 @@
   .site-header { position: fixed; top: env(safe-area-inset-top, 0px); left: 0; right: 0; z-index: 50; mix-blend-mode: difference; color: #fff; }
   .nav { display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; min-height: 76px; }
   .brand { font-family: var(--display); font-weight: 600; letter-spacing: .22em; font-size: 15px; text-decoration: none; display: inline-flex; align-items: center; gap: 10px; }
-  .brand i { width: 8px; height: 8px; background: var(--ember); transform: rotate(45deg); display: inline-block; }
+  .brand svg { width: 11px; height: 11px; color: var(--ember); }
   .nav-center { font-family: var(--mono); font-size: 11px; letter-spacing: .16em; text-transform: uppercase; display: flex; gap: 28px; }
   .nav-right { justify-self: end; display: flex; align-items: center; gap: 22px; }
   .menu-btn { background: none; border: 0; color: inherit; font: inherit; font-family: var(--mono); font-size: 11px; letter-spacing: .16em; text-transform: uppercase; cursor: pointer; display: inline-flex; gap: 10px; align-items: center; padding: 8px 0; }
@@ -103,6 +103,16 @@
   .glow { position: absolute; inset: 0; z-index: 0; pointer-events: none; width: 100%; height: 100%; }
   .hero .wrap { position: relative; z-index: 1; }
   .hero-top { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px 32px; margin-bottom: clamp(40px, 8vh, 96px); padding-bottom: 18px; border-bottom: 1px solid var(--line); }
+  /* The blade: a hairline that catches light once, with the engraved device at its centre. */
+  .blade { display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; gap: 22px; margin-top: clamp(28px, 5vh, 56px); color: var(--ink-2); }
+  .blade .edge { height: 1px; background: var(--line-2); position: relative; overflow: hidden; }
+  .blade .edge::after { content: ""; position: absolute; inset: 0; background: linear-gradient(90deg, transparent, var(--ink) 45%, var(--brass) 55%, transparent); transform: translateX(-110%); animation: glint 2.4s var(--ease) 1.1s 1 both; }
+  .blade .edge.r::after { animation-delay: 1.5s; }
+  @keyframes glint { to { transform: translateX(110%); } }
+  .blade svg { width: clamp(150px, 20vw, 260px); height: auto; display: block; }
+  @media (max-width: 600px) { .blade { gap: 14px; } }
+  .device { color: var(--muted); }
+  .device svg { width: clamp(150px, 18vw, 240px); height: auto; display: block; }
   .hero h1 { font-size: clamp(60px, 12.4vw, 196px); font-weight: 600; letter-spacing: -.045em; line-height: .9; font-variation-settings: "opsz" 96; }
   .hero h1 .l2 { font-family: var(--serif); font-style: italic; font-weight: 400; letter-spacing: -.02em; padding-left: .14em; color: var(--ink); font-size: 1.04em; }
   .hero-bottom { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 32px; align-items: end; margin-top: clamp(32px, 6vh, 72px); }
@@ -148,6 +158,13 @@
   .manifesto p { font-family: var(--serif); font-weight: 400; font-size: clamp(30px, 4vw, 62px); line-height: 1.12; letter-spacing: -.015em; max-width: 26ch; }
   .manifesto em { font-style: italic; color: var(--ember); }
   .manifesto .sub { font-family: var(--body); font-size: 16px; color: var(--muted); margin-top: 28px; max-width: 52ch; line-height: 1.6; }
+  /* Etymology entry, set like a dictionary line */
+  .etym { border-top: 1px solid var(--paper-line); border-bottom: 1px solid var(--paper-line); padding: 26px 0; display: grid; gap: 10px; margin-top: 36px; }
+  .etym .word { font-family: var(--serif); font-size: clamp(30px, 3.4vw, 46px); line-height: 1; letter-spacing: -.01em; }
+  .etym .word i { color: var(--ember-deep); }
+  .etym .pos { font-family: var(--mono); font-size: 11px; letter-spacing: .16em; text-transform: uppercase; color: var(--paper-muted); }
+  .etym p { font-size: 15.5px; color: var(--paper-ink-2); max-width: 46ch; line-height: 1.55; }
+  .etym .device { color: var(--paper-muted); margin-top: 8px; }
 
   /* Symptom ledger */
   .ledger { border-top: 1px solid var(--line); }
@@ -201,6 +218,7 @@
   .stage:nth-child(5) { top: calc(148px + env(safe-area-inset-top, 0px)); }
   .stage .num { font-family: var(--serif); font-style: italic; font-weight: 400; font-size: clamp(48px, 6vw, 92px); line-height: .9; color: var(--ember); }
   .stage h3 { font-size: clamp(28px, 3.4vw, 48px); font-weight: 500; letter-spacing: -.04em; line-height: 1; }
+  .stage .forge { display: block; font-family: var(--serif); font-style: italic; font-size: clamp(18px, 1.6vw, 22px); color: var(--ink-2); margin-top: 10px; }
   .stage .dur { display: block; margin-top: 14px; }
   .stage p { color: var(--ink-2); font-size: 16px; max-width: 42ch; line-height: 1.55; }
   .stage .you { margin-top: 16px; font-size: 15px; color: var(--muted); }
@@ -301,6 +319,7 @@
   .foot-top { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 16px 32px; padding-block: 28px; }
   .foot-links { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 8px 26px; }
   .foot-links a { text-decoration: none; }
+  .foot-device { display: grid; place-items: center; padding-top: 40px; }
   .wordmark { font-family: var(--display); font-weight: 500; font-size: clamp(64px, 17vw, 280px); letter-spacing: -.05em; line-height: .78; color: var(--ink); text-align: center; padding-top: 12px; margin-bottom: -.06em; overflow: hidden; user-select: none; }
   .wordmark span { display: inline-block; background: linear-gradient(180deg, rgba(237,235,230,.85) 30%, rgba(237,235,230,.06)); -webkit-background-clip: text; background-clip: text; color: transparent; }
   .legal { font-size: 12.5px; color: var(--muted); padding-block: 22px 28px; border-top: 1px solid var(--line); display: grid; gap: 6px; max-width: 90ch; line-height: 1.5; }
@@ -316,10 +335,30 @@
 </style>
 
 <div class="cursor" id="cursor" aria-hidden="true"></div>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="device" viewBox="0 0 300 24">
+    <path d="M14 2A10 10 0 1 0 14 22A12 12 0 0 1 14 2Z" fill="currentColor"/>
+    <g fill="currentColor">
+      <path d="M60 6Q60 12 66 12Q60 12 60 18Q60 12 54 12Q60 12 60 6Z"/>
+      <path d="M90 6Q90 12 96 12Q90 12 90 18Q90 12 84 12Q90 12 90 6Z"/>
+      <path d="M120 6Q120 12 126 12Q120 12 120 18Q120 12 114 12Q120 12 120 6Z"/>
+      <path d="M150 4Q150 12 158 12Q150 12 150 20Q150 12 142 12Q150 12 150 4Z"/>
+      <path d="M180 6Q180 12 186 12Q180 12 180 18Q180 12 174 12Q180 12 180 6Z"/>
+      <path d="M210 6Q210 12 216 12Q210 12 210 18Q210 12 204 12Q210 12 210 6Z"/>
+      <path d="M240 6Q240 12 246 12Q240 12 240 18Q240 12 234 12Q240 12 240 6Z"/>
+    </g>
+    <g stroke="currentColor" stroke-width="1.4" stroke-linecap="round">
+      <circle cx="284" cy="12" r="4.2" fill="currentColor" stroke="none"/>
+      <path d="M284 1.5v3.5M284 19v3.5M273.5 12h3.5M291 12h3.5M276.6 4.6l2.5 2.5M288.9 16.9l2.5 2.5M291.4 4.6l-2.5 2.5M279.1 16.9l-2.5 2.5"/>
+    </g>
+  </symbol>
+  <symbol id="star" viewBox="0 0 12 12"><path d="M6 0Q6 6 12 6Q6 6 6 12Q6 6 0 6Q6 6 6 0Z" fill="currentColor"/></symbol>
+</svg>
+
 
 <header class="site-header">
   <div class="wrap nav">
-    <a class="brand" href="#top"><i></i>ANDURIL</a>
+    <a class="brand" href="#top"><svg aria-hidden="true"><use href="#star"/></svg>ANDURIL</a>
     <div class="nav-center" aria-hidden="true"><span>Salesforce consultancy</span><span id="clock">--:--</span><span>Taking projects Q4 2026</span></div>
     <div class="nav-right">
       <button class="menu-btn" id="menuOpen" aria-expanded="false" aria-controls="menu"><span class="dots"><i></i><i></i><i></i><i></i></span>Menu</button>
@@ -338,7 +377,7 @@
     <li><a href="#about"><span class="index">05</span>About</a></li>
     <li><a href="#contact"><span class="index">06</span>Contact</a></li>
   </ul>
-  <div class="menu-foot"><span>hello@your-domain.com</span><span>Independent · Not affiliated with Salesforce, Inc.</span></div>
+  <div class="menu-foot"><span>hello@your-domain.com</span><span class="serif" style="text-transform:none;letter-spacing:0;font-size:16px">Flame of the west</span><span>Independent · Not affiliated with Salesforce, Inc.</span></div>
 </nav>
 
 <main id="top">
@@ -346,15 +385,16 @@
     <canvas class="glow" id="glow" aria-hidden="true"></canvas>
     <div class="wrap">
       <div class="hero-top">
-        <span class="meta"><b>◆</b> Independent Salesforce consultancy</span>
-        <span class="meta">Implementations · Rescues · Integrations · Managed admin</span>
+        <span class="meta"><b>✦</b> Independent Salesforce consultancy</span>
+        <span class="meta">Andúril · <i class="serif" style="text-transform:none;letter-spacing:0;font-size:14px">flame of the west</i></span>
       </div>
       <h1>
         <span class="mask" data-delay="0"><span>Salesforce,</span></span>
         <span class="mask" data-delay="120"><span class="l2">reforged.</span></span>
       </h1>
+      <div class="blade rv" data-delay="200" aria-hidden="true"><span class="edge"></span><svg><use href="#device"/></svg><span class="edge r"></span></div>
       <div class="hero-bottom">
-        <p class="hero-lede rv" data-delay="300">Most orgs grew by accident: a field here, a workflow there, three admins ago. We take the shards and rebuild them into a system your team trusts.</p>
+        <p class="hero-lede rv" data-delay="300">Most orgs grew by accident: a field here, a workflow there, three admins ago. We keep the shards worth keeping and reforge the rest into a system your team trusts.</p>
         <div class="hero-cta rv" data-delay="420">
           <a class="btn btn-solid" href="#contact">Book a free org review <svg class="arrow" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M2 12 12 2M4 2h8v8"/></svg></a>
           <a class="btn" href="#services">What we do</a>
@@ -371,16 +411,16 @@
 
   <section class="section manifesto" style="padding-bottom:0">
     <div class="wrap">
-      <p class="rv">A Salesforce org is never finished. It is either <em>maintained on purpose</em> or it drifts. We are the people you call when it has drifted far enough that <em>the business has started routing around it.</em></p>
-      <p class="sub rv">Named after the sword in Tolkien that was reforged from broken shards and held. That is the job description.</p>
+      <p class="rv">In the story, the sword that broke was not thrown away. The shards were kept, and when the time came they were <em>reforged into a blade that held.</em> A Salesforce org deserves the same: keep what still has an edge, <em>reforge the rest to last.</em></p>
+      <p class="sub rv">Andúril is the reforged sword in Tolkien's Middle-earth, its blade engraved with seven stars between a crescent moon and a rayed sun. That device is our mark, and the reforging is our job description.</p>
     </div>
   </section>
 
   <section class="section" style="padding-top:0">
     <div class="wrap">
       <div class="sec-head">
-        <span class="meta"><span class="ch">01</span>Sound familiar</span>
-        <h2 class="rv">Three ways an org tells you <i>it's time.</i></h2>
+        <span class="meta"><span class="ch">01</span>The broken blade</span>
+        <h2 class="rv">Three signs an org has <i>broken.</i></h2>
       </div>
       <div class="ledger">
         <div class="ledger-row rv"><span class="index">(01)</span><h3>Reports nobody trusts</h3><p>Pipeline numbers change depending on who pulls them. Leadership keeps a spreadsheet "just in case".</p></div>
@@ -431,18 +471,18 @@
   <section class="section" id="process">
     <div class="wrap">
       <div class="sec-head">
-        <span class="meta"><span class="ch">03</span>Process</span>
+        <span class="meta"><span class="ch">03</span>The reforging</span>
         <div class="col">
           <h2 class="rv">Five stages. <i>No surprises</i> in stage four.</h2>
           <p class="sec-lede rv">You see the plan and the fixed cost before we touch production, and a working demo at the end of every sprint.</p>
         </div>
       </div>
       <div class="stack">
-        <article class="stage"><span class="num">01</span><div><h3>Assess</h3><span class="meta dur">1 to 2 weeks</span></div><div><p>We read your org the way an auditor reads accounts: every object, every automation, every report opened in the last 90 days. Then we interview the people who use it.</p><p class="you"><b>You get:</b> an org health report ranked by business impact.</p></div></article>
-        <article class="stage"><span class="num">02</span><div><h3>Blueprint</h3><span class="meta dur">1 week</span></div><div><p>Findings become a design: data model changes, an automation map, an integration plan and a release sequence. Every item has a cost and a reason.</p><p class="you"><b>You get:</b> a fixed-price quote you approve before we build.</p></div></article>
-        <article class="stage"><span class="num">03</span><div><h3>Build</h3><span class="meta dur">2 to 10 sprints</span></div><div><p>Two-week sprints in a sandbox. Each ends with a demo you and your admin attend, and a written change log. Nothing lands in production unseen.</p><p class="you"><b>You get:</b> working features every two weeks, documented as we go.</p></div></article>
-        <article class="stage"><span class="num">04</span><div><h3>Launch</h3><span class="meta dur">2 weeks</span></div><div><p>Migration rehearsed before the real cutover. Training by role, then hypercare while the first real reports run.</p><p class="you"><b>You get:</b> a cutover plan, recordings, and a consultant on call.</p></div></article>
-        <article class="stage"><span class="num">05</span><div><h3>Sustain</h3><span class="meta dur">Ongoing, optional</span></div><div><p>Managed hours, a review before each Salesforce release, and a quarterly roadmap so the org keeps pace with the business instead of drifting again.</p><p class="you"><b>You get:</b> a named consultant, an SLA, and a health score that moves.</p></div></article>
+        <article class="stage"><span class="num">01</span><div><h3>Assess</h3><span class="forge">Gather the shards</span><span class="meta dur">1 to 2 weeks</span></div><div><p>We read your org the way an auditor reads accounts: every object, every automation, every report opened in the last 90 days. Then we interview the people who use it.</p><p class="you"><b>You get:</b> an org health report ranked by business impact.</p></div></article>
+        <article class="stage"><span class="num">02</span><div><h3>Blueprint</h3><span class="forge">Draw the blade</span><span class="meta dur">1 week</span></div><div><p>Findings become a design: data model changes, an automation map, an integration plan and a release sequence. Every item has a cost and a reason.</p><p class="you"><b>You get:</b> a fixed-price quote you approve before we build.</p></div></article>
+        <article class="stage"><span class="num">03</span><div><h3>Build</h3><span class="forge">Heat and hammer</span><span class="meta dur">2 to 10 sprints</span></div><div><p>Two-week sprints in a sandbox. Each ends with a demo you and your admin attend, and a written change log. Nothing lands in production unseen.</p><p class="you"><b>You get:</b> working features every two weeks, documented as we go.</p></div></article>
+        <article class="stage"><span class="num">04</span><div><h3>Launch</h3><span class="forge">Temper and sharpen</span><span class="meta dur">2 weeks</span></div><div><p>Migration rehearsed before the real cutover. Training by role, then hypercare while the first real reports run.</p><p class="you"><b>You get:</b> a cutover plan, recordings, and a consultant on call.</p></div></article>
+        <article class="stage"><span class="num">05</span><div><h3>Sustain</h3><span class="forge">Keep the edge</span><span class="meta dur">Ongoing, optional</span></div><div><p>Managed hours, a review before each Salesforce release, and a quarterly roadmap so the org keeps pace with the business instead of drifting again.</p><p class="you"><b>You get:</b> a named consultant, an SLA, and a health score that moves.</p></div></article>
       </div>
     </div>
   </section>
@@ -450,8 +490,8 @@
   <section class="section" id="proof" style="padding-top:0">
     <div class="wrap">
       <div class="sec-head">
-        <span class="meta"><span class="ch">04</span>Proof</span>
-        <h2 class="rv">What a rescue looks like <i>in numbers.</i></h2>
+        <span class="meta"><span class="ch">04</span>Renewed</span>
+        <h2 class="rv">What a reforging looks like <i>in numbers.</i></h2>
       </div>
       <div class="numbers">
         <div class="number rv"><span class="big"><span class="count" data-to="62">62</span><small>%</small></span><p>fewer duplicate accounts after matching rules and a one-time merge across 48,000 records.</p></div>
@@ -533,6 +573,12 @@
     <div class="wrap about">
       <div>
         <p class="big rv">The consultant who scopes your project is the one who builds it, and <em>the one you can call after launch.</em> No hand-off to a bench, no junior team behind a senior sales call.</p>
+        <div class="etym rv">
+          <span class="pos">Name · Quenya, Tolkien</span>
+          <span class="word">An·dú·<i>ril</i></span>
+          <p>"Flame of the West." The sword reforged from the shards of one that broke, and the promise in the name: what was broken can be made whole, and stronger than before.</p>
+          <div class="device" aria-hidden="true"><svg><use href="#device"/></svg></div>
+        </div>
       </div>
       <ul class="principles">
         <li class="rv"><div><h3>We say no to work you don't need.</h3><p>If a standard feature does the job, we configure it. Custom code is the last resort, not the first quote.</p></div></li>
@@ -584,9 +630,10 @@
       <ul class="foot-links meta"><li><a href="#services">Services</a></li><li><a href="#process">Process</a></li><li><a href="#proof">Proof</a></li><li><a href="#clients">Clients</a></li><li><a href="#about">About</a></li><li><a href="#contact">Contact</a></li></ul>
       <ul class="foot-links meta"><li><a href="#">LinkedIn</a></li><li><a href="#">Trailblazer</a></li><li><a href="#">Privacy</a></li></ul>
     </div>
+    <div class="foot-device device" aria-hidden="true"><svg><use href="#device"/></svg></div>
     <div class="wordmark" aria-hidden="true"><span>ANDURIL</span></div>
     <div class="legal">
-      <span>© 2026 Anduril. All rights reserved.</span>
+      <span>© 2026 Anduril. All rights reserved. The name is drawn from J.R.R. Tolkien's Middle-earth; this site is not affiliated with or endorsed by the Tolkien Estate or Middle-earth Enterprises.</span>
       <span>Salesforce, Sales Cloud, Service Cloud, Marketing Cloud, MuleSoft, Tableau and Agentforce are trademarks of Salesforce, Inc. Anduril is an independent consultancy and is not affiliated with or endorsed by Salesforce, Inc.</span>
     </div>
   </div>

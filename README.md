@@ -25,4 +25,6 @@ copper accent used sparingly. Bricolage Grotesque paired with Instrument Serif i
 grotesk, "reforged." in the serif, up to 196 px. A marquee of the clouds, services as a hover list that inverts
 and expands, the five-stage process as a sticky card stack, counting numbers, a paper overlay menu, a ring
 cursor, film grain, and a giant wordmark footer.
-No stock photography anywhere. Every effect degrades to a still, complete page without JavaScript.
+The name's concept runs through it: the blade device (crescent, seven stars, rayed sun) on a hairline that
+catches light under the headline, chapters named for the broken blade, the reforging and the renewal, and
+forge sublines on each process stage. No stock photography anywhere. Every effect degrades to a still, complete page without JavaScript.

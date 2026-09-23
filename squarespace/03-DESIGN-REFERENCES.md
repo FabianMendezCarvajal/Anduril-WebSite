@@ -40,6 +40,28 @@ winners. If you want a direct scrape, add `awwwards.com` to the environment's al
 14. **The jury's test:** "take away the animation and the static frames still look like someone made them on
     purpose." → Every section was checked as a still frame at desktop and phone width before publishing.
 
+## The concept: the sword that was reforged
+
+The company is named after Andúril, the sword in Tolkien's Middle-earth reforged from the shards of Narsil, the
+blade that broke. Tolkien describes the reforged blade as engraved with seven stars set between a crescent
+moon and a rayed sun. The site uses that material as concept, not as costume:
+
+* **The device.** Crescent, seven stars, rayed sun, drawn as a thin SVG in the site's own colours. It appears
+  on the blade line under the hero headline, in the name entry on the About sheet, above the footer wordmark,
+  and a single star is the brand mark before ANDURIL.
+* **The blade line.** A hairline under the headline that catches light once on load, left edge then right.
+* **The arc of the story as the arc of the page.** Chapter 01 "The broken blade", 03 "The reforging", 04
+  "Renewed". Each process stage carries a forge subline: gather the shards, draw the blade, heat and hammer,
+  temper and sharpen, keep the edge.
+* **Flame against steel.** The copper accent is the flame; the paper and hairlines are the steel. "Flame of
+  the west" appears in serif italic as the name's meaning, once in the hero meta line and once in the menu.
+* **The name entry.** A dictionary-style line on the About sheet: An·dú·ril, Quenya, "Flame of the West".
+
+What was left out on purpose: elvish scripts, swords as imagery, film stills or anything that would read as
+fan art. The footer carries a line noting the name's origin and that the site is not affiliated with the
+Tolkien Estate or Middle-earth Enterprises. Middle-earth names are trademarked in several categories, so keep
+that line and check the mark in your country before investing in the name.
+
 ## What was deliberately not copied
 
 * 3D scroll-driven camera work. It scores well on Awwwards but costs performance, accessibility and Squarespace

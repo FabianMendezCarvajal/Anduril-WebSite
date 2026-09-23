@@ -62,7 +62,7 @@ p { line-height: 1.6; }
 /* ---------- Header: transparent, blends with what it passes over ---------- */
 #header { background: transparent !important; mix-blend-mode: difference; color: #fff !important; }
 #header .header-title-text a { color: #fff !important; letter-spacing: .22em !important; font-weight: 600 !important; font-size: 15px !important; }
-#header .header-title-text a::before { content: ""; display: inline-block; width: 8px; height: 8px; background: var(--and-ember); transform: rotate(45deg); margin-right: 10px; vertical-align: 1px; }
+#header .header-title-text a::before { content: ""; display: inline-block; width: 11px; height: 11px; margin-right: 10px; vertical-align: -1px; background: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12'><path d='M6 0Q6 6 12 6Q6 6 6 12Q6 6 0 6Q6 6 6 0Z' fill='%23E0663A'/></svg>") center/contain no-repeat; }
 .header-nav-item a, .header-burger-btn { font-family: var(--and-mono) !important; font-size: 12px !important; letter-spacing: .12em; text-transform: uppercase; color: #fff !important; }
 /* Burger on every screen size (the overlay-menu pattern). Comment these two lines out to keep inline links on desktop. */
 .header-nav, .header-actions { display: none !important; }
