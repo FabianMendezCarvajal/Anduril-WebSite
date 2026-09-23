@@ -9,32 +9,45 @@ Formatting key: *Eyebrow* = small monospace label (Text block → Monospace). *H
 
 ## Hero
 
-*Eyebrow:* Independent Salesforce consultancy
+The whole hero is `code-blocks/hero-headline.html`. Text inside it:
 
-*H1:* Salesforce, reforged.
+*Top-left meta:* ● Independent Salesforce consultancy
+*Top-right meta:* Implementations · Rescues · Integrations · Managed admin
 
-*Lede:* Most orgs grew by accident: a field here, a workflow there, three admins ago. We rebuild them into systems your team trusts. Clean data, automations that hold, reports people actually open.
+*H1, line 1 (solid):* Salesforce,
+*H1, line 2 (outlined):* reforged.
 
-*Button (primary):* Start with a free org review → links to `/contact`
-*Button (secondary):* See what we do → links to `/services`
+*Lede:* Most orgs grew by accident: a field here, a workflow there, three admins ago. We take the shards and rebuild them into a system your team trusts.
 
-*Small line under buttons (monospace):* Sales Cloud · Service Cloud · Marketing Cloud · Experience Cloud · Revenue Cloud · MuleSoft · Agentforce
+*Button (primary):* Book a free org review → `/contact`
+*Button (secondary):* What we do → `/services`
 
-*Right column:* Code Block `code-blocks/org-health-card.html`
+Header meta line (Custom CSS + injection): Salesforce consultancy · [local time] · Taking projects Q4 2026
+
+---
+
+## Marquee
+
+`code-blocks/marquee.html`: Sales Cloud · Service Cloud · Marketing Cloud · Experience Cloud · Revenue Cloud · Field Service · Data Cloud · Agentforce · MuleSoft · CRM Analytics
+
+---
+
+## Manifesto
+
+*Big paragraph (Heading 2 style, weight regular; the words in brackets in the Accent colour):*
+A Salesforce org is never finished. It is either [maintained on purpose] or it drifts. We are the people you call when it has drifted far enough that [the business has started routing around it.]
+
+*Small note:* Named after the sword in Tolkien that was reforged from broken shards and held. That is the job description.
 
 ---
 
 ## Symptoms
 
-*Eyebrow:* Sound familiar?
+*Eyebrow:* Sound familiar
 
-*H2:* You call us when the org stops keeping up with the business.
+*H2:* Three ways an org tells you it's time.
 
-*Code Block:* `code-blocks/symptoms-strip.html` (text is inside the block; edit it there)
-
-1. **Reports nobody trusts.** Pipeline numbers change depending on who pulls them. Leadership keeps a spreadsheet "just in case".
-2. **Automation that fights itself.** Workflow Rules, Process Builders and Flows stacked over years. Nobody dares to switch one off.
-3. **An admin buried in tickets.** Every new request is a fire. Roadmap work never starts because the backlog never ends.
+*Code Block:* `code-blocks/symptoms-ledger.html`
 
 ---
 
@@ -42,110 +55,82 @@ Formatting key: *Eyebrow* = small monospace label (Text block → Monospace). *H
 
 *Eyebrow:* Services
 
-*H2:* Everything from first login to a fully governed org.
+*H2:* From first login to a fully governed org.
 
-*Lede:* Fixed-scope where it can be, retained where it should be. Every engagement ends with documentation your next admin can read.
+*Lede:* Six ways to work with us. Fixed-scope where it can be, retained where it should be. Open a row.
 
-*Code Block:* `code-blocks/services-grid.html`
+*Code Block:* `code-blocks/services-list.html`
 
 ---
 
 ## Process
 
-Section theme: **Darkest 1**
-
-*Eyebrow:* How we work
+*Eyebrow:* Process
 
 *H2:* Five stages. No surprises in stage four.
 
-*Lede:* Every project follows the same sequence, and you see the plan and the cost before we build anything.
+*Lede:* You see the plan and the fixed cost before we touch production, and a working demo at the end of every sprint.
 
-*Code Block:* `code-blocks/process-steps.html`
-
----
-
-## Clouds
-
-*Eyebrow:* Platform coverage
-
-*H2:* The clouds and tools we work in every week.
-
-*Code Block:* `code-blocks/clouds-list.html`
+*Code Block:* `code-blocks/process-stack.html`
 
 ---
 
-## Results
+## Proof
 
-*Eyebrow:* Results
+*Eyebrow:* Proof
 
 *H2:* What a rescue looks like in numbers.
 
-*Code Block:* `code-blocks/results-tiles.html`
-
-*Note (small monospace, only while the numbers are placeholders):* Illustrative figures. Replace with metrics from your own projects before publishing.
+*Code Block:* `code-blocks/proof-numbers.html` (three numbers and three anonymised case cards; all illustrative until you replace them)
 
 ---
 
-## Client voices
+## Review (light section)
 
-*Eyebrow:* Client voices
+*Eyebrow:* The free review
 
-*H2:* What clients say once the org is theirs again.
+*H2:* Thirty minutes. Three things to fix. Yours either way.
 
-Quote block 1: [Ask a client for two sentences about the problem they had and what changed.] — Name, Title, Company
-Quote block 2: [Keep it specific: a number, a process, a before and after.] — Name, Title, Company
+*Lede:* You share screen, we look at the org together across five dimensions, and you leave with a one-page summary whether or not you hire us.
 
-If you don't have quotes yet, hide this section (Section → Edit → toggle off) rather than publishing placeholders.
+*Button (secondary):* Book the review → `/contact`
+
+Right column: `code-blocks/org-health-card.html`
 
 ---
 
-## About
+## About (light section)
 
-*Eyebrow:* About Anduril
+*Eyebrow:* About
 
-*H2:* Named after a sword that was broken, then reforged.
+*Big paragraph (Heading 3 style, weight medium; bracketed words in Accent):* Anduril is founder-led and [small on purpose.] The consultant who scopes your project is the one who builds it, and the one you can call after launch. No hand-off to a bench, no junior team behind a senior sales call.
 
-*Lede:* Anduril is a founder-led Salesforce consultancy. We are small on purpose: the consultant who scopes your project is the one who builds it, and the one you can call after launch. No hand-off to a bench, no junior team behind a senior sales call.
-
-Right column (H3 + paragraph each):
-
-**We say no to work you don't need.**
-If a standard feature does the job, we configure it. Custom code is the last resort, not the first quote.
-
-**We leave your admin stronger.**
-Every build comes with documentation and a walkthrough. The goal is an org your team can run without us.
-
-**We measure adoption, not delivery.**
-A feature nobody uses is a failed feature. We track logins, data entry and report views after launch.
-
-**Certified, and still hands-on.**
-Salesforce-certified consultants who still build in the sandbox every week.
+Right column: `code-blocks/principles.html`
 
 ---
 
 ## Contact
 
-*Eyebrow:* Start here
+*Eyebrow:* Contact
 
-*H2:* Book a free org review.
+*H2 (the bracketed word in Accent):* Let's [reforge] it.
 
-*Lede:* Thirty minutes. You share screen, we look at the org together, and you leave with three things to fix whether or not you hire us.
+*Email, large, underlined in Accent:* hello@your-domain.com
 
-Contact lines (label in monospace, value in bold):
-- EMAIL — hello@your-domain.com
+Contact lines (label in monospace, value in body):
 - RESPONSE TIME — Within one business day
 - WORKING WITH — Companies from 20 to 2,000 Salesforce users
+- NEXT AVAILABILITY — Q4 2026
 
-Right column: Form block (fields listed in `01-SETUP-GUIDE.md`, Step 9).
-Line under the submit button: No newsletter, no sales sequence. One reply from a consultant.
+Right column: Form block (fields in `01-SETUP-GUIDE.md`, Step 9).
+Line under the submit button: No newsletter, no sequence. One reply from a consultant.
 
 ---
 
 ## Footer
 
-Column 1: **ANDURIL** — Independent Salesforce consultancy. Implementations, rescues, integrations and managed support.
-Column 2: SITE — Services · How we work · Clouds · About · Contact
-Column 3: ELSEWHERE — LinkedIn · Trailblazer profile · Privacy policy
+Row: Services · Process · Proof · About · Contact (left) — LinkedIn · Trailblazer · Privacy (right), Monospace style.
+Then `code-blocks/footer-wordmark.html`.
 
 Legal line:
 © 2026 Anduril. All rights reserved.

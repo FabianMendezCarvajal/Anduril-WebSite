@@ -1,161 +1,149 @@
 /* =====================================================================
-   ANDURIL · Squarespace 7.1 Custom CSS
+   ANDURIL · Squarespace 7.1 Custom CSS  (v2, award-site art direction)
    Paste into Design → Custom CSS. Works on every plan.
-   Palette: steel #EDF0F3 · ink #101C2E · ember #E4572E · brass #F2A93B
+   Forge black #0E1116 · steel-white #EEF0F2 · ember #FF5A2D / #E4572E
    ===================================================================== */
 
-/* Fonts. If you also use code-injection/header.html this @import is
-   harmless; keep it so fonts load on plans without Code Injection. */
-@import url('https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,300;12..96,400;12..96,500;12..96,700;12..96,800&family=IBM+Plex+Sans:ital,wght@0,400;0,500;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap');
 
 :root {
-  --and-steel: #EDF0F3;
-  --and-panel: #E2E7EC;
-  --and-ink: #101C2E;
-  --and-ink-2: #33415A;
-  --and-slate: #5B6B7F;
-  --and-line: #C9D1DA;
-  --and-ember: #E4572E;
-  --and-brass: #F2A93B;
-  --and-forge: #0B1422;
-  --and-forge-ink: #E8EDF3;
-  --and-forge-slate: #94A3B8;
-  --and-forge-line: #22314A;
+  --and-ground: #0E1116; --and-ground-2: #13171D; --and-surface: #181D25;
+  --and-ink: #ECEFF3; --and-ink-2: #B9C0CB; --and-muted: #7F8996;
+  --and-line: #262C36; --and-line-2: #333B47;
+  --and-ember: #FF5A2D; --and-ember-deep: #E4572E; --and-brass: #F2A93B;
+  --and-paper: #EEF0F2; --and-paper-2: #E2E6EA; --and-paper-ink: #0E1116; --and-paper-ink-2: #3A4454; --and-paper-muted: #6B7686; --and-paper-line: #C9D0D8;
   --and-display: "Bricolage Grotesque", "Helvetica Neue", Arial, sans-serif;
   --and-body: "IBM Plex Sans", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
   --and-mono: "IBM Plex Mono", Menlo, Consolas, monospace;
-  --and-radius: 6px;
+  --and-ease: cubic-bezier(.22, 1, .36, 1);
+}
+
+/* ---------- Grain (the craft layer) ---------- */
+body::after {
+  content: ""; position: fixed; inset: 0; z-index: 9990; pointer-events: none; opacity: .055;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='200' height='200'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/></filter><rect width='200' height='200' filter='url(%23n)'/></svg>");
+  background-size: 200px 200px; mix-blend-mode: screen;
 }
 
 /* ---------- Typography ---------- */
 h1, h2, h3, h4, .header-title-text a, .sqs-block-quote blockquote {
-  font-family: var(--and-display) !important;
-  letter-spacing: -0.02em;
-  text-wrap: balance;
+  font-family: var(--and-display) !important; letter-spacing: -.035em; text-wrap: balance;
 }
-h1 { font-weight: 800 !important; line-height: 1.02 !important; }
-h2 { font-weight: 700 !important; line-height: 1.06 !important; }
-h3, h4 { font-weight: 600 !important; line-height: 1.2 !important; }
-body, p, li, .sqs-block-html, .header-nav-item a {
-  font-family: var(--and-body) !important;
-}
+h1 { font-weight: 800 !important; line-height: .9 !important; letter-spacing: -.05em !important; }
+h2 { font-weight: 700 !important; line-height: .96 !important; letter-spacing: -.04em !important; }
+h3, h4 { font-weight: 600 !important; line-height: 1.1 !important; }
+body, p, li, .sqs-block-html { font-family: var(--and-body) !important; }
 p { line-height: 1.6; }
-/* Eyebrow labels: any Monospace-styled text becomes an ember label */
-.sqs-block-html pre,
-.sqs-block-html .sqsrte-mono,
-.sqsrte-mono {
-  font-family: var(--and-mono) !important;
-  font-size: 12px !important;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  color: var(--and-ember) !important;
-  background: none !important;
-  padding: 0 !important;
-  margin: 0 0 14px !important;
-  white-space: normal;
+
+/* Eyebrow labels: Monospace-styled text becomes a small tracked label */
+.sqsrte-mono, .sqs-block-html pre {
+  font-family: var(--and-mono) !important; font-size: 12px !important; letter-spacing: .12em; text-transform: uppercase;
+  color: var(--and-muted) !important; background: none !important; padding: 0 !important; margin: 0 0 14px !important; white-space: normal;
 }
-/* Dark sections: keep eyebrow readable, switch to brass */
-.page-section[data-section-theme="black"] .sqsrte-mono,
-.page-section[data-section-theme="black-bold"] .sqsrte-mono,
-.page-section.black .sqsrte-mono,
-[data-section-theme="darkest-1"] .sqsrte-mono { color: var(--and-brass) !important; }
+[data-section-theme="white"] .sqsrte-mono, [data-section-theme="lightest-1"] .sqsrte-mono { color: var(--and-paper-muted) !important; }
 
-/* Lede: use Paragraph 1 in the editor; this softens its colour */
-.sqs-block-html p.sqsrte-large { color: var(--and-ink-2); max-width: 60ch; }
+/* Lede (Paragraph 1) */
+.sqs-block-html p.sqsrte-large { font-size: clamp(17px, 1.35vw, 20px) !important; line-height: 1.5 !important; max-width: 52ch; color: var(--and-ink-2); }
+[data-section-theme="white"] .sqsrte-large, [data-section-theme="lightest-1"] .sqsrte-large { color: var(--and-paper-ink-2); }
 
-/* ---------- Site width & spacing ---------- */
-.content-wrapper, .header-inner { max-width: 1180px !important; }
-.page-section { border-top: 1px solid var(--and-line); }
-.page-section:first-child { border-top: 0; }
+/* ---------- Layout ---------- */
+.content-wrapper, .header-inner { max-width: 1400px !important; }
+.page-section:not(:first-child) { border-top: 1px solid var(--and-line); }
+[data-section-theme="white"] + [data-section-theme="white"] { border-top: 0 !important; }
 
-/* ---------- Header ---------- */
-#header {
-  background: rgba(237, 240, 243, 0.88) !important;
-  -webkit-backdrop-filter: blur(10px); backdrop-filter: blur(10px);
-  border-bottom: 1px solid var(--and-line);
-}
-.header-title-text a { letter-spacing: 0.08em !important; font-weight: 800 !important; font-size: 22px !important; }
-.header-nav-item a { font-size: 15px !important; font-weight: 500 !important; color: var(--and-ink-2) !important; }
-.header-nav-item a:hover, .header-nav-item--active a { color: var(--and-ember) !important; }
-.header-nav-item--active a { background-image: none !important; }
-.header-actions .btn, .header-actions .sqs-button-element--primary { background: var(--and-ember) !important; color: #fff !important; }
-/* Mobile menu */
-.header-menu { background: var(--and-steel) !important; }
-.header-menu-nav-item a { font-family: var(--and-display) !important; font-weight: 600; }
+/* ---------- Header: transparent, blends with what it passes over ---------- */
+#header { background: transparent !important; mix-blend-mode: difference; color: #fff !important; }
+#header .header-title-text a { color: #fff !important; letter-spacing: .12em !important; font-weight: 800 !important; font-size: 18px !important; }
+#header .header-title-text a::before { content: ""; display: inline-block; width: 10px; height: 10px; background: var(--and-ember); transform: rotate(45deg); margin-right: 10px; vertical-align: 1px; }
+.header-nav-item a, .header-burger-btn { font-family: var(--and-mono) !important; font-size: 12px !important; letter-spacing: .12em; text-transform: uppercase; color: #fff !important; }
+/* Burger on every screen size (the overlay-menu pattern). Comment these two lines out to keep inline links on desktop. */
+.header-nav, .header-actions { display: none !important; }
+.header-burger { display: flex !important; }
 
-/* ---------- Buttons ---------- */
+/* Overlay menu in ember with huge links */
+.header-menu { background: var(--and-ember) !important; }
+.header-menu-nav-item a { font-family: var(--and-display) !important; font-weight: 800 !important; font-size: clamp(40px, 9vw, 112px) !important; line-height: .95 !important; letter-spacing: -.04em !important; color: #0E1116 !important; transition: transform .35s var(--and-ease); }
+.header-menu-nav-item a:hover { transform: translateX(16px); }
+.header-menu-nav-item--active a { background: none !important; }
+.header-menu-cta a, .header-menu-actions a { font-family: var(--and-mono) !important; font-size: 12px !important; letter-spacing: .12em; text-transform: uppercase; color: #0E1116 !important; }
+.header--menu-open #header { mix-blend-mode: normal; color: #0E1116 !important; }
+.header--menu-open #header .header-title-text a, .header--menu-open .header-burger-btn { color: #0E1116 !important; }
+.header--menu-open .burger-inner .top-bun, .header--menu-open .burger-inner .patty, .header--menu-open .burger-inner .bottom-bun { background: #0E1116 !important; }
+
+/* ---------- Buttons: pill, mono label, ember sweep on hover ---------- */
 .sqs-block-button-element, .sqs-button-element--primary, .sqs-button-element--secondary,
 .form-wrapper .form-button-wrapper button, .form-wrapper input[type="submit"] {
-  font-family: var(--and-body) !important;
-  font-weight: 600 !important;
-  font-size: 16px !important;
-  letter-spacing: 0 !important;
-  text-transform: none !important;
-  border-radius: var(--and-radius) !important;
-  padding: 14px 22px !important;
-  transition: transform .15s ease, background-color .15s ease;
+  font-family: var(--and-mono) !important; font-size: 13px !important; letter-spacing: .1em !important; text-transform: uppercase !important;
+  padding: 18px 26px !important; border-radius: 999px !important; position: relative; overflow: hidden; isolation: isolate;
+  border: 1px solid var(--and-line-2) !important; background: transparent !important; color: var(--and-ink) !important;
+  transition: color .35s var(--and-ease), border-color .35s !important; box-shadow: none !important;
 }
-.sqs-block-button-element--primary, .sqs-button-element--primary,
-.form-wrapper .form-button-wrapper button, .form-wrapper input[type="submit"] {
-  background: var(--and-ember) !important; color: #fff !important; border: 1.5px solid var(--and-ember) !important;
+.sqs-block-button-element::before, .sqs-button-element--primary::before, .sqs-button-element--secondary::before,
+.form-wrapper .form-button-wrapper button::before, .form-wrapper input[type="submit"]::before {
+  content: ""; position: absolute; inset: 0; z-index: -1; background: var(--and-ember); transform: translateY(101%); transition: transform .45s var(--and-ease); border-radius: inherit;
 }
-.sqs-block-button-element--secondary, .sqs-button-element--secondary {
-  background: transparent !important; color: var(--and-ink) !important; border: 1.5px solid var(--and-ink) !important;
+.sqs-block-button-element:hover::before, .sqs-button-element--primary:hover::before, .sqs-button-element--secondary:hover::before,
+.form-wrapper .form-button-wrapper button:hover::before { transform: none; }
+.sqs-block-button-element:hover, .sqs-button-element--primary:hover, .sqs-button-element--secondary:hover,
+.form-wrapper .form-button-wrapper button:hover { color: #0E1116 !important; border-color: var(--and-ember) !important; }
+/* Primary = solid ember at rest */
+.sqs-block-button-element--primary, .sqs-button-element--primary, .form-wrapper .form-button-wrapper button, .form-wrapper input[type="submit"] {
+  background: var(--and-ember) !important; color: #0E1116 !important; border-color: var(--and-ember) !important;
 }
-[data-section-theme="darkest-1"] .sqs-block-button-element--secondary,
-.page-section.black .sqs-block-button-element--secondary {
-  color: var(--and-forge-ink) !important; border-color: var(--and-forge-ink) !important;
+.sqs-block-button-element--primary::before, .sqs-button-element--primary::before, .form-wrapper .form-button-wrapper button::before { background: var(--and-ink); }
+.sqs-block-button-element--primary:hover, .sqs-button-element--primary:hover { border-color: var(--and-ink) !important; }
+[data-section-theme="white"] .sqs-block-button-element--secondary, [data-section-theme="lightest-1"] .sqs-block-button-element--secondary {
+  color: var(--and-paper-ink) !important; border-color: var(--and-paper-ink) !important;
 }
-.sqs-block-button-element:hover, .sqs-button-element--primary:hover { transform: translateY(-1px); }
+[data-section-theme="white"] .sqs-block-button-element--secondary::before { background: var(--and-paper-ink); }
+[data-section-theme="white"] .sqs-block-button-element--secondary:hover { color: var(--and-paper) !important; }
 
-/* ---------- Quote blocks (client voices) ---------- */
-.sqs-block-quote blockquote {
-  border-left: 3px solid var(--and-ember);
-  padding: 6px 0 6px 24px;
-  margin: 0;
-  font-size: clamp(20px, 2vw, 25px) !important;
-  font-weight: 500 !important;
-  line-height: 1.35 !important;
-}
+/* ---------- Quote blocks ---------- */
+.sqs-block-quote blockquote { border-left: 3px solid var(--and-ember); padding: 6px 0 6px 24px; margin: 0; font-size: clamp(20px, 2vw, 25px) !important; font-weight: 500 !important; line-height: 1.35 !important; }
 .sqs-block-quote blockquote span::before, .sqs-block-quote blockquote span::after { content: none !important; }
-.sqs-block-quote figcaption {
-  font-family: var(--and-mono) !important; font-size: 14px !important; color: var(--and-slate);
-  padding-left: 27px; text-align: left !important;
-}
+.sqs-block-quote figcaption { font-family: var(--and-mono) !important; font-size: 12px !important; letter-spacing: .1em; text-transform: uppercase; color: var(--and-muted); padding-left: 27px; text-align: left !important; }
 
-/* ---------- Accordion (FAQ) ---------- */
-.accordion-item__title { font-family: var(--and-display) !important; font-weight: 600 !important; font-size: 20px !important; }
-.accordion-item__description { color: var(--and-ink-2); }
+/* ---------- Accordion ---------- */
+.accordion-item__title { font-family: var(--and-display) !important; font-weight: 600 !important; font-size: clamp(22px, 2.4vw, 32px) !important; letter-spacing: -.03em; }
 .accordion-divider { border-color: var(--and-line) !important; }
 
-/* ---------- Forms ---------- */
-.form-wrapper .field-list .field .field-element,
-.form-wrapper .field-list .field textarea,
-.form-wrapper .field-list .field select {
-  font-family: var(--and-body) !important; font-size: 16px !important;
-  background: var(--and-steel) !important; color: var(--and-ink) !important;
-  border: 1.5px solid var(--and-line) !important; border-radius: var(--and-radius) !important;
-  padding: 12px 14px !important;
-}
-.form-wrapper .field-list .field .field-element:focus,
-.form-wrapper .field-list .field textarea:focus { border-color: var(--and-ember) !important; outline: none; }
+/* ---------- Forms: underline fields, no boxes ---------- */
+.form-wrapper { background: none !important; border: 0 !important; padding: 0 !important; }
 .form-wrapper .field-list .title, .form-wrapper .field-list .caption-text {
-  font-family: var(--and-body) !important; font-size: 14px !important; font-weight: 500 !important;
+  font-family: var(--and-mono) !important; font-size: 11px !important; letter-spacing: .12em; text-transform: uppercase; color: var(--and-muted) !important; font-weight: 400 !important;
 }
-.form-wrapper .field-list .description { font-size: 13px; color: var(--and-slate); }
-.form-wrapper { background: #fff; border: 1px solid var(--and-line); border-radius: 10px; padding: clamp(20px, 3vw, 32px); }
-.form-wrapper .form-submission-text { font-family: var(--and-body); background: var(--and-forge); color: var(--and-forge-ink); padding: 14px 16px; border-radius: var(--and-radius); }
+.form-wrapper .field-list .field .field-element, .form-wrapper .field-list .field textarea, .form-wrapper .field-list .field select {
+  font-family: var(--and-body) !important; font-size: 17px !important; color: var(--and-ink) !important;
+  background: transparent !important; border: 0 !important; border-bottom: 1px solid var(--and-line-2) !important; border-radius: 0 !important; padding: 12px 0 !important;
+  transition: border-color .3s;
+}
+.form-wrapper .field-list .field .field-element:focus, .form-wrapper .field-list .field textarea:focus { border-bottom-color: var(--and-ember) !important; outline: none; }
+.form-wrapper .field-list .field select { background: var(--and-ground) !important; }
+.form-wrapper .form-submission-text { font-family: var(--and-body); border: 1px solid var(--and-line-2); color: var(--and-ink-2); padding: 14px 16px; border-radius: 10px; }
 
 /* ---------- Images ---------- */
-.sqs-block-image img { border-radius: 10px; }
-.image-caption-wrapper p { font-family: var(--and-mono) !important; font-size: 13px !important; color: var(--and-slate) !important; }
+.sqs-block-image img { border-radius: 16px; }
+.image-caption-wrapper p { font-family: var(--and-mono) !important; font-size: 12px !important; letter-spacing: .08em; color: var(--and-muted) !important; }
 
 /* ---------- Footer ---------- */
-#footer-sections .page-section { border-top: 1px solid var(--and-ink); }
-#footer-sections p { font-size: 15px; }
+#footer-sections .page-section { border-top: 1px solid var(--and-line); }
 #footer-sections a { text-decoration: none; }
 #footer-sections a:hover { color: var(--and-ember) !important; }
 
+/* ---------- Custom cursor (element is injected by code-injection/footer.html) ---------- */
+.and-cursor { position: fixed; z-index: 9999; left: 0; top: 0; width: 10px; height: 10px; border-radius: 50%; background: var(--and-ember); pointer-events: none; mix-blend-mode: difference; transition: width .25s var(--and-ease), height .25s var(--and-ease), background-color .25s; display: none; }
+.and-cursor.is-link { width: 56px; height: 56px; background: #fff; }
+@media (pointer: fine) { .and-cursor { display: block; } }
+
+/* ---------- Scroll reveal (classes are added by the footer script) ---------- */
+.and-rv { transition: opacity .9s var(--and-ease), transform .9s var(--and-ease); }
+.and-rv.pre { opacity: 0; transform: translateY(28px); }
+.and-rv.in { opacity: 1; transform: none; }
+
 /* ---------- Focus & motion ---------- */
-a:focus-visible, button:focus-visible { outline: 3px solid var(--and-ember); outline-offset: 3px; }
-@media (prefers-reduced-motion: reduce) { * { transition: none !important; animation: none !important; } }
+a:focus-visible, button:focus-visible { outline: 2px solid var(--and-ember); outline-offset: 4px; }
+@media (prefers-reduced-motion: reduce) {
+  * { transition-duration: .001s !important; animation-duration: .001s !important; }
+  .and-rv.pre { opacity: 1; transform: none; }
+  .and-cursor { display: none !important; }
+}

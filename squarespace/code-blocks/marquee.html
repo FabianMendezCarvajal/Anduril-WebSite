@@ -1,0 +1,13 @@
+<!-- ANDURIL · Code Block: Marquee (home, directly under the hero). Type: HTML. DARK section, padding "none" or "small". CSS only. -->
+<style>
+  .and-marquee { border-top:1px solid #262C36; border-bottom:1px solid #262C36; overflow:hidden; padding:18px 0; white-space:nowrap; }
+  .and-marquee-track { display:inline-flex; animation:and-mq 38s linear infinite; }
+  .and-marquee span { font-family:"Bricolage Grotesque","Helvetica Neue",Arial,sans-serif; font-weight:500; font-size:clamp(18px,2vw,26px); padding:0 28px; color:#B9C0CB; display:inline-flex; align-items:center; gap:28px; }
+  .and-marquee span::after { content:""; width:8px; height:8px; background:#FF5A2D; transform:rotate(45deg); }
+  @keyframes and-mq { to { transform:translateX(-50%); } }
+  @media (prefers-reduced-motion:reduce) { .and-marquee-track { animation:none; } }
+</style>
+<div class="and-marquee" aria-hidden="true"><div class="and-marquee-track">
+  <span>Sales Cloud</span><span>Service Cloud</span><span>Marketing Cloud</span><span>Experience Cloud</span><span>Revenue Cloud</span><span>Field Service</span><span>Data Cloud</span><span>Agentforce</span><span>MuleSoft</span><span>CRM Analytics</span>
+  <span>Sales Cloud</span><span>Service Cloud</span><span>Marketing Cloud</span><span>Experience Cloud</span><span>Revenue Cloud</span><span>Field Service</span><span>Data Cloud</span><span>Agentforce</span><span>MuleSoft</span><span>CRM Analytics</span>
+</div></div>

@@ -1,152 +1,149 @@
 # Anduril on Squarespace: build guide
 
-This guide turns the design in `preview/index.html` into a live Squarespace 7.1 site.
-Total build time: about half a day if you follow it top to bottom.
-
-Everything you paste is in this folder:
+This guide turns the design in `preview/index.html` into a live Squarespace 7.1 site. The design is
+art-directed after current Awwwards-winning agency sites; see `03-DESIGN-REFERENCES.md` for what was borrowed
+and why. Build time: about a day if you follow it top to bottom.
 
 | What | Where it goes in Squarespace | File |
 |---|---|---|
 | Page structure | Pages panel | `02-SITE-MAP.md` |
 | Page text | Text blocks on each page | `copy/*.md` |
-| Colours, fonts, buttons, forms | Design → Custom CSS | `custom-css.css` |
-| Fonts + small scripts | Settings → Advanced → Code Injection | `code-injection/header.html`, `footer.html` |
+| Colours, fonts, header, buttons, forms, cursor, grain | Design → Custom CSS | `custom-css.css` |
+| Fonts + motion scripts | Settings → Advanced → Code Injection | `code-injection/header.html`, `footer.html` |
 | Designed components | Code Blocks on the relevant page | `code-blocks/*.html` |
 
 ## Plan requirement
 
-* **Custom CSS** works on every Squarespace plan.
-* **Code Injection** and **JavaScript inside Code Blocks** need the Core plan or higher (formerly "Business").
-* Every code block in this kit is HTML and CSS only, so the *components* work on any plan. Only the small
-  scripts in `code-injection/footer.html` (mobile menu polish, bar animation) need Core or higher. The site
-  looks and works fine without them.
+* **Custom CSS** works on every plan. That covers the palette, type, the transparent blend-mode header, the
+  ember overlay menu, pill buttons, underline form fields and the film grain.
+* **Code Blocks** with HTML and CSS work on every plan. Every component in `code-blocks/` is HTML and CSS only.
+* **Code Injection** (Core plan or higher, formerly "Business") adds the motion layer: custom cursor, scroll
+  reveals, counting numbers, animated bars, the hero glow and the local clock. Without it the site is still
+  complete, just still.
 
 ## Step 1: Create the site
 
-1. Go to squarespace.com → **Get started** → pick any minimal template (Squarespace 7.1; all current
-   templates are). Good starting points: *Bailard*, *Marquee* or *Paloma*. You will replace the styling anyway.
-2. Site title: **Anduril**. Settings → Site availability → keep it private until launch.
+1. squarespace.com → **Get started** → choose a minimal 7.1 template (*Bailard*, *Marquee* or *Paloma*). You
+   replace the styling anyway.
+2. Site title: **ANDURIL** (all caps). Settings → Site availability → keep private until launch.
 3. Settings → Domains → connect your domain when ready.
 
 ## Step 2: Set the colour palette
 
-Design → Colors → **Edit palette**. Set the five palette colours:
+Design → Colors → **Edit palette**:
 
 | Slot | Hex | Used for |
 |---|---|---|
-| White | `#EDF0F3` | page ground (cool steel) |
-| Light accent | `#E2E7EC` | subtle panels |
-| Accent | `#E4572E` | ember: buttons, links, eyebrow labels |
-| Dark accent | `#14213A` | dark surfaces |
-| Black | `#0B1422` | text on light, ground on dark sections |
+| White | `#EEF0F2` | steel-white counter sections |
+| Light accent | `#E2E6EA` | subtle panels on light sections |
+| Accent | `#FF5A2D` | ember: buttons, links, labels, overlay menu |
+| Dark accent | `#181D25` | cards on dark sections |
+| Black | `#0E1116` | forge black: the default ground |
 
-Then set the **section themes** you will use:
+Section themes you will use:
 
-* **Lightest 1** (default for most sections): background White, headings Black, paragraph `#33415A`, button background Accent, button text `#FFFFFF`.
-* **Darkest 1** (used for *How we work* and the footer): background Black, headings `#E8EDF3`, paragraph `#94A3B8`, button background Accent.
+* **Darkest 1** (default): background Black, headings `#ECEFF3`, paragraph `#B9C0CB`, button Accent with text Black.
+* **Lightest 1**: background White, headings Black, paragraph `#3A4454`, button Black with text White.
 
-Custom CSS refines everything else.
+Set the site default theme to **Darkest 1** (Design → Colors → Site default section theme).
 
 ## Step 3: Set the fonts
 
 Design → Fonts → **Global text styles**.
 
-* Headings: search **Bricolage Grotesque**. If your font picker does not list it, pick **Sora** for now;
-  the Custom CSS in Step 5 forces Bricolage Grotesque on headings via Google Fonts regardless.
-* Paragraphs: **IBM Plex Sans** (available in the picker).
-* Buttons: same as paragraphs, weight 600.
-* Miscellaneous (labels, nav): **IBM Plex Mono** if listed, otherwise leave as paragraph font.
+* Headings: **Bricolage Grotesque** if listed, otherwise **Sora**; the Custom CSS forces Bricolage Grotesque via Google Fonts regardless.
+* Paragraphs: **IBM Plex Sans**. Buttons and miscellaneous: **IBM Plex Mono**.
 
-Sizes (Design → Fonts → Assign styles): Heading 1 ≈ 5 rem desktop, Heading 2 ≈ 3.2 rem, Heading 3 ≈ 1.5 rem,
-Paragraph 1.06 rem, line height 1.6. Turn heading letter-spacing to `-0.02em`.
+Sizes (Design → Fonts → Assign styles): Heading 1 ≈ 8 rem desktop, Heading 2 ≈ 4.5 rem, Heading 3 ≈ 1.6 rem,
+Paragraph 1.06 rem, line height 1.6. Heading letter-spacing `-0.04em`. Custom CSS refines these.
 
 ## Step 4: Buttons and spacing
 
-* Design → Buttons: Primary = solid, corner radius **6 px**, padding medium, no shadow.
-* Design → Spacing: section padding *large* on desktop, *medium* on mobile. Site width *wide* (max ≈ 1180 px is set in CSS).
+* Design → Buttons: Primary solid, shape **pill**, padding large. Secondary outline, pill.
+* Design → Spacing: section padding *large*; site width *wide*.
 
-## Step 5: Paste the Custom CSS
+## Step 5: Custom CSS
 
 Design → **Custom CSS** → paste the full contents of `custom-css.css`. Save.
+
+Two lines in that file hide the inline navigation and show the burger on every screen size, which gives the
+full-screen ember overlay menu. If you would rather keep visible links on desktop, comment them out (they are
+marked in the file).
 
 ## Step 6: Code Injection (Core plan or higher)
 
 Settings → Advanced → **Code Injection**.
 
-* **Header**: paste `code-injection/header.html` (loads the Google Fonts and sets the theme colour for mobile browsers).
-* **Footer**: paste `code-injection/footer.html` (animates the bars in the org-health card; makes external links open in new tabs).
+* **Header**: paste `code-injection/header.html`.
+* **Footer**: paste `code-injection/footer.html`.
 
-If you are not on Core or higher, skip this step. Fonts still load through the `@import` at the top of the Custom CSS.
+Skip on lower plans; fonts still load through the `@import` at the top of the Custom CSS.
 
-## Step 7: Build the header
+## Step 7: Header
 
 Edit → Header.
 
-1. Site title: **ANDURIL** (all caps; letter-spacing is handled in CSS). Optional: upload `preview` mark as a logo later.
-2. Navigation links come from the pages you create in Step 8. Order: Services, How we work, Clouds, About, Contact.
-3. Header → **Elements** → turn on **Button**. Text: *Book a free org review*. Link: the Contact page. Style: Primary.
-4. Header → Style: *Solid* background, fixed position **on**, "Blur" off (CSS adds a subtle blur).
-5. Mobile menu: keep the default hamburger. The CSS styles it.
+1. Site title **ANDURIL**. The CSS adds the ember diamond before it.
+2. Navigation order: Services, Process, Proof, About, Contact (these are the pages from Step 8; Proof is an
+   anchor link to the home page's proof section: `/#proof`).
+3. Elements → **Button** on: text *Book a free org review*, link to Contact, style Primary. It appears inside the overlay menu.
+4. Style: **transparent** background, fixed position on, no blur. The CSS sets `mix-blend-mode: difference` so
+   the header inverts over dark and light sections.
+5. Mobile / overlay menu: Design → Colors → **Header menu** theme: background Accent, text Black. The CSS makes the links huge.
 
 ## Step 8: Create the pages
 
-Follow `02-SITE-MAP.md` page by page. The general recipe for every section is:
+Follow `02-SITE-MAP.md`. Recipe for every section:
 
 1. Pages → **+** → Blank Page → name it.
-2. **Add section** → choose the section type listed in the site map.
-3. Drop in the blocks listed (Text, Button, Form, Code, Image).
-4. Paste the copy from `copy/<page>.md`. Headings use *Heading 2*; labels marked *Eyebrow* in the copy use
-   *Monospace* style (Text block → "…" → Monospace) so the CSS picks them up as ember labels.
-5. For **Code Blocks**: Add block → **Code** → set *Type* to **HTML**, untick *Display source*, paste the file from `code-blocks/`.
-6. Section → **Edit section** → set the theme (Lightest 1 or Darkest 1) and section padding.
+2. **Add section** → Blank → set its theme (Darkest 1 or Lightest 1) and padding.
+3. Drop in the blocks listed. Text blocks take the copy from `copy/<page>.md`; labels marked *Eyebrow* use the
+   Monospace text style so the CSS styles them as small tracked labels.
+4. **Code Blocks**: Add block → **Code** → Type **HTML**, untick *Display source*, paste from `code-blocks/`.
+5. Hero section: set the section to **full width** and the block to span the whole row.
 
-Set the **Home** page as the site's homepage (Pages → hover Home → gear → *Set as homepage*).
+Set Home as the homepage (Pages → hover Home → gear → *Set as homepage*).
 
-## Step 9: The contact form
+## Step 9: Contact form
 
-On the Contact page, add a **Form Block** with these fields (all marked required except the last two):
+Contact page, right column, **Form Block**:
 
 | Field | Type |
 |---|---|
-| Your name | Name |
-| Company | Text |
-| Work email | Email |
-| Which Salesforce products do you use? | Select: Sales Cloud / Service Cloud / Sales + Service Cloud / Marketing Cloud / Several clouds / Not on Salesforce yet |
+| Your name | Name, required |
+| Company | Text, required |
+| Work email | Email, required |
+| Salesforce products in use | Select: Sales Cloud / Service Cloud / Sales + Service Cloud / Marketing Cloud / Several clouds / Not on Salesforce yet |
 | What is not working today? | Text area |
 
-Form → Storage: **Email** to your address. Submit button text: *Request the review*.
-Post-submit message: *Thanks. A consultant, not a sequence, will reply within one business day.*
+Storage: **Email** to your address. Button text: *Request the review*. Post-submit message: *Thanks. A
+consultant, not a sequence, will reply within one business day.*
 
-**Sending leads straight into Salesforce:** Form → Storage → **Zapier** (or use Make). Create a Zap: trigger
-"Squarespace: New Form Submission" → action "Salesforce: Create Lead". Map Company, Name, Email, and put the
-select answer into a custom Lead field such as `Current_Products__c`.
+**Leads into Salesforce:** Form → Storage → **Zapier** (or Make). Trigger "Squarespace: New Form Submission" →
+action "Salesforce: Create Lead". Map Company, Name, Email; put the select answer in a custom Lead field.
 
 ## Step 10: Footer
 
-Edit → Footer → Add section (Darkest 1 theme). Three columns:
+Edit → Footer, Darkest 1 theme, two sections:
 
-* Column 1: **ANDURIL** as Heading 3, then the one-line description from `copy/home.md` (Footer section).
-* Column 2: "Site" (monospace label) + links to each page.
-* Column 3: "Elsewhere" + LinkedIn, Trailblazer profile, Privacy policy.
-
-Below, a small text block with the copyright line and the Salesforce trademark disclaimer (in `copy/home.md`).
-Keep the disclaimer: it protects you from trademark issues and is standard for independent consultancies.
+1. A row: left, a Text block with the five page links in Monospace style; right, LinkedIn · Trailblazer · Privacy.
+2. A full-width section, padding none, with **Code Block** `code-blocks/footer-wordmark.html`, then a small Text
+   block with the copyright and the Salesforce trademark disclaimer from `copy/home.md`. Keep the disclaimer.
 
 ## Step 11: SEO and launch checklist
 
-* Settings → SEO → Site title format: `%p | Anduril · Salesforce consultancy`. Description: use the meta description in `copy/home.md`.
-* Every page: Page settings → SEO → paste the page's meta description from its copy file.
-* Upload a favicon: export the ember mark from `preview/index.html` (the SVG in the header) at 512×512 or use any square version of your logo.
-* Settings → Marketing → Social sharing image: a 1200×630 image with "Salesforce, reforged." on the steel background.
-* Replace every placeholder in the copy: `hello@your-domain.com`, the two client quotes, the results figures.
-* Test on a phone: menu opens, form submits, the code-block grids stack to one column.
+* Settings → SEO → title format `%p | Anduril · Salesforce consultancy`; description from `copy/home.md`.
+* Each page: Page settings → SEO → paste its meta description.
+* Favicon: a 512×512 ember diamond on forge black. Social sharing image 1200×630: "Salesforce, reforged." on forge black.
+* Replace every placeholder: `hello@your-domain.com`, the three case cards, the three numbers, the availability line.
+* Test on a phone: overlay menu opens and closes, form submits, code-block grids stack, the marquee scrolls.
+* Check the header over the light sections: it should invert to dark text automatically.
 * Settings → Site availability → **Public**.
 
 ## Things you may want to change
 
-* **Name check.** "Anduril" is also the name of a large US defence company (Anduril Industries). That does
-  not stop you using it for a Salesforce consultancy, but check trademark registrations in your country and
-  make sure the domain and LinkedIn name you pick are clearly yours.
-* **"Salesforce Partner" wording.** The copy says *independent Salesforce consultancy*. Only say *Salesforce
-  Consulting Partner* if you are registered in the Salesforce Partner Program.
-* **Results numbers** on the home page are illustrative. Replace them with your own before going public.
+* **Name check.** "Anduril" is also the name of Anduril Industries, a large US defence company. Check trademark
+  registrations in your country before investing in the domain.
+* **"Salesforce Partner" wording.** Copy says *independent Salesforce consultancy*. Say *Salesforce Consulting
+  Partner* only if registered in the partner program.
+* **Numbers and case cards** are illustrative. Replace them before going public.

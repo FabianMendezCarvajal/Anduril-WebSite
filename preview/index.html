@@ -1,491 +1,493 @@
 <title>Anduril Salesforce Consultancy</title>
-<meta name="description" content="Design preview for the Anduril Salesforce consultancy website, to be rebuilt in Squarespace.">
+<meta name="description" content="Design preview for the Anduril Salesforce consultancy website, art-directed after current award-winning agency sites, to be rebuilt in Squarespace.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,700;12..96,800&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,300;12..96,400;12..96,500;12..96,700;12..96,800&family=IBM+Plex+Sans:ital,wght@0,400;0,500;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap">
 <style>
+  /* Single, deliberate visual world: forge-black ground, steel-white counter sections, one ember accent. */
   :root {
-    --ground: #EDF0F3;
-    --surface: #FFFFFF;
-    --surface-2: #E2E7EC;
-    --ink: #101C2E;
-    --ink-2: #33415A;
-    --slate: #5B6B7F;
-    --line: #C9D1DA;
-    --line-strong: #101C2E;
-    --ember: #E4572E;
-    --ember-ink: #FFFFFF;
+    color-scheme: dark;
+    --ground: #0E1116;
+    --ground-2: #13171D;
+    --surface: #181D25;
+    --ink: #ECEFF3;
+    --ink-2: #B9C0CB;
+    --muted: #7F8996;
+    --line: #262C36;
+    --line-2: #333B47;
+    --ember: #FF5A2D;
+    --ember-deep: #E4572E;
     --brass: #F2A93B;
-    --forge: #0B1422;
-    --forge-ink: #E8EDF3;
-    --forge-slate: #94A3B8;
-    --forge-line: #22314A;
-    --forge-surface: #14213A;
-    --focus: #E4572E;
-    --shadow: 0 24px 48px -24px rgba(16, 28, 46, .35);
+    --paper: #EEF0F2;
+    --paper-2: #E2E6EA;
+    --paper-ink: #0E1116;
+    --paper-ink-2: #3A4454;
+    --paper-muted: #6B7686;
+    --paper-line: #C9D0D8;
     --display: "Bricolage Grotesque", "Helvetica Neue", Arial, sans-serif;
     --body: "IBM Plex Sans", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
     --mono: "IBM Plex Mono", "SFMono-Regular", Menlo, Consolas, monospace;
-    --radius: 6px;
-    --max: 1180px;
-  }
-  @media (prefers-color-scheme: dark) {
-    :root:not([data-theme="light"]) {
-      color-scheme: dark;
-      --ground: #0B1422;
-      --surface: #14213A;
-      --surface-2: #1B2A45;
-      --ink: #E8EDF3;
-      --ink-2: #C3CDDA;
-      --slate: #94A3B8;
-      --line: #22314A;
-      --line-strong: #E8EDF3;
-      --ember: #F0673F;
-      --ember-ink: #0B1422;
-      --forge: #060C16;
-      --forge-surface: #10192B;
-      --shadow: 0 24px 48px -24px rgba(0, 0, 0, .7);
-    }
-  }
-  :root[data-theme="dark"] {
-    color-scheme: dark;
-    --ground: #0B1422;
-    --surface: #14213A;
-    --surface-2: #1B2A45;
-    --ink: #E8EDF3;
-    --ink-2: #C3CDDA;
-    --slate: #94A3B8;
-    --line: #22314A;
-    --line-strong: #E8EDF3;
-    --ember: #F0673F;
-    --ember-ink: #0B1422;
-    --forge: #060C16;
-    --forge-surface: #10192B;
-    --shadow: 0 24px 48px -24px rgba(0, 0, 0, .7);
+    --max: 1400px;
+    --gutter: clamp(16px, 4vw, 56px);
+    --ease: cubic-bezier(.22, 1, .36, 1);
   }
 
   * { box-sizing: border-box; }
   html { scroll-behavior: smooth; }
-  @media (prefers-reduced-motion: reduce) {
-    html { scroll-behavior: auto; }
-    *, *::before, *::after { animation: none !important; transition: none !important; }
-  }
   body {
-    margin: 0;
-    background: var(--ground);
-    color: var(--ink);
-    font-family: var(--body);
-    font-size: 17px;
-    line-height: 1.6;
-    -webkit-font-smoothing: antialiased;
+    margin: 0; background: var(--ground); color: var(--ink);
+    font-family: var(--body); font-size: 17px; line-height: 1.6;
+    -webkit-font-smoothing: antialiased; overflow-x: hidden;
   }
   a { color: inherit; }
-  :focus-visible { outline: 3px solid var(--focus); outline-offset: 3px; }
+  :focus-visible { outline: 2px solid var(--ember); outline-offset: 4px; }
   img { max-width: 100%; display: block; }
-
-  .wrap { max-width: var(--max); margin-inline: auto; padding-inline: clamp(16px, 4vw, 40px); }
-  .eyebrow {
-    font-family: var(--mono);
-    font-size: 12px;
-    letter-spacing: .14em;
-    text-transform: uppercase;
-    color: var(--ember);
-    margin: 0 0 14px;
-  }
-  h1, h2, h3, h4 { font-family: var(--display); text-wrap: balance; margin: 0; line-height: 1.05; letter-spacing: -.02em; }
-  h1 { font-size: clamp(42px, 7vw, 88px); font-weight: 800; font-variation-settings: "opsz" 96; }
-  h2 { font-size: clamp(32px, 4.5vw, 54px); font-weight: 700; }
-  h3 { font-size: clamp(21px, 2.2vw, 26px); font-weight: 600; line-height: 1.2; }
   p { margin: 0; }
-  .lede { font-size: clamp(18px, 1.6vw, 21px); color: var(--ink-2); max-width: 60ch; }
-  .section { padding-block: clamp(64px, 9vw, 120px); border-top: 1px solid var(--line); }
-  .section-head { display: grid; gap: 18px; max-width: 760px; margin-bottom: clamp(36px, 5vw, 64px); }
+  h1, h2, h3, h4 { margin: 0; font-family: var(--display); letter-spacing: -.03em; line-height: 1; text-wrap: balance; }
 
-  .btn {
-    display: inline-flex; align-items: center; gap: 10px;
-    font-family: var(--body); font-weight: 600; font-size: 16px;
-    padding: 14px 22px; border-radius: var(--radius);
-    text-decoration: none; border: 1.5px solid transparent; cursor: pointer;
-    transition: transform .15s ease, background-color .15s ease, color .15s ease;
+  /* Film grain: one subtle layer over everything, the craft detail winners share. */
+  body::after {
+    content: ""; position: fixed; inset: 0; z-index: 60; pointer-events: none; opacity: .055;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='200' height='200'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/></filter><rect width='200' height='200' filter='url(%23n)'/></svg>");
+    background-size: 200px 200px; mix-blend-mode: screen;
   }
-  .btn:hover { transform: translateY(-1px); }
-  .btn-primary { background: var(--ember); color: var(--ember-ink); }
-  .btn-ghost { border-color: var(--line-strong); color: var(--ink); background: transparent; }
-  .btn-ghost.on-dark { border-color: var(--forge-ink); color: var(--forge-ink); }
-  .btn svg { width: 16px; height: 16px; }
 
-  /* Header */
-  .site-header {
-    position: sticky; top: env(safe-area-inset-top, 0px); z-index: 20;
-    background: color-mix(in srgb, var(--ground) 88%, transparent);
-    backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
-    border-bottom: 1px solid var(--line);
-  }
-  .nav { display: flex; align-items: center; justify-content: space-between; gap: 24px; min-height: 72px; }
-  .brand { display: inline-flex; align-items: center; gap: 10px; text-decoration: none; font-family: var(--display); font-weight: 800; font-size: 22px; letter-spacing: .08em; }
-  .brand-mark { width: 26px; height: 26px; }
-  .nav-links { display: flex; align-items: center; gap: 28px; list-style: none; margin: 0; padding: 0; }
-  .nav-links a { text-decoration: none; font-weight: 500; font-size: 15px; color: var(--ink-2); }
-  .nav-links a:hover { color: var(--ember); }
-  .nav-cta { display: flex; align-items: center; gap: 14px; }
-  .nav-toggle { display: none; background: none; border: 1.5px solid var(--line-strong); border-radius: var(--radius); padding: 8px 10px; color: var(--ink); font: inherit; cursor: pointer; }
+  .wrap { max-width: var(--max); margin-inline: auto; padding-inline: var(--gutter); }
+  .meta { font-family: var(--mono); font-size: 12px; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); }
+  .meta b { color: var(--ember); font-weight: 500; }
+  .index { font-family: var(--mono); font-size: 12px; color: var(--muted); letter-spacing: .08em; }
+
+  /* ---------- Cursor ---------- */
+  .cursor { position: fixed; z-index: 70; left: 0; top: 0; width: 10px; height: 10px; border-radius: 50%; background: var(--ember); pointer-events: none; transform: translate(-50%, -50%); transition: width .25s var(--ease), height .25s var(--ease), background-color .25s; mix-blend-mode: difference; display: none; }
+  .cursor.is-link { width: 56px; height: 56px; background: #fff; }
+  @media (pointer: fine) { .cursor { display: block; } }
+
+  /* ---------- Reveal ---------- */
+  .rv { transition: opacity .9s var(--ease), transform .9s var(--ease); }
+  .rv.pre { opacity: 0; transform: translateY(28px); }
+  .rv.in { opacity: 1; transform: none; }
+  .mask { overflow: hidden; display: block; }
+  .mask > span { display: block; transform: translateY(0); }
+  .mask.pre > span { transform: translateY(110%); }
+  .mask.in > span { transition: transform 1.1s var(--ease); transform: translateY(0); }
+
+  /* ---------- Header ---------- */
+  .site-header { position: fixed; top: env(safe-area-inset-top, 0px); left: 0; right: 0; z-index: 50; mix-blend-mode: difference; color: #fff; }
+  .nav { display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; min-height: 76px; }
+  .brand { font-family: var(--display); font-weight: 800; letter-spacing: .12em; font-size: 18px; text-decoration: none; display: inline-flex; align-items: center; gap: 10px; }
+  .brand i { width: 10px; height: 10px; background: var(--ember); border-radius: 1px; transform: rotate(45deg); display: inline-block; }
+  .nav-center { font-family: var(--mono); font-size: 12px; letter-spacing: .12em; text-transform: uppercase; display: flex; gap: 28px; }
+  .nav-right { justify-self: end; display: flex; align-items: center; gap: 22px; }
+  .menu-btn { background: none; border: 0; color: inherit; font: inherit; font-family: var(--mono); font-size: 12px; letter-spacing: .12em; text-transform: uppercase; cursor: pointer; display: inline-flex; gap: 10px; align-items: center; padding: 8px 0; }
+  .menu-btn .dots { display: grid; grid-template-columns: repeat(2, 5px); gap: 3px; }
+  .menu-btn .dots i { width: 5px; height: 5px; background: currentColor; border-radius: 50%; }
+  @media (max-width: 760px) { .nav-center { display: none; } .nav { grid-template-columns: 1fr auto; } }
+
+  /* Overlay menu */
+  .menu { position: fixed; inset: 0; z-index: 55; background: var(--ember); color: #0E1116; display: grid; grid-template-rows: auto 1fr auto; padding: calc(76px + env(safe-area-inset-top, 0px)) var(--gutter) 32px; transform: translateY(-100%); transition: transform .7s var(--ease); }
+  .menu.open { transform: none; }
+  .menu-links { list-style: none; margin: 0; padding: 0; display: grid; align-content: center; gap: 4px; }
+  .menu-links a { font-family: var(--display); font-weight: 800; font-size: clamp(40px, 9vw, 112px); line-height: .95; letter-spacing: -.04em; text-decoration: none; display: inline-flex; align-items: baseline; gap: 18px; transition: transform .35s var(--ease); }
+  .menu-links a:hover { transform: translateX(16px); }
+  .menu-links .index { color: #0E1116; opacity: .55; }
+  .menu-foot { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px; font-family: var(--mono); font-size: 12px; letter-spacing: .12em; text-transform: uppercase; border-top: 1px solid rgba(14,17,22,.3); padding-top: 18px; }
+  .menu-close { position: absolute; right: var(--gutter); top: calc(24px + env(safe-area-inset-top, 0px)); background: none; border: 0; color: #0E1116; font: inherit; font-family: var(--mono); font-size: 12px; letter-spacing: .12em; text-transform: uppercase; cursor: pointer; padding: 8px 0; }
+
+  /* ---------- Hero ---------- */
+  .hero { position: relative; padding-block: calc(120px + env(safe-area-inset-top, 0px)) 48px; overflow: hidden; }
+  .glow { position: absolute; inset: 0; z-index: 0; pointer-events: none; width: 100%; height: 100%; }
+  .hero .wrap { position: relative; z-index: 1; }
+  .hero-top { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px 32px; margin-bottom: clamp(40px, 8vh, 96px); }
+  .hero h1 { font-size: clamp(64px, 13.2vw, 212px); font-weight: 800; letter-spacing: -.05em; line-height: .88; font-variation-settings: "opsz" 96; }
+  .hero h1 .l2 { color: transparent; -webkit-text-stroke: 2px var(--ink); padding-left: .12em; }
+  @media (max-width: 600px) { .hero h1 .l2 { -webkit-text-stroke-width: 1.2px; } }
+  .hero-bottom { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 32px; align-items: end; margin-top: clamp(32px, 6vh, 72px); }
+  .hero-lede { font-size: clamp(18px, 1.7vw, 24px); line-height: 1.45; color: var(--ink-2); max-width: 48ch; }
+  .hero-cta { display: flex; flex-wrap: wrap; gap: 14px; justify-content: flex-end; }
+  @media (max-width: 860px) { .hero-bottom { grid-template-columns: 1fr; } .hero-cta { justify-content: flex-start; } }
+
+  .btn { display: inline-flex; align-items: center; gap: 14px; text-decoration: none; font-family: var(--mono); font-size: 13px; letter-spacing: .1em; text-transform: uppercase; padding: 18px 26px; border-radius: 999px; border: 1px solid var(--line-2); position: relative; overflow: hidden; isolation: isolate; cursor: pointer; background: none; color: var(--ink); transition: color .35s var(--ease), border-color .35s; }
+  .btn::before { content: ""; position: absolute; inset: 0; background: var(--ember); z-index: -1; transform: translateY(101%); transition: transform .45s var(--ease); border-radius: inherit; }
+  .btn:hover::before, .btn:focus-visible::before { transform: none; }
+  .btn:hover { color: #0E1116; border-color: var(--ember); }
+  .btn-solid { background: var(--ember); color: #0E1116; border-color: var(--ember); }
+  .btn-solid::before { background: var(--ink); }
+  .btn-solid:hover { color: #0E1116; border-color: var(--ink); }
+  .btn .arrow { width: 14px; height: 14px; transition: transform .35s var(--ease); }
+  .btn:hover .arrow { transform: translate(3px, -3px); }
+  .paper .btn { color: var(--paper-ink); border-color: var(--paper-ink); }
+  .paper .btn:hover { color: var(--paper); border-color: var(--paper-ink); }
+  .paper .btn::before { background: var(--paper-ink); }
+
+  /* ---------- Marquee ---------- */
+  .marquee { border-block: 1px solid var(--line); overflow: hidden; padding-block: 18px; white-space: nowrap; }
+  .marquee-track { display: inline-flex; gap: 0; animation: mq 38s linear infinite; }
+  .marquee span { font-family: var(--display); font-weight: 500; font-size: clamp(18px, 2vw, 26px); letter-spacing: -.01em; padding-inline: 28px; color: var(--ink-2); display: inline-flex; align-items: center; gap: 28px; }
+  .marquee span::after { content: ""; width: 8px; height: 8px; background: var(--ember); transform: rotate(45deg); }
+  @keyframes mq { to { transform: translateX(-50%); } }
+
+  /* ---------- Sections ---------- */
+  .section { padding-block: clamp(88px, 12vw, 168px); }
+  .sec-head { display: grid; grid-template-columns: 220px 1fr; gap: 24px; align-items: start; margin-bottom: clamp(40px, 6vw, 88px); }
+  .sec-head h2 { font-size: clamp(38px, 5.4vw, 84px); font-weight: 700; letter-spacing: -.04em; line-height: .96; max-width: 14ch; }
+  .sec-head .meta { padding-top: 12px; }
+  .sec-lede { font-size: clamp(17px, 1.35vw, 20px); color: var(--ink-2); max-width: 52ch; margin-top: 22px; line-height: 1.5; }
+  @media (max-width: 760px) { .sec-head { grid-template-columns: 1fr; gap: 12px; } }
+
+  /* Manifesto: big statement with highlighted words */
+  .manifesto p { font-family: var(--display); font-weight: 400; font-size: clamp(26px, 3.6vw, 56px); line-height: 1.12; letter-spacing: -.025em; max-width: 24ch; }
+  .manifesto em { font-style: normal; color: var(--ember); }
+  .manifesto .sub { font-family: var(--body); font-size: 16px; color: var(--muted); margin-top: 28px; max-width: 52ch; line-height: 1.6; }
+
+  /* Symptom ledger */
+  .ledger { border-top: 1px solid var(--line); }
+  .ledger-row { display: grid; grid-template-columns: 80px 1fr 1fr; gap: 24px; padding: 26px 0; border-bottom: 1px solid var(--line); align-items: baseline; }
+  .ledger-row h3 { font-size: clamp(22px, 2.4vw, 32px); font-weight: 600; letter-spacing: -.03em; }
+  .ledger-row p { color: var(--ink-2); font-size: 16px; max-width: 46ch; }
+  @media (max-width: 760px) { .ledger-row { grid-template-columns: 1fr; gap: 8px; } }
+
+  /* ---------- Services: the hover list ---------- */
+  .paper { background: var(--paper); color: var(--paper-ink); }
+  .paper .meta { color: var(--paper-muted); }
+  .paper .meta b { color: var(--ember-deep); }
+  .paper .index { color: var(--paper-muted); }
+  .paper .sec-lede { color: var(--paper-ink-2); }
+  .svc-list { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--paper-ink); }
+  .svc { border-bottom: 1px solid var(--paper-ink); position: relative; }
+  .svc-btn { width: 100%; background: none; border: 0; color: inherit; font: inherit; text-align: left; cursor: pointer; display: grid; grid-template-columns: 70px 1fr auto 40px; gap: 24px; align-items: center; padding: 26px 0; position: relative; z-index: 1; transition: padding .45s var(--ease); }
+  .svc-btn h3 { font-size: clamp(28px, 4.2vw, 64px); font-weight: 700; letter-spacing: -.04em; line-height: 1; transition: transform .45s var(--ease); }
+  .svc-btn .fit { font-family: var(--mono); font-size: 12px; letter-spacing: .08em; text-transform: uppercase; color: var(--paper-muted); text-align: right; }
+  .svc-btn .plus { width: 40px; height: 40px; border: 1px solid var(--paper-ink); border-radius: 50%; display: grid; place-items: center; font-family: var(--mono); font-size: 18px; transition: transform .45s var(--ease), background-color .3s, color .3s; }
+  .svc::before { content: ""; position: absolute; inset: 0; background: var(--paper-ink); transform: scaleY(0); transform-origin: top; transition: transform .45s var(--ease); z-index: 0; }
+  .svc:hover::before, .svc.open::before { transform: scaleY(1); }
+  .svc:hover .svc-btn, .svc.open .svc-btn { color: var(--paper); padding-left: 16px; }
+  .svc:hover .svc-btn h3, .svc.open .svc-btn h3 { transform: translateX(8px); }
+  .svc:hover .plus, .svc.open .plus { border-color: var(--ember); background: var(--ember); color: #0E1116; }
+  .svc.open .plus { transform: rotate(45deg); }
+  .svc:hover .fit, .svc.open .fit, .svc:hover .index, .svc.open .index { color: var(--ember); }
+  .svc-body { position: relative; z-index: 1; display: grid; grid-template-rows: 0fr; transition: grid-template-rows .55s var(--ease); color: var(--paper); }
+  .svc.open .svc-body { grid-template-rows: 1fr; }
+  .svc-body > div { overflow: hidden; }
+  .svc-inner { display: grid; grid-template-columns: 70px 1fr 1fr; gap: 24px; padding: 0 16px 34px; }
+  .svc-inner p { color: #C3CAD4; font-size: 16px; max-width: 46ch; line-height: 1.55; }
+  .svc-inner ul { margin: 0; padding: 0; list-style: none; display: grid; gap: 8px; font-size: 15px; color: #C3CAD4; }
+  .svc-inner li { display: flex; gap: 12px; }
+  .svc-inner li::before { content: "→"; color: var(--ember); font-family: var(--mono); }
   @media (max-width: 860px) {
-    .nav-links { display: none; }
-    .nav-toggle { display: inline-flex; }
-    .nav-links.open {
-      display: grid; position: absolute; left: 0; right: 0; top: 100%;
-      background: var(--ground); border-bottom: 1px solid var(--line);
-      padding: 16px clamp(16px, 4vw, 40px) 24px; gap: 16px;
-    }
-    .nav-cta .btn { display: none; }
+    .svc-btn { grid-template-columns: 44px 1fr 40px; }
+    .svc-btn .fit { display: none; }
+    .svc-inner { grid-template-columns: 1fr; padding-inline: 16px; }
   }
 
-  /* Hero */
-  .hero { padding-block: clamp(56px, 8vw, 104px) clamp(48px, 6vw, 80px); }
-  .hero-grid { display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(0, .85fr); gap: clamp(32px, 5vw, 72px); align-items: center; }
-  .hero-copy { display: grid; gap: 26px; }
-  .hero-actions { display: flex; flex-wrap: wrap; gap: 14px; }
-  .hero-note { font-family: var(--mono); font-size: 13px; color: var(--slate); }
-  .hero-note strong { color: var(--ink); font-weight: 500; }
-  .heat-rule { height: 3px; width: 96px; background: linear-gradient(90deg, var(--ember), var(--brass)); border-radius: 2px; }
-  @media (max-width: 900px) { .hero-grid { grid-template-columns: 1fr; } }
+  /* ---------- Process: sticky stack ---------- */
+  .stack { display: grid; gap: 0; }
+  .stage { position: sticky; top: calc(84px + env(safe-area-inset-top, 0px)); background: var(--ground-2); border: 1px solid var(--line-2); border-radius: 18px; padding: clamp(24px, 3.5vw, 44px); display: grid; grid-template-columns: 120px 1fr 1fr; gap: 28px; align-items: start; margin-bottom: 18px; box-shadow: 0 -20px 60px -30px rgba(0,0,0,.8); }
+  .stage:nth-child(2) { top: calc(100px + env(safe-area-inset-top, 0px)); }
+  .stage:nth-child(3) { top: calc(116px + env(safe-area-inset-top, 0px)); }
+  .stage:nth-child(4) { top: calc(132px + env(safe-area-inset-top, 0px)); }
+  .stage:nth-child(5) { top: calc(148px + env(safe-area-inset-top, 0px)); }
+  .stage .num { font-family: var(--display); font-weight: 300; font-size: clamp(48px, 6vw, 96px); line-height: .9; letter-spacing: -.04em; color: var(--ember); }
+  .stage h3 { font-size: clamp(30px, 3.6vw, 52px); font-weight: 700; letter-spacing: -.04em; line-height: 1; }
+  .stage .dur { display: block; margin-top: 14px; }
+  .stage p { color: var(--ink-2); font-size: 16px; max-width: 42ch; line-height: 1.55; }
+  .stage .you { margin-top: 16px; font-size: 15px; color: var(--muted); }
+  .stage .you b { color: var(--ink); font-weight: 500; }
+  @media (max-width: 860px) { .stage { grid-template-columns: 1fr; gap: 14px; top: calc(76px + env(safe-area-inset-top, 0px)) !important; } }
 
-  /* Diagnostic card */
-  .diag {
-    background: var(--forge); color: var(--forge-ink);
-    border-radius: 10px; padding: 26px; box-shadow: var(--shadow);
-    border: 1px solid var(--forge-line);
-    display: grid; gap: 18px;
-  }
-  .diag-head { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; font-family: var(--mono); font-size: 12px; letter-spacing: .1em; text-transform: uppercase; color: var(--forge-slate); }
-  .diag-head .tag { color: var(--brass); }
-  .diag-title { font-family: var(--display); font-size: 22px; font-weight: 700; }
+  /* ---------- Proof: numbers + case cards ---------- */
+  .numbers { display: grid; grid-template-columns: repeat(3, 1fr); border-top: 1px solid var(--line); }
+  .number { padding: 40px 32px 40px 0; border-bottom: 1px solid var(--line); display: grid; gap: 14px; align-content: start; }
+  .number + .number { padding-left: 32px; border-left: 1px solid var(--line); }
+  .number .big { font-family: var(--display); font-weight: 800; font-size: clamp(56px, 7.5vw, 128px); line-height: .9; letter-spacing: -.05em; font-variant-numeric: tabular-nums; }
+  .number .big small { font-size: .45em; color: var(--ember); font-weight: 600; letter-spacing: -.02em; }
+  .number p { color: var(--ink-2); font-size: 15.5px; max-width: 30ch; }
+  @media (max-width: 800px) { .numbers { grid-template-columns: 1fr; } .number + .number { padding-left: 0; border-left: 0; } }
+
+  .cases { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; margin-top: 64px; }
+  .case { background: var(--surface); border: 1px solid var(--line); border-radius: 16px; padding: 28px; display: grid; gap: 18px; align-content: start; min-height: 300px; position: relative; overflow: hidden; transition: transform .45s var(--ease), border-color .3s; }
+  .case::after { content: ""; position: absolute; inset: auto -40% -60% -40%; height: 70%; background: radial-gradient(closest-side, rgba(255,90,45,.28), transparent); opacity: 0; transition: opacity .5s; pointer-events: none; }
+  .case:hover { transform: translateY(-6px); border-color: var(--line-2); }
+  .case:hover::after { opacity: 1; }
+  .case h3 { font-size: 24px; font-weight: 600; letter-spacing: -.03em; line-height: 1.1; }
+  .case dl { margin: 0; display: grid; grid-template-columns: auto 1fr; gap: 6px 16px; font-size: 14.5px; }
+  .case dt { font-family: var(--mono); font-size: 11px; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); padding-top: 3px; }
+  .case dd { margin: 0; color: var(--ink-2); }
+  .case dd b { color: var(--ink); font-weight: 500; }
+  @media (max-width: 900px) { .cases { grid-template-columns: 1fr; } }
+  .note { font-family: var(--mono); font-size: 12px; color: var(--muted); margin-top: 22px; letter-spacing: .04em; }
+
+  /* ---------- Diagnostic (the assessment) ---------- */
+  .assess { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: clamp(32px, 6vw, 96px); align-items: center; }
+  .diag { background: var(--paper); color: var(--paper-ink); border-radius: 18px; padding: clamp(22px, 3vw, 34px); display: grid; gap: 18px; }
+  .diag-head { display: flex; justify-content: space-between; gap: 12px; font-family: var(--mono); font-size: 11px; letter-spacing: .12em; text-transform: uppercase; color: var(--paper-muted); }
+  .diag-head b { color: var(--ember-deep); font-weight: 500; }
+  .diag-title { font-family: var(--display); font-size: clamp(22px, 2.2vw, 30px); font-weight: 700; letter-spacing: -.03em; line-height: 1.05; }
   .diag-rows { display: grid; gap: 14px; }
-  .diag-row { display: grid; grid-template-columns: 150px 1fr 56px; gap: 14px; align-items: center; font-size: 14px; }
-  .diag-row .val { font-family: var(--mono); font-variant-numeric: tabular-nums; text-align: right; color: var(--forge-ink); }
-  .bar { height: 8px; background: var(--forge-surface); border-radius: 4px; overflow: hidden; }
-  .bar span { display: block; height: 100%; border-radius: 4px; background: linear-gradient(90deg, var(--ember), var(--brass)); width: var(--w); animation: grow .9s ease-out both; }
-  @keyframes grow { from { width: 0; } }
-  .diag-foot { border-top: 1px solid var(--forge-line); padding-top: 14px; font-size: 13px; color: var(--forge-slate); display: grid; gap: 4px; }
-  .diag-foot strong { color: var(--forge-ink); font-weight: 500; }
-  @media (max-width: 480px) { .diag-row { grid-template-columns: 110px 1fr 48px; } }
+  .diag-row { display: grid; grid-template-columns: 150px 1fr 48px; gap: 14px; align-items: center; font-size: 14px; color: var(--paper-ink-2); }
+  .diag-row .val { font-family: var(--mono); font-variant-numeric: tabular-nums; text-align: right; color: var(--paper-ink); }
+  .bar { height: 6px; background: var(--paper-2); border-radius: 3px; overflow: hidden; }
+  .bar span { display: block; height: 100%; background: linear-gradient(90deg, var(--ember-deep), var(--brass)); width: var(--w); transition: width 1.2s var(--ease); }
+  .bar.pre span { width: 0 !important; }
+  .diag-foot { border-top: 1px solid var(--paper-line); padding-top: 14px; font-size: 13.5px; color: var(--paper-ink-2); display: grid; gap: 6px; line-height: 1.5; }
+  .diag-foot b { color: var(--paper-ink); font-weight: 500; }
+  @media (max-width: 900px) { .assess { grid-template-columns: 1fr; } }
+  @media (max-width: 480px) { .diag-row { grid-template-columns: 104px 1fr 40px; } }
 
-  /* Symptoms strip */
-  .symptoms { display: grid; grid-template-columns: repeat(3, 1fr); border: 1px solid var(--line-strong); border-radius: 10px; overflow: hidden; }
-  .symptom { padding: 28px; display: grid; gap: 10px; border-right: 1px solid var(--line-strong); }
-  .symptom:last-child { border-right: 0; }
-  .symptom h3 { font-size: 20px; }
-  .symptom p { color: var(--ink-2); font-size: 15.5px; }
-  @media (max-width: 800px) { .symptoms { grid-template-columns: 1fr; } .symptom { border-right: 0; border-bottom: 1px solid var(--line-strong); } .symptom:last-child { border-bottom: 0; } }
-
-  /* Services */
-  .services { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--line); border: 1px solid var(--line); }
-  .service { background: var(--ground); padding: 30px 26px 28px; display: grid; gap: 14px; align-content: start; transition: background-color .2s ease; }
-  .service:hover { background: var(--surface); }
-  .service-num { font-family: var(--mono); font-size: 12px; color: var(--slate); letter-spacing: .1em; }
-  .service ul { margin: 0; padding-left: 18px; color: var(--ink-2); font-size: 15.5px; display: grid; gap: 6px; }
-  .service .fit { font-size: 14px; color: var(--slate); border-top: 1px dashed var(--line); padding-top: 12px; margin-top: 4px; }
-  .service .fit strong { color: var(--ink); font-weight: 500; }
-  @media (max-width: 960px) { .services { grid-template-columns: repeat(2, 1fr); } }
-  @media (max-width: 620px) { .services { grid-template-columns: 1fr; } }
-
-  /* Process (dark) */
-  .forge-section { background: var(--forge); color: var(--forge-ink); border-top: 0; }
-  .forge-section .eyebrow { color: var(--brass); }
-  .forge-section .lede { color: var(--forge-slate); }
-  .steps { display: grid; grid-template-columns: repeat(5, 1fr); gap: 0; border-top: 1px solid var(--forge-line); }
-  .step { padding: 28px 22px 8px 0; display: grid; gap: 12px; align-content: start; position: relative; }
-  .step::before { content: ""; position: absolute; top: -1px; left: 0; width: 44px; height: 3px; background: linear-gradient(90deg, var(--ember), var(--brass)); }
-  .step-num { font-family: var(--mono); font-size: 12px; letter-spacing: .12em; color: var(--brass); }
-  .step h3 { font-size: 21px; color: var(--forge-ink); }
-  .step p { color: var(--forge-slate); font-size: 15px; }
-  .step .dur { font-family: var(--mono); font-size: 12px; color: var(--forge-ink); }
-  @media (max-width: 1000px) { .steps { grid-template-columns: repeat(3, 1fr); } }
-  @media (max-width: 640px) { .steps { grid-template-columns: 1fr; } .step { padding-right: 0; } }
-
-  /* Clouds */
-  .clouds { display: grid; grid-template-columns: repeat(2, 1fr); gap: 0 clamp(32px, 5vw, 72px); }
-  .cloud { display: grid; grid-template-columns: 210px 1fr; gap: 20px; padding: 20px 0; border-bottom: 1px solid var(--line); align-items: baseline; }
-  .cloud h3 { font-size: 19px; }
-  .cloud p { color: var(--ink-2); font-size: 15px; }
-  @media (max-width: 900px) { .clouds { grid-template-columns: 1fr; } }
-  @media (max-width: 520px) { .cloud { grid-template-columns: 1fr; gap: 6px; } }
-
-  /* Results */
-  .results { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
-  .result { background: var(--surface); border: 1px solid var(--line); border-radius: 10px; padding: 28px; display: grid; gap: 10px; }
-  .result .num { font-family: var(--display); font-size: clamp(40px, 5vw, 60px); font-weight: 800; line-height: 1; letter-spacing: -.03em; font-variant-numeric: tabular-nums; }
-  .result .num em { font-style: normal; color: var(--ember); }
-  .result p { color: var(--ink-2); font-size: 15px; }
-  .example-note { font-family: var(--mono); font-size: 12.5px; color: var(--slate); margin-top: 18px; }
-  @media (max-width: 800px) { .results { grid-template-columns: 1fr; } }
-
-  /* Testimonials */
-  .quotes { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; }
-  .quote { border-left: 3px solid var(--ember); padding: 6px 0 6px 24px; display: grid; gap: 14px; }
-  .quote blockquote { margin: 0; font-family: var(--display); font-size: clamp(20px, 2vw, 25px); font-weight: 500; line-height: 1.35; }
-  .quote cite { font-style: normal; font-size: 14px; color: var(--slate); font-family: var(--mono); }
-  @media (max-width: 800px) { .quotes { grid-template-columns: 1fr; } }
-
-  /* About */
-  .about { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: clamp(32px, 5vw, 80px); align-items: start; }
-  .about .lede { max-width: none; }
-  .principles { display: grid; gap: 0; border-top: 1px solid var(--line-strong); }
-  .principle { padding: 22px 0; border-bottom: 1px solid var(--line); display: grid; gap: 6px; }
-  .principle h3 { font-size: 20px; }
-  .principle p { color: var(--ink-2); font-size: 15.5px; }
+  /* ---------- About / principles ---------- */
+  .about { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: clamp(32px, 6vw, 96px); }
+  .about .big { font-family: var(--display); font-weight: 500; font-size: clamp(24px, 2.8vw, 40px); line-height: 1.15; letter-spacing: -.03em; }
+  .about .big em { font-style: normal; color: var(--ember-deep); }
+  .principles { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--paper-ink); counter-reset: p; }
+  .principles li { display: grid; grid-template-columns: 56px 1fr; gap: 16px; padding: 22px 0; border-bottom: 1px solid var(--paper-line); counter-increment: p; }
+  .principles li::before { content: counter(p, decimal-leading-zero); font-family: var(--mono); font-size: 12px; color: var(--paper-muted); padding-top: 6px; }
+  .principles h3 { font-size: 22px; font-weight: 600; letter-spacing: -.03em; margin-bottom: 6px; }
+  .principles p { color: var(--paper-ink-2); font-size: 15.5px; }
   @media (max-width: 860px) { .about { grid-template-columns: 1fr; } }
 
-  /* Contact */
-  .contact { display: grid; grid-template-columns: minmax(0, .9fr) minmax(0, 1.1fr); gap: clamp(32px, 5vw, 80px); }
-  .contact-aside { display: grid; gap: 26px; align-content: start; }
-  .contact-aside .lede { max-width: none; }
-  .contact-line { display: grid; gap: 4px; font-size: 15px; }
-  .contact-line .lbl { font-family: var(--mono); font-size: 12px; letter-spacing: .12em; text-transform: uppercase; color: var(--slate); }
-  .contact-line .val { font-weight: 500; }
-  form { display: grid; gap: 18px; background: var(--surface); border: 1px solid var(--line); border-radius: 10px; padding: clamp(20px, 3vw, 32px); }
-  .field { display: grid; gap: 6px; }
-  .field-row { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
-  label { font-size: 14px; font-weight: 500; }
-  input, select, textarea {
-    font: inherit; font-size: 16px; color: var(--ink);
-    background: var(--ground); border: 1.5px solid var(--line); border-radius: var(--radius);
-    padding: 12px 14px; width: 100%;
-  }
-  input:focus, select:focus, textarea:focus { border-color: var(--ember); outline: none; }
-  textarea { min-height: 120px; resize: vertical; }
-  .form-foot { display: flex; flex-wrap: wrap; align-items: center; gap: 16px; justify-content: space-between; }
-  .form-foot small { color: var(--slate); font-size: 13px; }
-  .toast { display: none; background: var(--forge); color: var(--forge-ink); padding: 14px 16px; border-radius: var(--radius); font-size: 15px; }
+  /* ---------- Contact / footer ---------- */
+  .contact { padding-block: clamp(88px, 12vw, 160px) 0; }
+  .contact-grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: clamp(32px, 6vw, 96px); align-items: start; }
+  .contact h2 { font-size: clamp(44px, 7vw, 112px); font-weight: 800; letter-spacing: -.05em; line-height: .92; }
+  .contact h2 em { font-style: normal; color: var(--ember); }
+  .contact .email { display: inline-block; margin-top: 32px; font-family: var(--display); font-weight: 500; font-size: clamp(22px, 2.6vw, 36px); letter-spacing: -.02em; text-decoration: none; border-bottom: 2px solid var(--ember); padding-bottom: 4px; }
+  .contact .lines { display: grid; gap: 18px; margin-top: 40px; }
+  .contact .line { display: grid; gap: 4px; font-size: 15px; }
+  form { display: grid; gap: 22px; }
+  .field { display: grid; gap: 8px; }
+  .field-row { display: grid; grid-template-columns: 1fr 1fr; gap: 22px; }
+  label { font-family: var(--mono); font-size: 11px; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); }
+  input, select, textarea { font: inherit; font-size: 17px; color: var(--ink); background: none; border: 0; border-bottom: 1px solid var(--line-2); padding: 12px 0; width: 100%; border-radius: 0; transition: border-color .3s; }
+  input:focus, select:focus, textarea:focus { outline: none; border-bottom-color: var(--ember); }
+  select { color: var(--ink); background: var(--ground); }
+  textarea { min-height: 96px; resize: vertical; }
+  .form-foot { display: flex; flex-wrap: wrap; align-items: center; gap: 18px; justify-content: space-between; }
+  .form-foot small { color: var(--muted); font-size: 13px; }
+  .toast { display: none; border: 1px solid var(--line-2); padding: 14px 16px; border-radius: 10px; font-size: 15px; color: var(--ink-2); }
   .toast.show { display: block; }
-  @media (max-width: 860px) { .contact { grid-template-columns: 1fr; } }
+  @media (max-width: 900px) { .contact-grid { grid-template-columns: 1fr; } }
   @media (max-width: 520px) { .field-row { grid-template-columns: 1fr; } }
 
-  /* Footer */
-  .site-footer { border-top: 1px solid var(--line-strong); padding-block: 40px; }
-  .foot-grid { display: grid; grid-template-columns: 1.4fr 1fr 1fr; gap: 32px; }
-  .foot-links { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; font-size: 15px; }
-  .foot-links a { text-decoration: none; color: var(--ink-2); }
-  .foot-links a:hover { color: var(--ember); }
-  .foot-title { font-family: var(--mono); font-size: 12px; letter-spacing: .12em; text-transform: uppercase; color: var(--slate); margin-bottom: 12px; }
-  .legal { margin-top: 32px; padding-top: 20px; border-top: 1px solid var(--line); font-size: 13px; color: var(--slate); display: grid; gap: 6px; max-width: 80ch; }
-  @media (max-width: 760px) { .foot-grid { grid-template-columns: 1fr; } }
+  .site-footer { margin-top: clamp(64px, 10vw, 140px); border-top: 1px solid var(--line); }
+  .foot-top { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 16px 32px; padding-block: 28px; }
+  .foot-links { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 8px 26px; }
+  .foot-links a { text-decoration: none; }
+  .wordmark { font-family: var(--display); font-weight: 800; font-size: clamp(64px, 17.6vw, 292px); letter-spacing: -.06em; line-height: .78; color: var(--ink); text-align: center; padding-top: 12px; margin-bottom: -.06em; overflow: hidden; user-select: none; }
+  .wordmark span { display: inline-block; background: linear-gradient(180deg, var(--ink) 40%, rgba(236,239,243,.15)); -webkit-background-clip: text; background-clip: text; color: transparent; }
+  .legal { font-size: 12.5px; color: var(--muted); padding-block: 22px 28px; border-top: 1px solid var(--line); display: grid; gap: 6px; max-width: 90ch; line-height: 1.5; }
+
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    *, *::before, *::after { animation-duration: .001s !important; transition-duration: .001s !important; }
+    .marquee-track { animation: none; }
+    .rv.pre, .mask.pre > span { opacity: 1; transform: none; }
+    .bar.pre span { width: var(--w) !important; }
+    .cursor { display: none !important; }
+  }
 </style>
+
+<div class="cursor" id="cursor" aria-hidden="true"></div>
 
 <header class="site-header">
   <div class="wrap nav">
-    <a class="brand" href="#top" aria-label="Anduril home">
-      <svg class="brand-mark" viewBox="0 0 26 26" aria-hidden="true">
-        <defs><linearGradient id="g" x1="0" y1="1" x2="1" y2="0"><stop offset="0" stop-color="#E4572E"/><stop offset="1" stop-color="#F2A93B"/></linearGradient></defs>
-        <path d="M3 23 L15 3 L19 3 L23 11 L11 23 Z" fill="url(#g)"/>
-        <path d="M3 23 L15 3 L16.5 6 L7 23 Z" fill="#101C2E" opacity=".35"/>
-      </svg>
-      ANDURIL
-    </a>
-    <ul class="nav-links" id="navLinks">
-      <li><a href="#services">Services</a></li>
-      <li><a href="#process">How we work</a></li>
-      <li><a href="#clouds">Clouds</a></li>
-      <li><a href="#results">Results</a></li>
-      <li><a href="#about">About</a></li>
-      <li><a href="#contact">Contact</a></li>
-    </ul>
-    <div class="nav-cta">
-      <a class="btn btn-primary" href="#contact">Book a free org review</a>
-      <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="navLinks">Menu</button>
+    <a class="brand" href="#top"><i></i>ANDURIL</a>
+    <div class="nav-center" aria-hidden="true"><span>Salesforce consultancy</span><span id="clock">--:--</span><span>Taking projects Q4 2026</span></div>
+    <div class="nav-right">
+      <button class="menu-btn" id="menuOpen" aria-expanded="false" aria-controls="menu"><span class="dots"><i></i><i></i><i></i><i></i></span>Menu</button>
     </div>
   </div>
 </header>
 
+<nav class="menu" id="menu" aria-label="Site menu" aria-hidden="true">
+  <button class="menu-close" id="menuClose">Close</button>
+  <div></div>
+  <ul class="menu-links">
+    <li><a href="#services"><span class="index">01</span>Services</a></li>
+    <li><a href="#process"><span class="index">02</span>Process</a></li>
+    <li><a href="#proof"><span class="index">03</span>Proof</a></li>
+    <li><a href="#about"><span class="index">04</span>About</a></li>
+    <li><a href="#contact"><span class="index">05</span>Contact</a></li>
+  </ul>
+  <div class="menu-foot"><span>hello@your-domain.com</span><span>Independent · Not affiliated with Salesforce, Inc.</span></div>
+</nav>
+
 <main id="top">
   <section class="hero">
-    <div class="wrap hero-grid">
-      <div class="hero-copy">
-        <p class="eyebrow">Independent Salesforce consultancy</p>
-        <h1>Salesforce, reforged.</h1>
-        <div class="heat-rule" aria-hidden="true"></div>
-        <p class="lede">Most orgs grew by accident: a field here, a workflow there, three admins ago. We rebuild them into systems your team trusts. Clean data, automations that hold, reports people actually open.</p>
-        <div class="hero-actions">
-          <a class="btn btn-primary" href="#contact">Start with a free org review
-            <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg></a>
-          <a class="btn btn-ghost" href="#services">See what we do</a>
-        </div>
-        <p class="hero-note"><strong>Sales Cloud</strong> · <strong>Service Cloud</strong> · <strong>Marketing Cloud</strong> · <strong>Experience Cloud</strong> · <strong>Revenue Cloud</strong> · <strong>MuleSoft</strong> · <strong>Agentforce</strong></p>
+    <canvas class="glow" id="glow" aria-hidden="true"></canvas>
+    <div class="wrap">
+      <div class="hero-top">
+        <span class="meta"><b>●</b> Independent Salesforce consultancy</span>
+        <span class="meta">Implementations · Rescues · Integrations · Managed admin</span>
       </div>
+      <h1>
+        <span class="mask" data-delay="0"><span>Salesforce,</span></span>
+        <span class="mask l2" data-delay="120"><span class="l2">reforged.</span></span>
+      </h1>
+      <div class="hero-bottom">
+        <p class="hero-lede rv" data-delay="300">Most orgs grew by accident: a field here, a workflow there, three admins ago. We take the shards and rebuild them into a system your team trusts.</p>
+        <div class="hero-cta rv" data-delay="420">
+          <a class="btn btn-solid" href="#contact">Book a free org review <svg class="arrow" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M2 12 12 2M4 2h8v8"/></svg></a>
+          <a class="btn" href="#services">What we do</a>
+        </div>
+      </div>
+    </div>
+  </section>
 
-      <aside class="diag" aria-label="Example org health review">
-        <div class="diag-head"><span>Org health review</span><span class="tag">Example output</span></div>
+  <div class="marquee" aria-hidden="true">
+    <div class="marquee-track" id="mq">
+      <span>Sales Cloud</span><span>Service Cloud</span><span>Marketing Cloud</span><span>Experience Cloud</span><span>Revenue Cloud</span><span>Field Service</span><span>Data Cloud</span><span>Agentforce</span><span>MuleSoft</span><span>CRM Analytics</span>
+    </div>
+  </div>
+
+  <section class="section manifesto">
+    <div class="wrap">
+      <p class="rv">A Salesforce org is never finished. It is either <em>maintained on purpose</em> or it drifts. We are the people you call when it has drifted far enough that <em>the business has started routing around it.</em></p>
+      <p class="sub rv">Named after the sword in Tolkien that was reforged from broken shards and held. That is the job description.</p>
+    </div>
+  </section>
+
+  <section class="section" style="padding-top:0">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="meta">Sound familiar</span>
+        <h2 class="rv">Three ways an org tells you it's time.</h2>
+      </div>
+      <div class="ledger">
+        <div class="ledger-row rv"><span class="index">(01)</span><h3>Reports nobody trusts</h3><p>Pipeline numbers change depending on who pulls them. Leadership keeps a spreadsheet "just in case".</p></div>
+        <div class="ledger-row rv"><span class="index">(02)</span><h3>Automation that fights itself</h3><p>Workflow Rules, Process Builders and Flows stacked over years. Nobody dares to switch one off.</p></div>
+        <div class="ledger-row rv"><span class="index">(03)</span><h3>An admin buried in tickets</h3><p>Every new request is a fire. Roadmap work never starts because the backlog never ends.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section paper" id="services">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="meta">Services</span>
+        <div>
+          <h2 class="rv">From first login to a fully governed org.</h2>
+          <p class="sec-lede rv">Six ways to work with us. Fixed-scope where it can be, retained where it should be. Open a row.</p>
+        </div>
+      </div>
+      <ul class="svc-list" id="svcList">
+        <li class="svc">
+          <button class="svc-btn" aria-expanded="false"><span class="index">01</span><h3>Implementation</h3><span class="fit">First-time Salesforce teams</span><span class="plus">+</span></button>
+          <div class="svc-body"><div><div class="svc-inner"><span></span><p>Sales, Service and Experience Cloud from a blank org. We design the object model around how your team sells and serves today, not around a template, and migrate what is worth keeping from HubSpot, Dynamics, Zoho or spreadsheets.</p><ul><li>Discovery workshops with sales, service and finance</li><li>Object model, layouts, permission sets, record types</li><li>Migration rehearsal before cutover, 30-day hypercare</li><li>6 to 14 weeks, fixed price after Blueprint</li></ul></div></div></div>
+        </li>
+        <li class="svc">
+          <button class="svc-btn" aria-expanded="false"><span class="index">02</span><h3>Org rescue</h3><span class="fit">Orgs older than three years</span><span class="plus">+</span></button>
+          <div class="svc-body"><div><div class="svc-inner"><span></span><p>Several admins, no single owner, and nobody can explain why a record does what it does. We audit everything, rank the findings by business impact, and pay down the debt in sprints without stopping the business.</p><ul><li>Technical audit with a prioritised, costed fix list</li><li>Workflow Rule and Process Builder migration to Flow</li><li>Field, profile and report clean-up with usage evidence</li><li>2-week audit, then 2 to 6 sprints</li></ul></div></div></div>
+        </li>
+        <li class="svc">
+          <button class="svc-btn" aria-expanded="false"><span class="index">03</span><h3>Integrations &amp; data</h3><span class="fit">When Salesforce must agree with finance</span><span class="plus">+</span></button>
+          <div class="svc-body"><div><div class="svc-inner"><span></span><p>Salesforce has to agree with your ERP, your billing tool and your support desk. We build the integrations and the hygiene rules that keep them agreeing.</p><ul><li>ERP, billing, marketing and support integrations</li><li>MuleSoft, REST, platform events, Make or Workato</li><li>Matching rules, deduplication, one-time merge</li><li>3 to 8 weeks per integration</li></ul></div></div></div>
+        </li>
+        <li class="svc">
+          <button class="svc-btn" aria-expanded="false"><span class="index">04</span><h3>Custom development</h3><span class="fit">When clicks can't</span><span class="plus">+</span></button>
+          <div class="svc-body"><div><div class="svc-inner"><span></span><p>Some processes clicks alone can't handle. We write the code, we write the tests, and we make sure the next developer can read both.</p><ul><li>Apex, Lightning Web Components, complex Flows</li><li>Agentforce agents, prompt templates, guardrails</li><li>Test coverage above 85%, version control, CI</li><li>Scoped per feature, 2-week sprints</li></ul></div></div></div>
+        </li>
+        <li class="svc">
+          <button class="svc-btn" aria-expanded="false"><span class="index">05</span><h3>Managed admin</h3><span class="fit">Not ready for a full-time hire</span><span class="plus">+</span></button>
+          <div class="svc-body"><div><div class="svc-inner"><span></span><p>The requests keep coming. A named consultant handles them within an agreed SLA and keeps the org ready for every Salesforce release.</p><ul><li>Monthly block of hours with a named consultant</li><li>Release readiness review, three times a year</li><li>Quarterly roadmap and health report</li><li>Retainer from 20 hours a month</li></ul></div></div></div>
+        </li>
+        <li class="svc">
+          <button class="svc-btn" aria-expanded="false"><span class="index">06</span><h3>Training &amp; adoption</h3><span class="fit">Built well, underused</span><span class="plus">+</span></button>
+          <div class="svc-body"><div><div class="svc-inner"><span></span><p>The org is built well, but people work around it. We train by role, coach your admin, and measure what sticks.</p><ul><li>Role-based sessions for reps, agents and managers</li><li>Admin coaching so your team owns the org</li><li>Adoption dashboards: logins, data entry, report views</li><li>2 to 4 weeks</li></ul></div></div></div>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="section" id="process">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="meta">Process</span>
+        <div>
+          <h2 class="rv">Five stages. No surprises in stage four.</h2>
+          <p class="sec-lede rv">You see the plan and the fixed cost before we touch production, and a working demo at the end of every sprint.</p>
+        </div>
+      </div>
+      <div class="stack">
+        <article class="stage"><span class="num">01</span><div><h3>Assess</h3><span class="meta dur">1 to 2 weeks</span></div><div><p>We read your org the way an auditor reads accounts: every object, every automation, every report opened in the last 90 days. Then we interview the people who use it.</p><p class="you"><b>You get:</b> an org health report ranked by business impact.</p></div></article>
+        <article class="stage"><span class="num">02</span><div><h3>Blueprint</h3><span class="meta dur">1 week</span></div><div><p>Findings become a design: data model changes, an automation map, an integration plan and a release sequence. Every item has a cost and a reason.</p><p class="you"><b>You get:</b> a fixed-price quote you approve before we build.</p></div></article>
+        <article class="stage"><span class="num">03</span><div><h3>Build</h3><span class="meta dur">2 to 10 sprints</span></div><div><p>Two-week sprints in a sandbox. Each ends with a demo you and your admin attend, and a written change log. Nothing lands in production unseen.</p><p class="you"><b>You get:</b> working features every two weeks, documented as we go.</p></div></article>
+        <article class="stage"><span class="num">04</span><div><h3>Launch</h3><span class="meta dur">2 weeks</span></div><div><p>Migration rehearsed before the real cutover. Training by role, then hypercare while the first real reports run.</p><p class="you"><b>You get:</b> a cutover plan, recordings, and a consultant on call.</p></div></article>
+        <article class="stage"><span class="num">05</span><div><h3>Sustain</h3><span class="meta dur">Ongoing, optional</span></div><div><p>Managed hours, a review before each Salesforce release, and a quarterly roadmap so the org keeps pace with the business instead of drifting again.</p><p class="you"><b>You get:</b> a named consultant, an SLA, and a health score that moves.</p></div></article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="proof" style="padding-top:0">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="meta">Proof</span>
+        <h2 class="rv">What a rescue looks like in numbers.</h2>
+      </div>
+      <div class="numbers">
+        <div class="number rv"><span class="big"><span class="count" data-to="62">62</span><small>%</small></span><p>fewer duplicate accounts after matching rules and a one-time merge across 48,000 records.</p></div>
+        <div class="number rv"><span class="big"><span class="count" data-to="20">20</span><small>min</small></span><p>weekly forecast preparation, down from four hours, once stages and reports were rebuilt.</p></div>
+        <div class="number rv"><span class="big"><span class="count" data-to="93">93</span><small>%</small></span><p>of reps logging in weekly three months after launch, up from 58%.</p></div>
+      </div>
+      <div class="cases">
+        <article class="case rv"><span class="meta">Rescue · Sales Cloud</span><h3>Industrial distributor, 84 users</h3><dl><dt>Problem</dt><dd>19 Workflow Rules and 6 Process Builders overlapping 11 Flows on Opportunity.</dd><dt>Work</dt><dd>Consolidated to 3 record-triggered Flows. Rebuilt stages and forecast.</dd><dt>Result</dt><dd><b>Forecast prep 4h → 20min.</b> Zero automation errors in 90 days.</dd></dl></article>
+        <article class="case rv"><span class="meta">Integration · Service Cloud</span><h3>SaaS support team, 40 agents</h3><dl><dt>Problem</dt><dd>Cases and billing disagreed. Agents checked two systems per ticket.</dd><dt>Work</dt><dd>MuleSoft sync with the billing platform, entitlements from real plans.</dd><dt>Result</dt><dd><b>First-response time down 38%.</b> One screen per ticket.</dd></dl></article>
+        <article class="case rv"><span class="meta">Implementation · Sales + Service</span><h3>Professional services firm, 120 users</h3><dl><dt>Problem</dt><dd>Moving off a shared spreadsheet and a legacy CRM at the same time.</dd><dt>Work</dt><dd>Object model workshops, phased migration, role-based training.</dd><dt>Result</dt><dd><b>93% weekly active reps</b> at month three.</dd></dl></article>
+      </div>
+      <p class="note">Illustrative examples for the preview. Replace with your own anonymised projects before publishing.</p>
+    </div>
+  </section>
+
+  <section class="section paper" id="assessment">
+    <div class="wrap assess">
+      <div>
+        <span class="meta">The free review</span>
+        <h2 class="rv" style="font-size:clamp(36px,4.8vw,72px);font-weight:700;letter-spacing:-.04em;line-height:.98;margin-top:14px">Thirty minutes. Three things to fix. Yours either way.</h2>
+        <p class="sec-lede rv">You share screen, we look at the org together across five dimensions, and you leave with a one-page summary whether or not you hire us.</p>
+        <p class="rv" style="margin-top:28px"><a class="btn" href="#contact">Book the review <svg class="arrow" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M2 12 12 2M4 2h8v8"/></svg></a></p>
+      </div>
+      <aside class="diag rv" aria-label="Example org health review">
+        <div class="diag-head"><span>Org health review</span><span><b>Example output</b></span></div>
         <p class="diag-title">Mid-market Sales Cloud org, 84 users</p>
-        <div class="diag-rows">
-          <div class="diag-row"><span>Data quality</span><div class="bar"><span style="--w:41%"></span></div><span class="val">41</span></div>
-          <div class="diag-row"><span>Automation health</span><div class="bar"><span style="--w:33%"></span></div><span class="val">33</span></div>
-          <div class="diag-row"><span>Security &amp; access</span><div class="bar"><span style="--w:68%"></span></div><span class="val">68</span></div>
-          <div class="diag-row"><span>Adoption</span><div class="bar"><span style="--w:52%"></span></div><span class="val">52</span></div>
-          <div class="diag-row"><span>Reporting trust</span><div class="bar"><span style="--w:27%"></span></div><span class="val">27</span></div>
+        <div class="diag-rows" id="diagRows">
+          <div class="diag-row"><span>Data quality</span><div class="bar pre"><span style="--w:41%"></span></div><span class="val">41</span></div>
+          <div class="diag-row"><span>Automation health</span><div class="bar pre"><span style="--w:33%"></span></div><span class="val">33</span></div>
+          <div class="diag-row"><span>Security &amp; access</span><div class="bar pre"><span style="--w:68%"></span></div><span class="val">68</span></div>
+          <div class="diag-row"><span>Adoption</span><div class="bar pre"><span style="--w:52%"></span></div><span class="val">52</span></div>
+          <div class="diag-row"><span>Reporting trust</span><div class="bar pre"><span style="--w:27%"></span></div><span class="val">27</span></div>
         </div>
         <div class="diag-foot">
-          <span><strong>Top finding:</strong> 19 active Workflow Rules and 6 Process Builders overlap 11 Flows on Opportunity.</span>
-          <span><strong>Recommendation:</strong> consolidate to 3 record-triggered Flows before the next release.</span>
+          <span><b>Top finding:</b> 19 active Workflow Rules and 6 Process Builders overlap 11 Flows on Opportunity.</span>
+          <span><b>Recommendation:</b> consolidate to 3 record-triggered Flows before the next release.</span>
         </div>
       </aside>
     </div>
   </section>
 
-  <section class="section" aria-labelledby="symptoms-title">
-    <div class="wrap">
-      <div class="section-head">
-        <p class="eyebrow">Sound familiar?</p>
-        <h2 id="symptoms-title">You call us when the org stops keeping up with the business.</h2>
-      </div>
-      <div class="symptoms">
-        <div class="symptom"><h3>Reports nobody trusts</h3><p>Pipeline numbers change depending on who pulls them. Leadership keeps a spreadsheet "just in case".</p></div>
-        <div class="symptom"><h3>Automation that fights itself</h3><p>Workflow Rules, Process Builders and Flows stacked over years. Nobody dares to switch one off.</p></div>
-        <div class="symptom"><h3>An admin buried in tickets</h3><p>Every new request is a fire. Roadmap work never starts because the backlog never ends.</p></div>
-      </div>
-    </div>
-  </section>
-
-  <section class="section" id="services" aria-labelledby="services-title">
-    <div class="wrap">
-      <div class="section-head">
-        <p class="eyebrow">Services</p>
-        <h2 id="services-title">Everything from first login to a fully governed org.</h2>
-        <p class="lede">Fixed-scope where it can be, retained where it should be. Every engagement ends with documentation your next admin can read.</p>
-      </div>
-      <div class="services">
-        <article class="service">
-          <span class="service-num">Implementation</span>
-          <h3>New implementations &amp; rollouts</h3>
-          <ul><li>Sales, Service and Experience Cloud from a blank org</li><li>Object model, page layouts, permission sets</li><li>Migration from HubSpot, Dynamics, Zoho or spreadsheets</li></ul>
-          <p class="fit"><strong>Best for:</strong> teams moving to Salesforce for the first time.</p>
-        </article>
-        <article class="service">
-          <span class="service-num">Rescue</span>
-          <h3>Org rescue &amp; re-architecture</h3>
-          <ul><li>Full technical audit with a prioritised fix list</li><li>Workflow and Process Builder migration to Flow</li><li>Technical debt paid down without stopping the business</li></ul>
-          <p class="fit"><strong>Best for:</strong> orgs older than three years with no single owner.</p>
-        </article>
-        <article class="service">
-          <span class="service-num">Integration</span>
-          <h3>Integrations &amp; data</h3>
-          <ul><li>ERP, billing, marketing and support tool integrations</li><li>MuleSoft, REST and platform events</li><li>Deduplication, data migration and ongoing hygiene rules</li></ul>
-          <p class="fit"><strong>Best for:</strong> Salesforce that has to agree with your finance system.</p>
-        </article>
-        <article class="service">
-          <span class="service-num">Development</span>
-          <h3>Custom development</h3>
-          <ul><li>Apex, Lightning Web Components and Flow</li><li>Agentforce agents and prompt templates</li><li>Test coverage, CI and release management</li></ul>
-          <p class="fit"><strong>Best for:</strong> processes clicks alone can't handle.</p>
-        </article>
-        <article class="service">
-          <span class="service-num">Managed</span>
-          <h3>Managed admin &amp; support</h3>
-          <ul><li>Monthly hours with a named consultant</li><li>Release readiness for each Salesforce release</li><li>User requests handled within an agreed SLA</li></ul>
-          <p class="fit"><strong>Best for:</strong> companies not ready to hire a full-time admin.</p>
-        </article>
-        <article class="service">
-          <span class="service-num">Enablement</span>
-          <h3>Training &amp; adoption</h3>
-          <ul><li>Role-based training for reps, agents and managers</li><li>Admin coaching so your team owns the org</li><li>Adoption dashboards to see what sticks</li></ul>
-          <p class="fit"><strong>Best for:</strong> orgs that are built well but underused.</p>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <section class="section forge-section" id="process" aria-labelledby="process-title">
-    <div class="wrap">
-      <div class="section-head">
-        <p class="eyebrow">How we work</p>
-        <h2 id="process-title">Five stages. No surprises in stage four.</h2>
-        <p class="lede">Every project follows the same sequence, and you see the plan and the cost before we build anything.</p>
-      </div>
-      <ol class="steps" style="list-style:none;margin:0;padding:0">
-        <li class="step"><span class="step-num">01</span><h3>Assess</h3><p>We read your org, interview the people who use it, and rank what is actually hurting.</p><span class="dur">1 to 2 weeks</span></li>
-        <li class="step"><span class="step-num">02</span><h3>Blueprint</h3><p>Data model, automation map, integration plan and a fixed quote. You approve before we touch production.</p><span class="dur">1 week</span></li>
-        <li class="step"><span class="step-num">03</span><h3>Build</h3><p>Two-week sprints in a sandbox, with a demo at the end of each one. Nothing lands unseen.</p><span class="dur">2 to 10 sprints</span></li>
-        <li class="step"><span class="step-num">04</span><h3>Launch</h3><p>Data migration rehearsal, cutover plan, training, and hypercare while your team gets comfortable.</p><span class="dur">2 weeks</span></li>
-        <li class="step"><span class="step-num">05</span><h3>Sustain</h3><p>Optional managed hours, release reviews and a quarterly roadmap so the org keeps pace.</p><span class="dur">Ongoing</span></li>
-      </ol>
-    </div>
-  </section>
-
-  <section class="section" id="clouds" aria-labelledby="clouds-title">
-    <div class="wrap">
-      <div class="section-head">
-        <p class="eyebrow">Platform coverage</p>
-        <h2 id="clouds-title">The clouds and tools we work in every week.</h2>
-      </div>
-      <div class="clouds">
-        <div class="cloud"><h3>Sales Cloud</h3><p>Lead routing, opportunity stages that match your real process, forecasting reps believe.</p></div>
-        <div class="cloud"><h3>Service Cloud</h3><p>Case routing, Omni-Channel, knowledge, entitlements and SLA-driven escalation.</p></div>
-        <div class="cloud"><h3>Marketing Cloud</h3><p>Account Engagement and Engagement journeys tied to real CRM data, not a copy of it.</p></div>
-        <div class="cloud"><h3>Experience Cloud</h3><p>Customer and partner portals with the right record access and none of the wrong.</p></div>
-        <div class="cloud"><h3>Revenue Cloud &amp; CPQ</h3><p>Product catalogues, pricing rules and quote templates that finance signs off on.</p></div>
-        <div class="cloud"><h3>Field Service</h3><p>Work orders, scheduling and the mobile app configured for technicians, not admins.</p></div>
-        <div class="cloud"><h3>Data Cloud &amp; Agentforce</h3><p>Unified profiles and AI agents grounded in your data, with guardrails you can explain.</p></div>
-        <div class="cloud"><h3>MuleSoft &amp; integrations</h3><p>Anypoint, REST APIs and platform events between Salesforce, ERP, billing and support.</p></div>
-        <div class="cloud"><h3>CRM Analytics &amp; Tableau</h3><p>Dashboards leadership opens on Monday morning instead of asking for a spreadsheet.</p></div>
-        <div class="cloud"><h3>DevOps &amp; governance</h3><p>Sandbox strategy, version control, release calendars and a change board that meets.</p></div>
-      </div>
-    </div>
-  </section>
-
-  <section class="section" id="results" aria-labelledby="results-title">
-    <div class="wrap">
-      <div class="section-head">
-        <p class="eyebrow">Results</p>
-        <h2 id="results-title">What a rescue looks like in numbers.</h2>
-      </div>
-      <div class="results">
-        <div class="result"><span class="num"><em>62%</em></span><p>fewer duplicate accounts after matching rules and a one-time merge across 48,000 records.</p></div>
-        <div class="result"><span class="num">4h <em>→</em> 20m</span><p>weekly forecast preparation once pipeline stages and reports were rebuilt.</p></div>
-        <div class="result"><span class="num"><em>93%</em></span><p>of reps logging in weekly three months after launch, up from 58%.</p></div>
-      </div>
-      <p class="example-note">Illustrative figures for the preview. Replace with metrics from your own projects before publishing.</p>
-    </div>
-  </section>
-
-  <section class="section" aria-labelledby="quotes-title">
-    <div class="wrap">
-      <div class="section-head">
-        <p class="eyebrow">Client voices</p>
-        <h2 id="quotes-title">What clients say once the org is theirs again.</h2>
-      </div>
-      <div class="quotes">
-        <div class="quote"><blockquote>[Client quote placeholder. Ask a client for two sentences about the problem they had and what changed.]</blockquote><cite>Name, Title, Company</cite></div>
-        <div class="quote"><blockquote>[Second client quote placeholder. Keep it specific: a number, a process, a before and after.]</blockquote><cite>Name, Title, Company</cite></div>
-      </div>
-    </div>
-  </section>
-
-  <section class="section" id="about" aria-labelledby="about-title">
+  <section class="section paper" id="about" style="padding-top:0">
     <div class="wrap about">
-      <div class="section-head" style="margin-bottom:0">
-        <p class="eyebrow">About Anduril</p>
-        <h2 id="about-title">Named after a sword that was broken, then reforged.</h2>
-        <p class="lede">Anduril is a founder-led Salesforce consultancy. We are small on purpose: the consultant who scopes your project is the one who builds it, and the one you can call after launch. No hand-off to a bench, no junior team behind a senior sales call.</p>
+      <div>
+        <span class="meta">About</span>
+        <p class="big rv" style="margin-top:14px">Anduril is founder-led and <em>small on purpose.</em> The consultant who scopes your project is the one who builds it, and the one you can call after launch. No hand-off to a bench, no junior team behind a senior sales call.</p>
       </div>
-      <div class="principles">
-        <div class="principle"><h3>We say no to work you don't need.</h3><p>If a standard feature does the job, we configure it. Custom code is the last resort, not the first quote.</p></div>
-        <div class="principle"><h3>We leave your admin stronger.</h3><p>Every build comes with documentation and a walkthrough. The goal is an org your team can run without us.</p></div>
-        <div class="principle"><h3>We measure adoption, not delivery.</h3><p>A feature nobody uses is a failed feature. We track logins, data entry and report views after launch.</p></div>
-        <div class="principle"><h3>Certified, and still hands-on.</h3><p>Salesforce-certified consultants who still build in the sandbox every week.</p></div>
-      </div>
+      <ul class="principles">
+        <li class="rv"><div><h3>We say no to work you don't need.</h3><p>If a standard feature does the job, we configure it. Custom code is the last resort, not the first quote.</p></div></li>
+        <li class="rv"><div><h3>We leave your admin stronger.</h3><p>Every build ships with documentation and a walkthrough. The goal is an org your team can run without us.</p></div></li>
+        <li class="rv"><div><h3>We measure adoption, not delivery.</h3><p>A feature nobody uses is a failed feature. We track logins, data entry and report views after launch.</p></div></li>
+        <li class="rv"><div><h3>Certified, and still hands-on.</h3><p>Salesforce-certified consultants who still build in the sandbox every week.</p></div></li>
+      </ul>
     </div>
   </section>
 
-  <section class="section" id="contact" aria-labelledby="contact-title">
-    <div class="wrap contact">
-      <div class="contact-aside">
-        <div class="section-head" style="margin-bottom:0">
-          <p class="eyebrow">Start here</p>
-          <h2 id="contact-title">Book a free org review.</h2>
-          <p class="lede">Thirty minutes. You share screen, we look at the org together, and you leave with three things to fix whether or not you hire us.</p>
+  <section class="contact" id="contact">
+    <div class="wrap contact-grid">
+      <div>
+        <span class="meta">Contact</span>
+        <h2 class="rv" style="margin-top:14px">Let's <em>reforge</em> it.</h2>
+        <a class="email rv" href="#contact">hello@your-domain.com</a>
+        <div class="lines">
+          <div class="line"><span class="meta">Response time</span><span>Within one business day</span></div>
+          <div class="line"><span class="meta">Working with</span><span>Companies from 20 to 2,000 Salesforce users</span></div>
+          <div class="line"><span class="meta">Next availability</span><span>Q4 2026</span></div>
         </div>
-        <div class="contact-line"><span class="lbl">Email</span><span class="val">hello@your-domain.com</span></div>
-        <div class="contact-line"><span class="lbl">Response time</span><span class="val">Within one business day</span></div>
-        <div class="contact-line"><span class="lbl">Working with</span><span class="val">Companies from 20 to 2,000 Salesforce users</span></div>
       </div>
       <form id="contactForm" novalidate>
         <div class="field-row">
@@ -493,18 +495,14 @@
           <div class="field"><label for="company">Company</label><input id="company" name="company" type="text" autocomplete="organization" required></div>
         </div>
         <div class="field"><label for="email">Work email</label><input id="email" name="email" type="email" autocomplete="email" required></div>
-        <div class="field">
-          <label for="clouds">Which Salesforce products do you use?</label>
-          <select id="clouds" name="clouds">
-            <option>Sales Cloud</option><option>Service Cloud</option><option>Sales + Service Cloud</option><option>Marketing Cloud</option><option>Several clouds</option><option>Not on Salesforce yet</option>
-          </select>
-        </div>
-        <div class="field"><label for="message">What is not working today?</label><textarea id="message" name="message" placeholder="Example: our forecast report never matches the pipeline dashboard, and we have three admins' worth of automation nobody understands."></textarea></div>
+        <div class="field"><label for="clouds">Salesforce products in use</label>
+          <select id="clouds" name="clouds"><option>Sales Cloud</option><option>Service Cloud</option><option>Sales + Service Cloud</option><option>Marketing Cloud</option><option>Several clouds</option><option>Not on Salesforce yet</option></select></div>
+        <div class="field"><label for="message">What is not working today?</label><textarea id="message" name="message" placeholder="Our forecast report never matches the pipeline dashboard, and we have three admins' worth of automation nobody understands."></textarea></div>
         <div class="form-foot">
-          <button class="btn btn-primary" type="submit">Request the review</button>
-          <small>No newsletter, no sales sequence. One reply from a consultant.</small>
+          <button class="btn btn-solid" type="submit">Request the review <svg class="arrow" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M2 12 12 2M4 2h8v8"/></svg></button>
+          <small>No newsletter, no sequence. One reply from a consultant.</small>
         </div>
-        <div class="toast" id="toast" role="status">Thanks. This preview form doesn't send anything. In Squarespace the Form Block will email you and can push the lead straight into Salesforce via Zapier or Make.</div>
+        <div class="toast" id="toast" role="status">Thanks. This preview form doesn't send anything. In Squarespace, the Form Block emails you and can push the lead into Salesforce via Zapier or Make.</div>
       </form>
     </div>
   </section>
@@ -512,20 +510,11 @@
 
 <footer class="site-footer">
   <div class="wrap">
-    <div class="foot-grid">
-      <div>
-        <a class="brand" href="#top" style="font-size:20px">ANDURIL</a>
-        <p style="margin-top:12px;color:var(--ink-2);font-size:15px;max-width:34ch">Independent Salesforce consultancy. Implementations, rescues, integrations and managed support.</p>
-      </div>
-      <div>
-        <p class="foot-title">Site</p>
-        <ul class="foot-links"><li><a href="#services">Services</a></li><li><a href="#process">How we work</a></li><li><a href="#clouds">Clouds</a></li><li><a href="#about">About</a></li><li><a href="#contact">Contact</a></li></ul>
-      </div>
-      <div>
-        <p class="foot-title">Elsewhere</p>
-        <ul class="foot-links"><li><a href="#">LinkedIn</a></li><li><a href="#">Trailblazer profile</a></li><li><a href="#">Privacy policy</a></li></ul>
-      </div>
+    <div class="foot-top">
+      <ul class="foot-links meta"><li><a href="#services">Services</a></li><li><a href="#process">Process</a></li><li><a href="#proof">Proof</a></li><li><a href="#about">About</a></li><li><a href="#contact">Contact</a></li></ul>
+      <ul class="foot-links meta"><li><a href="#">LinkedIn</a></li><li><a href="#">Trailblazer</a></li><li><a href="#">Privacy</a></li></ul>
     </div>
+    <div class="wordmark" aria-hidden="true"><span>ANDURIL</span></div>
     <div class="legal">
       <span>© 2026 Anduril. All rights reserved.</span>
       <span>Salesforce, Sales Cloud, Service Cloud, Marketing Cloud, MuleSoft, Tableau and Agentforce are trademarks of Salesforce, Inc. Anduril is an independent consultancy and is not affiliated with or endorsed by Salesforce, Inc.</span>
@@ -534,28 +523,112 @@
 </footer>
 
 <script>
-  (function () {
-    var toggle = document.getElementById('navToggle');
-    var links = document.getElementById('navLinks');
-    toggle.addEventListener('click', function () {
-      var open = links.classList.toggle('open');
-      toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+(function () {
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  /* Clock in the header: the "local time" line agency sites carry. */
+  function tick() {
+    var d = new Date();
+    document.getElementById('clock').textContent = d.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }) + ' local';
+  }
+  tick(); setInterval(tick, 30000);
+
+  /* Overlay menu */
+  var menu = document.getElementById('menu'), open = document.getElementById('menuOpen'), close = document.getElementById('menuClose');
+  function setMenu(on) {
+    menu.classList.toggle('open', on); menu.setAttribute('aria-hidden', on ? 'false' : 'true');
+    open.setAttribute('aria-expanded', on ? 'true' : 'false'); document.body.style.overflow = on ? 'hidden' : '';
+    if (on) close.focus(); else open.focus();
+  }
+  open.addEventListener('click', function () { setMenu(true); });
+  close.addEventListener('click', function () { setMenu(false); });
+  menu.addEventListener('click', function (e) { if (e.target.tagName === 'A') setMenu(false); });
+  document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && menu.classList.contains('open')) setMenu(false); });
+
+  /* Marquee: duplicate track so the loop is seamless */
+  var mq = document.getElementById('mq'); mq.innerHTML += mq.innerHTML;
+
+  /* Reveal on scroll. Only elements below the fold are pre-hidden, so the first frame is complete,
+     and a safety timer reveals everything after 2.5s regardless. */
+  var vh = window.innerHeight;
+  var rvs = Array.prototype.slice.call(document.querySelectorAll('.rv, .mask, .bar'));
+  if (!reduce && 'IntersectionObserver' in window) {
+    rvs.forEach(function (el) {
+      var r = el.getBoundingClientRect();
+      var isHeroMask = el.classList.contains('mask');
+      if (r.top > vh * 0.92 || isHeroMask || el.classList.contains('bar') || (el.dataset.delay && r.top < vh)) el.classList.add('pre');
     });
-    links.addEventListener('click', function (e) {
-      if (e.target.tagName === 'A') { links.classList.remove('open'); toggle.setAttribute('aria-expanded', 'false'); }
-    });
-    var form = document.getElementById('contactForm');
-    form.addEventListener('submit', function (e) {
-      e.preventDefault();
-      var required = form.querySelectorAll('[required]');
-      var ok = true;
-      required.forEach(function (el) {
-        var valid = el.value.trim() !== '' && (el.type !== 'email' || /.+@.+\..+/.test(el.value));
-        el.style.borderColor = valid ? '' : 'var(--ember)';
-        if (!valid) ok = false;
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (en) {
+        if (!en.isIntersecting) return;
+        var el = en.target, d = parseInt(el.dataset.delay || '0', 10);
+        setTimeout(function () { el.classList.remove('pre'); el.classList.add('in'); }, d);
+        io.unobserve(el);
       });
-      if (!ok) return;
-      document.getElementById('toast').classList.add('show');
+    }, { threshold: 0.12 });
+    rvs.forEach(function (el) { io.observe(el); });
+    setTimeout(function () { rvs.forEach(function (el) { el.classList.remove('pre'); el.classList.add('in'); }); }, 2500);
+  }
+
+  /* Counters: final value is in the markup, so the page at rest is correct; animate only when reached. */
+  var counters = document.querySelectorAll('.count');
+  if ('IntersectionObserver' in window && !reduce) {
+    var cio = new IntersectionObserver(function (entries) {
+      entries.forEach(function (en) {
+        if (!en.isIntersecting) return;
+        var el = en.target, to = parseInt(el.dataset.to, 10), t0 = null;
+        function step(ts) { if (!t0) t0 = ts; var p = Math.min(1, (ts - t0) / 1400); var e = 1 - Math.pow(1 - p, 3); el.textContent = Math.round(to * e); if (p < 1) requestAnimationFrame(step); }
+        requestAnimationFrame(step); cio.unobserve(el);
+      });
+    }, { threshold: 0.5 });
+    counters.forEach(function (c) { c.textContent = '0'; cio.observe(c); });
+  }
+
+  /* Services accordion */
+  document.querySelectorAll('.svc-btn').forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      var li = btn.parentElement, on = !li.classList.contains('open');
+      document.querySelectorAll('.svc.open').forEach(function (o) { o.classList.remove('open'); o.querySelector('.svc-btn').setAttribute('aria-expanded', 'false'); });
+      li.classList.toggle('open', on); btn.setAttribute('aria-expanded', on ? 'true' : 'false');
     });
-  })();
+  });
+
+  /* Cursor */
+  var cur = document.getElementById('cursor');
+  if (window.matchMedia('(pointer: fine)').matches && !reduce) {
+    var cx = 0, cy = 0, tx = 0, ty = 0;
+    window.addEventListener('mousemove', function (e) { tx = e.clientX; ty = e.clientY; }, { passive: true });
+    (function loop() { cx += (tx - cx) * .22; cy += (ty - cy) * .22; cur.style.transform = 'translate(' + (cx - 5) + 'px,' + (cy - 5) + 'px)'; requestAnimationFrame(loop); })();
+    cur.style.transform = 'translate(-100px,-100px)';
+    document.addEventListener('mouseover', function (e) { cur.classList.toggle('is-link', !!e.target.closest('a, button, .svc')); });
+  }
+
+  /* Hero glow: an ember-coloured light that drifts and leans toward the cursor. Canvas, cheap. */
+  var cv = document.getElementById('glow'), ctx = cv.getContext('2d');
+  var W, H, mx = .7, my = .4, gx = .7, gy = .4, t = 0;
+  function size() { W = cv.width = cv.offsetWidth * Math.min(devicePixelRatio, 1.5); H = cv.height = cv.offsetHeight * Math.min(devicePixelRatio, 1.5); }
+  size(); window.addEventListener('resize', size);
+  cv.parentElement.addEventListener('mousemove', function (e) { var r = cv.getBoundingClientRect(); mx = (e.clientX - r.left) / r.width; my = (e.clientY - r.top) / r.height; }, { passive: true });
+  function draw() {
+    t += .004; gx += (mx - gx) * .03; gy += (my - gy) * .03;
+    ctx.clearRect(0, 0, W, H);
+    var x = W * (gx + Math.sin(t) * .06), y = H * (gy + Math.cos(t * .8) * .08), r = Math.max(W, H) * .55;
+    var g = ctx.createRadialGradient(x, y, 0, x, y, r);
+    g.addColorStop(0, 'rgba(255,90,45,.34)'); g.addColorStop(.35, 'rgba(242,169,59,.10)'); g.addColorStop(1, 'rgba(14,17,22,0)');
+    ctx.fillStyle = g; ctx.fillRect(0, 0, W, H);
+    if (!reduce) requestAnimationFrame(draw);
+  }
+  draw();
+
+  /* Form */
+  var form = document.getElementById('contactForm');
+  form.addEventListener('submit', function (e) {
+    e.preventDefault(); var ok = true;
+    form.querySelectorAll('[required]').forEach(function (el) {
+      var valid = el.value.trim() !== '' && (el.type !== 'email' || /.+@.+\..+/.test(el.value));
+      el.style.borderBottomColor = valid ? '' : 'var(--ember)'; if (!valid) ok = false;
+    });
+    if (ok) document.getElementById('toast').classList.add('show');
+  });
+})();
 </script>

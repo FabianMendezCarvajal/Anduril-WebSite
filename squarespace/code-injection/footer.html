@@ -1,27 +1,74 @@
-<!-- ANDURIL · Settings → Advanced → Code Injection → FOOTER (Core plan or higher) -->
+<!-- ANDURIL · Settings → Advanced → Code Injection → FOOTER (Core plan or higher)
+     Adds: custom cursor · scroll reveals · counters · org-health bars · local clock · hero glow · new-tab external links.
+     Every effect degrades cleanly: without this script the site is fully usable. -->
 <script>
 (function () {
-  // 1. Animate the bars in the org-health card when it scrolls into view.
-  var bars = document.querySelectorAll('.and-diag .and-bar span');
-  if (bars.length && 'IntersectionObserver' in window &&
-      !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-    bars.forEach(function (b) { b.style.width = '0'; b.style.transition = 'width .9s ease-out'; });
-    var io = new IntersectionObserver(function (entries) {
-      entries.forEach(function (e) {
-        if (e.isIntersecting) {
-          e.target.querySelectorAll('.and-bar span').forEach(function (b) {
-            b.style.width = b.getAttribute('data-w');
-          });
-          io.unobserve(e.target);
-        }
-      });
-    }, { threshold: 0.3 });
-    document.querySelectorAll('.and-diag').forEach(function (d) { io.observe(d); });
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var ease = 'cubic-bezier(.22,1,.36,1)';
+
+  /* 1. Custom cursor */
+  if (window.matchMedia('(pointer: fine)').matches && !reduce) {
+    var cur = document.createElement('div'); cur.className = 'and-cursor'; cur.setAttribute('aria-hidden', 'true'); document.body.appendChild(cur);
+    var cx = -100, cy = -100, tx = -100, ty = -100;
+    window.addEventListener('mousemove', function (e) { tx = e.clientX; ty = e.clientY; }, { passive: true });
+    (function loop() { cx += (tx - cx) * .22; cy += (ty - cy) * .22; cur.style.transform = 'translate(' + (cx - 5) + 'px,' + (cy - 5) + 'px)'; requestAnimationFrame(loop); })();
+    document.addEventListener('mouseover', function (e) { cur.classList.toggle('is-link', !!e.target.closest('a, button, summary, .and-svc')); });
   }
 
-  // 2. External links open in a new tab.
-  document.querySelectorAll('a[href^="http"]').forEach(function (a) {
-    if (a.hostname !== location.hostname) { a.target = '_blank'; a.rel = 'noopener'; }
-  });
+  /* 2. Scroll reveals on headings, paragraphs, images and code-block cards below the fold */
+  var vh = window.innerHeight;
+  var targets = document.querySelectorAll('.sqs-block-html h1, .sqs-block-html h2, .sqs-block-html h3, .sqs-block-html p, .sqs-block-image, .sqs-block-quote, .and-ledger-row, .and-stage, .and-number, .and-case, .and-diag, .and-principles li');
+  if (!reduce && 'IntersectionObserver' in window) {
+    var rvs = [];
+    targets.forEach(function (el) { el.classList.add('and-rv'); if (el.getBoundingClientRect().top > vh * .92) { el.classList.add('pre'); rvs.push(el); } });
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (en) { if (en.isIntersecting) { en.target.classList.remove('pre'); en.target.classList.add('in'); io.unobserve(en.target); } });
+    }, { threshold: .12 });
+    rvs.forEach(function (el) { io.observe(el); });
+    setTimeout(function () { rvs.forEach(function (el) { el.classList.remove('pre'); el.classList.add('in'); }); }, 3000);
+  }
+
+  /* 3. Counters (.and-count with data-to) and org-health bars (.and-bar span with data-w) */
+  if ('IntersectionObserver' in window && !reduce) {
+    var cio = new IntersectionObserver(function (entries) {
+      entries.forEach(function (en) {
+        if (!en.isIntersecting) return; var el = en.target; cio.unobserve(el);
+        if (el.classList.contains('and-count')) {
+          var to = parseInt(el.dataset.to, 10), t0 = null;
+          (function step(ts) { if (!t0) t0 = ts; var p = Math.min(1, (ts - t0) / 1400), e = 1 - Math.pow(1 - p, 3); el.textContent = Math.round(to * e); if (p < 1) requestAnimationFrame(step); })(performance.now());
+        } else {
+          el.querySelectorAll('.and-bar span').forEach(function (b) { b.style.width = b.getAttribute('data-w'); });
+        }
+      });
+    }, { threshold: .5 });
+    document.querySelectorAll('.and-count').forEach(function (c) { c.textContent = '0'; cio.observe(c); });
+    document.querySelectorAll('.and-diag').forEach(function (d) {
+      d.querySelectorAll('.and-bar span').forEach(function (b) { b.style.transition = 'width 1.2s ' + ease; b.style.width = '0'; }); cio.observe(d);
+    });
+  }
+
+  /* 4. Local clock in any element with class and-clock */
+  var clocks = document.querySelectorAll('.and-clock');
+  if (clocks.length) { var tick = function () { var s = new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }) + ' local'; clocks.forEach(function (c) { c.textContent = s; }); }; tick(); setInterval(tick, 30000); }
+
+  /* 5. Hero glow canvas (inside .and-hero) */
+  var hero = document.querySelector('.and-hero');
+  if (hero) {
+    var cv = document.createElement('canvas'); cv.className = 'and-glow'; cv.setAttribute('aria-hidden', 'true'); hero.prepend(cv);
+    var ctx = cv.getContext('2d'), W, H, mx = .7, my = .4, gx = .7, gy = .4, t = 0;
+    var size = function () { W = cv.width = cv.offsetWidth * Math.min(devicePixelRatio, 1.5); H = cv.height = cv.offsetHeight * Math.min(devicePixelRatio, 1.5); };
+    size(); window.addEventListener('resize', size);
+    hero.addEventListener('mousemove', function (e) { var r = cv.getBoundingClientRect(); mx = (e.clientX - r.left) / r.width; my = (e.clientY - r.top) / r.height; }, { passive: true });
+    (function draw() {
+      t += .004; gx += (mx - gx) * .03; gy += (my - gy) * .03; ctx.clearRect(0, 0, W, H);
+      var x = W * (gx + Math.sin(t) * .06), y = H * (gy + Math.cos(t * .8) * .08), r = Math.max(W, H) * .55;
+      var g = ctx.createRadialGradient(x, y, 0, x, y, r);
+      g.addColorStop(0, 'rgba(255,90,45,.34)'); g.addColorStop(.35, 'rgba(242,169,59,.10)'); g.addColorStop(1, 'rgba(14,17,22,0)');
+      ctx.fillStyle = g; ctx.fillRect(0, 0, W, H); if (!reduce) requestAnimationFrame(draw);
+    })();
+  }
+
+  /* 6. External links open in a new tab */
+  document.querySelectorAll('a[href^="http"]').forEach(function (a) { if (a.hostname !== location.hostname) { a.target = '_blank'; a.rel = 'noopener'; } });
 })();
 </script>

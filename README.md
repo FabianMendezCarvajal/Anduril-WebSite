@@ -8,6 +8,7 @@ preview/index.html        Full design preview (open in a browser). Squarespace t
 squarespace/
   01-SETUP-GUIDE.md       Step-by-step: plan, palette, fonts, header, pages, form, footer, launch checklist
   02-SITE-MAP.md          Every page and section, mapped to Squarespace 7.1 section and block types
+  03-DESIGN-REFERENCES.md What was borrowed from current Awwwards winners, with sources
   copy/                   Paste-ready text for Home, Services, How we work, Clouds, About, Contact
   custom-css.css          Design → Custom CSS (all plans)
   code-injection/         Settings → Advanced → Code Injection (Core plan or higher)
@@ -18,8 +19,9 @@ Start with `squarespace/01-SETUP-GUIDE.md`.
 
 ## Design in one paragraph
 
-Named after the sword that was broken and reforged, so the site's thesis is *Salesforce, reforged*: orgs that grew
-by accident, rebuilt into systems teams trust. Cool steel ground, ink navy type, a single ember accent, and one
-brass-to-ember gradient rule that recurs as the "heat" mark. Bricolage Grotesque for display, IBM Plex Sans for
-body, IBM Plex Mono for labels. One dark "forge" section for the process. No stock photography in the hero: an
-example org-health review card does the job instead.
+Art-directed after the current run of Awwwards Site of the Day agency sites: typography as the hero, two
+colours and one accent, choreographed motion. Forge black ground, steel-white counter sections, a single ember
+accent. "Salesforce," set solid and "reforged." outlined at up to 212 px in Bricolage Grotesque, a marquee of
+the clouds, services as a hover list that inverts and expands, the five-stage process as a sticky card stack,
+counting numbers, a full-screen ember overlay menu, a custom cursor, film grain, and a giant wordmark footer.
+No stock photography anywhere. Every effect degrades to a still, complete page without JavaScript.

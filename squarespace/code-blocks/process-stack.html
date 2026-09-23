@@ -1,0 +1,21 @@
+<!-- ANDURIL · Code Block: Process sticky stack (home section 5, How we work page). Type: HTML. DARK section.
+     Cards stick and stack as you scroll. If your template's section wrapper clips sticky elements, the cards
+     simply render as a normal vertical list, which still reads well. -->
+<style>
+  .and-stack { display:grid; font-family:"IBM Plex Sans",Arial,sans-serif; }
+  .and-stage { position:sticky; top:84px; background:#13171D; border:1px solid #333B47; border-radius:18px; padding:clamp(24px,3.5vw,44px); display:grid; grid-template-columns:120px 1fr 1fr; gap:28px; align-items:start; margin-bottom:18px; box-shadow:0 -20px 60px -30px rgba(0,0,0,.8); color:#ECEFF3; }
+  .and-stage:nth-child(2){top:100px} .and-stage:nth-child(3){top:116px} .and-stage:nth-child(4){top:132px} .and-stage:nth-child(5){top:148px}
+  .and-stage .and-num { font-family:"Bricolage Grotesque","Helvetica Neue",Arial,sans-serif; font-weight:300; font-size:clamp(48px,6vw,96px); line-height:.9; letter-spacing:-.04em; color:#FF5A2D; }
+  .and-stage h3 { font-family:"Bricolage Grotesque","Helvetica Neue",Arial,sans-serif; font-size:clamp(30px,3.6vw,52px); font-weight:700; letter-spacing:-.04em; line-height:1; margin:0; color:#ECEFF3; }
+  .and-stage .and-dur { display:block; margin-top:14px; font-family:"IBM Plex Mono",Menlo,monospace; font-size:12px; letter-spacing:.12em; text-transform:uppercase; color:#7F8996; }
+  .and-stage p { color:#B9C0CB; font-size:16px; max-width:42ch; line-height:1.55; margin:0; }
+  .and-stage .and-you { margin-top:16px; font-size:15px; color:#7F8996; } .and-stage .and-you b { color:#ECEFF3; font-weight:500; }
+  @media (max-width:860px) { .and-stage { grid-template-columns:1fr; gap:14px; top:76px !important; } }
+</style>
+<div class="and-stack">
+  <article class="and-stage"><span class="and-num">01</span><div><h3>Assess</h3><span class="and-dur">1 to 2 weeks</span></div><div><p>We read your org the way an auditor reads accounts: every object, every automation, every report opened in the last 90 days. Then we interview the people who use it.</p><p class="and-you"><b>You get:</b> an org health report ranked by business impact.</p></div></article>
+  <article class="and-stage"><span class="and-num">02</span><div><h3>Blueprint</h3><span class="and-dur">1 week</span></div><div><p>Findings become a design: data model changes, an automation map, an integration plan and a release sequence. Every item has a cost and a reason.</p><p class="and-you"><b>You get:</b> a fixed-price quote you approve before we build.</p></div></article>
+  <article class="and-stage"><span class="and-num">03</span><div><h3>Build</h3><span class="and-dur">2 to 10 sprints</span></div><div><p>Two-week sprints in a sandbox. Each ends with a demo you and your admin attend, and a written change log. Nothing lands in production unseen.</p><p class="and-you"><b>You get:</b> working features every two weeks, documented as we go.</p></div></article>
+  <article class="and-stage"><span class="and-num">04</span><div><h3>Launch</h3><span class="and-dur">2 weeks</span></div><div><p>Migration rehearsed before the real cutover. Training by role, then hypercare while the first real reports run.</p><p class="and-you"><b>You get:</b> a cutover plan, recordings, and a consultant on call.</p></div></article>
+  <article class="and-stage"><span class="and-num">05</span><div><h3>Sustain</h3><span class="and-dur">Ongoing, optional</span></div><div><p>Managed hours, a review before each Salesforce release, and a quarterly roadmap so the org keeps pace with the business instead of drifting again.</p><p class="and-you"><b>You get:</b> a named consultant, an SLA, and a health score that moves.</p></div></article>
+</div>
