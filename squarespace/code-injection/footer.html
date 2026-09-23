@@ -1,0 +1,27 @@
+<!-- ANDURIL · Settings → Advanced → Code Injection → FOOTER (Core plan or higher) -->
+<script>
+(function () {
+  // 1. Animate the bars in the org-health card when it scrolls into view.
+  var bars = document.querySelectorAll('.and-diag .and-bar span');
+  if (bars.length && 'IntersectionObserver' in window &&
+      !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    bars.forEach(function (b) { b.style.width = '0'; b.style.transition = 'width .9s ease-out'; });
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (e.isIntersecting) {
+          e.target.querySelectorAll('.and-bar span').forEach(function (b) {
+            b.style.width = b.getAttribute('data-w');
+          });
+          io.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.3 });
+    document.querySelectorAll('.and-diag').forEach(function (d) { io.observe(d); });
+  }
+
+  // 2. External links open in a new tab.
+  document.querySelectorAll('a[href^="http"]').forEach(function (a) {
+    if (a.hostname !== location.hostname) { a.target = '_blank'; a.rel = 'noopener'; }
+  });
+})();
+</script>

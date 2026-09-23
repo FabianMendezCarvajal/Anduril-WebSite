@@ -1,0 +1,32 @@
+<!-- ANDURIL · Code Block: Org health card (hero, right column). Type: HTML. Works on any plan. -->
+<style>
+  .and-diag { background:#0B1422; color:#E8EDF3; border:1px solid #22314A; border-radius:10px; padding:26px;
+    box-shadow:0 24px 48px -24px rgba(16,28,46,.35); display:grid; gap:18px; font-family:"IBM Plex Sans",Arial,sans-serif; }
+  .and-diag-head { display:flex; justify-content:space-between; gap:12px; font-family:"IBM Plex Mono",Menlo,monospace;
+    font-size:12px; letter-spacing:.1em; text-transform:uppercase; color:#94A3B8; }
+  .and-diag-head .and-tag { color:#F2A93B; }
+  .and-diag-title { font-family:"Bricolage Grotesque","Helvetica Neue",Arial,sans-serif; font-size:22px; font-weight:700; line-height:1.15; margin:0; color:#E8EDF3; }
+  .and-diag-rows { display:grid; gap:14px; }
+  .and-diag-row { display:grid; grid-template-columns:150px 1fr 56px; gap:14px; align-items:center; font-size:14px; }
+  .and-diag-row .and-val { font-family:"IBM Plex Mono",Menlo,monospace; font-variant-numeric:tabular-nums; text-align:right; }
+  .and-bar { height:8px; background:#14213A; border-radius:4px; overflow:hidden; }
+  .and-bar span { display:block; height:100%; border-radius:4px; background:linear-gradient(90deg,#E4572E,#F2A93B); }
+  .and-diag-foot { border-top:1px solid #22314A; padding-top:14px; font-size:13px; color:#94A3B8; display:grid; gap:4px; }
+  .and-diag-foot strong { color:#E8EDF3; font-weight:500; }
+  @media (max-width:480px) { .and-diag-row { grid-template-columns:110px 1fr 48px; } }
+</style>
+<aside class="and-diag" aria-label="Example org health review">
+  <div class="and-diag-head"><span>Org health review</span><span class="and-tag">Example output</span></div>
+  <p class="and-diag-title">Mid-market Sales Cloud org, 84 users</p>
+  <div class="and-diag-rows">
+    <div class="and-diag-row"><span>Data quality</span><div class="and-bar"><span data-w="41%" style="width:41%"></span></div><span class="and-val">41</span></div>
+    <div class="and-diag-row"><span>Automation health</span><div class="and-bar"><span data-w="33%" style="width:33%"></span></div><span class="and-val">33</span></div>
+    <div class="and-diag-row"><span>Security &amp; access</span><div class="and-bar"><span data-w="68%" style="width:68%"></span></div><span class="and-val">68</span></div>
+    <div class="and-diag-row"><span>Adoption</span><div class="and-bar"><span data-w="52%" style="width:52%"></span></div><span class="and-val">52</span></div>
+    <div class="and-diag-row"><span>Reporting trust</span><div class="and-bar"><span data-w="27%" style="width:27%"></span></div><span class="and-val">27</span></div>
+  </div>
+  <div class="and-diag-foot">
+    <span><strong>Top finding:</strong> 19 active Workflow Rules and 6 Process Builders overlap 11 Flows on Opportunity.</span>
+    <span><strong>Recommendation:</strong> consolidate to 3 record-triggered Flows before the next release.</span>
+  </div>
+</aside>
