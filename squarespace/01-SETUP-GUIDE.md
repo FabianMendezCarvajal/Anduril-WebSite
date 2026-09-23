@@ -58,7 +58,9 @@ Design → Fonts → **Global text styles**.
 Sizes (Design → Fonts → Assign styles): Heading 1 ≈ 8 rem desktop, Heading 2 ≈ 4.5 rem, Heading 3 ≈ 1.6 rem,
 Paragraph 1.06 rem, line height 1.6. Heading letter-spacing `-0.04em`. Custom CSS refines these.
 
-Section headings in the copy carry a chapter number (01 to 07) in the eyebrow. Put it on its own line in the Monospace label; it encodes the reading order of the home page.
+Section headings in the copy carry a chapter number (01 to 08). Every numbered section starts with the same
+`code-blocks/chapter-head.html` block: hairline on top, the number and label on one baseline at left, the heading
+at right. Copy the block, change the number, the label and the heading, and add the `light` class on paper sections.
 
 ## Step 4: Buttons and spacing
 
@@ -87,8 +89,8 @@ Skip on lower plans; fonts still load through the `@import` at the top of the Cu
 Edit → Header.
 
 1. Site title **ANDURIL**. The CSS adds the ember diamond before it.
-2. Navigation order: Services, Process, Proof, About, Contact (these are the pages from Step 8; Proof is an
-   anchor link to the home page's proof section: `/#proof`).
+2. Navigation order: Services, Process, Proof, Clients, About, Contact (pages from Step 8; Proof and Clients
+   are anchor links to the home page sections: `/#proof`, `/#clients`).
 3. Elements → **Button** on: text *Book a free org review*, link to Contact, style Primary. It appears inside the overlay menu.
 4. Style: **transparent** background, fixed position on, no blur. The CSS sets `mix-blend-mode: difference` so
    the header inverts over dark and light sections.
@@ -107,7 +109,20 @@ Follow `02-SITE-MAP.md`. Recipe for every section:
 
 Set Home as the homepage (Pages → hover Home → gear → *Set as homepage*).
 
-## Step 9: Contact form
+## Step 9: Client logos
+
+The clients grid (`code-blocks/clients-grid.html`) ships with invented placeholder wordmarks. To show real clients:
+
+1. Get a horizontal SVG (or transparent PNG, at least 600 px wide) and written permission from each client.
+2. Design → Custom CSS → **Manage Custom Files** → upload the logo → click it to copy its URL.
+3. In the code block, replace `<span class="and-logo-text">Northwind</span>` with `<img src="PASTE-URL" alt="Client name">`.
+4. Edit the `and-tag` text to the client's industry and the cloud you worked in.
+5. Delete the "Placeholder wordmarks" note.
+
+Native alternative without code: Add section → **Gallery** → *Grid: Simple*, 4 columns, upload the logos, and add
+`.gallery-grid-image img { filter: grayscale(1); opacity: .62; }` to the Custom CSS. You lose the hover tags.
+
+## Step 10: Contact form
 
 Contact page, right column, **Form Block**:
 
@@ -125,7 +140,7 @@ consultant, not a sequence, will reply within one business day.*
 **Leads into Salesforce:** Form → Storage → **Zapier** (or Make). Trigger "Squarespace: New Form Submission" →
 action "Salesforce: Create Lead". Map Company, Name, Email; put the select answer in a custom Lead field.
 
-## Step 10: Footer
+## Step 11: Footer
 
 Edit → Footer, Darkest 1 theme, two sections:
 
@@ -133,12 +148,12 @@ Edit → Footer, Darkest 1 theme, two sections:
 2. A full-width section, padding none, with **Code Block** `code-blocks/footer-wordmark.html`, then a small Text
    block with the copyright and the Salesforce trademark disclaimer from `copy/home.md`. Keep the disclaimer.
 
-## Step 11: SEO and launch checklist
+## Step 12: SEO and launch checklist
 
 * Settings → SEO → title format `%p | Anduril · Salesforce consultancy`; description from `copy/home.md`.
 * Each page: Page settings → SEO → paste its meta description.
 * Favicon: a 512×512 copper diamond on forge black. Social sharing image 1200×630: "Salesforce, *reforged.*" on forge black, the second word in the serif italic.
-* Replace every placeholder: `hello@your-domain.com`, the three case cards, the three numbers, the availability line.
+* Replace every placeholder: `hello@your-domain.com`, the three case cards, the three numbers, the eight client logos, the availability line.
 * Test on a phone: overlay menu opens and closes, form submits, code-block grids stack, the marquee scrolls.
 * Check the header over the light sections: it should invert to dark text automatically.
 * Settings → Site availability → **Public**.

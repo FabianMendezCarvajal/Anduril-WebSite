@@ -85,9 +85,26 @@ A Salesforce org is never finished. It is either [maintained on purpose] or it d
 
 ---
 
+## Clients
+
+*Eyebrow:* 05 / Clients
+
+*H2:* Teams that stopped *routing around* Salesforce.
+
+*Lede:* Distribution, SaaS, professional services, manufacturing and non-profit. From 20 to 2,000 users.
+
+*Code Block:* `code-blocks/clients-grid.html`. Eight cells. Each holds a client logo (greyscale, colour on hover) and a hover tag "Industry · Cloud". The placeholder wordmarks are invented names; swap every one for a real logo or hide the section until you have permission to show at least six.
+
+*Small note under the grid (delete once real logos are in):* Placeholder wordmarks.
+*Button (secondary, right):* See the work → `#proof`
+
+Ask each client for a horizontal SVG logo and written permission to show it. If a client cannot be named, use the industry as the cell text instead ("Industrial distributor") in the serif italic style.
+
+---
+
 ## Review (light section)
 
-*Eyebrow:* 05 / The free review
+*Eyebrow:* 06 / The free review
 
 *H2:* Thirty minutes. Three things to fix. *Yours either way.*
 
@@ -101,9 +118,11 @@ Right column: `code-blocks/org-health-card.html`
 
 ## About (light section)
 
-*Eyebrow:* 06 / About
+*Eyebrow:* 07 / About
 
-*Big paragraph (Heading 3 style, whole paragraph italic so it renders in the serif; bracketed words in Accent):* Anduril is founder-led and [small on purpose.] The consultant who scopes your project is the one who builds it, and the one you can call after launch. No hand-off to a bench, no junior team behind a senior sales call.
+*H2:* Founder-led, and *small on purpose.*
+
+*Big paragraph (Heading 3 style, whole paragraph italic so it renders in the serif; bracketed words in Accent):* The consultant who scopes your project is the one who builds it, and [the one you can call after launch.] No hand-off to a bench, no junior team behind a senior sales call.
 
 Right column: `code-blocks/principles.html`
 
@@ -111,7 +130,7 @@ Right column: `code-blocks/principles.html`
 
 ## Contact
 
-*Eyebrow:* 07 / Contact
+*Eyebrow:* 08 / Contact
 
 *H2 (the bracketed word italic, which renders serif and copper):* Let's [reforge] it.
 
@@ -129,7 +148,7 @@ Line under the submit button: No newsletter, no sequence. One reply from a consu
 
 ## Footer
 
-Row: Services · Process · Proof · About · Contact (left) — LinkedIn · Trailblazer · Privacy (right), Monospace style.
+Row: Services · Process · Proof · Clients · About · Contact (left) — LinkedIn · Trailblazer · Privacy (right), Monospace style.
 Then `code-blocks/footer-wordmark.html`.
 
 Legal line:

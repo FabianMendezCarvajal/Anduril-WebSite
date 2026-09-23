@@ -132,14 +132,17 @@
 
   /* ---------- Sections ---------- */
   .section { padding-block: clamp(96px, 13vw, 184px); }
-  .sec-head { display: grid; grid-template-columns: 220px 1fr; gap: 24px; align-items: start; margin-bottom: clamp(40px, 6vw, 88px); }
-  .sec-head h2 { font-size: clamp(36px, 5vw, 78px); font-weight: 500; letter-spacing: -.04em; line-height: .98; max-width: 15ch; }
-  .sec-head .meta { display: grid; gap: 6px; }
-  .sec-head .meta .ch { font-family: var(--serif); font-style: italic; font-size: 22px; letter-spacing: 0; text-transform: none; color: var(--ink-2); }
-  .paper .sec-head .meta .ch { color: var(--paper-ink-2); }
-  .sec-head .meta { padding-top: 12px; }
-  .sec-lede { font-size: clamp(17px, 1.35vw, 20px); color: var(--ink-2); max-width: 52ch; margin-top: 22px; line-height: 1.5; }
-  @media (max-width: 760px) { .sec-head { grid-template-columns: 1fr; gap: 12px; } }
+  /* Chapter header: one hairline, the number and label on one baseline at left, the heading at right.
+     Identical on every section so the eye learns it once. */
+  .sec-head { display: grid; grid-template-columns: minmax(200px, 1fr) minmax(0, 3fr); gap: 24px clamp(24px, 4vw, 64px); align-items: start; margin-bottom: clamp(40px, 6vw, 88px); padding-top: 26px; border-top: 1px solid var(--line); }
+  .paper .sec-head { border-top-color: var(--paper-line); }
+  .sec-head h2 { font-size: clamp(36px, 5vw, 78px); font-weight: 500; letter-spacing: -.04em; line-height: .98; max-width: 16ch; margin-top: -.08em; }
+  .sec-head .meta { display: flex; align-items: baseline; gap: 14px; padding-top: 10px; white-space: nowrap; }
+  .sec-head .meta .ch { font-family: var(--serif); font-style: italic; font-size: 26px; line-height: 1; letter-spacing: 0; text-transform: none; color: var(--ember); }
+  .sec-head .meta .ch::after { content: ""; display: inline-block; width: 28px; height: 1px; background: currentColor; opacity: .5; vertical-align: .32em; margin-left: 14px; }
+  .sec-head .col { display: grid; gap: 22px; }
+  .sec-lede { font-size: clamp(17px, 1.35vw, 20px); color: var(--ink-2); max-width: 52ch; line-height: 1.5; }
+  @media (max-width: 760px) { .sec-head { grid-template-columns: 1fr; gap: 18px; } .sec-head .meta { padding-top: 0; } .sec-head h2 { margin-top: 0; } }
 
   /* Manifesto: big statement with highlighted words */
   .manifesto p { font-family: var(--serif); font-weight: 400; font-size: clamp(30px, 4vw, 62px); line-height: 1.12; letter-spacing: -.015em; max-width: 26ch; }
@@ -226,6 +229,22 @@
   @media (max-width: 900px) { .cases { grid-template-columns: 1fr; } }
   .note { font-family: var(--mono); font-size: 12px; color: var(--muted); margin-top: 22px; letter-spacing: .04em; }
 
+  /* ---------- Clients: hairline grid of logo slots ---------- */
+  .clients { display: grid; grid-template-columns: repeat(4, 1fr); border: 1px solid var(--line); border-radius: 20px; overflow: hidden; }
+  .client { aspect-ratio: 5 / 3; display: grid; place-items: center; padding: 24px; border-right: 1px solid var(--line); border-bottom: 1px solid var(--line); position: relative; transition: background-color .35s var(--ease); }
+  .client:nth-child(4n) { border-right: 0; }
+  .client:nth-last-child(-n+4) { border-bottom: 0; }
+  .client:hover { background: var(--ground-2); }
+  .client img, .client svg { max-width: 68%; max-height: 44%; filter: grayscale(1); opacity: .62; transition: opacity .35s, filter .35s; }
+  .client:hover img, .client:hover svg { opacity: 1; filter: none; }
+  .client .logo-text { font-family: var(--display); font-weight: 500; font-size: clamp(18px, 1.6vw, 24px); letter-spacing: .04em; text-transform: uppercase; color: var(--ink-2); opacity: .62; transition: opacity .35s; }
+  .client .logo-text.serif { font-family: var(--serif); font-style: italic; text-transform: none; font-size: clamp(22px, 2vw, 30px); letter-spacing: 0; }
+  .client:hover .logo-text { opacity: 1; }
+  .client .tag { position: absolute; left: 20px; bottom: 16px; font-family: var(--mono); font-size: 10.5px; letter-spacing: .14em; text-transform: uppercase; color: var(--muted); opacity: 0; transform: translateY(6px); transition: opacity .35s, transform .35s var(--ease); }
+  .client:hover .tag { opacity: 1; transform: none; }
+  @media (max-width: 900px) { .clients { grid-template-columns: repeat(2, 1fr); } .client { aspect-ratio: auto; min-height: 150px; grid-template-rows: 1fr auto; gap: 12px; padding: 26px 14px 16px; } .client:nth-child(4n) { border-right: 1px solid var(--line); } .client:nth-child(2n) { border-right: 0; } .client:nth-last-child(-n+4) { border-bottom: 1px solid var(--line); } .client:nth-last-child(-n+2) { border-bottom: 0; } .client .tag { position: static; text-align: center; opacity: 1; transform: none; } .client .logo-text { font-size: 17px; } .client .logo-text.serif { font-size: 22px; } }
+  .clients-foot { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px 32px; margin-top: 22px; }
+
   /* ---------- Diagnostic (the assessment) ---------- */
   .assess { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: clamp(32px, 6vw, 96px); align-items: center; }
   .diag { background: #FFFFFF; color: var(--paper-ink); border: 1px solid var(--paper-line); border-radius: 20px; padding: clamp(22px, 3vw, 34px); display: grid; gap: 18px; }
@@ -257,7 +276,7 @@
   /* ---------- Contact / footer ---------- */
   .contact { padding-block: clamp(88px, 12vw, 160px) 0; }
   .contact-grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: clamp(32px, 6vw, 96px); align-items: start; }
-  .contact h2 { font-size: clamp(44px, 7vw, 108px); font-weight: 500; letter-spacing: -.05em; line-height: .94; }
+  .contact .sec-head h2 { font-size: clamp(44px, 6.4vw, 100px); letter-spacing: -.05em; line-height: .94; }
   .contact h2 em { font-family: var(--serif); font-style: italic; font-weight: 400; letter-spacing: -.01em; color: var(--ember); }
   .contact .email { display: inline-block; margin-top: 32px; font-family: var(--serif); font-style: italic; font-weight: 400; font-size: clamp(24px, 2.8vw, 40px); text-decoration: none; border-bottom: 1px solid var(--ember); padding-bottom: 4px; transition: color .3s; }
   .contact .email:hover { color: var(--ember); }
@@ -315,8 +334,9 @@
     <li><a href="#services"><span class="index">01</span>Services</a></li>
     <li><a href="#process"><span class="index">02</span>Process</a></li>
     <li><a href="#proof"><span class="index">03</span>Proof</a></li>
-    <li><a href="#about"><span class="index">04</span>About</a></li>
-    <li><a href="#contact"><span class="index">05</span>Contact</a></li>
+    <li><a href="#clients"><span class="index">04</span>Clients</a></li>
+    <li><a href="#about"><span class="index">05</span>About</a></li>
+    <li><a href="#contact"><span class="index">06</span>Contact</a></li>
   </ul>
   <div class="menu-foot"><span>hello@your-domain.com</span><span>Independent · Not affiliated with Salesforce, Inc.</span></div>
 </nav>
@@ -374,7 +394,7 @@
     <div class="wrap">
       <div class="sec-head">
         <span class="meta"><span class="ch">02</span>Services</span>
-        <div>
+        <div class="col">
           <h2 class="rv">From first login to a <i>fully governed</i> org.</h2>
           <p class="sec-lede rv">Six ways to work with us. Fixed-scope where it can be, retained where it should be. Open a row.</p>
         </div>
@@ -412,7 +432,7 @@
     <div class="wrap">
       <div class="sec-head">
         <span class="meta"><span class="ch">03</span>Process</span>
-        <div>
+        <div class="col">
           <h2 class="rv">Five stages. <i>No surprises</i> in stage four.</h2>
           <p class="sec-lede rv">You see the plan and the fixed cost before we touch production, and a working demo at the end of every sprint.</p>
         </div>
@@ -447,11 +467,41 @@
     </div>
   </section>
 
+  <section class="section" id="clients" style="padding-top:0">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="meta"><span class="ch">05</span>Clients</span>
+        <div class="col">
+          <h2 class="rv">Teams that stopped <i>routing around</i> Salesforce.</h2>
+          <p class="sec-lede rv">Distribution, SaaS, professional services, manufacturing and non-profit. From 20 to 2,000 users.</p>
+        </div>
+      </div>
+      <div class="clients rv" aria-label="Client logos">
+        <div class="client"><span class="logo-text">Northwind</span><span class="tag">Distribution · Sales Cloud</span></div>
+        <div class="client"><span class="logo-text serif">Halberd &amp; Co.</span><span class="tag">Professional services · Sales + Service</span></div>
+        <div class="client"><span class="logo-text">Meridian</span><span class="tag">SaaS · Service Cloud</span></div>
+        <div class="client"><span class="logo-text serif">Vellum</span><span class="tag">Publishing · Marketing Cloud</span></div>
+        <div class="client"><span class="logo-text">Foundry Nine</span><span class="tag">Manufacturing · Field Service</span></div>
+        <div class="client"><span class="logo-text serif">Atlas Health</span><span class="tag">Healthcare · Experience Cloud</span></div>
+        <div class="client"><span class="logo-text">Kestrel</span><span class="tag">Logistics · Revenue Cloud</span></div>
+        <div class="client"><span class="logo-text serif">Lantern Fund</span><span class="tag">Non-profit · Nonprofit Cloud</span></div>
+      </div>
+      <div class="clients-foot">
+        <span class="note" style="margin:0">Placeholder wordmarks. Replace each cell with the client's SVG logo; they render greyscale and light up on hover.</span>
+        <a class="btn" href="#proof" style="padding:12px 20px;font-size:10.5px">See the work</a>
+      </div>
+    </div>
+  </section>
+
   <section class="section paper sheet" id="assessment">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="meta"><span class="ch">06</span>The free review</span>
+        <h2 class="rv">Thirty minutes. Three things to fix. <i>Yours either way.</i></h2>
+      </div>
+    </div>
     <div class="wrap assess">
       <div>
-        <span class="meta"><span class="ch">05</span>The free review</span>
-        <h2 class="rv" style="font-size:clamp(34px,4.6vw,68px);font-weight:500;letter-spacing:-.04em;line-height:1;margin-top:18px">Thirty minutes. Three things to fix. <i>Yours either way.</i></h2>
         <p class="sec-lede rv">You share screen, we look at the org together across five dimensions, and you leave with a one-page summary whether or not you hire us.</p>
         <p class="rv" style="margin-top:28px"><a class="btn" href="#contact">Book the review <svg class="arrow" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M2 12 12 2M4 2h8v8"/></svg></a></p>
       </div>
@@ -474,10 +524,15 @@
   </section>
 
   <section class="section paper sheet-end" id="about" style="padding-top:0">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="meta"><span class="ch">07</span>About</span>
+        <h2 class="rv">Founder-led, and <i>small on purpose.</i></h2>
+      </div>
+    </div>
     <div class="wrap about">
       <div>
-        <span class="meta"><span class="ch">06</span>About</span>
-        <p class="big rv" style="margin-top:18px">Anduril is founder-led and <em>small on purpose.</em> The consultant who scopes your project is the one who builds it, and the one you can call after launch. No hand-off to a bench, no junior team behind a senior sales call.</p>
+        <p class="big rv">The consultant who scopes your project is the one who builds it, and <em>the one you can call after launch.</em> No hand-off to a bench, no junior team behind a senior sales call.</p>
       </div>
       <ul class="principles">
         <li class="rv"><div><h3>We say no to work you don't need.</h3><p>If a standard feature does the job, we configure it. Custom code is the last resort, not the first quote.</p></div></li>
@@ -489,11 +544,15 @@
   </section>
 
   <section class="contact" id="contact" style="padding-top:clamp(120px,16vw,220px)">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="meta"><span class="ch">08</span>Contact</span>
+        <h2 class="rv">Let's <em>reforge</em> it.</h2>
+      </div>
+    </div>
     <div class="wrap contact-grid">
       <div>
-        <span class="meta"><span class="ch">07</span>Contact</span>
-        <h2 class="rv" style="margin-top:18px">Let's <em>reforge</em> it.</h2>
-        <a class="email rv" href="#contact">hello@your-domain.com</a>
+        <a class="email rv" href="#contact" style="margin-top:0">hello@your-domain.com</a>
         <div class="lines">
           <div class="line"><span class="meta">Response time</span><span>Within one business day</span></div>
           <div class="line"><span class="meta">Working with</span><span>Companies from 20 to 2,000 Salesforce users</span></div>
@@ -522,7 +581,7 @@
 <footer class="site-footer">
   <div class="wrap">
     <div class="foot-top">
-      <ul class="foot-links meta"><li><a href="#services">Services</a></li><li><a href="#process">Process</a></li><li><a href="#proof">Proof</a></li><li><a href="#about">About</a></li><li><a href="#contact">Contact</a></li></ul>
+      <ul class="foot-links meta"><li><a href="#services">Services</a></li><li><a href="#process">Process</a></li><li><a href="#proof">Proof</a></li><li><a href="#clients">Clients</a></li><li><a href="#about">About</a></li><li><a href="#contact">Contact</a></li></ul>
       <ul class="foot-links meta"><li><a href="#">LinkedIn</a></li><li><a href="#">Trailblazer</a></li><li><a href="#">Privacy</a></li></ul>
     </div>
     <div class="wordmark" aria-hidden="true"><span>ANDURIL</span></div>

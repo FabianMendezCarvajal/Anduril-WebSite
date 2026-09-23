@@ -22,7 +22,7 @@ Optional: a Calendly or similar booking link as a secondary button: *Or pick a t
 
 ## Right column: Form block
 
-Fields and options are in `01-SETUP-GUIDE.md`, Step 9.
+Fields and options are in `01-SETUP-GUIDE.md`, Step 10.
 
 Submit button: **Request the review**
 Line under the button (small): No newsletter, no sales sequence. One reply from a consultant.
