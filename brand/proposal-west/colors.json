@@ -1,0 +1,255 @@
+{
+  "palette": [
+    {
+      "name": "Ivory",
+      "token": "ivory",
+      "hex": "#F4EFE4",
+      "rgb": [
+        244,
+        239,
+        228
+      ],
+      "cmyk": [
+        0,
+        2,
+        7,
+        4
+      ],
+      "use": "The ground. Paper, screens, print stock."
+    },
+    {
+      "name": "Vellum",
+      "token": "vellum",
+      "hex": "#E9E2D0",
+      "rgb": [
+        233,
+        226,
+        208
+      ],
+      "cmyk": [
+        0,
+        3,
+        11,
+        9
+      ],
+      "use": "Panels and cards on Ivory."
+    },
+    {
+      "name": "Rule",
+      "token": "rule",
+      "hex": "#D3CAB4",
+      "rgb": [
+        211,
+        202,
+        180
+      ],
+      "cmyk": [
+        0,
+        4,
+        15,
+        17
+      ],
+      "use": "Hairlines, ticks, contour lines on Ivory."
+    },
+    {
+      "name": "Pine",
+      "token": "pine",
+      "hex": "#143D31",
+      "rgb": [
+        20,
+        61,
+        49
+      ],
+      "cmyk": [
+        67,
+        0,
+        20,
+        76
+      ],
+      "use": "The ink. Text, the rose, the wordmark; also the dark ground."
+    },
+    {
+      "name": "Pine Deep",
+      "token": "pinedeep",
+      "hex": "#0E2B23",
+      "rgb": [
+        14,
+        43,
+        35
+      ],
+      "cmyk": [
+        67,
+        0,
+        19,
+        83
+      ],
+      "use": "Footers and depth on Pine."
+    },
+    {
+      "name": "Moss",
+      "token": "moss",
+      "hex": "#3F6D58",
+      "rgb": [
+        63,
+        109,
+        88
+      ],
+      "cmyk": [
+        42,
+        0,
+        19,
+        57
+      ],
+      "use": "Secondary text and contours."
+    },
+    {
+      "name": "Sage",
+      "token": "sage",
+      "hex": "#6E8A7D",
+      "rgb": [
+        110,
+        138,
+        125
+      ],
+      "cmyk": [
+        20,
+        0,
+        9,
+        46
+      ],
+      "use": "Labels on Ivory; large text only."
+    },
+    {
+      "name": "Gilt",
+      "token": "gilt",
+      "hex": "#C9A14B",
+      "rgb": [
+        201,
+        161,
+        75
+      ],
+      "cmyk": [
+        0,
+        20,
+        63,
+        21
+      ],
+      "use": "The flame of the West: the rose\u2019s west point, seal dots, one accent per surface. Never body text."
+    },
+    {
+      "name": "Gilt Deep",
+      "token": "giltdeep",
+      "hex": "#7A5D18",
+      "rgb": [
+        122,
+        93,
+        24
+      ],
+      "cmyk": [
+        0,
+        24,
+        80,
+        52
+      ],
+      "use": "Gilt as text on Ivory: the tagline, a highlighted word."
+    },
+    {
+      "name": "Ivory ink",
+      "token": "p_ink",
+      "hex": "#F4EFE4",
+      "rgb": [
+        244,
+        239,
+        228
+      ],
+      "cmyk": [
+        0,
+        2,
+        7,
+        4
+      ],
+      "use": "Text and the rose on Pine."
+    },
+    {
+      "name": "Ivory 2",
+      "token": "p_ink2",
+      "hex": "#BFD0C6",
+      "rgb": [
+        191,
+        208,
+        198
+      ],
+      "cmyk": [
+        8,
+        0,
+        5,
+        18
+      ],
+      "use": "Secondary text on Pine."
+    },
+    {
+      "name": "Pine Sage",
+      "token": "p_muted",
+      "hex": "#7E9A8C",
+      "rgb": [
+        126,
+        154,
+        140
+      ],
+      "cmyk": [
+        18,
+        0,
+        9,
+        40
+      ],
+      "use": "Labels on Pine; large text only."
+    },
+    {
+      "name": "Pine Rule",
+      "token": "p_rule",
+      "hex": "#22493D",
+      "rgb": [
+        34,
+        73,
+        61
+      ],
+      "cmyk": [
+        53,
+        0,
+        16,
+        71
+      ],
+      "use": "Hairlines on Pine."
+    },
+    {
+      "name": "Pine Surface",
+      "token": "p_surface",
+      "hex": "#123529",
+      "rgb": [
+        18,
+        53,
+        41
+      ],
+      "cmyk": [
+        66,
+        0,
+        23,
+        79
+      ],
+      "use": "Cards on Pine."
+    }
+  ],
+  "contrast": {
+    "pine on ivory": 10.52,
+    "moss on ivory": 5.17,
+    "sage on ivory": 3.27,
+    "giltdeep on ivory": 5.38,
+    "gilt on ivory": 2.11,
+    "p_ink on pine": 10.52,
+    "p_ink2 on pine": 7.49,
+    "p_muted on pine": 3.96,
+    "gilt on pine": 4.99,
+    "pine on gilt": 4.99,
+    "ivory on gilt": 2.11
+  }
+}

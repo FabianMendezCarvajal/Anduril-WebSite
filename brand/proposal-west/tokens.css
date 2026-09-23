@@ -1,0 +1,21 @@
+/* ANDURIL · Proposal B "The West" · tokens */
+:root {
+  --west-ivory: #F4EFE4;      /* the ground */
+  --west-vellum: #E9E2D0;     /* panels on Ivory */
+  --west-rule: #D3CAB4;       /* hairlines, ticks, contours */
+  --west-pine: #143D31;       /* the ink; also the dark ground */
+  --west-pine-deep: #0E2B23;
+  --west-moss: #3F6D58;       /* secondary text, contours */
+  --west-sage: #6E8A7D;       /* labels; large text only */
+  --west-gilt: #C9A14B;       /* the flame of the West: marks and hairlines, never body text */
+  --west-gilt-deep: #7A5D18;  /* gilt as text on Ivory */
+  --west-on-pine-ink: #F4EFE4;
+  --west-on-pine-ink-2: #BFD0C6;
+  --west-on-pine-muted: #7E9A8C;
+  --west-on-pine-rule: #22493D;
+  --west-on-pine-surface: #123529;
+
+  --west-display: "Fraunces", "Iowan Old Style", Georgia, serif;   /* opsz 144, wght 500, SOFT 30, WONK 1 */
+  --west-body: "Instrument Sans", "Helvetica Neue", Arial, sans-serif;
+  --west-mono: "DM Mono", Menlo, Consolas, monospace;
+}
