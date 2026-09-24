@@ -8,7 +8,7 @@
      the caption and the coordinates. Place this block anywhere in the hero section: the disc and the dial position
      themselves. The section must clip overflow and reserve the half-disc's height (the Custom CSS does this for the home
      page's first section).
-     What it does: computes the sky above the site's coordinates right now (bright stars scaled by magnitude with rays on the
+     What it does: computes the sky above the site's coordinates right now (bright stars scaled by magnitude,
      brightest, a field of fainter stars, the Milky Way, the hour and declination grid, constellation names, the ecliptic with
      the twelve zodiac signs, Sun and Moon with the Moon's phase) and draws it as a night disc inside a calendar ring that marks
      today. It refreshes every thirty seconds. Edit the two data- attributes to set your own coordinates.
@@ -51,7 +51,6 @@
   .and-sky-disc .grid.eq { stroke-width:.6; opacity:.5; }
   .and-sky-disc .mw { fill:var(--star); opacity:.16; }
   .and-sky-disc .st { fill:var(--star); } .and-sky-disc .st.f { opacity:.55; } .and-sky-disc .st.b { fill:#FBF4E2; }
-  .and-sky-disc .ray { stroke:#FBF4E2; stroke-width:.5; stroke-linecap:round; opacity:.8; }
   .and-sky-disc .ecl { fill:none; stroke:var(--gilt); stroke-width:.8; stroke-dasharray:2 3; opacity:.9; }
   .and-sky-disc text { font-family:"DM Mono",Menlo,Consolas,monospace; letter-spacing:.08em; }
   .and-sky-disc text.card { font-size:9px; fill:var(--sky-ink); font-weight:500; } .and-sky-disc text.card.w { fill:var(--sky-accent); }
@@ -174,14 +173,13 @@
     }
     /* Constellation names, kept clear of the named stars */
     var named = []; STARS.forEach(function (st) { if (st[3] < 1.3) { var aa = altaz(st[1], st[2]); if (aa[0] > 0) named.push(proj(aa[0], aa[1])); } });
-    CONS.forEach(function (c) { var aa = altaz(c[1], c[2]); if (aa[0] < 6) return; var p = proj(aa[0], aa[1]); for (var n = 0; n < named.length; n++) { if (Math.abs(named[n][0] - p[0]) < 26 && Math.abs(named[n][1] - p[1]) < 9) return; } g.appendChild(el('text', { x: p[0], y: p[1], 'text-anchor': 'middle', 'class': 'con' }, c[0])); });
+    var placed = []; CONS.forEach(function (c) { var aa = altaz(c[1], c[2]); if (aa[0] < 6) return; var p = proj(aa[0], aa[1]); for (var n = 0; n < named.length; n++) { if (Math.abs(named[n][0] - p[0]) < 26 && Math.abs(named[n][1] - p[1]) < 9) return; } for (var q = 0; q < placed.length; q++) { if (Math.abs(placed[q][0] - p[0]) < 44 && Math.abs(placed[q][1] - p[1]) < 12) return; } placed.push(p); g.appendChild(el('text', { x: p[0], y: p[1], 'text-anchor': 'middle', 'class': 'con' }, c[0])); });
     /* Faint field */
     FAINT.forEach(function (st) { var aa = altaz(st[0], st[1]); if (aa[0] < 0) return; var p = proj(aa[0], aa[1]); g.appendChild(el('circle', { cx: p[0].toFixed(1), cy: p[1].toFixed(1), r: (0.9 - (st[2] - 2.8) * 0.16).toFixed(2), 'class': 'st f' })); });
-    /* Bright stars, with rays on the brightest */
+    /* Bright stars, plain discs scaled by magnitude */
     STARS.forEach(function (st) {
       var aa = altaz(st[1], st[2]); if (aa[0] < 0) return;
       var p = proj(aa[0], aa[1]), r = Math.max(.8, 2.7 - st[3] * .8);
-      if (st[3] < 1.0) { var rl = r + 4.5 + (1 - st[3]) * 2; for (var k = 0; k < 8; k++) { var an = k * 45 * D2R, inner = k % 2 ? r + .8 : r + .4, outer = k % 2 ? rl * .62 : rl; g.appendChild(el('line', { x1: p[0] + inner * Math.cos(an), y1: p[1] + inner * Math.sin(an), x2: p[0] + outer * Math.cos(an), y2: p[1] + outer * Math.sin(an), 'class': 'ray' })); } }
       g.appendChild(el('circle', { cx: p[0].toFixed(1), cy: p[1].toFixed(1), r: r.toFixed(2), 'class': 'st' + (st[3] < 0.5 ? ' b' : '') }));
       if (st[3] < 1.3) g.appendChild(el('text', { x: p[0] + r + 5, y: p[1] + 2.4, 'class': 'sn' }, st[0]));
     });

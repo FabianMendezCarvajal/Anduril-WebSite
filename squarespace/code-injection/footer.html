@@ -18,7 +18,7 @@
     var seed = 19; function rnd() { seed = (seed * 16807) % 2147483647; return (seed - 1) / 2147483646; }
     function make() {
       seed = 19; stars = []; var n = Math.round(Math.max(innerWidth * innerHeight / 5200, 120));
-      for (var i = 0; i < n; i++) { var u = rnd(); stars.push({ x: rnd(), y: rnd(), r: 0.35 + u * u * 1.5, ph: rnd() * 6.283, sp: 0.25 + rnd() * .75, gilt: rnd() < 0.05, ray: u > 0.985 }); }
+      for (var i = 0; i < n; i++) { var u = rnd(); stars.push({ x: rnd(), y: rnd(), r: 0.35 + u * u * 1.5, ph: rnd() * 6.283, sp: 0.25 + rnd() * .75, gilt: rnd() < 0.05 }); }
     }
     function size() { dpr = Math.min(window.devicePixelRatio || 1, 2); W = innerWidth; H = innerHeight; c.width = W * dpr; c.height = H * dpr; c.style.width = W + 'px'; c.style.height = H + 'px'; ctx.setTransform(dpr, 0, 0, dpr, 0, 0); make(); if (reduce) draw(0); }
     function draw(t) {
@@ -30,7 +30,6 @@
         var x = st.x * W, y = st.y * H;
         ctx.fillStyle = 'rgba(' + col + ',' + a.toFixed(3) + ')';
         ctx.beginPath(); ctx.arc(x, y, st.r, 0, 6.283); ctx.fill();
-        if (st.ray) { var L = st.r * 5 * (0.7 + 0.3 * tw); ctx.strokeStyle = 'rgba(' + col + ',' + (a * 0.55).toFixed(3) + ')'; ctx.lineWidth = 0.6; ctx.beginPath(); ctx.moveTo(x - L, y); ctx.lineTo(x + L, y); ctx.moveTo(x, y - L); ctx.lineTo(x, y + L); ctx.stroke(); }
       }
       if (dark && !reduce) {
         if (!meteor && t > nextMeteor) { meteor = { x0: W * (0.15 + Math.random() * 0.7), y0: H * (0.05 + Math.random() * 0.3), t0: t, len: 140 + Math.random() * 120, dir: Math.random() < 0.5 ? 1 : -1 }; }
