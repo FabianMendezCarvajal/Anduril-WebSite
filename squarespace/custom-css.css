@@ -1,0 +1,202 @@
+/* =====================================================================
+   ANDURIL · Squarespace 7.1 Custom CSS  (v6, Proposal B: the West, day and night)
+   Paste into Design → Custom CSS. Works on every plan.
+   Ivory #F4EFE4 · Pine #143D31 · Gilt #C9A14B · Moss #3F6D58 · Vellum #E9E2D0
+   ===================================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT,WONK@0,9..144,300..700,0..100,0..1;1,9..144,300..700,0..100,0..1&family=Instrument+Sans:ital,wght@0,400;0,500;0,600;1,400&family=DM+Mono:wght@400;500&display=swap');
+
+:root {
+  --and-ivory: #F4EFE4; --and-vellum: #E9E2D0; --and-rule: #D3CAB4;
+  --and-pine: #143D31; --and-moss: #3F6D58; --and-sage: #6E8A7D;
+  --and-gilt: #C9A14B; --and-gilt-deep: #7A5D18;
+  --and-pine-deep: #0E2B23; --and-pine-surface: #123529; --and-pine-rule: #22493D; --and-pine-sage: #7E9A8C; --and-ivory-2: #BFD0C6;
+  /* Day: ivory paper, pine ink */
+  --and-ground: #F4EFE4; --and-panel: #E9E2D0; --and-line: #D3CAB4; --and-ink: #143D31; --and-ink-2: #3F6D58; --and-label: #6E8A7D; --and-accent-ink: #7A5D18;
+  --and-grain-blend: multiply; --and-grain-opacity: .045;
+  /* The band of clouds runs against the paper: pine by day, vellum by night */
+  --and-band: #123529; --and-band-line: #22493D; --and-band-ink: #BFD0C6;
+  --and-display: "Fraunces","Iowan Old Style",Georgia,serif;
+  --and-body: "Instrument Sans","Helvetica Neue",Arial,sans-serif;
+  --and-mono: "DM Mono",Menlo,Consolas,monospace;
+  --and-ease: cubic-bezier(.22, 1, .36, 1);
+}
+
+/* ---------- Night: the pine set reversed. The switch (a sun and a moon) is added to the header by code-injection/footer.html;
+   without it the site follows the visitor's system setting. ---------- */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) { color-scheme: dark; --and-ground: #0E2B23; --and-panel: #123529; --and-line: #22493D; --and-ink: #F4EFE4; --and-ink-2: #BFD0C6; --and-label: #7E9A8C; --and-accent-ink: #C9A14B; --and-grain-blend: screen; --and-grain-opacity: .03; --and-band: #E9E2D0; --and-band-line: #D3CAB4; --and-band-ink: #3F6D58; }
+}
+:root[data-theme="dark"] { color-scheme: dark; --and-ground: #0E2B23; --and-panel: #123529; --and-line: #22493D; --and-ink: #F4EFE4; --and-ink-2: #BFD0C6; --and-label: #7E9A8C; --and-accent-ink: #C9A14B; --and-grain-blend: screen; --and-grain-opacity: .03; --and-band: #E9E2D0; --and-band-line: #D3CAB4; --and-band-ink: #3F6D58; }
+body { background-color: var(--and-ground) !important; color: var(--and-ink) !important; }
+/* Ivory sections stay transparent so the star sky shows through; vellum and pine sections are lightly translucent */
+.page-section[data-section-theme="white"], .page-section[data-section-theme="lightest-1"] { background-color: transparent !important; color: var(--and-ink) !important; }
+.page-section[data-section-theme="white"] .section-background, .page-section[data-section-theme="lightest-1"] .section-background { background-color: transparent !important; }
+.page-section[data-section-theme="lightest-2"], .page-section[data-section-theme="light"] { background-color: color-mix(in srgb, var(--and-panel) 90%, transparent) !important; color: var(--and-ink) !important; }
+.page-section[data-section-theme="lightest-2"] .section-background, .page-section[data-section-theme="light"] .section-background { background-color: transparent !important; }
+.page-section[data-section-theme="darkest-1"] .section-background, .page-section[data-section-theme="black"] .section-background { background-color: color-mix(in srgb, var(--and-pine) 95%, transparent) !important; }
+/* The star sky canvas, injected by the footer script */
+.and-stars { position: fixed; inset: 0; z-index: -1; pointer-events: none; }
+#siteWrapper { background: transparent !important; }
+[data-section-theme="white"] h1, [data-section-theme="white"] h2, [data-section-theme="white"] h3, [data-section-theme="lightest-1"] h1, [data-section-theme="lightest-1"] h2, [data-section-theme="lightest-1"] h3, [data-section-theme="lightest-2"] h1, [data-section-theme="lightest-2"] h2, [data-section-theme="lightest-2"] h3 { color: var(--and-ink) !important; }
+[data-section-theme="white"] p, [data-section-theme="lightest-1"] p, [data-section-theme="lightest-2"] p { color: var(--and-ink-2); }
+.and-theme-btn { background: none; border: 1px solid var(--and-line); border-radius: 50%; width: 38px; height: 38px; display: grid; place-items: center; color: var(--and-ink); cursor: pointer; padding: 0; position: relative; overflow: hidden; margin-left: 14px; transition: border-color .3s; }
+.and-theme-btn:hover { border-color: var(--and-gilt); }
+.and-theme-btn svg { position: absolute; width: 18px; height: 18px; transition: transform .6s var(--and-ease), opacity .4s; }
+.and-theme-btn .sun { color: var(--and-accent-ink); opacity: 1; }
+.and-theme-btn .moon { color: var(--and-ink); transform: translateY(22px) rotate(-40deg); opacity: 0; }
+:root[data-theme="dark"] .and-theme-btn .sun { transform: translateY(-22px) rotate(60deg); opacity: 0; }
+:root[data-theme="dark"] .and-theme-btn .moon { transform: none; opacity: 1; }
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .and-theme-btn .sun { transform: translateY(-22px) rotate(60deg); opacity: 0; }
+  :root:not([data-theme="light"]) .and-theme-btn .moon { transform: none; opacity: 1; }
+}
+
+/* ---------- Paper grain ---------- */
+body::after {
+  content: ""; position: fixed; inset: 0; z-index: 9990; pointer-events: none; opacity: var(--and-grain-opacity);
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='200' height='200'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/></filter><rect width='200' height='200' filter='url(%23n)'/></svg>");
+  background-size: 200px 200px; mix-blend-mode: var(--and-grain-blend);
+}
+
+/* ---------- The sheet margin: a fixed frame with ticks (element injected by code-injection/footer.html;
+   without Code Injection the site simply has no frame) ---------- */
+.and-sheet-frame { position: fixed; inset: 12px; z-index: 9980; pointer-events: none; border: 1px solid var(--and-rule); }
+.and-sheet-frame::before, .and-sheet-frame::after { content: ""; position: absolute; left: 0; right: 0; height: 6px; background: repeating-linear-gradient(90deg, var(--and-rule) 0 1px, transparent 1px 40px); background-position: 20px 0; }
+.and-sheet-frame::before { top: -7px; } .and-sheet-frame::after { bottom: -7px; }
+.and-sheet-frame .v { position: absolute; top: 0; bottom: 0; width: 6px; background: repeating-linear-gradient(180deg, var(--and-rule) 0 1px, transparent 1px 40px); background-position: 0 20px; }
+.and-sheet-frame .v.l { left: -7px; } .and-sheet-frame .v.r { right: -7px; }
+.and-sheet-frame .coord { position: absolute; left: 28px; top: -7px; font-family: var(--and-mono); font-size: 9.5px; letter-spacing: .12em; text-transform: uppercase; color: var(--and-sage); background: var(--and-ivory); padding: 0 6px; }
+@media (max-width: 700px) { .and-sheet-frame { inset: 8px; } .and-sheet-frame .coord { display: none; } }
+
+/* ---------- Typography ----------
+   Italic inside any heading becomes the turn of phrase: Fraunces italic in Gilt Deep (Cmd/Ctrl+I in the editor). */
+h1, h2, h3, h4, .header-title-text a, .sqs-block-quote blockquote {
+  font-family: var(--and-display) !important; font-weight: 500 !important; font-variation-settings:"opsz" 144,"SOFT" 30,"WONK" 0; letter-spacing: -.02em; text-wrap: balance;
+}
+h1 { line-height: .96 !important; letter-spacing: -.025em !important; }
+h2 { line-height: 1 !important; letter-spacing: -.025em !important; }
+h3, h4 { line-height: 1.1 !important; }
+h1 em, h2 em, h3 em, h1 i, h2 i, h3 i, .sqs-block-html p.sqsrte-large em { font-family: var(--and-display) !important; font-style: italic !important; font-weight: 400 !important; font-variation-settings:"opsz" 144,"SOFT" 30,"WONK" 1; letter-spacing: -.01em; color: var(--and-accent-ink); }
+[data-section-theme="black"] h1 em, [data-section-theme="black"] h2 em, [data-section-theme="darkest-1"] h1 em, [data-section-theme="darkest-1"] h2 em { color: var(--and-gilt); }
+body, p, li, .sqs-block-html { font-family: var(--and-body) !important; }
+p { line-height: 1.55; }
+/* Coordinates: Monospace-styled text becomes a DM Mono label */
+.sqsrte-mono, .sqs-block-html pre {
+  font-family: var(--and-mono) !important; font-size: 11px !important; letter-spacing: .14em; text-transform: uppercase;
+  color: var(--and-label) !important; background: none !important; padding: 0 !important; margin: 0 0 14px !important; white-space: normal;
+}
+/* Lede (Paragraph 1) */
+.sqs-block-html p.sqsrte-large { font-size: clamp(17px, 1.3vw, 20px) !important; line-height: 1.5 !important; max-width: 52ch; color: var(--and-ink-2); }
+[data-section-theme="darkest-1"] .sqsrte-large, [data-section-theme="black"] .sqsrte-large { color: var(--and-pine-sage); }
+/* Big serif paragraph: set the paragraph in Heading 3 and make it italic-free; this class comes from "Heading 3" */
+.sqs-block-html h3.and-big { font-weight: 400 !important; font-size: clamp(26px, 3vw, 44px) !important; line-height: 1.15 !important; }
+
+/* ---------- Layout ---------- */
+.content-wrapper, .header-inner { max-width: 1360px !important; }
+/* The hero section holds the celestial wheel rising from its bottom edge: it must clip, position and reserve the half-disc */
+#sections > .page-section:first-child { position: relative; overflow: hidden; padding-bottom: min(42vw, 560px) !important; }
+@media (max-width: 960px) { #sections > .page-section:first-child { padding-bottom: 70vw !important; } }
+.page-section { border-top: 0 !important; }
+
+/* ---------- Header: ivory bar, rose + wordmark in Fraunces italic ---------- */
+#header { background: color-mix(in srgb, var(--and-ground) 86%, transparent) !important; -webkit-backdrop-filter: blur(8px); backdrop-filter: blur(8px); border-bottom: 1px solid var(--and-line); }
+#header .header-title-text a { font-style: italic !important; font-weight: 500 !important; font-variation-settings: "opsz" 144, "SOFT" 50, "WONK" 1 !important; font-size: 27px !important; letter-spacing: -.01em !important; color: var(--and-ink) !important; text-transform: none !important; }
+#header .header-title-logo img { height: 30px !important; width: auto !important; }
+.header-nav-item a { font-family: var(--and-body) !important; font-size: 14.5px !important; font-weight: 500 !important; color: var(--and-ink) !important; border-bottom: 1px solid transparent; white-space: nowrap; }
+.header-nav-item a:hover, .header-nav-item--active a { border-bottom-color: var(--and-gilt) !important; background-image: none !important; }
+.header-burger-btn { border: 1px solid var(--and-ink); border-radius: 2px; padding: 6px 10px; }
+/* Overlay menu: reversed on pine */
+.header-menu { background: var(--and-pine) !important; }
+.header-menu-nav-item a { font-family: var(--and-display) !important; font-weight: 400 !important; font-variation-settings: "opsz" 144, "SOFT" 30 !important; font-size: clamp(38px, 7.5vw, 96px) !important; line-height: 1 !important; letter-spacing: -.02em !important; color: var(--and-ground) !important; transition: transform .4s var(--and-ease), color .3s; }
+.header-menu-nav-item a:hover { transform: translateX(14px); color: var(--and-gilt) !important; }
+.header-menu-nav-item--active a { background: none !important; }
+.header-menu-cta a, .header-menu-actions a { font-family: var(--and-mono) !important; font-size: 11px !important; letter-spacing: .14em; text-transform: uppercase; color: var(--and-ground) !important; }
+.header--menu-open .burger-inner .top-bun, .header--menu-open .burger-inner .patty, .header--menu-open .burger-inner .bottom-bun { background: var(--and-ground) !important; }
+
+/* ---------- Buttons: squared, mono label; pine on gilt on hover ---------- */
+.sqs-block-button-element, .sqs-button-element--primary, .sqs-button-element--secondary,
+.form-wrapper .form-button-wrapper button, .form-wrapper input[type="submit"] {
+  font-family: var(--and-mono) !important; font-size: 11.5px !important; letter-spacing: .14em !important; text-transform: uppercase !important;
+  padding: 15px 22px !important; border-radius: 2px !important; position: relative; overflow: hidden; isolation: isolate;
+  border: 1px solid var(--and-ink) !important; background: transparent !important; color: var(--and-ink) !important;
+  transition: color .3s, border-color .3s !important; box-shadow: none !important;
+}
+.sqs-block-button-element::before, .sqs-button-element--primary::before, .sqs-button-element--secondary::before,
+.form-wrapper .form-button-wrapper button::before {
+  content: ""; position: absolute; inset: 0; z-index: -1; background: var(--and-gilt); transform: translateY(101%); transition: transform .4s var(--and-ease);
+}
+.sqs-block-button-element:hover::before, .sqs-button-element--primary:hover::before, .sqs-button-element--secondary:hover::before,
+.form-wrapper .form-button-wrapper button:hover::before { transform: none; }
+.sqs-block-button-element:hover, .sqs-button-element--primary:hover, .sqs-button-element--secondary:hover,
+.form-wrapper .form-button-wrapper button:hover { color: var(--and-pine) !important; border-color: var(--and-gilt) !important; }
+/* Primary = solid pine at rest */
+.sqs-block-button-element--primary, .sqs-button-element--primary, .form-wrapper .form-button-wrapper button, .form-wrapper input[type="submit"] {
+  background: var(--and-pine) !important; color: var(--and-ground) !important;
+}
+[data-section-theme="darkest-1"] .sqs-block-button-element, [data-section-theme="black"] .sqs-block-button-element { color: var(--and-ground) !important; border-color: var(--and-ivory-2) !important; }
+[data-section-theme="darkest-1"] .sqs-block-button-element--primary, [data-section-theme="black"] .sqs-block-button-element--primary { background: var(--and-ground) !important; color: var(--and-pine) !important; border-color: var(--and-ground) !important; }
+
+/* ---------- Quote blocks ---------- */
+.sqs-block-quote blockquote { border-left: 1px solid var(--and-gilt); padding: 6px 0 6px 24px; margin: 0; font-size: clamp(20px, 2vw, 25px) !important; font-weight: 400 !important; line-height: 1.3 !important; }
+.sqs-block-quote blockquote span::before, .sqs-block-quote blockquote span::after { content: none !important; }
+.sqs-block-quote figcaption { font-family: var(--and-mono) !important; font-size: 11px !important; letter-spacing: .12em; text-transform: uppercase; color: var(--and-label); padding-left: 25px; text-align: left !important; }
+
+/* ---------- Accordion ---------- */
+.accordion-item__title { font-family: var(--and-display) !important; font-weight: 500 !important; font-size: clamp(22px, 2.4vw, 32px) !important; letter-spacing: -.02em; }
+.accordion-divider { border-color: var(--and-line) !important; }
+
+/* ---------- Forms: underline fields ---------- */
+.form-wrapper { background: none !important; border: 0 !important; padding: 0 !important; }
+.form-wrapper .field-list .title, .form-wrapper .field-list .caption-text {
+  font-family: var(--and-mono) !important; font-size: 10.5px !important; letter-spacing: .14em; text-transform: uppercase; color: var(--and-label) !important; font-weight: 400 !important;
+}
+.form-wrapper .field-list .field .field-element, .form-wrapper .field-list .field textarea, .form-wrapper .field-list .field select {
+  font-family: var(--and-body) !important; font-size: 17px !important; color: inherit !important;
+  background: transparent !important; border: 0 !important; border-bottom: 1px solid var(--and-line) !important; border-radius: 0 !important; padding: 12px 0 !important; transition: border-color .3s;
+}
+.form-wrapper .field-list .field .field-element:focus, .form-wrapper .field-list .field textarea:focus { border-bottom-color: var(--and-gilt) !important; outline: none; }
+[data-section-theme="darkest-1"] .form-wrapper .field-list .field .field-element, [data-section-theme="darkest-1"] .form-wrapper .field-list .field textarea { border-bottom-color: var(--and-pine-rule) !important; }
+[data-section-theme="darkest-1"] .form-wrapper .field-list .title { color: var(--and-pine-sage) !important; }
+.form-wrapper .form-submission-text { font-family: var(--and-body); border: 1px solid var(--and-line); padding: 14px 16px; border-radius: 3px; }
+
+/* ---------- Images ---------- */
+.sqs-block-image img { border-radius: 3px; }
+.image-caption-wrapper p { font-family: var(--and-mono) !important; font-size: 11px !important; letter-spacing: .1em; text-transform: uppercase; color: var(--and-label) !important; }
+
+/* ---------- Footer ---------- */
+#footer-sections a { text-decoration: none; }
+#footer-sections a:hover { color: var(--and-gilt) !important; }
+
+/* ---------- Cursor (element injected by the footer script) ---------- */
+/* A sun by day, a moon by night; a gilt halo grows over links */
+.and-cursor { position: fixed; z-index: 9999; left: 0; top: 0; width: 26px; height: 26px; pointer-events: none; display: none; }
+.and-cursor::before { content: ""; position: absolute; inset: 0; border-radius: 50%; background: rgba(201,161,75,.32); transform: scale(0); transition: transform .35s var(--and-ease); }
+.and-cursor.is-link::before { transform: scale(2.2); }
+.and-cursor svg { position: absolute; inset: 4px; width: 18px; height: 18px; transition: opacity .35s, transform .55s var(--and-ease), color .3s; }
+.and-cursor .sun { color: var(--and-accent-ink); opacity: 1; transform: none; }
+.and-cursor .moon { color: var(--and-ink); opacity: 0; transform: rotate(-40deg) scale(.6); }
+.and-cursor.is-link .sun { transform: rotate(45deg); }
+.and-cursor.is-link .moon { transform: rotate(-12deg); }
+:root[data-theme="dark"] .and-cursor .sun { opacity: 0; transform: rotate(60deg) scale(.6); }
+:root[data-theme="dark"] .and-cursor .moon { opacity: 1; transform: none; }
+:root[data-theme="dark"] .and-cursor.is-link .moon { transform: rotate(-12deg); }
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .and-cursor .sun { opacity: 0; transform: rotate(60deg) scale(.6); }
+  :root:not([data-theme="light"]) .and-cursor .moon { opacity: 1; transform: none; }
+  :root:not([data-theme="light"]) .and-cursor.is-link .moon { transform: rotate(-12deg); }
+}
+@media (pointer: fine) { .and-cursor { display: block; } }
+
+/* ---------- Scroll reveal (classes added by the footer script) ---------- */
+.and-rv { transition: opacity .9s var(--and-ease), transform .9s var(--and-ease); }
+.and-rv.pre { opacity: 0; transform: translateY(24px); }
+.and-rv.in { opacity: 1; transform: none; }
+
+/* ---------- Focus & motion ---------- */
+a:focus-visible, button:focus-visible { outline: 2px solid var(--and-accent-ink); outline-offset: 4px; }
+@media (prefers-reduced-motion: reduce) {
+  * { transition-duration: .001s !important; animation-duration: .001s !important; }
+  .and-rv.pre { opacity: 1; transform: none; }
+  .and-cursor { display: none !important; }
+}

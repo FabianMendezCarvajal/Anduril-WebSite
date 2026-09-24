@@ -1,0 +1,13 @@
+<!-- ANDURIL · Code Block: Legend strip (home, under the hero). Type: HTML. VELLUM section (Lightest 2), padding "none". CSS only. -->
+<style>
+  .and-marquee { border-top:1px solid var(--and-band-line,#22493D); border-bottom:1px solid var(--and-band-line,#22493D); overflow:hidden; padding:14px 0; white-space:nowrap; background:var(--and-band,#123529); }
+  .and-marquee-track { display:inline-flex; animation:and-mq 70s linear infinite; }
+  .and-marquee span { font-family:"DM Mono",Menlo,Consolas,monospace; font-size:11.5px; letter-spacing:.16em; text-transform:uppercase; padding:0 26px; color:var(--and-band-ink,#BFD0C6); display:inline-flex; align-items:center; gap:26px; }
+  .and-marquee span::after { content:""; width:5px; height:5px; border-radius:50%; background:#C9A14B; }
+  @keyframes and-mq { to { transform:translateX(-50%); } }
+  @media (prefers-reduced-motion:reduce) { .and-marquee-track { animation:none; } }
+</style>
+<div class="and-marquee" aria-hidden="true"><div class="and-marquee-track">
+  <span>Sales Cloud</span><span>Service Cloud</span><span>Marketing Cloud</span><span>Experience Cloud</span><span>Revenue Cloud</span><span>Field Service</span><span>Data Cloud</span><span>Agentforce</span><span>MuleSoft</span><span>CRM Analytics</span>
+  <span>Sales Cloud</span><span>Service Cloud</span><span>Marketing Cloud</span><span>Experience Cloud</span><span>Revenue Cloud</span><span>Field Service</span><span>Data Cloud</span><span>Agentforce</span><span>MuleSoft</span><span>CRM Analytics</span>
+</div></div>
