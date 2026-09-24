@@ -3,6 +3,8 @@
 <style>
   .and-ch { display:grid; grid-template-columns:minmax(200px,1fr) minmax(0,3fr); gap:24px clamp(24px,4vw,64px); align-items:start; padding-top:24px; border-top:1px solid var(--and-ink,#143D31); position:relative; font-family:"Instrument Sans","Helvetica Neue",Arial,sans-serif; color:var(--and-ink,#143D31); }
   .and-ch::before { content:""; position:absolute; left:0; right:0; top:-1px; height:5px; background:repeating-linear-gradient(90deg,var(--and-ink,#143D31) 0 1px,transparent 1px 40px); }
+  .and-ch::after { content:""; position:absolute; left:50%; top:-6px; width:11px; height:11px; margin-left:-5.5px; background-color:var(--and-ground,#F4EFE4); background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12'><path d='M6 0Q6 6 12 6Q6 6 6 12Q6 6 0 6Q6 6 6 0Z' fill='%23C9A14B'/></svg>"); background-size:9px 9px; background-position:center; background-repeat:no-repeat; }
+  .and-ch.pine::after { background-color:var(--and-pine,#143D31); }
   .and-ch.pine { border-top-color:#BFD0C6; color:#F4EFE4; } .and-ch.pine::before { background:repeating-linear-gradient(90deg,#BFD0C6 0 1px,transparent 1px 40px); }
   .and-ch .and-meta { display:flex; align-items:baseline; gap:14px; padding-top:10px; white-space:nowrap; font-family:"DM Mono",Menlo,Consolas,monospace; font-size:11px; letter-spacing:.14em; text-transform:uppercase; color:var(--and-label,#6E8A7D); }
   .and-ch.pine .and-meta { color:#7E9A8C; }

@@ -25,7 +25,9 @@ eight-point compass rose whose west point is lit in gilt, the wordmark written i
 pine ink and one line of gilt. Every page is a sheet of the survey, with a frame, ticks and coordinates. The hero holds a working
 celestial chart, the sky above the site's coordinates right now with the zodiac, Sun and Moon inside a calendar
 ring; services carry legend symbols, the five stages sit under a scale bar, and the field notes
-count up. A star sky lies behind every sheet, printed faintly by day and lit by night. A sun and a moon in the header
+count up. A star sky with a soft Milky Way lies behind every sheet, printed faintly by day and lit by night, and the
+sheet is dressed as an atlas plate: compass roses at the corners of the frame, a gilt star on every chapter rule, the
+wheel drawn with spokes, constellation figures and clouds along the horizon. A sun and a moon in the header
 switch the site between day and night, the pine set reversed. The
 language follows: know the org before you change it, Salesforce, mapped. Structure borrowed from
 current award-winning agency sites (hover list, sticky stack, overlay menu, custom cursor) stays underneath.

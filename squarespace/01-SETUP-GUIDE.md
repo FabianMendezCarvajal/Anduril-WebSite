@@ -56,7 +56,8 @@ Section themes you will use:
 Set the site default theme to **Lightest 1** (Design → Colors → Site default section theme).
 
 **The star sky.** The footer script lays a fixed star field behind every section: ivory stars with a slow twinkle
-and a rare meteor by night, the same field printed faintly in pine on the paper by day. Ivory sections are
+and a rare meteor by night, the same field printed faintly in pine on the paper by day, with a soft Milky Way band
+of dust crossing the sheet and a vignette that deepens the corners after dark. Ivory sections are
 transparent so it shows through; vellum and pine sections are lightly translucent. Delete the first block of the
 footer script to turn it off.
 
@@ -64,6 +65,12 @@ footer script to turn it off.
 vellum becoming `#123529`, hairlines `#22493D`, and gilt reading directly on the ground. It switches with the sun
 and moon button that the footer script adds to the header, remembers the choice on the visitor's device, and
 otherwise follows the system setting. The celestial chart's disc is always night; only its ring and caption change.
+
+**The atlas plate.** The frame carries a small compass rose at each corner, every chapter rule is set with a gilt
+star at its centre, and the survey stages and case cards carry an engraved double rule. The chart is drawn as a
+plate from a celestial atlas: gilt spokes every fifteen degrees, fine altitude rings, the constellation figures
+drawn in as thin lines between their stars, clouds along the horizon and an ornamented outer ring set with small
+gilt stars.
 
 ## Step 3: Set the fonts
 
@@ -135,7 +142,7 @@ Follow `02-SITE-MAP.md`. Recipe for every section:
    controls fold into a small round dial at the right, beside the wheel, that opens a panel with the *Turn the sky*
    buttons, the caption and the coordinates (the Custom CSS makes the first section clip it and reserves the space).
    The chart faces south in the northern hemisphere so the ecliptic, Sun and Moon are in the visible half. The chart is a working planisphere: it computes the sky above your
-   coordinates right now (bright stars, the ecliptic with the twelve zodiac signs, the Sun, the Moon and its
+   coordinates right now (bright stars, the constellation figures, the ecliptic with the twelve zodiac signs, the Sun, the Moon and its
    phase) inside a calendar ring that marks today, and refreshes every thirty seconds. Set your coordinates in the
    block's two `data-lat` / `data-lon` attributes; visitors can also type their own or press *Use my location*.
    It carries its own script, so it needs the Core plan or higher; on lower plans leave the right column empty and

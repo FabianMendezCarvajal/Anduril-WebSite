@@ -7,6 +7,7 @@
   .and-scale .and-bar::before { left:0; } .and-scale .and-bar::after { right:0; }
   .and-stack { display:grid; font-family:"Instrument Sans","Helvetica Neue",Arial,sans-serif; }
   .and-stage { position:sticky; top:96px; background:var(--and-ground,#F4EFE4); border:1px solid var(--and-line,#D3CAB4); border-radius:3px; padding:clamp(24px,3.5vw,44px); display:grid; grid-template-columns:120px 1fr 1fr; gap:28px; align-items:start; margin-bottom:18px; box-shadow:0 -18px 40px -30px rgba(20,61,49,.35); color:var(--and-ink,#143D31); }
+  .and-stage::after { content:""; position:absolute; inset:6px; border:1px solid var(--and-line,#D3CAB4); border-radius:2px; pointer-events:none; opacity:.7; }
   .and-stage:nth-child(2){top:112px} .and-stage:nth-child(3){top:128px} .and-stage:nth-child(4){top:144px} .and-stage:nth-child(5){top:160px}
   .and-stage .and-num { font-family:"Fraunces","Iowan Old Style",Georgia,serif; font-style:italic; font-weight:400; font-variation-settings:"opsz" 144,"SOFT" 30,"WONK" 1; font-size:clamp(48px,6vw,92px); line-height:.9; color:var(--and-accent-ink,#7A5D18); }
   .and-stage h3 { font-family:"Fraunces","Iowan Old Style",Georgia,serif; font-variation-settings:"opsz" 144,"SOFT" 30,"WONK" 0; font-size:clamp(28px,3.4vw,48px); font-weight:500; letter-spacing:-.025em; line-height:1; margin:0; }
