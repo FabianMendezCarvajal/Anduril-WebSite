@@ -13,18 +13,16 @@ squarespace/
   custom-css.css          Design → Custom CSS (all plans)
   code-injection/         Settings → Advanced → Code Injection (Core plan or higher)
   code-blocks/            HTML components for Code Blocks (all plans, no JavaScript)
+  assets/                 The rose as SVG for the header logo, reversed, mono and favicon
 ```
 
 Start with `squarespace/01-SETUP-GUIDE.md`.
 
 ## Design in one paragraph
 
-Art-directed after the current run of Awwwards Site of the Day agency sites: typography as the hero, two
-colours and one accent, choreographed motion. Forge black ground, paper sheets for the light sections, a single
-copper accent used sparingly. Bricolage Grotesque paired with Instrument Serif italic: "Salesforce," in the
-grotesk, "reforged." in the serif, up to 196 px. A marquee of the clouds, services as a hover list that inverts
-and expands, the five-stage process as a sticky card stack, counting numbers, a paper overlay menu, a ring
-cursor, film grain, and a giant wordmark footer.
-The name's concept runs through it: the blade device (crescent, seven stars, rayed sun) on a hairline that
-catches light under the headline, chapters named for the broken blade, the reforging and the renewal, and
-forge sublines on each process stage. No stock photography anywhere. Every effect degrades to a still, complete page without JavaScript.
+The site applies Proposal B from the Anduril Visual Identity project, the West: a map-maker's identity. An
+eight-point compass rose whose west point is lit in gilt, the wordmark written in Fraunces italic, ivory paper,
+pine ink and one line of gilt. Every page is a sheet of the survey, with a frame, ticks and coordinates; contours
+run behind the hero, services carry legend symbols, the five stages sit under a scale bar, and the field notes
+count up. The language follows: know the org before you change it, Salesforce, mapped. Structure borrowed from
+current award-winning agency sites (hover list, sticky stack, overlay menu, custom cursor) stays underneath.

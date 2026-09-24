@@ -1,79 +1,88 @@
 # Anduril on Squarespace: build guide
 
-This guide turns the design in `preview/index.html` into a live Squarespace 7.1 site. The design is
-art-directed after current Awwwards-winning agency sites; see `03-DESIGN-REFERENCES.md` for what was borrowed
-and why. Build time: about a day if you follow it top to bottom.
+This guide turns the design in `preview/index.html` into a live Squarespace 7.1 site. The design applies
+**Proposal B, the West** from the Anduril Visual Identity project: a compass rose that points west, Fraunces
+italic, ivory paper, pine ink and a line of gilt. See `03-DESIGN-REFERENCES.md` for the system and what was
+borrowed from award-winning sites. Build time: about a day if you follow it top to bottom.
 
 | What | Where it goes in Squarespace | File |
 |---|---|---|
 | Page structure | Pages panel | `02-SITE-MAP.md` |
 | Page text | Text blocks on each page | `copy/*.md` |
-| Colours, fonts, header, buttons, forms, cursor, grain | Design → Custom CSS | `custom-css.css` |
+| Colours, fonts, header, buttons, forms, cursor, grain, sheet frame | Design → Custom CSS | `custom-css.css` |
+| Logo files | Header logo, favicon, social image | `assets/` |
 | Fonts + motion scripts | Settings → Advanced → Code Injection | `code-injection/header.html`, `footer.html` |
 | Designed components | Code Blocks on the relevant page | `code-blocks/*.html` |
 
 ## Plan requirement
 
-* **Custom CSS** works on every plan. That covers the palette, type, the transparent blend-mode header, the
-  ember overlay menu, pill buttons, underline form fields and the film grain.
+* **Custom CSS** works on every plan. That covers the palette, type, the ivory header with the italic wordmark, the
+  pine overlay menu, squared buttons, underline form fields and the paper grain.
 * **Code Blocks** with HTML and CSS work on every plan. Every component in `code-blocks/` is HTML and CSS only.
-* **Code Injection** (Core plan or higher, formerly "Business") adds the motion layer: custom cursor, scroll
-  reveals, counting numbers, animated bars, the hero glow and the local clock. Without it the site is still
-  complete, just still.
+* **Code Injection** (Core plan or higher, formerly "Business") adds the motion layer: the sheet frame with ticks,
+  the contours behind the hero, custom cursor, scroll reveals, counting numbers, animated bars and the local
+  clock. Without it the site is still complete, just still.
 
 ## Step 1: Create the site
 
 1. squarespace.com → **Get started** → choose a minimal 7.1 template (*Bailard*, *Marquee* or *Paloma*). You
    replace the styling anyway.
-2. Site title: **ANDURIL** (all caps). Settings → Site availability → keep private until launch.
+2. Site title: **Anduril** (title case; the CSS sets it in Fraunces italic). Settings → Site availability → keep private until launch.
 3. Settings → Domains → connect your domain when ready.
 
 ## Step 2: Set the colour palette
 
 Design → Colors → **Edit palette**:
 
-| Slot | Hex | Used for |
-|---|---|---|
-| White | `#F1EFEA` | paper counter sections |
-| Light accent | `#E6E3DD` | subtle panels on light sections |
-| Accent | `#E0663A` | copper: italic emphasis, hover sweeps, small marks |
-| Dark accent | `#141821` | cards on dark sections |
-| Black | `#0B0D11` | forge black: the default ground |
+| Slot | Hex | Name in the identity | Used for |
+|---|---|---|---|
+| White | `#F4EFE4` | Ivory | the ground: pages, cards, print |
+| Light accent | `#E9E2D0` | Vellum | panels and alternate sections |
+| Accent | `#C9A14B` | Gilt | the flame of the West: one point, one word, one line per surface. Never body text. |
+| Dark accent | `#3F6D58` | Moss | secondary text and contours |
+| Black | `#143D31` | Pine | the ink, and the ground of the footer and contact section |
+
+Proportion: 78 ivory, 18 pine, 4 gilt. Two more values live only in the CSS: Gilt Deep `#7A5D18` for italic
+phrases on ivory (gilt itself fails contrast as text) and Sage `#6E8A7D` for labels.
 
 Section themes you will use:
 
-* **Darkest 1** (default): background Black, headings `#EDEBE6`, paragraph `#B4B6BC`, primary button `#EDEBE6` with text Black.
-* **Lightest 1**: background White, headings Black, paragraph `#454A55`, primary button Black with text White.
+* **Lightest 1** (default): background White (ivory), headings Black (pine), paragraph `#3F6D58`, primary button Black with text White.
+* **Lightest 2**: background Light accent (vellum), the same text colours. For the Routes, the free survey and the legend strip.
+* **Darkest 1**: background Black (pine), headings White (ivory), paragraph `#7E9A8C`, primary button White with text Black. For Coordinates and the footer.
 
-Set the site default theme to **Darkest 1** (Design → Colors → Site default section theme).
+Set the site default theme to **Lightest 1** (Design → Colors → Site default section theme).
 
 ## Step 3: Set the fonts
 
 Design → Fonts → **Global text styles**.
 
-* Headings: **Bricolage Grotesque** if listed, otherwise **Sora**; the Custom CSS forces Bricolage Grotesque via Google Fonts regardless.
-* Paragraphs: **IBM Plex Sans**. Buttons and miscellaneous: **IBM Plex Mono**.
-* The serif italic counterpoint (**Instrument Serif**) loads from the CSS. To use it, select a word in any heading and press Cmd/Ctrl+I: italics inside headings render in the serif, and in H1/H2 they take the copper colour. The copy files mark these words with *asterisks*.
+* Headings: **Fraunces** (it is in the picker). Weight 500. The Custom CSS sets the optical size to 144 and SOFT to 30.
+* Paragraphs: **Instrument Sans** 400. Buttons: Instrument Sans 600. Miscellaneous: **DM Mono**.
 
-Sizes (Design → Fonts → Assign styles): Heading 1 ≈ 8 rem desktop, Heading 2 ≈ 4.5 rem, Heading 3 ≈ 1.6 rem,
-Paragraph 1.06 rem, line height 1.6. Heading letter-spacing `-0.04em`. Custom CSS refines these.
+Sizes (Design → Fonts → Assign styles): Heading 1 ≈ 7 rem desktop, Heading 2 ≈ 4.5 rem, Heading 3 ≈ 1.6 rem,
+Paragraph 1.06 rem, line height 1.55. Heading letter-spacing `-0.02em`.
 
-Section headings in the copy carry a chapter number (01 to 08). Every numbered section starts with the same
-`code-blocks/chapter-head.html` block: hairline on top, the number and label on one baseline at left, the heading
-at right. Copy the block, change the number, the label and the heading, and add the `light` class on paper sections.
+**The turn of phrase.** Select a word or two in any heading and press Cmd/Ctrl+I: italics inside headings
+render in Fraunces italic with the wonky alternates, in Gilt Deep on ivory and Gilt on pine. The copy files mark
+these words with *asterisks*. One turn of phrase per heading.
+
+Section headings carry a sheet number (02 to 09). Every numbered section starts with the same
+`code-blocks/chapter-head.html` block: a hairline with survey ticks, the number in Fraunces italic and the label in
+DM Mono on one baseline at left, the heading at right. Copy the block, change the number, the label and the
+heading, and add the `pine` class on the pine section.
 
 ## Step 4: Buttons and spacing
 
-* Design → Buttons: Primary solid, shape **pill**, padding large. Secondary outline, pill.
-* Design → Spacing: section padding *large*; site width *wide*.
+* Design → Buttons: Primary solid, shape **square** (corner radius 2 px), padding medium. Secondary outline, square. The CSS sets the DM Mono label and the gilt hover.
+* Design → Spacing: section padding *large*; site width *wide* (the CSS caps content at 1360 px).
 
 ## Step 5: Custom CSS
 
 Design → **Custom CSS** → paste the full contents of `custom-css.css`. Save.
 
-Two lines in that file hide the inline navigation and show the burger on every screen size, which gives the
-full-screen paper overlay menu. If you would rather keep visible links on desktop, comment them out (they are
-marked in the file).
+The header keeps inline links on desktop (Survey · Services · Field notes · Contact) and uses Squarespace's
+burger on mobile, which the CSS turns into a full-screen pine overlay with large Fraunces links.
 
 ## Step 6: Code Injection (Core plan or higher)
 
@@ -88,22 +97,25 @@ Skip on lower plans; fonts still load through the `@import` at the top of the Cu
 
 Edit → Header.
 
-1. Site title **ANDURIL**. The CSS adds the ember diamond before it.
-2. Navigation order: Services, Process, Proof, Clients, About, Contact (pages from Step 8; Proof and Clients
-   are anchor links to the home page sections: `/#proof`, `/#clients`).
-3. Elements → **Button** on: text *Book a free org review*, link to Contact, style Primary. It appears inside the overlay menu.
-4. Style: **transparent** background, fixed position on, no blur. The CSS sets `mix-blend-mode: difference` so
-   the header inverts over dark and light sections.
-5. Mobile / overlay menu: Design → Colors → **Header menu** theme: background White (paper), text Black. The CSS makes the links large and light.
+1. Site title **Anduril**. The CSS sets it in Fraunces italic, SOFT 50, with the wonky alternates: the recommended
+   wordmark cut from the identity. Keep it as text, not an image.
+2. Logo: upload `assets/rose-on-ivory.svg` as the logo **beside** the title (Header → Site title & logo → choose
+   "logo and title" if your template offers it; otherwise upload the horizontal lockup exported from the identity
+   canvas, board B1). Height 30 px.
+3. Navigation order: Survey, Services, Field notes, Contact. Survey is an anchor to the home page (`/#survey`);
+   Field notes is the Findings page.
+4. Elements → **Button** on: text *Book a survey*, link to Contact, style Primary.
+5. Style: **solid** background, fixed position on. The CSS makes it translucent ivory with a hairline beneath.
+6. Mobile menu: Design → Colors → **Header menu** theme: background Black (pine), text White (ivory).
 
 ## Step 8: Create the pages
 
 Follow `02-SITE-MAP.md`. Recipe for every section:
 
 1. Pages → **+** → Blank Page → name it.
-2. **Add section** → Blank → set its theme (Darkest 1 or Lightest 1) and padding.
-3. Drop in the blocks listed. Text blocks take the copy from `copy/<page>.md`; labels marked *Eyebrow* use the
-   Monospace text style so the CSS styles them as small tracked labels.
+2. **Add section** → Blank → set its theme (Lightest 1 ivory, Lightest 2 vellum, or Darkest 1 pine) and padding.
+3. Drop in the blocks listed. Text blocks take the copy from `copy/<page>.md`; labels marked *Coordinates* use the
+   Monospace text style so the CSS sets them in DM Mono as small tracked labels.
 4. **Code Blocks**: Add block → **Code** → Type **HTML**, untick *Display source*, paste from `code-blocks/`.
 5. Hero section: set the section to **full width** and the block to span the whole row.
 
@@ -134,34 +146,39 @@ Contact page, right column, **Form Block**:
 | Salesforce products in use | Select: Sales Cloud / Service Cloud / Sales + Service Cloud / Marketing Cloud / Several clouds / Not on Salesforce yet |
 | What is not working today? | Text area |
 
-Storage: **Email** to your address. Button text: *Request the review*. Post-submit message: *Thanks. A
-consultant, not a sequence, will reply within one business day.*
+Storage: **Email** to your address. Button text: *Book the survey*. Post-submit message: *Thanks. A consultant,
+not a sequence, will reply within one business day.*
 
 **Leads into Salesforce:** Form → Storage → **Zapier** (or Make). Trigger "Squarespace: New Form Submission" →
 action "Salesforce: Create Lead". Map Company, Name, Email; put the select answer in a custom Lead field.
 
-## Step 11: Footer
+## Step 11: Coordinates and footer
 
-Edit → Footer, Darkest 1 theme, two sections:
+The contact section and the footer share one pine ground, as the identity's proportion asks (78 ivory, 18 pine, 4 gilt).
 
-1. A row: left, a Text block with the five page links in Monospace style; right, LinkedIn · Trailblazer · Privacy.
-2. A full-width section, padding none, with **Code Block** `code-blocks/footer-wordmark.html`, then a small Text
-   block with the copyright and the Salesforce trademark disclaimer from `copy/home.md`. Keep the disclaimer.
+1. Contact page, Darkest 1 theme: `chapter-head.html` with class `pine` (09 Coordinates, "Let's *chart it.*"),
+   then two columns: left the email link and the three contact lines, right the Form block.
+2. Edit → Footer, Darkest 1 theme, two sections: a row of links in Monospace style (left: Survey · Services · How we
+   work · Field notes · Clients · About · Contact; right: LinkedIn · Trailblazer · Privacy), then a full-width section,
+   padding none, with **Code Block** `code-blocks/footer-wordmark.html` (the rose in ivory above the wordmark) and a
+   small Text block with the copyright, "Salesforce, mapped." and the two disclaimers from `copy/home.md`. Keep both disclaimers.
 
 ## Step 12: SEO and launch checklist
 
 * Settings → SEO → title format `%p | Anduril · Salesforce consultancy`; description from `copy/home.md`.
 * Each page: Page settings → SEO → paste its meta description.
-* Favicon: a 512×512 copper diamond on forge black. Social sharing image 1200×630: "Salesforce, *reforged.*" on forge black, the second word in the serif italic.
+* Favicon: export `assets/favicon.svg` at 512×512 (the rose on ivory). Social sharing image 1200×630: "Know the org *before you change it.*" in Fraunces on ivory with the rose, or the profile banner from the identity canvas (board B4).
+* Coordinates: the hero and the sheet frame show sample coordinates (51.5074° N, 0.1278° W). Replace them with your office's, or delete them.
 * Replace every placeholder: `hello@your-domain.com`, the three case cards, the three numbers, the eight client logos, the availability line.
 * Test on a phone: overlay menu opens and closes, form submits, code-block grids stack, the marquee scrolls.
-* Check the header over the light sections: it should invert to dark text automatically.
+* Check the sheet frame on a phone: it tightens to 8 px and drops the coordinate label.
 * Settings → Site availability → **Public**.
 
 ## Things you may want to change
 
-* **Name check.** "Anduril" is also the name of Anduril Industries, a large US defence company. Check trademark
-  registrations in your country before investing in the domain.
+* **Name check.** "Anduril" is also the name of Anduril Industries, a large US defence company, and Middle-earth
+  names are trademarked in several categories. Check registrations in your country before investing in the domain.
+  The rose, the palette and the type are yours; only the name and its meaning come from Tolkien.
 * **"Salesforce Partner" wording.** Copy says *independent Salesforce consultancy*. Say *Salesforce Consulting
   Partner* only if registered in the partner program.
 * **Numbers and case cards** are illustrative. Replace them before going public.

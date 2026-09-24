@@ -7,7 +7,7 @@
 
 ## Intro
 
-*Eyebrow:* Platform coverage
+*Coordinates:* Platform coverage
 
 *H1:* The clouds and tools we work in every week.
 
@@ -38,4 +38,4 @@ The block contains the ten entries below; edit the text inside the block if you 
 
 *Paragraph:* Tell us in the review. If it's outside what we do well, we'll say so and point you to someone who does.
 
-*Button:* Book a free org review → `/contact`
+*Button:* Book a survey → `/contact`

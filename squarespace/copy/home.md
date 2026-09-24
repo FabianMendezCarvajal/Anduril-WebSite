@@ -1,9 +1,9 @@
-# Home page copy
+# Home page copy (Proposal B, the West)
 
 **Meta title:** Anduril · Salesforce consultancy
-**Meta description:** Independent Salesforce consultancy. We rebuild orgs that grew by accident into systems your team trusts: implementations, org rescue, integrations and managed admin.
+**Meta description:** Know the org before you change it. Independent Salesforce consultancy: we survey the org first, then implement, rescue, integrate and keep it current. Salesforce, mapped.
 
-Formatting key: *Eyebrow* = small monospace label (Text block → Monospace). *H1/H2/H3* = heading levels. *Lede* = the larger intro paragraph (Paragraph 1 size).
+Formatting key: *Coordinates* = small DM Mono label (Text block → Monospace). *H1/H2/H3* = heading levels. *Lede* = the larger intro paragraph (Paragraph 1). Words in *asterisks* inside a heading are the turn of phrase: select them and press Cmd/Ctrl+I so they render in Fraunces italic, gilt.
 
 ---
 
@@ -11,24 +11,23 @@ Formatting key: *Eyebrow* = small monospace label (Text block → Monospace). *H
 
 The whole hero is `code-blocks/hero-headline.html`. Text inside it:
 
-*Top-left meta:* ● Independent Salesforce consultancy
-*Top-right meta:* Andúril · *flame of the west* (serif italic)
+*Top-left coordinates:* Sheet 01 · Independent Salesforce consultancy
+*Top-right coordinates:* [LAT]° N · [LON]° W · Salesforce, *mapped.*
 
-*H1, line 1 (solid):* Salesforce,
-*H1, line 2 (serif italic, Cmd/Ctrl+I):* reforged.
+*H1:* Know the org *before you change it.*
 
-*Lede:* Most orgs grew by accident: a field here, a workflow there, three admins ago. We keep the shards worth keeping and reforge the rest into a system your team trusts.
+Under the headline: the route, the seven stars as a dotted line between two hairlines.
 
-Under the headline the block draws the *blade line*: a hairline that catches light once on load, with the engraved device at its centre (crescent moon, seven stars, rayed sun, the engraving Tolkien gives the reforged sword).
+*Lede:* A consultancy that inherits a Salesforce org inherits territory nobody has charted. We survey it first: every object, every automation, every user who gave up. Then we quote.
 
-*Button (primary):* Book a free org review → `/contact`
-*Button (secondary):* What we do → `/services`
+*Button (primary):* Book a survey → `/contact`
+*Button (secondary):* Read the field notes → `/field-notes`
 
-Header meta line (Custom CSS + injection): Salesforce consultancy · [local time] · Taking projects Q4 2026
+Behind the headline, at right: the contours, the org as terrain.
 
 ---
 
-## Marquee
+## Legend strip
 
 `code-blocks/marquee.html`: Sales Cloud · Service Cloud · Marketing Cloud · Experience Cloud · Revenue Cloud · Field Service · Data Cloud · Agentforce · MuleSoft · CRM Analytics
 
@@ -36,127 +35,123 @@ Header meta line (Custom CSS + injection): Salesforce consultancy · [local time
 
 ## Manifesto
 
-*Big paragraph (Heading 2 style; select the whole paragraph and press Cmd/Ctrl+I so it renders in the serif; the bracketed words in the Accent colour):*
-In the story, the sword that broke was not thrown away. The shards were kept, and when the time came they were [reforged into a blade that held.] A Salesforce org deserves the same: keep what still has an edge, [reforge the rest to last.]
+*Big paragraph (Heading 2 style, weight 400, no letter-spacing change; the bracketed words italic so they render in Fraunces italic, gilt):*
+Most orgs were never designed. They were [settled,] one field and one workflow at a time, by admins who have since moved on. We are the people you call when nobody can draw the map any more: [we chart it before we change it.]
 
-*Small note:* Andúril is the reforged sword in Tolkien's Middle-earth, its blade engraved with seven stars between a crescent moon and a rayed sun. That device is our mark, and the reforging is our job description.
-
----
-
-## Symptoms
-
-*Eyebrow:* 01 / The broken blade
-
-*H2:* Three signs an org has *broken.*
-
-*Code Block:* `code-blocks/symptoms-ledger.html`
+*Small note:* Andúril is the name of the reforged sword in Tolkien's Middle-earth, "Flame of the West." Our compass rose points there: one long point, lit in gilt, the only flame the mark carries.
 
 ---
 
-## Services
+## Terrain (sheet 02)
 
-*Eyebrow:* 02 / Services
+*Coordinates:* 02 / Terrain
 
-*H2:* From first login to a *fully governed* org.
+*H2:* Three signs the ground *has shifted.*
 
-*Lede:* Six ways to work with us. Fixed-scope where it can be, retained where it should be. Open a row.
+*Code Block:* `code-blocks/symptoms-ledger.html` (three rows with legend symbols; edit the text inside the block)
+
+---
+
+## Routes (sheet 03)
+
+*Coordinates:* 03 / Routes
+
+*H2:* Six routes *through the backlog.*
+
+*Lede:* Fixed-scope where it can be, retained where it should be. Each service carries its legend symbol; open a row.
 
 *Code Block:* `code-blocks/services-list.html`
 
 ---
 
-## Process
+## The survey (sheet 04)
 
-*Eyebrow:* 03 / The reforging
+*Coordinates:* 04 / The survey
 
 *H2:* Five stages. *No surprises* in stage four.
 
-Each stage card carries a serif subline from the forge: Gather the shards · Draw the blade · Heat and hammer · Temper and sharpen · Keep the edge. They are inside `code-blocks/process-stack.html`.
+*Lede:* You see the chart and the fixed cost before we touch production, and a working demo at the end of every sprint.
 
-*Lede:* You see the plan and the fixed cost before we touch production, and a working demo at the end of every sprint.
-
-*Code Block:* `code-blocks/process-stack.html`
+*Code Block:* `code-blocks/process-stack.html`. A scale bar (0 to 90 days), then five stages: Survey · Walk the ground, Chart · Draw the map, Build · Cut the route, Launch · Cross over, Keep · Keep the map current.
 
 ---
 
-## Proof
+## Field notes (sheet 05)
 
-*Eyebrow:* 04 / Renewed
+*Coordinates:* 05 / Field notes
 
-*H2:* What a reforging looks like *in numbers.*
+*H2:* What a rescue looks like *in numbers.*
 
-*Code Block:* `code-blocks/proof-numbers.html` (three numbers and three anonymised case cards; all illustrative until you replace them)
+*Code Block:* `code-blocks/proof-numbers.html` (three numbers and three case sheets labelled Terrain, Route, Finding; all illustrative until you replace them)
 
 ---
 
-## Clients
+## Charted (sheet 06)
 
-*Eyebrow:* 05 / Clients
+*Coordinates:* 06 / Charted
 
-*H2:* Teams that stopped *routing around* Salesforce.
+*H2:* Teams whose orgs *we have charted.*
 
 *Lede:* Distribution, SaaS, professional services, manufacturing and non-profit. From 20 to 2,000 users.
 
-*Code Block:* `code-blocks/clients-grid.html`. Eight cells. Each holds a client logo (greyscale, colour on hover) and a hover tag "Industry · Cloud". The placeholder wordmarks are invented names; swap every one for a real logo or hide the section until you have permission to show at least six.
+*Code Block:* `code-blocks/clients-grid.html`. Eight cells, each a client logo (greyscale, colour on hover) with a hover tag "Industry · Cloud". The placeholder wordmarks are invented names; swap every one for a real logo or hide the section until you have permission to show at least six.
 
 *Small note under the grid (delete once real logos are in):* Placeholder wordmarks.
-*Button (secondary, right):* See the work → `#proof`
-
-Ask each client for a horizontal SVG logo and written permission to show it. If a client cannot be named, use the industry as the cell text instead ("Industrial distributor") in the serif italic style.
+*Button (secondary, right):* Read the field notes → `/field-notes`
 
 ---
 
-## Review (light section)
+## The free survey (sheet 07, vellum)
 
-*Eyebrow:* 06 / The free review
+*Coordinates:* 07 / The free survey
 
-*H2:* Thirty minutes. Three things to fix. *Yours either way.*
+*H2:* Thirty minutes. Three fixes *before anything new.*
 
-*Lede:* You share screen, we look at the org together across five dimensions, and you leave with a one-page summary whether or not you hire us.
+*Lede:* You share screen, we walk the org together across five dimensions, and you leave with a one-page sheet whether or not you hire us.
 
-*Button (secondary):* Book the review → `/contact`
+*Button (secondary):* Book the survey → `/contact`
 
-Right column: `code-blocks/org-health-card.html`
+Right column: `code-blocks/survey-sheet.html`
 
 ---
 
-## About (light section)
+## The map-maker (sheet 08)
 
-*Eyebrow:* 07 / About
+*Coordinates:* 08 / The map-maker
 
 *H2:* Founder-led, and *small on purpose.*
 
-*Big paragraph (Heading 3 style, whole paragraph italic so it renders in the serif; bracketed words in Accent):* The consultant who scopes your project is the one who builds it, and [the one you can call after launch.] No hand-off to a bench, no junior team behind a senior sales call.
+*Big paragraph (Heading 3 style, weight 400; bracketed words italic):* The consultant who surveys your org is the one who builds the route, and [the one you can call after launch.] No hand-off to a bench, no junior team behind a senior sales call.
 
-Under the paragraph: `code-blocks/etymology.html` (the name entry: An·dú·ril, "Flame of the West", with the device).
+Under the paragraph: `code-blocks/rose-entry.html` (the ringed rose with "A compass that *points west.*").
 
 Right column: `code-blocks/principles.html`
 
 ---
 
-## Contact
+## Coordinates (sheet 09, pine)
 
-*Eyebrow:* 08 / Contact
+*Coordinates:* 09 / Coordinates
 
-*H2 (the bracketed word italic, which renders serif and copper):* Let's [reforge] it.
+*H2:* Let's *chart it.*
 
-*Email, large, serif italic, hairline underline in Accent:* hello@your-domain.com
+*Email, large, Fraunces italic, hairline underline in gilt:* hello@your-domain.com
 
-Contact lines (label in monospace, value in body):
+Contact lines (label in DM Mono, value in body):
 - RESPONSE TIME — Within one business day
 - WORKING WITH — Companies from 20 to 2,000 Salesforce users
 - NEXT AVAILABILITY — Q4 2026
 
-Right column: Form block (fields in `01-SETUP-GUIDE.md`, Step 9).
+Right column: Form block (fields in `01-SETUP-GUIDE.md`, Step 10).
 Line under the submit button: No newsletter, no sequence. One reply from a consultant.
 
 ---
 
-## Footer
+## Footer (pine)
 
-Row: Services · Process · Proof · Clients · About · Contact (left) — LinkedIn · Trailblazer · Privacy (right), Monospace style.
-Then `code-blocks/footer-wordmark.html` (device above the wordmark).
+Row: Survey · Services · How we work · Field notes · Clients · About · Contact (left) — LinkedIn · Trailblazer · Privacy (right), Monospace style.
+Then `code-blocks/footer-wordmark.html` (the rose in ivory above the italic wordmark).
 
-Legal line:
-© 2026 Anduril. All rights reserved. The name is drawn from J.R.R. Tolkien's Middle-earth; this site is not affiliated with or endorsed by the Tolkien Estate or Middle-earth Enterprises.
+Legal lines:
+© 2026 Anduril. All rights reserved. Salesforce, mapped. The name is drawn from J.R.R. Tolkien's Middle-earth; this site is not affiliated with or endorsed by the Tolkien Estate or Middle-earth Enterprises.
 Salesforce, Sales Cloud, Service Cloud, Marketing Cloud, MuleSoft, Tableau and Agentforce are trademarks of Salesforce, Inc. Anduril is an independent consultancy and is not affiliated with or endorsed by Salesforce, Inc.

@@ -1,9 +1,9 @@
-<!-- ANDURIL · Code Block: Marquee (home, directly under the hero). Type: HTML. DARK section, padding "none" or "small". CSS only. -->
+<!-- ANDURIL · Code Block: Legend strip (home, under the hero). Type: HTML. VELLUM section (Lightest 2), padding "none". CSS only. -->
 <style>
-  .and-marquee { border-top:1px solid #1F232B; border-bottom:1px solid #1F232B; overflow:hidden; padding:18px 0; white-space:nowrap; }
-  .and-marquee-track { display:inline-flex; animation:and-mq 60s linear infinite; }
-  .and-marquee span { font-family:"Instrument Serif",Georgia,serif; font-style:italic; font-weight:400; font-size:clamp(18px,1.9vw,24px); padding:0 30px; color:#767C88; display:inline-flex; align-items:center; gap:30px; }
-  .and-marquee span::after { content:""; width:5px; height:5px; background:#E0663A; transform:rotate(45deg); }
+  .and-marquee { border-top:1px solid #D3CAB4; border-bottom:1px solid #D3CAB4; overflow:hidden; padding:14px 0; white-space:nowrap; background:#E9E2D0; }
+  .and-marquee-track { display:inline-flex; animation:and-mq 70s linear infinite; }
+  .and-marquee span { font-family:"DM Mono",Menlo,Consolas,monospace; font-size:11.5px; letter-spacing:.16em; text-transform:uppercase; padding:0 26px; color:#3F6D58; display:inline-flex; align-items:center; gap:26px; }
+  .and-marquee span::after { content:""; width:5px; height:5px; border-radius:50%; background:#C9A14B; }
   @keyframes and-mq { to { transform:translateX(-50%); } }
   @media (prefers-reduced-motion:reduce) { .and-marquee-track { animation:none; } }
 </style>

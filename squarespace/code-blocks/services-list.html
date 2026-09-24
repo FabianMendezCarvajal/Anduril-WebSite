@@ -1,38 +1,39 @@
-<!-- ANDURIL · Code Block: Services hover list (home section 4, Services page). Type: HTML. LIGHT (steel-white) section.
-     Native <details>, so it opens and closes without JavaScript on any plan. -->
+<!-- ANDURIL · Code Block: Routes, the services list (home sheet 03, Services page). Type: HTML. VELLUM section.
+     Native <details>: opens and closes without JavaScript on any plan. Each service carries its legend symbol. -->
 <style>
-  .and-svc-list { border-top:1px solid #D3D0C9; font-family:"IBM Plex Sans",Arial,sans-serif; color:#0B0D11; }
-  .and-svc { border-bottom:1px solid #D3D0C9; position:relative; }
-  .and-svc::before { content:""; position:absolute; inset:0; background:#0B0D11; transform:scaleY(0); transform-origin:top; transition:transform .45s cubic-bezier(.22,1,.36,1); }
+  .and-svc-list { border-top:1px solid #D3CAB4; font-family:"Instrument Sans","Helvetica Neue",Arial,sans-serif; color:#143D31; }
+  .and-svc { border-bottom:1px solid #D3CAB4; position:relative; }
+  .and-svc::before { content:""; position:absolute; inset:0; background:#143D31; transform:scaleY(0); transform-origin:top; transition:transform .45s cubic-bezier(.22,1,.36,1); }
   .and-svc:hover::before, .and-svc[open]::before { transform:scaleY(1); }
-  .and-svc summary { list-style:none; cursor:pointer; position:relative; display:grid; grid-template-columns:70px 1fr auto 40px; gap:24px; align-items:center; padding:26px 0; transition:padding .45s cubic-bezier(.22,1,.36,1), color .3s; }
+  .and-svc summary { list-style:none; cursor:pointer; position:relative; display:grid; grid-template-columns:56px 1fr auto 40px; gap:24px; align-items:center; padding:24px 0; transition:padding .45s cubic-bezier(.22,1,.36,1), color .3s; }
   .and-svc summary::-webkit-details-marker { display:none; }
-  .and-svc:hover summary, .and-svc[open] summary { color:#F1EFEA; padding-left:16px; }
-  .and-svc .and-i { font-family:"IBM Plex Mono",Menlo,monospace; font-size:12px; color:#7A7F8A; letter-spacing:.08em; }
-  .and-svc h3 { font-family:"Bricolage Grotesque","Helvetica Neue",Arial,sans-serif; font-size:clamp(26px,3.8vw,56px); font-weight:500; letter-spacing:-.04em; line-height:1; margin:0; transition:transform .45s cubic-bezier(.22,1,.36,1); }
+  .and-svc:hover summary, .and-svc[open] summary { color:#F4EFE4; padding-left:16px; }
+  .and-sym{display:inline-grid;place-items:center;width:22px;height:22px;color:#143D31}.and-sym svg{width:14px;height:14px;display:block}
+  .and-svc:hover .and-sym, .and-svc[open] .and-sym { color:#C9A14B; }
+  .and-svc h3 { font-family:"Fraunces","Iowan Old Style",Georgia,serif; font-variation-settings:"opsz" 144,"SOFT" 30,"WONK" 0; font-size:clamp(26px,3.6vw,54px); font-weight:500; letter-spacing:-.025em; line-height:1; margin:0; transition:transform .45s cubic-bezier(.22,1,.36,1); }
   .and-svc:hover h3, .and-svc[open] h3 { transform:translateX(8px); }
-  .and-svc .and-fit { font-family:"Instrument Serif",Georgia,serif; font-style:italic; font-size:17px; color:#7A7F8A; text-align:right; }
-  .and-svc .and-plus { width:40px; height:40px; border:1px solid #D3D0C9; border-radius:50%; display:grid; place-items:center; font-family:"IBM Plex Mono",Menlo,monospace; font-size:18px; transition:transform .45s, background-color .3s, color .3s, border-color .3s; }
-  .and-svc:hover .and-plus, .and-svc[open] .and-plus { border-color:#E0663A; background:#E0663A; color:#0B0D11; }
+  .and-svc .and-fit { font-family:"Fraunces","Iowan Old Style",Georgia,serif; font-style:italic; font-variation-settings:"opsz" 144,"SOFT" 30,"WONK" 1; font-size:17px; color:#6E8A7D; text-align:right; }
+  .and-svc .and-plus { width:40px; height:40px; border:1px solid #D3CAB4; border-radius:50%; display:grid; place-items:center; font-family:"DM Mono",Menlo,Consolas,monospace; font-size:18px; transition:transform .45s, background-color .3s, color .3s, border-color .3s; }
+  .and-svc:hover .and-plus, .and-svc[open] .and-plus { border-color:#C9A14B; background:#C9A14B; color:#143D31; }
   .and-svc[open] .and-plus { transform:rotate(45deg); }
-  .and-svc:hover .and-i, .and-svc[open] .and-i, .and-svc:hover .and-fit, .and-svc[open] .and-fit { color:#E0663A; }
-  .and-svc-inner { position:relative; display:grid; grid-template-columns:70px 1fr 1fr; gap:24px; padding:0 16px 34px; color:#B4B6BC; }
+  .and-svc:hover .and-fit, .and-svc[open] .and-fit { color:#C9A14B; }
+  .and-svc-inner { position:relative; display:grid; grid-template-columns:56px 1fr 1fr; gap:24px; padding:0 16px 32px; color:#BFD0C6; }
   .and-svc-inner p { margin:0; font-size:16px; max-width:46ch; line-height:1.55; }
   .and-svc-inner ul { margin:0; padding:0; list-style:none; display:grid; gap:8px; font-size:15px; }
-  .and-svc-inner li { display:flex; gap:12px; } .and-svc-inner li::before { content:"→"; color:#E0663A; font-family:"IBM Plex Mono",Menlo,monospace; }
-  @media (max-width:860px) { .and-svc summary { grid-template-columns:44px 1fr 40px; } .and-svc .and-fit { display:none; } .and-svc-inner { grid-template-columns:1fr; } }
+  .and-svc-inner li { display:flex; gap:12px; } .and-svc-inner li::before { content:"→"; color:#C9A14B; font-family:"DM Mono",Menlo,Consolas,monospace; }
+  @media (max-width:860px) { .and-svc summary { grid-template-columns:40px 1fr 40px; } .and-svc .and-fit { display:none; } .and-svc-inner { grid-template-columns:1fr; } }
 </style>
 <div class="and-svc-list">
-  <details class="and-svc"><summary><span class="and-i">01</span><h3>Implementation</h3><span class="and-fit">First-time Salesforce teams</span><span class="and-plus">+</span></summary>
-    <div class="and-svc-inner"><span></span><p>Sales, Service and Experience Cloud from a blank org. We design the object model around how your team sells and serves today, not around a template, and migrate what is worth keeping from HubSpot, Dynamics, Zoho or spreadsheets.</p><ul><li>Discovery workshops with sales, service and finance</li><li>Object model, layouts, permission sets, record types</li><li>Migration rehearsal before cutover, 30-day hypercare</li><li>6 to 14 weeks, fixed price after Blueprint</li></ul></div></details>
-  <details class="and-svc"><summary><span class="and-i">02</span><h3>Org rescue</h3><span class="and-fit">Orgs older than three years</span><span class="and-plus">+</span></summary>
-    <div class="and-svc-inner"><span></span><p>Several admins, no single owner, and nobody can explain why a record does what it does. We audit everything, rank the findings by business impact, and pay down the debt in sprints without stopping the business.</p><ul><li>Technical audit with a prioritised, costed fix list</li><li>Workflow Rule and Process Builder migration to Flow</li><li>Field, profile and report clean-up with usage evidence</li><li>2-week audit, then 2 to 6 sprints</li></ul></div></details>
-  <details class="and-svc"><summary><span class="and-i">03</span><h3>Integrations &amp; data</h3><span class="and-fit">When Salesforce must agree with finance</span><span class="and-plus">+</span></summary>
+  <details class="and-svc"><summary><span class="and-sym"><svg viewBox="0 0 14 14" aria-hidden="true"><circle cx="7" cy="7" r="5" fill="currentColor"/></svg></span><h3>Implementation</h3><span class="and-fit">First-time Salesforce teams</span><span class="and-plus">+</span></summary>
+    <div class="and-svc-inner"><span></span><p>Sales, Service and Experience Cloud from a blank org. We design the object model around how your team sells and serves today, not around a template, and migrate what is worth keeping from HubSpot, Dynamics, Zoho or spreadsheets.</p><ul><li>Discovery workshops with sales, service and finance</li><li>Object model, layouts, permission sets, record types</li><li>Migration rehearsal before cutover, 30-day hypercare</li><li>6 to 14 weeks, fixed price after the Chart stage</li></ul></div></details>
+  <details class="and-svc"><summary><span class="and-sym"><svg viewBox="0 0 14 14" aria-hidden="true"><circle cx="7" cy="7" r="4.5" fill="none" stroke="currentColor" stroke-width="1.2"/></svg></span><h3>Org rescue</h3><span class="and-fit">Orgs older than three years</span><span class="and-plus">+</span></summary>
+    <div class="and-svc-inner"><span></span><p>Several admins, no single owner, and nobody can explain why a record does what it does. We survey everything, rank the findings by business impact, and pay down the debt in sprints without stopping the business.</p><ul><li>Technical survey with a prioritised, costed fix list</li><li>Workflow Rule and Process Builder migration to Flow</li><li>Field, profile and report clean-up with usage evidence</li><li>2-week survey, then 2 to 6 sprints</li></ul></div></details>
+  <details class="and-svc"><summary><span class="and-sym"><svg viewBox="0 0 14 14" aria-hidden="true"><rect x="2.5" y="2.5" width="9" height="9" fill="currentColor"/></svg></span><h3>Integrations &amp; data</h3><span class="and-fit">When Salesforce must agree with finance</span><span class="and-plus">+</span></summary>
     <div class="and-svc-inner"><span></span><p>Salesforce has to agree with your ERP, your billing tool and your support desk. We build the integrations and the hygiene rules that keep them agreeing.</p><ul><li>ERP, billing, marketing and support integrations</li><li>MuleSoft, REST, platform events, Make or Workato</li><li>Matching rules, deduplication, one-time merge</li><li>3 to 8 weeks per integration</li></ul></div></details>
-  <details class="and-svc"><summary><span class="and-i">04</span><h3>Custom development</h3><span class="and-fit">When clicks can't</span><span class="and-plus">+</span></summary>
+  <details class="and-svc"><summary><span class="and-sym"><svg viewBox="0 0 14 14" aria-hidden="true"><path d="M2.5 2.5l9 9M11.5 2.5l-9 9" stroke="currentColor" stroke-width="1.4"/></svg></span><h3>Custom development</h3><span class="and-fit">When clicks can't</span><span class="and-plus">+</span></summary>
     <div class="and-svc-inner"><span></span><p>Some processes clicks alone can't handle. We write the code, we write the tests, and we make sure the next developer can read both.</p><ul><li>Apex, Lightning Web Components, complex Flows</li><li>Agentforce agents, prompt templates, guardrails</li><li>Test coverage above 85%, version control, CI</li><li>Scoped per feature, 2-week sprints</li></ul></div></details>
-  <details class="and-svc"><summary><span class="and-i">05</span><h3>Managed admin</h3><span class="and-fit">Not ready for a full-time hire</span><span class="and-plus">+</span></summary>
+  <details class="and-svc"><summary><span class="and-sym"><svg viewBox="0 0 14 14" aria-hidden="true"><path d="M7 2l5.5 10h-11z" fill="currentColor"/></svg></span><h3>Managed admin</h3><span class="and-fit">Not ready for a full-time hire</span><span class="and-plus">+</span></summary>
     <div class="and-svc-inner"><span></span><p>The requests keep coming. A named consultant handles them within an agreed SLA and keeps the org ready for every Salesforce release.</p><ul><li>Monthly block of hours with a named consultant</li><li>Release readiness review, three times a year</li><li>Quarterly roadmap and health report</li><li>Retainer from 20 hours a month</li></ul></div></details>
-  <details class="and-svc"><summary><span class="and-i">06</span><h3>Training &amp; adoption</h3><span class="and-fit">Built well, underused</span><span class="and-plus">+</span></summary>
+  <details class="and-svc"><summary><span class="and-sym"><svg viewBox="0 0 14 14" aria-hidden="true"><circle cx="7" cy="7" r="5" fill="none" stroke="currentColor" stroke-width="1.2"/><circle cx="7" cy="7" r="1.8" fill="currentColor"/></svg></span><h3>Training &amp; adoption</h3><span class="and-fit">Built well, underused</span><span class="and-plus">+</span></summary>
     <div class="and-svc-inner"><span></span><p>The org is built well, but people work around it. We train by role, coach your admin, and measure what sticks.</p><ul><li>Role-based sessions for reps, agents and managers</li><li>Admin coaching so your team owns the org</li><li>Adoption dashboards: logins, data entry, report views</li><li>2 to 4 weeks</li></ul></div></details>
 </div>

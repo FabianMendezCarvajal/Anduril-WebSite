@@ -7,7 +7,7 @@
 
 ## Intro
 
-*Eyebrow:* Services
+*Coordinates:* Services
 
 *H1:* Everything from first login to a fully governed org.
 
@@ -96,6 +96,6 @@ You keep everything built so far, fully documented, and the sandbox is yours.
 
 *H2:* Not sure which one you need?
 
-*Paragraph:* Book the free org review. We'll tell you which of the six applies, or whether none of them does.
+*Paragraph:* Book the free survey. We'll tell you which of the six applies, or whether none of them does.
 
-*Button:* Book a free org review → `/contact`
+*Button:* Book a survey → `/contact`

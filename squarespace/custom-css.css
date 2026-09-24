@@ -1,157 +1,149 @@
 /* =====================================================================
-   ANDURIL · Squarespace 7.1 Custom CSS  (v3, refined)
+   ANDURIL · Squarespace 7.1 Custom CSS  (v4, Proposal B: the West)
    Paste into Design → Custom CSS. Works on every plan.
-   Forge black #0B0D11 · steel-white #F1EFEA · ember #E0663A / #C9552C
+   Ivory #F4EFE4 · Pine #143D31 · Gilt #C9A14B · Moss #3F6D58 · Vellum #E9E2D0
    ===================================================================== */
 
-@import url('https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,300;12..96,400;12..96,500;12..96,600;12..96,700&family=Instrument+Serif:ital@0;1&family=IBM+Plex+Sans:ital,wght@0,400;0,500;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT,WONK@0,9..144,300..700,0..100,0..1;1,9..144,300..700,0..100,0..1&family=Instrument+Sans:ital,wght@0,400;0,500;0,600;1,400&family=DM+Mono:wght@400;500&display=swap');
 
 :root {
-  --and-ground: #0B0D11; --and-ground-2: #10131A; --and-surface: #141821;
-  --and-ink: #EDEBE6; --and-ink-2: #B4B6BC; --and-muted: #767C88;
-  --and-line: #1F232B; --and-line-2: #2C313B;
-  --and-ember: #E0663A; --and-ember-deep: #C9552C; --and-brass: #D9A45B;
-  --and-paper: #F1EFEA; --and-paper-2: #E6E3DD; --and-paper-ink: #0B0D11; --and-paper-ink-2: #454A55; --and-paper-muted: #7A7F8A; --and-paper-line: #D3D0C9;
-  --and-display: "Bricolage Grotesque", "Helvetica Neue", Arial, sans-serif;
-  --and-body: "IBM Plex Sans", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-  --and-mono: "IBM Plex Mono", Menlo, Consolas, monospace;
-  --and-serif: "Instrument Serif", "Iowan Old Style", Georgia, serif;
+  --and-ivory: #F4EFE4; --and-vellum: #E9E2D0; --and-rule: #D3CAB4;
+  --and-pine: #143D31; --and-moss: #3F6D58; --and-sage: #6E8A7D;
+  --and-gilt: #C9A14B; --and-gilt-deep: #7A5D18;
+  --and-pine-deep: #0E2B23; --and-pine-surface: #123529; --and-pine-rule: #22493D; --and-pine-sage: #7E9A8C; --and-ivory-2: #BFD0C6;
+  --and-display: "Fraunces","Iowan Old Style",Georgia,serif;
+  --and-body: "Instrument Sans","Helvetica Neue",Arial,sans-serif;
+  --and-mono: "DM Mono",Menlo,Consolas,monospace;
   --and-ease: cubic-bezier(.22, 1, .36, 1);
 }
 
-/* ---------- Grain (the craft layer) ---------- */
+/* ---------- Paper grain ---------- */
 body::after {
-  content: ""; position: fixed; inset: 0; z-index: 9990; pointer-events: none; opacity: .04;
+  content: ""; position: fixed; inset: 0; z-index: 9990; pointer-events: none; opacity: .045;
   background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='200' height='200'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/></filter><rect width='200' height='200' filter='url(%23n)'/></svg>");
-  background-size: 200px 200px; mix-blend-mode: screen;
+  background-size: 200px 200px; mix-blend-mode: multiply;
 }
+
+/* ---------- The sheet margin: a fixed frame with ticks (element injected by code-injection/footer.html;
+   without Code Injection the site simply has no frame) ---------- */
+.and-sheet-frame { position: fixed; inset: 12px; z-index: 9980; pointer-events: none; border: 1px solid var(--and-rule); }
+.and-sheet-frame::before, .and-sheet-frame::after { content: ""; position: absolute; left: 0; right: 0; height: 6px; background: repeating-linear-gradient(90deg, var(--and-rule) 0 1px, transparent 1px 40px); background-position: 20px 0; }
+.and-sheet-frame::before { top: -7px; } .and-sheet-frame::after { bottom: -7px; }
+.and-sheet-frame .v { position: absolute; top: 0; bottom: 0; width: 6px; background: repeating-linear-gradient(180deg, var(--and-rule) 0 1px, transparent 1px 40px); background-position: 0 20px; }
+.and-sheet-frame .v.l { left: -7px; } .and-sheet-frame .v.r { right: -7px; }
+.and-sheet-frame .coord { position: absolute; left: 28px; top: -7px; font-family: var(--and-mono); font-size: 9.5px; letter-spacing: .12em; text-transform: uppercase; color: var(--and-sage); background: var(--and-ivory); padding: 0 6px; }
+@media (max-width: 700px) { .and-sheet-frame { inset: 8px; } .and-sheet-frame .coord { display: none; } }
 
 /* ---------- Typography ----------
-   Italic inside any heading becomes Instrument Serif italic: type *word* in the editor and press Cmd/Ctrl+I. */
+   Italic inside any heading becomes the turn of phrase: Fraunces italic in Gilt Deep (Cmd/Ctrl+I in the editor). */
 h1, h2, h3, h4, .header-title-text a, .sqs-block-quote blockquote {
-  font-family: var(--and-display) !important; letter-spacing: -.035em; text-wrap: balance;
+  font-family: var(--and-display) !important; font-weight: 500 !important; font-variation-settings:"opsz" 144,"SOFT" 30,"WONK" 0; letter-spacing: -.02em; text-wrap: balance;
 }
-h1 { font-weight: 600 !important; line-height: .9 !important; letter-spacing: -.045em !important; }
-h2 { font-weight: 500 !important; line-height: .98 !important; letter-spacing: -.04em !important; }
-h3, h4 { font-weight: 500 !important; line-height: 1.1 !important; }
-h1 em, h2 em, h3 em, h1 i, h2 i, h3 i, .sqs-block-html p.sqsrte-large em { font-family: var(--and-serif) !important; font-style: italic !important; font-weight: 400 !important; letter-spacing: -.01em; }
-h1 em, h2 em { color: var(--and-ember); }
+h1 { line-height: .96 !important; letter-spacing: -.025em !important; }
+h2 { line-height: 1 !important; letter-spacing: -.025em !important; }
+h3, h4 { line-height: 1.1 !important; }
+h1 em, h2 em, h3 em, h1 i, h2 i, h3 i, .sqs-block-html p.sqsrte-large em { font-family: var(--and-display) !important; font-style: italic !important; font-weight: 400 !important; font-variation-settings:"opsz" 144,"SOFT" 30,"WONK" 1; letter-spacing: -.01em; color: var(--and-gilt-deep); }
+[data-section-theme="black"] h1 em, [data-section-theme="black"] h2 em, [data-section-theme="darkest-1"] h1 em, [data-section-theme="darkest-1"] h2 em { color: var(--and-gilt); }
 body, p, li, .sqs-block-html { font-family: var(--and-body) !important; }
-p { line-height: 1.6; }
-
-/* Eyebrow labels: Monospace-styled text becomes a small tracked label */
+p { line-height: 1.55; }
+/* Coordinates: Monospace-styled text becomes a DM Mono label */
 .sqsrte-mono, .sqs-block-html pre {
-  font-family: var(--and-mono) !important; font-size: 11px !important; letter-spacing: .16em; text-transform: uppercase;
-  color: var(--and-muted) !important; background: none !important; padding: 0 !important; margin: 0 0 14px !important; white-space: normal;
+  font-family: var(--and-mono) !important; font-size: 11px !important; letter-spacing: .14em; text-transform: uppercase;
+  color: var(--and-sage) !important; background: none !important; padding: 0 !important; margin: 0 0 14px !important; white-space: normal;
 }
-[data-section-theme="white"] .sqsrte-mono, [data-section-theme="lightest-1"] .sqsrte-mono { color: var(--and-paper-muted) !important; }
-
 /* Lede (Paragraph 1) */
-.sqs-block-html p.sqsrte-large { font-size: clamp(17px, 1.35vw, 20px) !important; line-height: 1.5 !important; max-width: 52ch; color: var(--and-ink-2); }
-[data-section-theme="white"] .sqsrte-large, [data-section-theme="lightest-1"] .sqsrte-large { color: var(--and-paper-ink-2); }
+.sqs-block-html p.sqsrte-large { font-size: clamp(17px, 1.3vw, 20px) !important; line-height: 1.5 !important; max-width: 52ch; color: var(--and-moss); }
+[data-section-theme="darkest-1"] .sqsrte-large, [data-section-theme="black"] .sqsrte-large { color: var(--and-pine-sage); }
+/* Big serif paragraph: set the paragraph in Heading 3 and make it italic-free; this class comes from "Heading 3" */
+.sqs-block-html h3.and-big { font-weight: 400 !important; font-size: clamp(26px, 3vw, 44px) !important; line-height: 1.15 !important; }
 
 /* ---------- Layout ---------- */
-.content-wrapper, .header-inner { max-width: 1400px !important; }
-.page-section:not(:first-child) { border-top: 1px solid var(--and-line); }
-[data-section-theme="white"] + [data-section-theme="white"] { border-top: 0 !important; }
+.content-wrapper, .header-inner { max-width: 1360px !important; }
+.page-section { border-top: 0 !important; }
 
-/* Light sections read as paper sheets laid over the dark ground */
-[data-section-theme="white"], [data-section-theme="lightest-1"] { border-radius: 32px 32px 0 0; margin-top: -32px; position: relative; z-index: 1; border-top: 0 !important; }
-[data-section-theme="white"] + [data-section-theme="white"], [data-section-theme="lightest-1"] + [data-section-theme="lightest-1"] { border-radius: 0; margin-top: 0; }
-
-/* ---------- Header: transparent, blends with what it passes over ---------- */
-#header { background: transparent !important; mix-blend-mode: difference; color: #fff !important; }
-#header .header-title-text a { color: #fff !important; letter-spacing: .22em !important; font-weight: 600 !important; font-size: 15px !important; }
-#header .header-title-text a::before { content: ""; display: inline-block; width: 11px; height: 11px; margin-right: 10px; vertical-align: -1px; background: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12'><path d='M6 0Q6 6 12 6Q6 6 6 12Q6 6 0 6Q6 6 6 0Z' fill='%23E0663A'/></svg>") center/contain no-repeat; }
-.header-nav-item a, .header-burger-btn { font-family: var(--and-mono) !important; font-size: 12px !important; letter-spacing: .12em; text-transform: uppercase; color: #fff !important; }
-/* Burger on every screen size (the overlay-menu pattern). Comment these two lines out to keep inline links on desktop. */
-.header-nav, .header-actions { display: none !important; }
-.header-burger { display: flex !important; }
-
-/* Overlay menu: a paper sheet with large, light links */
-.header-menu { background: var(--and-paper) !important; }
-.header-menu-nav-item a { font-family: var(--and-display) !important; font-weight: 500 !important; font-size: clamp(38px, 8vw, 104px) !important; line-height: 1 !important; letter-spacing: -.04em !important; color: var(--and-paper-ink) !important; transition: transform .4s var(--and-ease), color .3s; }
-.header-menu-nav-item a:hover { transform: translateX(16px); color: var(--and-ember-deep) !important; }
+/* ---------- Header: ivory bar, rose + wordmark in Fraunces italic ---------- */
+#header { background: rgba(244, 239, 228, .86) !important; -webkit-backdrop-filter: blur(8px); backdrop-filter: blur(8px); border-bottom: 1px solid var(--and-rule); }
+#header .header-title-text a { font-style: italic !important; font-weight: 500 !important; font-variation-settings: "opsz" 144, "SOFT" 50, "WONK" 1 !important; font-size: 27px !important; letter-spacing: -.01em !important; color: var(--and-pine) !important; text-transform: none !important; }
+#header .header-title-logo img { height: 30px !important; width: auto !important; }
+.header-nav-item a { font-family: var(--and-body) !important; font-size: 14.5px !important; font-weight: 500 !important; color: var(--and-pine) !important; border-bottom: 1px solid transparent; white-space: nowrap; }
+.header-nav-item a:hover, .header-nav-item--active a { border-bottom-color: var(--and-gilt) !important; background-image: none !important; }
+.header-burger-btn { border: 1px solid var(--and-pine); border-radius: 2px; padding: 6px 10px; }
+/* Overlay menu: reversed on pine */
+.header-menu { background: var(--and-pine) !important; }
+.header-menu-nav-item a { font-family: var(--and-display) !important; font-weight: 400 !important; font-variation-settings: "opsz" 144, "SOFT" 30 !important; font-size: clamp(38px, 7.5vw, 96px) !important; line-height: 1 !important; letter-spacing: -.02em !important; color: var(--and-ivory) !important; transition: transform .4s var(--and-ease), color .3s; }
+.header-menu-nav-item a:hover { transform: translateX(14px); color: var(--and-gilt) !important; }
 .header-menu-nav-item--active a { background: none !important; }
-.header-menu-cta a, .header-menu-actions a { font-family: var(--and-mono) !important; font-size: 12px !important; letter-spacing: .12em; text-transform: uppercase; color: #0B0D11 !important; }
-.header--menu-open #header { mix-blend-mode: normal; color: #0B0D11 !important; }
-.header--menu-open #header .header-title-text a, .header--menu-open .header-burger-btn { color: #0B0D11 !important; }
-.header--menu-open .burger-inner .top-bun, .header--menu-open .burger-inner .patty, .header--menu-open .burger-inner .bottom-bun { background: #0B0D11 !important; }
+.header-menu-cta a, .header-menu-actions a { font-family: var(--and-mono) !important; font-size: 11px !important; letter-spacing: .14em; text-transform: uppercase; color: var(--and-ivory) !important; }
+.header--menu-open .burger-inner .top-bun, .header--menu-open .burger-inner .patty, .header--menu-open .burger-inner .bottom-bun { background: var(--and-ivory) !important; }
 
-/* ---------- Buttons: pill, mono label, ember sweep on hover ---------- */
+/* ---------- Buttons: squared, mono label; pine on gilt on hover ---------- */
 .sqs-block-button-element, .sqs-button-element--primary, .sqs-button-element--secondary,
 .form-wrapper .form-button-wrapper button, .form-wrapper input[type="submit"] {
-  font-family: var(--and-mono) !important; font-size: 11.5px !important; letter-spacing: .16em !important; text-transform: uppercase !important;
-  padding: 17px 26px !important; border-radius: 999px !important; position: relative; overflow: hidden; isolation: isolate;
-  border: 1px solid var(--and-line-2) !important; background: transparent !important; color: var(--and-ink) !important;
-  transition: color .35s var(--and-ease), border-color .35s !important; box-shadow: none !important;
+  font-family: var(--and-mono) !important; font-size: 11.5px !important; letter-spacing: .14em !important; text-transform: uppercase !important;
+  padding: 15px 22px !important; border-radius: 2px !important; position: relative; overflow: hidden; isolation: isolate;
+  border: 1px solid var(--and-pine) !important; background: transparent !important; color: var(--and-pine) !important;
+  transition: color .3s, border-color .3s !important; box-shadow: none !important;
 }
 .sqs-block-button-element::before, .sqs-button-element--primary::before, .sqs-button-element--secondary::before,
-.form-wrapper .form-button-wrapper button::before, .form-wrapper input[type="submit"]::before {
-  content: ""; position: absolute; inset: 0; z-index: -1; background: var(--and-ember); transform: translateY(101%); transition: transform .45s var(--and-ease); border-radius: inherit;
+.form-wrapper .form-button-wrapper button::before {
+  content: ""; position: absolute; inset: 0; z-index: -1; background: var(--and-gilt); transform: translateY(101%); transition: transform .4s var(--and-ease);
 }
 .sqs-block-button-element:hover::before, .sqs-button-element--primary:hover::before, .sqs-button-element--secondary:hover::before,
 .form-wrapper .form-button-wrapper button:hover::before { transform: none; }
 .sqs-block-button-element:hover, .sqs-button-element--primary:hover, .sqs-button-element--secondary:hover,
-.form-wrapper .form-button-wrapper button:hover { color: #0B0D11 !important; border-color: var(--and-ember) !important; }
-/* Primary = solid paper at rest, ember sweeps in on hover */
+.form-wrapper .form-button-wrapper button:hover { color: var(--and-pine) !important; border-color: var(--and-gilt) !important; }
+/* Primary = solid pine at rest */
 .sqs-block-button-element--primary, .sqs-button-element--primary, .form-wrapper .form-button-wrapper button, .form-wrapper input[type="submit"] {
-  background: var(--and-ink) !important; color: var(--and-ground) !important; border-color: var(--and-ink) !important;
+  background: var(--and-pine) !important; color: var(--and-ivory) !important;
 }
-.sqs-block-button-element--primary::before, .sqs-button-element--primary::before, .form-wrapper .form-button-wrapper button::before { background: var(--and-ember); }
-.sqs-block-button-element--primary:hover, .sqs-button-element--primary:hover { border-color: var(--and-ember) !important; }
-[data-section-theme="white"] .sqs-block-button-element--secondary, [data-section-theme="lightest-1"] .sqs-block-button-element--secondary {
-  color: var(--and-paper-ink) !important; border-color: var(--and-paper-ink) !important;
-}
-[data-section-theme="white"] .sqs-block-button-element--secondary::before { background: var(--and-paper-ink); }
-[data-section-theme="white"] .sqs-block-button-element--secondary:hover { color: var(--and-paper) !important; }
+[data-section-theme="darkest-1"] .sqs-block-button-element, [data-section-theme="black"] .sqs-block-button-element { color: var(--and-ivory) !important; border-color: var(--and-ivory-2) !important; }
+[data-section-theme="darkest-1"] .sqs-block-button-element--primary, [data-section-theme="black"] .sqs-block-button-element--primary { background: var(--and-ivory) !important; color: var(--and-pine) !important; border-color: var(--and-ivory) !important; }
 
 /* ---------- Quote blocks ---------- */
-.sqs-block-quote blockquote { border-left: 3px solid var(--and-ember); padding: 6px 0 6px 24px; margin: 0; font-size: clamp(20px, 2vw, 25px) !important; font-weight: 500 !important; line-height: 1.35 !important; }
+.sqs-block-quote blockquote { border-left: 1px solid var(--and-gilt); padding: 6px 0 6px 24px; margin: 0; font-size: clamp(20px, 2vw, 25px) !important; font-weight: 400 !important; line-height: 1.3 !important; }
 .sqs-block-quote blockquote span::before, .sqs-block-quote blockquote span::after { content: none !important; }
-.sqs-block-quote figcaption { font-family: var(--and-mono) !important; font-size: 12px !important; letter-spacing: .1em; text-transform: uppercase; color: var(--and-muted); padding-left: 27px; text-align: left !important; }
+.sqs-block-quote figcaption { font-family: var(--and-mono) !important; font-size: 11px !important; letter-spacing: .12em; text-transform: uppercase; color: var(--and-sage); padding-left: 25px; text-align: left !important; }
 
 /* ---------- Accordion ---------- */
-.accordion-item__title { font-family: var(--and-display) !important; font-weight: 600 !important; font-size: clamp(22px, 2.4vw, 32px) !important; letter-spacing: -.03em; }
-.accordion-divider { border-color: var(--and-line) !important; }
+.accordion-item__title { font-family: var(--and-display) !important; font-weight: 500 !important; font-size: clamp(22px, 2.4vw, 32px) !important; letter-spacing: -.02em; }
+.accordion-divider { border-color: var(--and-rule) !important; }
 
-/* ---------- Forms: underline fields, no boxes ---------- */
+/* ---------- Forms: underline fields ---------- */
 .form-wrapper { background: none !important; border: 0 !important; padding: 0 !important; }
 .form-wrapper .field-list .title, .form-wrapper .field-list .caption-text {
-  font-family: var(--and-mono) !important; font-size: 11px !important; letter-spacing: .12em; text-transform: uppercase; color: var(--and-muted) !important; font-weight: 400 !important;
+  font-family: var(--and-mono) !important; font-size: 10.5px !important; letter-spacing: .14em; text-transform: uppercase; color: var(--and-sage) !important; font-weight: 400 !important;
 }
 .form-wrapper .field-list .field .field-element, .form-wrapper .field-list .field textarea, .form-wrapper .field-list .field select {
-  font-family: var(--and-body) !important; font-size: 17px !important; color: var(--and-ink) !important;
-  background: transparent !important; border: 0 !important; border-bottom: 1px solid var(--and-line-2) !important; border-radius: 0 !important; padding: 12px 0 !important;
-  transition: border-color .3s;
+  font-family: var(--and-body) !important; font-size: 17px !important; color: inherit !important;
+  background: transparent !important; border: 0 !important; border-bottom: 1px solid var(--and-rule) !important; border-radius: 0 !important; padding: 12px 0 !important; transition: border-color .3s;
 }
-.form-wrapper .field-list .field .field-element:focus, .form-wrapper .field-list .field textarea:focus { border-bottom-color: var(--and-ember) !important; outline: none; }
-.form-wrapper .field-list .field select { background: var(--and-ground) !important; }
-.form-wrapper .form-submission-text { font-family: var(--and-body); border: 1px solid var(--and-line-2); color: var(--and-ink-2); padding: 14px 16px; border-radius: 10px; }
+.form-wrapper .field-list .field .field-element:focus, .form-wrapper .field-list .field textarea:focus { border-bottom-color: var(--and-gilt) !important; outline: none; }
+[data-section-theme="darkest-1"] .form-wrapper .field-list .field .field-element, [data-section-theme="darkest-1"] .form-wrapper .field-list .field textarea { border-bottom-color: var(--and-pine-rule) !important; }
+[data-section-theme="darkest-1"] .form-wrapper .field-list .title { color: var(--and-pine-sage) !important; }
+.form-wrapper .form-submission-text { font-family: var(--and-body); border: 1px solid var(--and-rule); padding: 14px 16px; border-radius: 3px; }
 
 /* ---------- Images ---------- */
-.sqs-block-image img { border-radius: 16px; }
-.image-caption-wrapper p { font-family: var(--and-mono) !important; font-size: 12px !important; letter-spacing: .08em; color: var(--and-muted) !important; }
+.sqs-block-image img { border-radius: 3px; }
+.image-caption-wrapper p { font-family: var(--and-mono) !important; font-size: 11px !important; letter-spacing: .1em; text-transform: uppercase; color: var(--and-sage) !important; }
 
 /* ---------- Footer ---------- */
-#footer-sections .page-section { border-top: 1px solid var(--and-line); }
 #footer-sections a { text-decoration: none; }
-#footer-sections a:hover { color: var(--and-ember) !important; }
+#footer-sections a:hover { color: var(--and-gilt) !important; }
 
-/* ---------- Custom cursor (element is injected by code-injection/footer.html) ---------- */
-.and-cursor { position: fixed; z-index: 9999; left: 0; top: 0; width: 28px; height: 28px; border-radius: 50%; border: 1px solid rgba(255,255,255,.75); pointer-events: none; mix-blend-mode: difference; transition: width .3s var(--and-ease), height .3s var(--and-ease), background-color .3s, border-color .3s; display: none; }
-.and-cursor::after { content: ""; position: absolute; left: 50%; top: 50%; width: 4px; height: 4px; margin: -2px; border-radius: 50%; background: #fff; }
-.and-cursor.is-link { width: 64px; height: 64px; border-color: transparent; background: rgba(255,255,255,.9); }
+/* ---------- Cursor (element injected by the footer script) ---------- */
+.and-cursor { position: fixed; z-index: 9999; left: 0; top: 0; width: 26px; height: 26px; border-radius: 50%; border: 1px solid var(--and-pine); pointer-events: none; mix-blend-mode: multiply; transition: width .3s var(--and-ease), height .3s var(--and-ease), background-color .3s, border-color .3s; display: none; }
+.and-cursor::after { content: ""; position: absolute; left: 50%; top: 50%; width: 4px; height: 4px; margin: -2px; border-radius: 50%; background: var(--and-gilt-deep); }
+.and-cursor.is-link { width: 58px; height: 58px; border-color: transparent; background: rgba(201,161,75,.35); }
 .and-cursor.is-link::after { opacity: 0; }
 @media (pointer: fine) { .and-cursor { display: block; } }
 
-/* ---------- Scroll reveal (classes are added by the footer script) ---------- */
+/* ---------- Scroll reveal (classes added by the footer script) ---------- */
 .and-rv { transition: opacity .9s var(--and-ease), transform .9s var(--and-ease); }
-.and-rv.pre { opacity: 0; transform: translateY(28px); }
+.and-rv.pre { opacity: 0; transform: translateY(24px); }
 .and-rv.in { opacity: 1; transform: none; }
 
 /* ---------- Focus & motion ---------- */
-a:focus-visible, button:focus-visible { outline: 2px solid var(--and-ember); outline-offset: 4px; }
+a:focus-visible, button:focus-visible { outline: 2px solid var(--and-gilt-deep); outline-offset: 4px; }
 @media (prefers-reduced-motion: reduce) {
   * { transition-duration: .001s !important; animation-duration: .001s !important; }
   .and-rv.pre { opacity: 1; transform: none; }

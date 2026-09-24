@@ -1,20 +1,19 @@
-<!-- ANDURIL · Code Block: Clients grid (home section 8, chapter 05). Type: HTML. DARK section.
-     Replace each placeholder wordmark with the client's logo: upload the SVG or PNG under
-     Design → Custom CSS → Manage Custom Files, copy its URL, and swap the <span class="and-logo-text">…</span>
-     for <img src="URL" alt="Client name">. Logos render greyscale and light up on hover. 8 or 12 cells look best. -->
+<!-- ANDURIL · Code Block: Charted, the clients grid (home sheet 06). Type: HTML. IVORY section.
+     Replace each placeholder wordmark with the client's logo: upload the SVG or PNG under Design → Custom CSS → Manage Custom Files,
+     copy its URL, and swap the <span class="and-logo-text">…</span> for <img src="URL" alt="Client name">. -->
 <style>
-  .and-clients { display:grid; grid-template-columns:repeat(4,1fr); border:1px solid #1F232B; border-radius:20px; overflow:hidden; font-family:"IBM Plex Sans",Arial,sans-serif; }
-  .and-client { aspect-ratio:5/3; display:grid; place-items:center; padding:24px; border-right:1px solid #1F232B; border-bottom:1px solid #1F232B; position:relative; transition:background-color .35s; }
+  .and-clients { display:grid; grid-template-columns:repeat(4,1fr); border:1px solid #D3CAB4; border-radius:3px; overflow:hidden; font-family:"Instrument Sans","Helvetica Neue",Arial,sans-serif; }
+  .and-client { aspect-ratio:5/3; display:grid; place-items:center; padding:24px; border-right:1px solid #D3CAB4; border-bottom:1px solid #D3CAB4; position:relative; transition:background-color .35s; }
   .and-client:nth-child(4n) { border-right:0; } .and-client:nth-last-child(-n+4) { border-bottom:0; }
-  .and-client:hover { background:#10131A; }
-  .and-client img { max-width:68%; max-height:44%; filter:grayscale(1); opacity:.62; transition:opacity .35s, filter .35s; }
+  .and-client:hover { background:#E9E2D0; }
+  .and-client img { max-width:68%; max-height:44%; filter:grayscale(1); opacity:.6; transition:opacity .35s, filter .35s; }
   .and-client:hover img { opacity:1; filter:none; }
-  .and-logo-text { font-family:"Bricolage Grotesque","Helvetica Neue",Arial,sans-serif; font-weight:500; font-size:clamp(18px,1.6vw,24px); letter-spacing:.04em; text-transform:uppercase; color:#B4B6BC; opacity:.62; transition:opacity .35s; }
-  .and-logo-text.serif { font-family:"Instrument Serif",Georgia,serif; font-style:italic; text-transform:none; font-size:clamp(22px,2vw,30px); letter-spacing:0; }
+  .and-logo-text { font-weight:600; font-size:clamp(16px,1.4vw,21px); letter-spacing:.08em; text-transform:uppercase; color:#3F6D58; opacity:.7; transition:opacity .35s; }
+  .and-logo-text.serif { font-family:"Fraunces","Iowan Old Style",Georgia,serif; font-style:italic; font-weight:400; font-variation-settings:"opsz" 144,"SOFT" 30,"WONK" 1; text-transform:none; font-size:clamp(22px,2vw,30px); letter-spacing:0; }
   .and-client:hover .and-logo-text { opacity:1; }
-  .and-client .and-tag { position:absolute; left:20px; bottom:16px; font-family:"IBM Plex Mono",Menlo,monospace; font-size:10.5px; letter-spacing:.14em; text-transform:uppercase; color:#767C88; opacity:0; transform:translateY(6px); transition:opacity .35s, transform .35s; }
+  .and-client .and-tag { position:absolute; left:20px; bottom:16px; font-family:"DM Mono",Menlo,Consolas,monospace; font-size:10px; letter-spacing:.14em; text-transform:uppercase; color:#6E8A7D; opacity:0; transform:translateY(6px); transition:opacity .35s, transform .35s; }
   .and-client:hover .and-tag { opacity:1; transform:none; }
-  @media (max-width:900px) { .and-clients { grid-template-columns:repeat(2,1fr); } .and-client { aspect-ratio:auto; min-height:150px; grid-template-rows:1fr auto; gap:12px; padding:26px 14px 16px; } .and-client:nth-child(4n) { border-right:1px solid #1F232B; } .and-client:nth-child(2n) { border-right:0; } .and-client:nth-last-child(-n+4) { border-bottom:1px solid #1F232B; } .and-client:nth-last-child(-n+2) { border-bottom:0; } .and-client .and-tag { position:static; text-align:center; opacity:1; transform:none; } .and-logo-text { font-size:17px; } .and-logo-text.serif { font-size:22px; } }
+  @media (max-width:900px) { .and-clients { grid-template-columns:repeat(2,1fr); } .and-client { aspect-ratio:auto; min-height:140px; grid-template-rows:1fr auto; gap:12px; padding:24px 14px 16px; } .and-client:nth-child(4n) { border-right:1px solid #D3CAB4; } .and-client:nth-child(2n) { border-right:0; } .and-client:nth-last-child(-n+4) { border-bottom:1px solid #D3CAB4; } .and-client:nth-last-child(-n+2) { border-bottom:0; } .and-client .and-tag { position:static; text-align:center; opacity:1; transform:none; } .and-logo-text { font-size:15px; } .and-logo-text.serif { font-size:22px; } }
 </style>
 <div class="and-clients" aria-label="Client logos">
   <div class="and-client"><span class="and-logo-text">Northwind</span><span class="and-tag">Distribution · Sales Cloud</span></div>

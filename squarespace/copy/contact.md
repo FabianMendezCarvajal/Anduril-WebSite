@@ -1,15 +1,15 @@
 # Contact page copy
 
-**Meta title:** Book a free org review · Anduril
-**Meta description:** A free thirty-minute Salesforce org review. Share screen, look at the org together, leave with three things to fix.
+**Meta title:** Book a survey · Anduril
+**Meta description:** A free thirty-minute Salesforce org survey. Share screen, look at the org together, leave with three things to fix.
 
 ---
 
 ## Left column
 
-*Eyebrow:* Start here
+*Coordinates:* Start here
 
-*H1:* Book a free org review.
+*H1:* Book a survey.
 
 *Lede:* Thirty minutes. You share screen, we look at the org together, and you leave with three things to fix whether or not you hire us.
 
@@ -24,7 +24,7 @@ Optional: a Calendly or similar booking link as a secondary button: *Or pick a t
 
 Fields and options are in `01-SETUP-GUIDE.md`, Step 10.
 
-Submit button: **Request the review**
+Submit button: **Book the survey**
 Line under the button (small): No newsletter, no sales sequence. One reply from a consultant.
 Post-submit message: Thanks. A consultant, not a sequence, will reply within one business day.
 

@@ -7,15 +7,15 @@
 
 ## Intro
 
-*Eyebrow:* About Anduril
+*Coordinates:* About Anduril
 
-*H1:* Named after a sword that was broken, then reforged.
+*H1:* Founder-led, and *small on purpose.*
 
-*Lede:* In Tolkien's story, Andúril is the blade reforged from the shards of a broken sword, and it holds. That is the job: take an org that has been bent out of shape by years of quick fixes and rebuild it into something that holds.
+*Lede:* A consultancy that inherits a Salesforce org inherits territory nobody has charted. We survey it before we touch it. Andúril, the name, means "Flame of the West" in Tolkien's Middle-earth; our compass rose points there.
 
 Anduril is a founder-led Salesforce consultancy. We are small on purpose: the consultant who scopes your project is the one who builds it, and the one you can call after launch. No hand-off to a bench, no junior team behind a senior sales call.
 
-Under the lede: `code-blocks/etymology.html`.
+Under the lede: `code-blocks/rose-entry.html`.
 
 Right column: Image block. Use a real photo of you at a desk or whiteboard, not a stock image. Caption (monospace): *[Your name], founder. Salesforce-certified since [year].*
 
@@ -60,4 +60,4 @@ Optional: add the official certification badge images from your Trailblazer prof
 
 *H2:* Talk to the person who will do the work.
 
-*Button:* Book a free org review → `/contact`
+*Button:* Book a survey → `/contact`

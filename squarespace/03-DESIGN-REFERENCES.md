@@ -40,27 +40,31 @@ winners. If you want a direct scrape, add `awwwards.com` to the environment's al
 14. **The jury's test:** "take away the animation and the static frames still look like someone made them on
     purpose." → Every section was checked as a still frame at desktop and phone width before publishing.
 
-## The concept: the sword that was reforged
+## The identity: Proposal B, the West
 
-The company is named after Andúril, the sword in Tolkien's Middle-earth reforged from the shards of Narsil, the
-blade that broke. Tolkien describes the reforged blade as engraved with seven stars set between a crescent
-moon and a rayed sun. The site uses that material as concept, not as costume:
+The site applies **Proposal B** from the Anduril Visual Identity canvas (boards B, B1, B3, B4, B5): a
+map-maker's identity. A consultancy that inherits a Salesforce org inherits territory nobody has charted; it
+surveys before it touches. The identity is that survey: paper, ink, contour lines, coordinates.
 
-* **The device.** Crescent, seven stars, rayed sun, drawn as a thin SVG in the site's own colours. It appears
-  on the blade line under the hero headline, in the name entry on the About sheet, above the footer wordmark,
-  and a single star is the brand mark before ANDURIL.
-* **The blade line.** A hairline under the headline that catches light once on load, left edge then right.
-* **The arc of the story as the arc of the page.** Chapter 01 "The broken blade", 03 "The reforging", 04
-  "Renewed". Each process stage carries a forge subline: gather the shards, draw the blade, heat and hammer,
-  temper and sharpen, keep the edge.
-* **Flame against steel.** The copper accent is the flame; the paper and hairlines are the steel. "Flame of
-  the west" appears in serif italic as the name's meaning, once in the hero meta line and once in the menu.
-* **The name entry.** A dictionary-style line on the About sheet: An·dú·ril, Quenya, "Flame of the West".
+| Element | The system | On the site |
+|---|---|---|
+| The mark | An eight-point compass rose; the west point longer and lit in Gilt, the only accent the mark carries | Beside the wordmark in the header, ringed on the About sheet, in ivory above the footer wordmark |
+| The wordmark | "Anduril" written rather than set: Fraunces italic 500, SOFT 50, WONK on, optical size 144 | Live type in the header and the giant footer wordmark |
+| Colour | Ivory `#F4EFE4` ground · Pine `#143D31` ink and dark ground · Gilt `#C9A14B` the flame · Moss `#3F6D58` · Vellum `#E9E2D0` · Rule `#D3CAB4`. Proportion 78 / 18 / 4 | Ivory pages, vellum alternate sections, one pine ground for Coordinates and the footer. Gilt Deep `#7A5D18` carries italic phrases on ivory because Gilt itself fails as text |
+| Type | Fraunces 500 opsz 144 SOFT 30 for display, italic 400 for the turn of phrase · Instrument Sans for reading · DM Mono for coordinates | Every heading, every label, every paragraph |
+| Contours | The org as terrain, behind headers and on card backs | Behind the hero headline; on the field-note cards on hover |
+| Margins | Every sheet gets a frame, ticks and coordinates | A fixed frame around the viewport with survey ticks and "Sheet 01" |
+| Legend | Services and findings as map symbols | Symbols on the terrain rows, the routes and the survey sheet |
+| The seven stars and the scale bar | A dotted route; a timeline scale | The route under the hero headline; the 0 to 90 days scale over the stages |
+| Language | "Know the org before you change it." "Salesforce, mapped." Survey, chart, route, field notes, coordinates | The headline, the tagline, the navigation and every chapter label |
 
-What was left out on purpose: elvish scripts, swords as imagery, film stills or anything that would read as
-fan art. The footer carries a line noting the name's origin and that the site is not affiliated with the
-Tolkien Estate or Middle-earth Enterprises. Middle-earth names are trademarked in several categories, so keep
-that line and check the mark in your country before investing in the name.
+Sheets replace chapters: 01 the hero, 02 Terrain, 03 Routes, 04 The survey, 05 Field notes, 06 Charted, 07 The
+free survey, 08 The map-maker, 09 Coordinates.
+
+What was left out on purpose: the sword, elvish scripts, the seven-stars-between-moon-and-sun engraving and
+anything that reads as fan art. The name and its meaning come from Tolkien; the rose, the palette and the type
+do not. The footer notes the name's origin and that the site is not affiliated with the Tolkien Estate or
+Middle-earth Enterprises.
 
 ## What was deliberately not copied
 
