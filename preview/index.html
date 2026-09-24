@@ -99,11 +99,11 @@
 
   /* ---------- Header ---------- */
   .site-header { position: fixed; top: calc(12px + env(safe-area-inset-top, 0px)); left: 12px; right: 12px; z-index: 50; background: color-mix(in srgb, var(--ground) 86%, transparent); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); border-bottom: 1px solid var(--line); }
-  .nav { display: grid; grid-template-columns: 1fr auto; align-items: center; min-height: 68px; position: relative; }
+  .nav { display: grid; grid-template-columns: 1fr auto auto; align-items: center; min-height: 68px; }
   .brand { display: inline-flex; align-items: center; gap: 12px; text-decoration: none; }
   .brand svg { width: 30px; height: 30px; }
   .brand .wordmark-type { font-size: 27px; line-height: 1; color: var(--ink); }
-  .nav-center { position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); font-family: var(--mono); font-size: 11px; letter-spacing: .14em; text-transform: uppercase; color: var(--label); display: flex; gap: 26px; white-space: nowrap; }
+  .nav-center { font-family: var(--mono); font-size: 11px; letter-spacing: .14em; text-transform: uppercase; color: var(--label); display: flex; gap: 26px; white-space: nowrap; margin-right: 26px; }
   .nav-right { justify-self: end; display: flex; align-items: center; gap: 22px; }
   .nav-links { display: flex; gap: 22px; list-style: none; margin: 0; padding: 0; }
   .nav-links a { text-decoration: none; font-size: 14.5px; font-weight: 500; color: var(--ink); border-bottom: 1px solid transparent; white-space: nowrap; }
@@ -120,7 +120,7 @@
     :root:not([data-theme="light"]) .theme-btn .moon { transform: translateY(0) rotate(0); opacity: 1; }
   }
   .menu-btn { background: none; border: 1px solid var(--ink); border-radius: 2px; color: var(--ink); font: inherit; font-family: var(--mono); font-size: 11px; letter-spacing: .14em; text-transform: uppercase; cursor: pointer; padding: 8px 12px; }
-  @media (max-width: 1180px) { .nav-center { display: none; } }
+  @media (max-width: 1180px) { .nav-center { display: none; } .nav { grid-template-columns: 1fr auto; } }
   @media (max-width: 1000px) { .nav-links { display: none; } }
 
   /* Overlay menu: reversed on pine */
