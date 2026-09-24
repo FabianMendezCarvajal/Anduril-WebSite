@@ -52,12 +52,15 @@ surveys before it touches. The identity is that survey: paper, ink, contour line
 | The wordmark | "Anduril" written rather than set: Fraunces italic 500, SOFT 50, WONK on, optical size 144 | Live type in the header and the giant footer wordmark |
 | Colour | Ivory `#F4EFE4` ground · Pine `#143D31` ink and dark ground · Gilt `#C9A14B` the flame · Moss `#3F6D58` · Vellum `#E9E2D0` · Rule `#D3CAB4`. Proportion 78 / 18 / 4 | Ivory pages, vellum alternate sections, one pine ground for Coordinates and the footer. Gilt Deep `#7A5D18` carries italic phrases on ivory because Gilt itself fails as text |
 | Type | Fraunces 500 opsz 144 SOFT 30 for display, italic 400 for the turn of phrase · Instrument Sans for reading · DM Mono for coordinates | Every heading, every label, every paragraph |
-| The celestial sheet | A map-maker's instrument: the sky charted for a place and a moment | A working planisphere in the hero: stars, ecliptic, zodiac, Sun and Moon for the site's coordinates right now, inside a calendar ring that marks today |
+| The celestial sheet | A map-maker's instrument: the sky charted for a place and a moment | A working planisphere in the hero, drawn in the manner of the nineteenth-century star atlases (Peck's Edinburgh charts): a night disc with stars scaled by magnitude and rayed when bright, the Milky Way stippled in, the hour and declination grid, constellation names in spaced capitals, the ecliptic and zodiac, Sun and Moon, inside a calendar ring that marks today |
 | Contours | The org as terrain, behind headers and on card backs | On the field-note cards on hover |
 | Margins | Every sheet gets a frame, ticks and coordinates | A fixed frame around the viewport with survey ticks and "Sheet 01" |
 | Legend | Services and findings as map symbols | Symbols on the terrain rows, the routes and the survey sheet |
 | The seven stars and the scale bar | A dotted route; a timeline scale | The route under the hero headline; the 0 to 90 days scale over the stages |
 | Language | "Know the org before you change it." "Salesforce, mapped." Survey, chart, route, field notes, coordinates | The headline, the tagline, the navigation and every chapter label |
+
+Day and night: the site carries a night palette, the pine set reversed, switched by a sun and a moon in the
+header and remembered per device; the chart's disc stays night in both.
 
 Sheets replace chapters: 01 the hero, 02 Terrain, 03 Routes, 04 The survey, 05 Field notes, 06 Charted, 07 The
 free survey, 08 The map-maker, 09 Coordinates.

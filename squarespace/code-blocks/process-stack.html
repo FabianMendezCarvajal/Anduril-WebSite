@@ -1,19 +1,19 @@
 <!-- ANDURIL · Code Block: The survey, five stages (home sheet 04, How we work page). Type: HTML. IVORY section.
      A scale bar, then cards that stick and stack as you scroll. If the template clips sticky elements they render as a plain list. -->
 <style>
-  .and-scale { display:flex; align-items:flex-end; margin-bottom:40px; font-family:"DM Mono",Menlo,Consolas,monospace; font-size:11px; letter-spacing:.12em; text-transform:uppercase; color:#3F6D58; }
-  .and-scale .and-bar { flex:1; height:1px; background:#143D31; position:relative; margin:0 10px 6px; }
-  .and-scale .and-bar::before, .and-scale .and-bar::after, .and-scale .and-bar i { content:""; position:absolute; top:-4px; width:1px; height:9px; background:#143D31; }
+  .and-scale { display:flex; align-items:flex-end; margin-bottom:40px; font-family:"DM Mono",Menlo,Consolas,monospace; font-size:11px; letter-spacing:.12em; text-transform:uppercase; color:var(--and-ink-2,#3F6D58); }
+  .and-scale .and-bar { flex:1; height:1px; background:var(--and-ink,#143D31); position:relative; margin:0 10px 6px; }
+  .and-scale .and-bar::before, .and-scale .and-bar::after, .and-scale .and-bar i { content:""; position:absolute; top:-4px; width:1px; height:9px; background:var(--and-ink,#143D31); }
   .and-scale .and-bar::before { left:0; } .and-scale .and-bar::after { right:0; }
   .and-stack { display:grid; font-family:"Instrument Sans","Helvetica Neue",Arial,sans-serif; }
-  .and-stage { position:sticky; top:96px; background:#F4EFE4; border:1px solid #D3CAB4; border-radius:3px; padding:clamp(24px,3.5vw,44px); display:grid; grid-template-columns:120px 1fr 1fr; gap:28px; align-items:start; margin-bottom:18px; box-shadow:0 -18px 40px -30px rgba(20,61,49,.35); color:#143D31; }
+  .and-stage { position:sticky; top:96px; background:var(--and-ground,#F4EFE4); border:1px solid var(--and-line,#D3CAB4); border-radius:3px; padding:clamp(24px,3.5vw,44px); display:grid; grid-template-columns:120px 1fr 1fr; gap:28px; align-items:start; margin-bottom:18px; box-shadow:0 -18px 40px -30px rgba(20,61,49,.35); color:var(--and-ink,#143D31); }
   .and-stage:nth-child(2){top:112px} .and-stage:nth-child(3){top:128px} .and-stage:nth-child(4){top:144px} .and-stage:nth-child(5){top:160px}
-  .and-stage .and-num { font-family:"Fraunces","Iowan Old Style",Georgia,serif; font-style:italic; font-weight:400; font-variation-settings:"opsz" 144,"SOFT" 30,"WONK" 1; font-size:clamp(48px,6vw,92px); line-height:.9; color:#7A5D18; }
+  .and-stage .and-num { font-family:"Fraunces","Iowan Old Style",Georgia,serif; font-style:italic; font-weight:400; font-variation-settings:"opsz" 144,"SOFT" 30,"WONK" 1; font-size:clamp(48px,6vw,92px); line-height:.9; color:var(--and-accent-ink,#7A5D18); }
   .and-stage h3 { font-family:"Fraunces","Iowan Old Style",Georgia,serif; font-variation-settings:"opsz" 144,"SOFT" 30,"WONK" 0; font-size:clamp(28px,3.4vw,48px); font-weight:500; letter-spacing:-.025em; line-height:1; margin:0; }
-  .and-stage .and-sub { display:block; font-family:"Fraunces","Iowan Old Style",Georgia,serif; font-style:italic; font-variation-settings:"opsz" 144,"SOFT" 30,"WONK" 1; font-size:clamp(18px,1.6vw,22px); color:#3F6D58; margin-top:10px; }
-  .and-stage .and-dur { display:block; margin-top:14px; font-family:"DM Mono",Menlo,Consolas,monospace; font-size:11px; letter-spacing:.14em; text-transform:uppercase; color:#6E8A7D; }
-  .and-stage p { color:#3F6D58; font-size:16px; max-width:42ch; line-height:1.55; margin:0; }
-  .and-stage .and-you { margin-top:16px; font-size:15px; color:#6E8A7D; } .and-stage .and-you b { color:#143D31; font-weight:500; }
+  .and-stage .and-sub { display:block; font-family:"Fraunces","Iowan Old Style",Georgia,serif; font-style:italic; font-variation-settings:"opsz" 144,"SOFT" 30,"WONK" 1; font-size:clamp(18px,1.6vw,22px); color:var(--and-ink-2,#3F6D58); margin-top:10px; }
+  .and-stage .and-dur { display:block; margin-top:14px; font-family:"DM Mono",Menlo,Consolas,monospace; font-size:11px; letter-spacing:.14em; text-transform:uppercase; color:var(--and-label,#6E8A7D); }
+  .and-stage p { color:var(--and-ink-2,#3F6D58); font-size:16px; max-width:42ch; line-height:1.55; margin:0; }
+  .and-stage .and-you { margin-top:16px; font-size:15px; color:var(--and-label,#6E8A7D); } .and-stage .and-you b { color:var(--and-ink,#143D31); font-weight:500; }
   @media (max-width:860px) { .and-stage { grid-template-columns:1fr; gap:14px; top:88px !important; } }
 </style>
 <div class="and-scale" aria-hidden="true"><span>0</span><span class="and-bar"><i style="left:25%"></i><i style="left:50%"></i><i style="left:75%"></i></span><span>90 days · a typical rescue</span></div>

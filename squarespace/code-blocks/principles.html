@@ -1,10 +1,10 @@
 <!-- ANDURIL · Code Block: Principles (home sheet 08 right column, About page). Type: HTML. IVORY section. -->
 <style>
-  .and-principles { list-style:none; margin:0; padding:0; border-top:1px solid #D3CAB4; counter-reset:p; font-family:"Instrument Sans","Helvetica Neue",Arial,sans-serif; color:#143D31; }
-  .and-principles li { display:grid; grid-template-columns:56px 1fr; gap:16px; padding:22px 0; border-bottom:1px solid #D3CAB4; counter-increment:p; }
-  .and-principles li::before { content:counter(p, decimal-leading-zero); font-family:"DM Mono",Menlo,Consolas,monospace; font-size:11px; color:#6E8A7D; padding-top:6px; }
+  .and-principles { list-style:none; margin:0; padding:0; border-top:1px solid var(--and-line,#D3CAB4); counter-reset:p; font-family:"Instrument Sans","Helvetica Neue",Arial,sans-serif; color:var(--and-ink,#143D31); }
+  .and-principles li { display:grid; grid-template-columns:56px 1fr; gap:16px; padding:22px 0; border-bottom:1px solid var(--and-line,#D3CAB4); counter-increment:p; }
+  .and-principles li::before { content:counter(p, decimal-leading-zero); font-family:"DM Mono",Menlo,Consolas,monospace; font-size:11px; color:var(--and-label,#6E8A7D); padding-top:6px; }
   .and-principles h3 { font-family:"Fraunces","Iowan Old Style",Georgia,serif; font-variation-settings:"opsz" 144,"SOFT" 30,"WONK" 0; font-size:21px; font-weight:500; letter-spacing:-.02em; margin:0 0 6px; line-height:1.1; }
-  .and-principles p { color:#3F6D58; font-size:15.5px; margin:0; line-height:1.55; }
+  .and-principles p { color:var(--and-ink-2,#3F6D58); font-size:15.5px; margin:0; line-height:1.55; }
 </style>
 <ul class="and-principles">
   <li><div><h3>We say no to work you don't need.</h3><p>If a standard feature does the job, we configure it. Custom code is the last resort, not the first quote.</p></div></li>

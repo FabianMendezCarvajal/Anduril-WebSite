@@ -17,11 +17,13 @@ borrowed from award-winning sites. Build time: about a day if you follow it top 
 ## Plan requirement
 
 * **Custom CSS** works on every plan. That covers the palette, type, the ivory header with the italic wordmark, the
-  pine overlay menu, squared buttons, underline form fields and the paper grain.
+  pine overlay menu, squared buttons, underline form fields, the paper grain, and the night palette that follows the
+  visitor's system setting.
 * **Code Blocks** with HTML and CSS work on every plan. Every component in `code-blocks/` is HTML and CSS only.
-* **Code Injection** (Core plan or higher, formerly "Business") adds the motion layer: the sheet frame with ticks,
-  the contours behind the hero, custom cursor, scroll reveals, counting numbers, animated bars and the local
-  clock. Without it the site is still complete, just still.
+* **Code Injection** (Core plan or higher, formerly "Business") adds the motion layer: the day/night switch (a sun
+  and a moon in the header), the sheet frame with ticks, the contours, custom cursor, scroll reveals, counting
+  numbers, animated bars and the local clock. Without it the site is still complete, just still, and night mode
+  follows the visitor's system setting with no manual switch.
 
 ## Step 1: Create the site
 
@@ -52,6 +54,11 @@ Section themes you will use:
 * **Darkest 1**: background Black (pine), headings White (ivory), paragraph `#7E9A8C`, primary button White with text Black. For Coordinates and the footer.
 
 Set the site default theme to **Lightest 1** (Design → Colors → Site default section theme).
+
+**Night.** The site has a night palette: the pine set reversed, ivory as the ink, pine deep `#0E2B23` as the paper,
+vellum becoming `#123529`, hairlines `#22493D`, and gilt reading directly on the ground. It switches with the sun
+and moon button that the footer script adds to the header, remembers the choice on the visitor's device, and
+otherwise follows the system setting. The celestial chart's disc is always night; only its ring and caption change.
 
 ## Step 3: Set the fonts
 

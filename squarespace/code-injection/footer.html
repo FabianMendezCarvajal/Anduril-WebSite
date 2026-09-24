@@ -1,10 +1,25 @@
 <!-- ANDURIL · Settings → Advanced → Code Injection → FOOTER (Core plan or higher)
-     Adds: the sheet frame · custom cursor · scroll reveals · counters · survey bars · contours · local clock · new-tab external links.
+     Adds: the day/night switch · the sheet frame · custom cursor · scroll reveals · counters · survey bars · contours · local clock · new-tab external links.
      Every effect degrades cleanly: without this script the site is fully usable. -->
 <script>
 (function () {
   var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   var ease = 'cubic-bezier(.22,1,.36,1)';
+
+  /* 0. Day and night: a sun and a moon in the header; the choice is remembered on this device when storage allows. */
+  var rootEl = document.documentElement;
+  try { var saved = localStorage.getItem('anduril-theme'); if (saved === 'dark' || saved === 'light') rootEl.setAttribute('data-theme', saved); } catch (e) {}
+  var host = document.querySelector('.header-actions') || document.querySelector('.header-burger') || document.querySelector('.header-inner');
+  if (host) {
+    var tb = document.createElement('button'); tb.className = 'and-theme-btn'; tb.type = 'button'; tb.setAttribute('aria-label', 'Switch between day and night'); tb.title = 'Day / night';
+    tb.innerHTML = '<svg class="sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4.2" fill="currentColor" stroke="none"/><path d="M12 2.5v3M12 18.5v3M2.5 12h3M18.5 12h3M5.3 5.3l2.1 2.1M16.6 16.6l2.1 2.1M18.7 5.3l-2.1 2.1M7.4 16.6l-2.1 2.1"/></svg><svg class="moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M14 2.5A9.5 9.5 0 1 0 21.5 13 8 8 0 0 1 14 2.5Z" fill="currentColor"/></svg>';
+    host.insertBefore(tb, host.firstChild);
+    tb.addEventListener('click', function () {
+      var t = rootEl.getAttribute('data-theme'), dark = t ? t === 'dark' : window.matchMedia('(prefers-color-scheme: dark)').matches;
+      var next = dark ? 'light' : 'dark'; rootEl.setAttribute('data-theme', next);
+      try { localStorage.setItem('anduril-theme', next); } catch (e) {}
+    });
+  }
 
   /* 1. The sheet frame */
   var fr = document.createElement('div'); fr.className = 'and-sheet-frame'; fr.setAttribute('aria-hidden', 'true');
