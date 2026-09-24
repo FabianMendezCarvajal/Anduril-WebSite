@@ -1,5 +1,5 @@
 /* =====================================================================
-   ANDURIL · Squarespace 7.1 Custom CSS  (v5, Proposal B: the West, day and night)
+   ANDURIL · Squarespace 7.1 Custom CSS  (v6, Proposal B: the West, day and night)
    Paste into Design → Custom CSS. Works on every plan.
    Ivory #F4EFE4 · Pine #143D31 · Gilt #C9A14B · Moss #3F6D58 · Vellum #E9E2D0
    ===================================================================== */
@@ -169,10 +169,23 @@ p { line-height: 1.55; }
 #footer-sections a:hover { color: var(--and-gilt) !important; }
 
 /* ---------- Cursor (element injected by the footer script) ---------- */
-.and-cursor { position: fixed; z-index: 9999; left: 0; top: 0; width: 26px; height: 26px; border-radius: 50%; border: 1px solid var(--and-ink); pointer-events: none; transition: width .3s var(--and-ease), height .3s var(--and-ease), background-color .3s, border-color .3s; display: none; }
-.and-cursor::after { content: ""; position: absolute; left: 50%; top: 50%; width: 4px; height: 4px; margin: -2px; border-radius: 50%; background: var(--and-accent-ink); }
-.and-cursor.is-link { width: 58px; height: 58px; border-color: transparent; background: rgba(201,161,75,.35); }
-.and-cursor.is-link::after { opacity: 0; }
+/* A sun by day, a moon by night; a gilt halo grows over links */
+.and-cursor { position: fixed; z-index: 9999; left: 0; top: 0; width: 26px; height: 26px; pointer-events: none; display: none; }
+.and-cursor::before { content: ""; position: absolute; inset: 0; border-radius: 50%; background: rgba(201,161,75,.32); transform: scale(0); transition: transform .35s var(--and-ease); }
+.and-cursor.is-link::before { transform: scale(2.2); }
+.and-cursor svg { position: absolute; inset: 4px; width: 18px; height: 18px; transition: opacity .35s, transform .55s var(--and-ease), color .3s; }
+.and-cursor .sun { color: var(--and-accent-ink); opacity: 1; transform: none; }
+.and-cursor .moon { color: var(--and-ink); opacity: 0; transform: rotate(-40deg) scale(.6); }
+.and-cursor.is-link .sun { transform: rotate(45deg); }
+.and-cursor.is-link .moon { transform: rotate(-12deg); }
+:root[data-theme="dark"] .and-cursor .sun { opacity: 0; transform: rotate(60deg) scale(.6); }
+:root[data-theme="dark"] .and-cursor .moon { opacity: 1; transform: none; }
+:root[data-theme="dark"] .and-cursor.is-link .moon { transform: rotate(-12deg); }
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .and-cursor .sun { opacity: 0; transform: rotate(60deg) scale(.6); }
+  :root:not([data-theme="light"]) .and-cursor .moon { opacity: 1; transform: none; }
+  :root:not([data-theme="light"]) .and-cursor.is-link .moon { transform: rotate(-12deg); }
+}
 @media (pointer: fine) { .and-cursor { display: block; } }
 
 /* ---------- Scroll reveal (classes added by the footer script) ---------- */

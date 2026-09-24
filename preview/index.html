@@ -83,11 +83,23 @@
   .on-pine .meta { color: var(--pine-sage); }
   .on-pine .meta b { color: var(--gilt); }
 
-  /* ---------- Cursor: a thin pine ring ---------- */
-  .cursor { position: fixed; z-index: 70; left: 0; top: 0; width: 26px; height: 26px; border-radius: 50%; border: 1px solid var(--ink); pointer-events: none; transition: width .3s var(--ease), height .3s var(--ease), background-color .3s, border-color .3s; display: none; }
-  .cursor::after { content: ""; position: absolute; left: 50%; top: 50%; width: 4px; height: 4px; margin: -2px; border-radius: 50%; background: var(--accent-ink); }
-  .cursor.is-link { width: 58px; height: 58px; border-color: transparent; background: rgba(201,161,75,.35); }
-  .cursor.is-link::after { opacity: 0; }
+  /* ---------- Cursor: a sun by day, a moon by night; a gilt halo grows over links ---------- */
+  .cursor { position: fixed; z-index: 70; left: 0; top: 0; width: 26px; height: 26px; pointer-events: none; display: none; }
+  .cursor::before { content: ""; position: absolute; inset: 0; border-radius: 50%; background: rgba(201,161,75,.32); transform: scale(0); transition: transform .35s var(--ease); }
+  .cursor.is-link::before { transform: scale(2.2); }
+  .cursor svg { position: absolute; inset: 4px; width: 18px; height: 18px; transition: opacity .35s, transform .55s var(--ease), color .3s; }
+  .cursor .sun { color: var(--accent-ink); opacity: 1; transform: none; }
+  .cursor .moon { color: var(--ink); opacity: 0; transform: rotate(-40deg) scale(.6); }
+  .cursor.is-link .sun { transform: rotate(45deg); }
+  .cursor.is-link .moon { transform: rotate(-12deg); }
+  :root[data-theme="dark"] .cursor .sun { opacity: 0; transform: rotate(60deg) scale(.6); }
+  :root[data-theme="dark"] .cursor .moon { opacity: 1; transform: none; }
+  :root[data-theme="dark"] .cursor.is-link .moon { transform: rotate(-12deg); }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) .cursor .sun { opacity: 0; transform: rotate(60deg) scale(.6); }
+    :root:not([data-theme="light"]) .cursor .moon { opacity: 1; transform: none; }
+    :root:not([data-theme="light"]) .cursor.is-link .moon { transform: rotate(-12deg); }
+  }
   @media (pointer: fine) { .cursor { display: block; } }
 
   /* ---------- Reveal ---------- */
@@ -421,7 +433,7 @@
   .and-sky-disc text.sm { font-size:6.5px; fill:var(--gilt); }
 </style>
 
-<div class="cursor" id="cursor" aria-hidden="true"></div>
+<div class="cursor" id="cursor" aria-hidden="true"><svg class="sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4.2" fill="currentColor" stroke="none"/><path d="M12 2.5v3M12 18.5v3M2.5 12h3M18.5 12h3M5.3 5.3l2.1 2.1M16.6 16.6l2.1 2.1M18.7 5.3l-2.1 2.1M7.4 16.6l-2.1 2.1"/></svg><svg class="moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M14 2.5A9.5 9.5 0 1 0 21.5 13 8 8 0 0 1 14 2.5Z" fill="currentColor"/></svg></div>
 <svg width="0" height="0" style="position:absolute" aria-hidden="true">
   <!-- The rose: eight points, the west point longer and lit in gilt. -->
   <symbol id="rose" viewBox="0 0 100 100">

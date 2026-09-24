@@ -32,7 +32,7 @@ winners. If you want a direct scrape, add `awwwards.com` to the environment's al
 7. **Marquee ticker** between hero and body. → Clouds and tools scroll as a marquee. The band runs against the paper, pine by day and vellum by night.
 8. **Sticky card stack** for a sequence. → Five process stages stack under a fixed header offset.
 9. **Numbers that count up** and proof cards with a hover glow. → Results section.
-10. **Custom cursor** that grows over links, using `mix-blend-mode: difference`. → Thin ring with a centre dot.
+10. **Custom cursor** that grows over links, using `mix-blend-mode: difference`. → A small sun by day and a moon by night, with a gilt halo that grows over links.
 11. **Film grain** overlay at 5 percent. → Present site-wide.
 12. **Giant wordmark footer.** → "ANDURIL" at up to 280 px, fading into the ground.
 13. **Sections as sheets.** Light sections with rounded top corners laid over the dark ground, a device that

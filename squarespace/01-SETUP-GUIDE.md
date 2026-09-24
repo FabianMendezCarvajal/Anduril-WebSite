@@ -21,7 +21,7 @@ borrowed from award-winning sites. Build time: about a day if you follow it top 
   visitor's system setting.
 * **Code Blocks** with HTML and CSS work on every plan. Every component in `code-blocks/` is HTML and CSS only.
 * **Code Injection** (Core plan or higher, formerly "Business") adds the motion layer: the star sky behind every sheet, the day/night switch (a sun
-  and a moon in the header), the sheet frame with ticks, the contours, custom cursor, scroll reveals, counting
+  and a moon in the header), the sheet frame with ticks, the contours, the custom cursor (a sun by day, a moon by night), scroll reveals, counting
   numbers, animated bars and the local clock. Without it the site is still complete, just still, and night mode
   follows the visitor's system setting with no manual switch.
 
