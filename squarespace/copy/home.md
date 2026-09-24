@@ -18,8 +18,6 @@ The whole hero is `code-blocks/hero-headline.html`. Text inside it:
 
 Under the headline: the route, the seven stars as a dotted line between two hairlines.
 
-*Lede:* A consultancy that inherits a Salesforce org inherits territory nobody has charted. We survey it first: every object, every automation, every user who gave up. Then we quote.
-
 *Button (primary):* Book a survey → `/contact`
 *Button (secondary):* Read the field notes → `/field-notes`
 

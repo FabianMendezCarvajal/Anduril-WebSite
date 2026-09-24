@@ -186,6 +186,7 @@ The contact section and the footer share one pine ground, as the identity's prop
 * Each page: Page settings → SEO → paste its meta description.
 * Favicon: export `assets/favicon.svg` at 512×512 (the rose on ivory). Social sharing image 1200×630: "Know the org *before you change it.*" in Fraunces on ivory with the rose, or the profile banner from the identity canvas (board B4).
 * Coordinates: the celestial chart and the sheet frame use sample coordinates (51.5074° N, 0.1278° W, London). Set your office's in the chart block's `data-lat` and `data-lon` so the default sky is yours.
+* The header's centre line shows only the consultancy label and the local clock; add an availability note there if you want one.
 * Replace every placeholder: `hello@your-domain.com`, the three case cards, the three numbers, the eight client logos, the availability line.
 * Test on a phone: overlay menu opens and closes, form submits, code-block grids stack, the marquee scrolls.
 * Check the sheet frame on a phone: it tightens to 8 px and drops the coordinate label.

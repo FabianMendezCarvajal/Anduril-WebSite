@@ -154,7 +154,7 @@
   .hero-top { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px 32px; margin-bottom: clamp(28px, 5vh, 56px); padding-bottom: 16px; border-bottom: 1px solid var(--line); }
   @media (max-width: 640px) { .hero-top .meta + .meta { display: none; } }
   .hero h1 { font-size: clamp(44px, 7vw, 118px); font-weight: 500; letter-spacing: -.025em; line-height: .96; max-width: 12ch; }
-  .hero-bottom { display: grid; gap: 22px; justify-items: center; margin-top: clamp(20px, 3.5vh, 34px); }
+  .hero-bottom { display: grid; gap: 22px; justify-items: center; margin-top: clamp(24px, 4vh, 40px); }
   .hero-lede { font-size: clamp(17px, 1.5vw, 21px); line-height: 1.5; color: var(--ink-2); max-width: 52ch; }
   .hero-cta { display: flex; flex-wrap: wrap; gap: 12px; justify-content: center; }
 
@@ -448,7 +448,7 @@
 <header class="site-header">
   <div class="wrap nav">
     <a class="brand" href="#top" aria-label="Anduril home"><svg aria-hidden="true" style="color:var(--ink)"><use href="#rose"/></svg><span class="wordmark-type">Anduril</span></a>
-    <div class="nav-center" aria-hidden="true"><span>Salesforce consultancy</span><span id="clock">--:--</span><span>Taking projects Q4 2026</span></div>
+    <div class="nav-center" aria-hidden="true"><span>Salesforce consultancy</span><span id="clock">--:--</span></div>
     <div class="nav-right">
       <ul class="nav-links"><li><a href="#survey">Survey</a></li><li><a href="#services">Services</a></li><li><a href="#findings">Field notes</a></li><li><a href="#contact">Contact</a></li></ul>
       <button class="theme-btn" id="themeBtn" aria-label="Switch between day and night" title="Day / night">
@@ -489,7 +489,6 @@
         </h1>
         <div class="route rv" data-delay="200" aria-hidden="true"><span class="edge"></span><svg><use href="#route"/></svg><span class="edge"></span></div>
         <div class="hero-bottom">
-          <p class="hero-lede rv" data-delay="300">A consultancy that inherits a Salesforce org inherits territory nobody has charted. We survey it first: every object, every automation, every user who gave up. Then we quote.</p>
           <div class="hero-cta rv" data-delay="420">
             <a class="btn btn-solid" href="#contact">Book a survey <svg class="arrow" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M2 12 12 2M4 2h8v8"/></svg></a>
             <a class="btn" href="#findings">Read the field notes</a>
