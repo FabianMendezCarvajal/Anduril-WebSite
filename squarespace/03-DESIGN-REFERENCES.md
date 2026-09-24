@@ -52,7 +52,7 @@ surveys before it touches. The identity is that survey: paper, ink, contour line
 | The wordmark | "Anduril" written rather than set: Fraunces italic 500, SOFT 50, WONK on, optical size 144 | Live type in the header and the giant footer wordmark |
 | Colour | Ivory `#F4EFE4` ground · Pine `#143D31` ink and dark ground · Gilt `#C9A14B` the flame · Moss `#3F6D58` · Vellum `#E9E2D0` · Rule `#D3CAB4`. Proportion 78 / 18 / 4 | Ivory pages, vellum alternate sections, one pine ground for Coordinates and the footer. Gilt Deep `#7A5D18` carries italic phrases on ivory because Gilt itself fails as text |
 | Type | Fraunces 500 opsz 144 SOFT 30 for display, italic 400 for the turn of phrase · Instrument Sans for reading · DM Mono for coordinates | Every heading, every label, every paragraph |
-| The celestial sheet | A map-maker's instrument: the sky charted for a place and a moment | A working planisphere in the hero, drawn in the manner of the nineteenth-century star atlases (Peck's Edinburgh charts): a night disc with stars scaled by magnitude and rayed when bright, the Milky Way stippled in, the hour and declination grid, constellation names in spaced capitals and their figures drawn as thin lines, the ecliptic and zodiac, Sun and Moon, gilt spokes and fine altitude rings, clouds along the horizon, inside an ornamented calendar ring set with gilt stars that marks today, rising from the bottom edge of the hero with its top half in view, facing south so the ecliptic is in view, and turned by the hour from a collapsible dial panel beside it |
+| The celestial sheet | A map-maker's instrument: the sky charted for a place and a moment | A working planisphere in the hero, drawn in the manner of the nineteenth-century star atlases (Peck's Edinburgh charts): a night disc with stars scaled by magnitude and rayed when bright, the Milky Way stippled in, the hour and declination grid, constellation names in spaced capitals, the ecliptic and zodiac, Sun and Moon, inside a calendar ring that marks today, rising from the bottom edge of the hero with its top half in view, facing south so the ecliptic is in view, and turned by the hour from a collapsible dial panel beside it |
 | Contours | The org as terrain, behind headers and on card backs | On the field-note cards on hover |
 | Margins | Every sheet gets a frame, ticks and coordinates | A fixed frame around the viewport with survey ticks and "Sheet 01" |
 | Legend | Services and findings as map symbols | Symbols on the terrain rows, the routes and the survey sheet |
@@ -60,12 +60,7 @@ surveys before it touches. The identity is that survey: paper, ink, contour line
 | Language | "Know the org before you change it." "Salesforce, mapped." Survey, chart, route, field notes, coordinates | The headline, the tagline, the navigation and every chapter label |
 
 The star sky: a seeded star field lies behind every sheet, printed faintly in pine by day and lit in ivory by
-night with a slow twinkle and an occasional meteor, a soft Milky Way band of dust across the sheet and a vignette
-that deepens the corners after dark; vellum and pine sections are lightly translucent over it.
-
-The atlas plate (after Cellarius's *Harmonia Macrocosmica*): the ornament that makes the sheet a piece of art. A compass
-rose at each corner of the frame, a gilt star at the centre of every chapter rule, engraved double rules on the survey
-stages and case cards, and the wheel dressed with spokes, figures, clouds and an ornamented ring.
+night with a slow twinkle and an occasional meteor; vellum and pine sections are lightly translucent over it.
 
 Day and night: the site carries a night palette, the pine set reversed, switched by a sun and a moon in the
 header and remembered per device; the chart's disc stays night in both.

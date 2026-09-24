@@ -10,7 +10,7 @@ contours, reveals, counters, bar animation and the cursor.
 |---|---|---|
 | `chapter-head.html` | Top of every numbered sheet (edit number, label, heading) | Ivory, vellum or pine |
 | `hero-headline.html` | Home, section 1, left column | Ivory |
-| `celestial-chart.html` | Home, section 1, under the hero block: the working sky wheel rising from the bottom edge, drawn as an atlas plate, its controls behind a dial at the right (needs JavaScript, Core plan or higher) | Ivory |
+| `celestial-chart.html` | Home, section 1, under the hero block: the working sky wheel rising from the bottom edge, its controls behind a dial at the right (needs JavaScript, Core plan or higher) | Ivory |
 | `marquee.html` | Home, section 2, the legend strip | Vellum |
 | `symptoms-ledger.html` | Home sheet 02, Terrain | Ivory |
 | `services-list.html` | Home sheet 03 Routes, Services page | Vellum |

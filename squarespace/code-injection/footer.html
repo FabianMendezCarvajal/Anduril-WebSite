@@ -7,8 +7,8 @@
   var ease = 'cubic-bezier(.22,1,.36,1)';
 
 
-  /* The star sky: a fixed field behind every sheet. Ivory stars with a slow twinkle by night, the same field printed
-     faintly in pine by day, with a soft Milky Way band of dust across the sheet and a vignette that deepens the corners after dark. A meteor crosses now and then after dark. Positions are seeded so the sky is the same on
+  /* The star sky (turn off by deleting this block): a fixed field behind every sheet. Ivory stars with a slow twinkle by night, the same field printed
+     faintly in pine by day. A meteor crosses now and then after dark. Positions are seeded so the sky is the same on
      every visit. */
   (function () {
     var c = document.createElement('canvas'); c.className = 'and-stars'; c.setAttribute('aria-hidden', 'true'); document.body.insertBefore(c, document.body.firstChild);
@@ -19,17 +19,13 @@
     function make() {
       seed = 19; stars = []; var n = Math.round(Math.max(innerWidth * innerHeight / 5200, 120));
       for (var i = 0; i < n; i++) { var u = rnd(); stars.push({ x: rnd(), y: rnd(), r: 0.35 + u * u * 1.5, ph: rnd() * 6.283, sp: 0.25 + rnd() * .75, gilt: rnd() < 0.05, ray: u > 0.985 }); }
-      for (var k = 0; k < n * 1.4; k++) { var along = rnd() * 2 - .5, off = (rnd() + rnd() + rnd() - 1.5) * .09; var bx = .5 + (along - .5) * Math.cos(-0.55) - off * Math.sin(-0.55) * (innerHeight / innerWidth), by = .5 + (along - .5) * Math.sin(-0.55) * (innerWidth / innerHeight) + off * Math.cos(-0.55); if (bx < 0 || bx > 1 || by < 0 || by > 1) continue; stars.push({ x: bx, y: by, r: 0.25 + rnd() * .5, ph: rnd() * 6.283, sp: 0.2 + rnd() * .5, gilt: false, ray: false, dust: true }); }
     }
     function size() { dpr = Math.min(window.devicePixelRatio || 1, 2); W = innerWidth; H = innerHeight; c.width = W * dpr; c.height = H * dpr; c.style.width = W + 'px'; c.style.height = H + 'px'; ctx.setTransform(dpr, 0, 0, dpr, 0, 0); make(); if (reduce) draw(0); }
     function draw(t) {
       var dark = isDark(), s = t / 1000; ctx.clearRect(0, 0, W, H);
-      /* The Milky Way: a soft diagonal band of dust, and a vignette that deepens the corners after dark */
-      if (dark) { var vg = ctx.createRadialGradient(W * .5, H * .45, H * .2, W * .5, H * .5, Math.max(W, H) * .75); vg.addColorStop(0, 'rgba(0,0,0,0)'); vg.addColorStop(1, 'rgba(0,0,0,.28)'); ctx.fillStyle = vg; ctx.fillRect(0, 0, W, H); }
-      ctx.save(); ctx.translate(W * .5, H * .5); ctx.rotate(-0.55); var bg = ctx.createLinearGradient(0, -H * .28, 0, H * .28); var bc = dark ? '244,239,228' : '20,61,49'; bg.addColorStop(0, 'rgba(' + bc + ',0)'); bg.addColorStop(.5, 'rgba(' + bc + ',' + (dark ? .05 : .025) + ')'); bg.addColorStop(1, 'rgba(' + bc + ',0)'); ctx.fillStyle = bg; ctx.fillRect(-W, -H * .28, W * 2, H * .56); ctx.restore();
       for (var i = 0; i < stars.length; i++) {
         var st = stars[i], tw = reduce ? 1 : 0.6 + 0.4 * Math.sin(s * st.sp + st.ph);
-        var a = st.dust ? (dark ? 0.06 + 0.1 * tw : 0.04 + 0.03 * tw) : dark ? (0.18 + 0.5 * tw) * Math.min(1, st.r / 1.1) : (0.08 + 0.1 * tw);
+        var a = dark ? (0.18 + 0.5 * tw) * Math.min(1, st.r / 1.1) : (0.08 + 0.1 * tw);
         var col = st.gilt ? '201,161,75' : (dark ? '244,239,228' : '20,61,49');
         var x = st.x * W, y = st.y * H;
         ctx.fillStyle = 'rgba(' + col + ',' + a.toFixed(3) + ')';
@@ -67,9 +63,7 @@
 
   /* 1. The sheet frame */
   var fr = document.createElement('div'); fr.className = 'and-sheet-frame'; fr.setAttribute('aria-hidden', 'true');
-  /* A small compass rose at each corner of the frame, the west point in gilt. */
-  var rose = '<svg viewBox="0 0 100 100" aria-hidden="true"><g fill="currentColor"><path d="M66.97 66.97 L51.27 55.80 L50 50 L55.80 51.27 Z"/><path d="M33.03 66.97 L44.20 51.27 L50 50 L48.73 55.80 Z"/><path d="M33.03 33.03 L48.73 44.20 L50 50 L44.20 48.73 Z"/><path d="M66.97 33.03 L55.80 48.73 L50 50 L51.27 44.20 Z"/><path d="M50.00 12.00 L55.60 43.00 L50 50 L44.40 43.00 Z"/><path d="M88.00 50.00 L57.00 55.60 L50 50 L57.00 44.40 Z"/><path d="M50.00 88.00 L44.40 57.00 L50 50 L55.60 57.00 Z"/></g><path d="M1.00 50.00 L43.00 43.80 L50 50 L43.00 56.20 Z" fill="#C9A14B"/></svg>';
-  fr.innerHTML = '<span class="v l"></span><span class="v r"></span><span class="corner tl">' + rose + '</span><span class="corner tr">' + rose + '</span><span class="corner bl">' + rose + '</span><span class="corner br">' + rose + '</span><span class="coord">Sheet 01 · Anduril · Salesforce consultancy</span>';
+  fr.innerHTML = '<span class="v l"></span><span class="v r"></span><span class="coord">Sheet 01 · Anduril · Salesforce consultancy</span>';
   document.body.appendChild(fr);
 
   /* 2. Contours: the org as terrain, drawn into any <svg class="and-contours" data-seed="1.3" data-rings="9"> */

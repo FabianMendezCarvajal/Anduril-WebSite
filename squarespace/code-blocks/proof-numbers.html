@@ -11,7 +11,6 @@
   .and-cases { display:grid; grid-template-columns:repeat(3,1fr); gap:18px; margin-top:64px; }
   .and-case { background:var(--and-panel,#E9E2D0); border:1px solid var(--and-line,#D3CAB4); border-radius:3px; padding:28px; display:grid; gap:18px; align-content:start; min-height:300px; position:relative; overflow:hidden; transition:transform .45s cubic-bezier(.22,1,.36,1), border-color .3s; color:var(--and-ink,#143D31); }
   .and-case .and-contour-back { position:absolute; right:-30%; bottom:-40%; width:90%; aspect-ratio:1; color:var(--and-ink-2,#3F6D58); opacity:0; transition:opacity .5s; pointer-events:none; }
-  .and-case::after { content:""; position:absolute; inset:6px; border:1px solid var(--and-line,#D3CAB4); border-radius:2px; pointer-events:none; opacity:.7; }
   .and-case:hover { transform:translateY(-6px); border-color:var(--and-ink-2,#3F6D58); } .and-case:hover .and-contour-back { opacity:.45; }
   .and-case > * { position:relative; }
   .and-case .and-m { font-family:"DM Mono",Menlo,Consolas,monospace; font-size:11px; letter-spacing:.14em; text-transform:uppercase; color:var(--and-label,#6E8A7D); }
