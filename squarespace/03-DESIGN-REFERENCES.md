@@ -29,7 +29,7 @@ winners. If you want a direct scrape, add `awwwards.com` to the environment's al
 5. **Full-screen overlay menu** with enormous links. → Paper overlay, five links at 104 px with serif italic index numbers.
 6. **The hover list.** Services as huge rows that invert on hover and expand on click. → Six rows, black
    fill sweeps in, ember plus-button.
-7. **Marquee ticker** between hero and body. → Clouds and tools scroll as a marquee.
+7. **Marquee ticker** between hero and body. → Clouds and tools scroll as a marquee. The band runs against the paper, pine by day and vellum by night.
 8. **Sticky card stack** for a sequence. → Five process stages stack under a fixed header offset.
 9. **Numbers that count up** and proof cards with a hover glow. → Results section.
 10. **Custom cursor** that grows over links, using `mix-blend-mode: difference`. → Thin ring with a centre dot.

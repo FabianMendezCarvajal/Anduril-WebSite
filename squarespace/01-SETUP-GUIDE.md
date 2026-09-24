@@ -64,6 +64,8 @@ footer script to turn it off.
 vellum becoming `#123529`, hairlines `#22493D`, and gilt reading directly on the ground. It switches with the sun
 and moon button that the footer script adds to the header, remembers the choice on the visitor's device, and
 otherwise follows the system setting. The celestial chart's disc is always night; only its ring and caption change.
+The band of clouds under the hero runs against the paper for contrast: a pine band with ivory type by day, a
+vellum band with moss type by night (the `--and-band` tokens).
 
 ## Step 3: Set the fonts
 

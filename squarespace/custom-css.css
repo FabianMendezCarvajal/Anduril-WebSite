@@ -14,6 +14,8 @@
   /* Day: ivory paper, pine ink */
   --and-ground: #F4EFE4; --and-panel: #E9E2D0; --and-line: #D3CAB4; --and-ink: #143D31; --and-ink-2: #3F6D58; --and-label: #6E8A7D; --and-accent-ink: #7A5D18;
   --and-grain-blend: multiply; --and-grain-opacity: .045;
+  /* The band of clouds runs against the paper: pine by day, vellum by night */
+  --and-band: #123529; --and-band-line: #22493D; --and-band-ink: #BFD0C6;
   --and-display: "Fraunces","Iowan Old Style",Georgia,serif;
   --and-body: "Instrument Sans","Helvetica Neue",Arial,sans-serif;
   --and-mono: "DM Mono",Menlo,Consolas,monospace;
@@ -23,9 +25,9 @@
 /* ---------- Night: the pine set reversed. The switch (a sun and a moon) is added to the header by code-injection/footer.html;
    without it the site follows the visitor's system setting. ---------- */
 @media (prefers-color-scheme: dark) {
-  :root:not([data-theme="light"]) { color-scheme: dark; --and-ground: #0E2B23; --and-panel: #123529; --and-line: #22493D; --and-ink: #F4EFE4; --and-ink-2: #BFD0C6; --and-label: #7E9A8C; --and-accent-ink: #C9A14B; --and-grain-blend: screen; --and-grain-opacity: .03; }
+  :root:not([data-theme="light"]) { color-scheme: dark; --and-ground: #0E2B23; --and-panel: #123529; --and-line: #22493D; --and-ink: #F4EFE4; --and-ink-2: #BFD0C6; --and-label: #7E9A8C; --and-accent-ink: #C9A14B; --and-grain-blend: screen; --and-grain-opacity: .03; --and-band: #E9E2D0; --and-band-line: #D3CAB4; --and-band-ink: #3F6D58; }
 }
-:root[data-theme="dark"] { color-scheme: dark; --and-ground: #0E2B23; --and-panel: #123529; --and-line: #22493D; --and-ink: #F4EFE4; --and-ink-2: #BFD0C6; --and-label: #7E9A8C; --and-accent-ink: #C9A14B; --and-grain-blend: screen; --and-grain-opacity: .03; }
+:root[data-theme="dark"] { color-scheme: dark; --and-ground: #0E2B23; --and-panel: #123529; --and-line: #22493D; --and-ink: #F4EFE4; --and-ink-2: #BFD0C6; --and-label: #7E9A8C; --and-accent-ink: #C9A14B; --and-grain-blend: screen; --and-grain-opacity: .03; --and-band: #E9E2D0; --and-band-line: #D3CAB4; --and-band-ink: #3F6D58; }
 body { background-color: var(--and-ground) !important; color: var(--and-ink) !important; }
 /* Ivory sections stay transparent so the star sky shows through; vellum and pine sections are lightly translucent */
 .page-section[data-section-theme="white"], .page-section[data-section-theme="lightest-1"] { background-color: transparent !important; color: var(--and-ink) !important; }

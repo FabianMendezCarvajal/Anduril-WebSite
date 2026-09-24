@@ -30,6 +30,8 @@
     --accent-ink: #7A5D18;
     --grain-blend: multiply;
     --grain-opacity: .045;
+    /* The band of clouds runs against the paper: pine by day, vellum by night */
+    --band: #123529; --band-line: #22493D; --band-ink: #BFD0C6;
     --display: "Fraunces", "Iowan Old Style", Georgia, serif;
     --body: "Instrument Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
     --mono: "DM Mono", "SFMono-Regular", Menlo, Consolas, monospace;
@@ -39,9 +41,9 @@
   }
   /* Night: the pine set reversed. Ivory becomes the ink, pine deep the paper, gilt reads directly on it. */
   @media (prefers-color-scheme: dark) {
-    :root:not([data-theme="light"]) { color-scheme: dark; --ground: #0E2B23; --panel: #123529; --line: #22493D; --ink: #F4EFE4; --ink-2: #BFD0C6; --label: #7E9A8C; --accent-ink: #C9A14B; --grain-blend: screen; --grain-opacity: .03; }
+    :root:not([data-theme="light"]) { color-scheme: dark; --ground: #0E2B23; --panel: #123529; --line: #22493D; --ink: #F4EFE4; --ink-2: #BFD0C6; --label: #7E9A8C; --accent-ink: #C9A14B; --grain-blend: screen; --grain-opacity: .03; --band: #E9E2D0; --band-line: #D3CAB4; --band-ink: #3F6D58; }
   }
-  :root[data-theme="dark"] { color-scheme: dark; --ground: #0E2B23; --panel: #123529; --line: #22493D; --ink: #F4EFE4; --ink-2: #BFD0C6; --label: #7E9A8C; --accent-ink: #C9A14B; --grain-blend: screen; --grain-opacity: .03; }
+  :root[data-theme="dark"] { color-scheme: dark; --ground: #0E2B23; --panel: #123529; --line: #22493D; --ink: #F4EFE4; --ink-2: #BFD0C6; --label: #7E9A8C; --accent-ink: #C9A14B; --grain-blend: screen; --grain-opacity: .03; --band: #E9E2D0; --band-line: #D3CAB4; --band-ink: #3F6D58; }
 
   * { box-sizing: border-box; }
   html { scroll-behavior: smooth; }
@@ -165,9 +167,9 @@
   .route svg { width: clamp(130px, 14vw, 200px); height: auto; aspect-ratio: 300 / 40; display: block; }
 
   /* ---------- Marquee: the legend strip ---------- */
-  .marquee { border-block: 1px solid var(--line); overflow: hidden; padding-block: 14px; white-space: nowrap; background: var(--panel); }
+  .marquee { border-block: 1px solid var(--band-line); overflow: hidden; padding-block: 14px; white-space: nowrap; background: var(--band); }
   .marquee-track { display: inline-flex; animation: mq 70s linear infinite; }
-  .marquee span { font-family: var(--mono); font-size: 11.5px; letter-spacing: .16em; text-transform: uppercase; padding-inline: 26px; color: var(--ink-2); display: inline-flex; align-items: center; gap: 26px; }
+  .marquee span { font-family: var(--mono); font-size: 11.5px; letter-spacing: .16em; text-transform: uppercase; padding-inline: 26px; color: var(--band-ink); display: inline-flex; align-items: center; gap: 26px; }
   .marquee span::after { content: ""; width: 5px; height: 5px; border-radius: 50%; background: var(--gilt); }
   @keyframes mq { to { transform: translateX(-50%); } }
 
