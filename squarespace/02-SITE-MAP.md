@@ -16,7 +16,7 @@ Default theme Lightest 1 (ivory). "Vellum" = Lightest 2. "Pine" = Darkest 1.
 
 | # | Section | Theme | Blocks | Content |
 |---|---|---|---|---|
-| 1 | Blank, full width | Ivory | **Code Block** hero | `code-blocks/hero-headline.html` |
+| 1 | Blank, 2 columns | Ivory | Left: **Code Block** hero. Right: **Code Block** celestial chart | `code-blocks/hero-headline.html` + `code-blocks/celestial-chart.html` |
 | 2 | Blank, padding none | Vellum | **Code Block** legend strip | `code-blocks/marquee.html` |
 | 3 | Blank | Ivory | Text (manifesto paragraph in Fraunces) + Text (small note on the name) | `copy/home.md` §Manifesto |
 | 4 | Blank | Ivory | **Code Block** chapter head (02 Terrain), **Code Block** ledger | `copy/home.md` §Terrain + `code-blocks/symptoms-ledger.html` |

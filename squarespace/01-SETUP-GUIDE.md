@@ -117,7 +117,13 @@ Follow `02-SITE-MAP.md`. Recipe for every section:
 3. Drop in the blocks listed. Text blocks take the copy from `copy/<page>.md`; labels marked *Coordinates* use the
    Monospace text style so the CSS sets them in DM Mono as small tracked labels.
 4. **Code Blocks**: Add block → **Code** → Type **HTML**, untick *Display source*, paste from `code-blocks/`.
-5. Hero section: set the section to **full width** and the block to span the whole row.
+5. Hero section: two columns. The hero block on the left, the **celestial chart** on the right
+   (`code-blocks/celestial-chart.html`). The chart is a working planisphere: it computes the sky above your
+   coordinates right now (bright stars, the ecliptic with the twelve zodiac signs, the Sun, the Moon and its
+   phase) inside a calendar ring that marks today, and refreshes every thirty seconds. Set your coordinates in the
+   block's two `data-lat` / `data-lon` attributes; visitors can also type their own or press *Use my location*.
+   It carries its own script, so it needs the Core plan or higher; on lower plans leave the right column empty and
+   the hero's contours take its place.
 
 Set Home as the homepage (Pages → hover Home → gear → *Set as homepage*).
 
@@ -168,7 +174,7 @@ The contact section and the footer share one pine ground, as the identity's prop
 * Settings → SEO → title format `%p | Anduril · Salesforce consultancy`; description from `copy/home.md`.
 * Each page: Page settings → SEO → paste its meta description.
 * Favicon: export `assets/favicon.svg` at 512×512 (the rose on ivory). Social sharing image 1200×630: "Know the org *before you change it.*" in Fraunces on ivory with the rose, or the profile banner from the identity canvas (board B4).
-* Coordinates: the hero and the sheet frame show sample coordinates (51.5074° N, 0.1278° W). Replace them with your office's, or delete them.
+* Coordinates: the celestial chart and the sheet frame use sample coordinates (51.5074° N, 0.1278° W, London). Set your office's in the chart block's `data-lat` and `data-lon` so the default sky is yours.
 * Replace every placeholder: `hello@your-domain.com`, the three case cards, the three numbers, the eight client logos, the availability line.
 * Test on a phone: overlay menu opens and closes, form submits, code-block grids stack, the marquee scrolls.
 * Check the sheet frame on a phone: it tightens to 8 px and drops the coordinate label.

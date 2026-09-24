@@ -1,14 +1,16 @@
 # Code blocks (Proposal B, the West)
 
 Each file is a self-contained HTML + CSS component. In Squarespace: **Add block → Code**, set *Type* to
-**HTML**, untick *Display source*, paste the whole file. None require JavaScript, so they work on every plan.
+**HTML**, untick *Display source*, paste the whole file. All but one work without JavaScript on every plan; the
+celestial chart carries its own script and needs the Core plan or higher.
 With `code-injection/footer.html` installed (Core plan or higher) they gain the motion layer: the sheet frame,
 contours, reveals, counters, bar animation and the cursor.
 
 | File | Where | Section theme |
 |---|---|---|
 | `chapter-head.html` | Top of every numbered sheet (edit number, label, heading) | Ivory, vellum or pine |
-| `hero-headline.html` | Home, section 1 (alone in its section) | Ivory |
+| `hero-headline.html` | Home, section 1, left column | Ivory |
+| `celestial-chart.html` | Home, section 1, right column: the working sky chart (needs JavaScript, Core plan or higher) | Ivory |
 | `marquee.html` | Home, section 2, the legend strip | Vellum |
 | `symptoms-ledger.html` | Home sheet 02, Terrain | Ivory |
 | `services-list.html` | Home sheet 03 Routes, Services page | Vellum |
