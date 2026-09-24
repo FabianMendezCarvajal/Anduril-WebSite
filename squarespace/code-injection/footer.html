@@ -1,10 +1,50 @@
 <!-- ANDURIL · Settings → Advanced → Code Injection → FOOTER (Core plan or higher)
-     Adds: the day/night switch · the sheet frame · custom cursor · scroll reveals · counters · survey bars · contours · local clock · new-tab external links.
+     Adds: the star sky · the day/night switch · the sheet frame · custom cursor · scroll reveals · counters · survey bars · contours · local clock · new-tab external links.
      Every effect degrades cleanly: without this script the site is fully usable. -->
 <script>
 (function () {
   var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   var ease = 'cubic-bezier(.22,1,.36,1)';
+
+
+  /* The star sky (turn off by deleting this block): a fixed field behind every sheet. Ivory stars with a slow twinkle by night, the same field printed
+     faintly in pine by day. A meteor crosses now and then after dark. Positions are seeded so the sky is the same on
+     every visit. */
+  (function () {
+    var c = document.createElement('canvas'); c.className = 'and-stars'; c.setAttribute('aria-hidden', 'true'); document.body.insertBefore(c, document.body.firstChild);
+    var ctx = c.getContext('2d'), stars = [], W = 0, H = 0, dpr = 1, meteor = null, nextMeteor = 0;
+    var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    function isDark() { var t = document.documentElement.getAttribute('data-theme'); return t ? t === 'dark' : window.matchMedia('(prefers-color-scheme: dark)').matches; }
+    var seed = 19; function rnd() { seed = (seed * 16807) % 2147483647; return (seed - 1) / 2147483646; }
+    function make() {
+      seed = 19; stars = []; var n = Math.round(Math.max(innerWidth * innerHeight / 5200, 120));
+      for (var i = 0; i < n; i++) { var u = rnd(); stars.push({ x: rnd(), y: rnd(), r: 0.35 + u * u * 1.5, ph: rnd() * 6.283, sp: 0.25 + rnd() * .75, gilt: rnd() < 0.05, ray: u > 0.985 }); }
+    }
+    function size() { dpr = Math.min(window.devicePixelRatio || 1, 2); W = innerWidth; H = innerHeight; c.width = W * dpr; c.height = H * dpr; c.style.width = W + 'px'; c.style.height = H + 'px'; ctx.setTransform(dpr, 0, 0, dpr, 0, 0); make(); if (reduce) draw(0); }
+    function draw(t) {
+      var dark = isDark(), s = t / 1000; ctx.clearRect(0, 0, W, H);
+      for (var i = 0; i < stars.length; i++) {
+        var st = stars[i], tw = reduce ? 1 : 0.6 + 0.4 * Math.sin(s * st.sp + st.ph);
+        var a = dark ? (0.18 + 0.5 * tw) * Math.min(1, st.r / 1.1) : (0.08 + 0.1 * tw);
+        var col = st.gilt ? '201,161,75' : (dark ? '244,239,228' : '20,61,49');
+        var x = st.x * W, y = st.y * H;
+        ctx.fillStyle = 'rgba(' + col + ',' + a.toFixed(3) + ')';
+        ctx.beginPath(); ctx.arc(x, y, st.r, 0, 6.283); ctx.fill();
+        if (st.ray) { var L = st.r * 5 * (0.7 + 0.3 * tw); ctx.strokeStyle = 'rgba(' + col + ',' + (a * 0.55).toFixed(3) + ')'; ctx.lineWidth = 0.6; ctx.beginPath(); ctx.moveTo(x - L, y); ctx.lineTo(x + L, y); ctx.moveTo(x, y - L); ctx.lineTo(x, y + L); ctx.stroke(); }
+      }
+      if (dark && !reduce) {
+        if (!meteor && t > nextMeteor) { meteor = { x0: W * (0.15 + Math.random() * 0.7), y0: H * (0.05 + Math.random() * 0.3), t0: t, len: 140 + Math.random() * 120, dir: Math.random() < 0.5 ? 1 : -1 }; }
+        if (meteor) {
+          var p = (t - meteor.t0) / 900; if (p >= 1) { meteor = null; nextMeteor = t + 22000 + Math.random() * 30000; }
+          else { var dx = meteor.dir * 0.86, dy = 0.5, x1 = meteor.x0 + dx * meteor.len * 2.2 * p, y1 = meteor.y0 + dy * meteor.len * 2.2 * p; var g = ctx.createLinearGradient(x1 - dx * meteor.len, y1 - dy * meteor.len, x1, y1); g.addColorStop(0, 'rgba(244,239,228,0)'); g.addColorStop(1, 'rgba(244,239,228,' + (0.8 * Math.sin(p * 3.1416)).toFixed(3) + ')'); ctx.strokeStyle = g; ctx.lineWidth = 1; ctx.beginPath(); ctx.moveTo(x1 - dx * meteor.len, y1 - dy * meteor.len); ctx.lineTo(x1, y1); ctx.stroke(); }
+        }
+      }
+      if (!reduce) requestAnimationFrame(draw);
+    }
+    size(); window.addEventListener('resize', size); nextMeteor = 6000 + Math.random() * 12000;
+    if (!reduce) requestAnimationFrame(draw);
+    if (reduce) new MutationObserver(function () { draw(0); }).observe(document.documentElement, { attributes: true, attributeFilter: ['data-theme'] });
+  })();
 
   /* 0. Day and night: a sun and a moon in the header; the choice is remembered on this device when storage allows. */
   var rootEl = document.documentElement;

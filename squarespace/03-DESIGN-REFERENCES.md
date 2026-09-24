@@ -59,6 +59,9 @@ surveys before it touches. The identity is that survey: paper, ink, contour line
 | The seven stars and the scale bar | A dotted route; a timeline scale | The route under the hero headline; the 0 to 90 days scale over the stages |
 | Language | "Know the org before you change it." "Salesforce, mapped." Survey, chart, route, field notes, coordinates | The headline, the tagline, the navigation and every chapter label |
 
+The star sky: a seeded star field lies behind every sheet, printed faintly in pine by day and lit in ivory by
+night with a slow twinkle and an occasional meteor; vellum and pine sections are lightly translucent over it.
+
 Day and night: the site carries a night palette, the pine set reversed, switched by a sun and a moon in the
 header and remembered per device; the chart's disc stays night in both.
 
