@@ -149,7 +149,7 @@
   /* ---------- Hero ---------- */
   .hero { position: relative; padding-block: calc(116px + env(safe-area-inset-top, 0px)) min(42vw, 560px); overflow: hidden; }
   @media (max-width: 960px) { .hero { padding-bottom: 70vw; } }
-  .hero-copy { position: relative; z-index: 1; display: grid; justify-items: center; text-align: center; }
+  .hero-copy { position: relative; z-index: 1; display: grid; justify-items: center; text-align: center; padding-bottom: clamp(72px, 10vh, 136px); }
   .hero .wrap { position: relative; z-index: 1; }
   .hero-top { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px 32px; margin-bottom: clamp(28px, 5vh, 56px); padding-bottom: 16px; border-bottom: 1px solid var(--line); }
   @media (max-width: 640px) { .hero-top .meta + .meta { display: none; } }
