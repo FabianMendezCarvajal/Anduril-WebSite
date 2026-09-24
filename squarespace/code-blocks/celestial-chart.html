@@ -1,16 +1,28 @@
-<!-- ANDURIL · Code Block: The celestial sheet, a working sky chart (home hero, right column). Type: HTML.
+<!-- ANDURIL · Code Block: The celestial sheet, a working sky chart as the hero's background. Type: HTML.
      Needs JavaScript, so it runs on the Core plan or higher. On lower plans the block shows nothing; use the contours instead.
+     Layout: the disc sits half off the right edge of the section, like a planisphere wheel in its sleeve. The rotate buttons
+     turn the wheel: each press advances or rewinds the sky by one hour; "Now" returns to the present. Place this block in the
+     hero section under the headline block; the caption and controls sit where the block is, the disc is positioned by CSS.
+     The section must clip overflow (the Custom CSS does this for the first section of the home page).
      What it does: computes the sky above the site's coordinates right now (bright stars scaled by magnitude with rays on the
      brightest, a field of fainter stars, the Milky Way, the hour and declination grid, constellation names, the ecliptic with
      the twelve zodiac signs, Sun and Moon with the Moon's phase) and draws it as a night disc inside a calendar ring that marks
      today. It refreshes every thirty seconds. Edit the two data- attributes to set your own coordinates.
      Colours outside the disc follow the site theme (light or dark); the disc itself is always night. -->
 <style>
-  .and-sky { --sky-ink:var(--and-ink,#143D31); --sky-ink2:var(--and-ink-2,#3F6D58); --sky-label:var(--and-label,#6E8A7D); --sky-line:var(--and-line,#D3CAB4); --sky-ground:var(--and-ground,#F4EFE4); --sky-accent:var(--and-accent-ink,#7A5D18);
-    --night:#0C2320; --night-2:#143D31; --star:#F4EFE4; --star-dim:#BFD0C6; --gilt:#C9A14B;
-    font-family:"Instrument Sans","Helvetica Neue",Arial,sans-serif; color:var(--sky-ink); display:grid; gap:14px; width:100%; max-width:560px; margin-inline:auto; }
-  .and-sky svg { width:100%; height:auto; display:block; }
-  .and-sky .and-sky-cap { display:grid; grid-template-columns:1fr 1fr; gap:6px 18px; font-family:"DM Mono",Menlo,Consolas,monospace; font-size:10.5px; letter-spacing:.12em; text-transform:uppercase; color:var(--sky-label); border-top:1px solid var(--sky-line); padding-top:12px; }
+  .and-sky, .and-sky-disc { --sky-ink:var(--and-ink,#143D31); --sky-ink2:var(--and-ink-2,#3F6D58); --sky-label:var(--and-label,#6E8A7D); --sky-line:var(--and-line,#D3CAB4); --sky-ground:var(--and-ground,#F4EFE4); --sky-accent:var(--and-accent-ink,#7A5D18);
+    --night:#0C2320; --night-2:#143D31; --star:#F4EFE4; --star-dim:#BFD0C6; --gilt:#C9A14B; }
+  .and-sky { font-family:"Instrument Sans","Helvetica Neue",Arial,sans-serif; color:var(--sky-ink); display:grid; gap:14px; width:100%; max-width:520px; }
+  .and-sky-disc { position:absolute; top:50%; right:0; transform:translate(50%,-50%); width:min(78vw,1080px); aspect-ratio:1; pointer-events:none; z-index:0; }
+  .and-sky-disc svg { width:100%; height:100%; display:block; overflow:visible; }
+  .and-sky-disc .and-sky-wheel { transform-origin:200px 200px; will-change:transform; }
+  @media (max-width:960px) { .and-sky-disc { position:relative; top:auto; right:auto; transform:translateX(30%); width:120vw; max-width:none; margin:24px 0 -30vw -24px; } }
+  .and-sky-turn { display:flex; flex-wrap:wrap; align-items:center; gap:8px; font-family:"DM Mono",Menlo,Consolas,monospace; font-size:10.5px; letter-spacing:.12em; text-transform:uppercase; color:var(--sky-label); }
+  .and-sky-turn button { font:inherit; letter-spacing:inherit; text-transform:inherit; color:var(--sky-ink); background:none; border:1px solid var(--sky-ink); border-radius:999px; padding:8px 14px; cursor:pointer; display:inline-flex; align-items:center; gap:8px; transition:background-color .3s, border-color .3s, color .3s; }
+  .and-sky-turn button:hover { background:var(--gilt); border-color:var(--gilt); color:#143D31; }
+  .and-sky-turn button svg { width:13px; height:13px; }
+  .and-sky-turn .and-off { color:var(--sky-accent); min-width:4.5em; }
+  .and-sky .and-sky-cap { display:grid; grid-template-columns:1fr 1fr; gap:6px 18px; max-width:520px; font-family:"DM Mono",Menlo,Consolas,monospace; font-size:10.5px; letter-spacing:.12em; text-transform:uppercase; color:var(--sky-label); border-top:1px solid var(--sky-line); padding-top:12px; }
   .and-sky .and-sky-cap b { color:var(--sky-ink); font-weight:500; }
   .and-sky .and-sky-cap i { font-family:"Fraunces",Georgia,serif; font-style:italic; font-variation-settings:"opsz" 144,"SOFT" 30,"WONK" 1; font-size:14px; letter-spacing:0; text-transform:none; color:var(--sky-accent); }
   .and-sky .and-sky-loc { display:flex; flex-wrap:wrap; gap:8px; align-items:center; font-family:"DM Mono",Menlo,Consolas,monospace; font-size:10.5px; letter-spacing:.1em; text-transform:uppercase; color:var(--sky-label); }
@@ -18,32 +30,39 @@
   .and-sky .and-sky-loc input:focus { outline:none; border-bottom-color:var(--gilt); }
   .and-sky .and-sky-loc button { font:inherit; letter-spacing:inherit; text-transform:inherit; color:var(--sky-ink); background:none; border:1px solid var(--sky-ink); border-radius:2px; padding:6px 10px; cursor:pointer; }
   .and-sky .and-sky-loc button:hover { background:var(--gilt); border-color:var(--gilt); color:#143D31; }
-  .and-sky .ring { fill:none; stroke:var(--sky-line); stroke-width:.6; }
-  .and-sky .hz { fill:var(--night); stroke:var(--sky-ink); stroke-width:1; }
-  .and-sky .grid { fill:none; stroke:var(--star-dim); stroke-width:.35; opacity:.35; }
-  .and-sky .grid.eq { stroke-width:.6; opacity:.5; }
-  .and-sky .mw { fill:var(--star); opacity:.16; }
-  .and-sky .st { fill:var(--star); } .and-sky .st.f { opacity:.55; } .and-sky .st.b { fill:#FBF4E2; }
-  .and-sky .ray { stroke:#FBF4E2; stroke-width:.5; stroke-linecap:round; opacity:.8; }
-  .and-sky .ecl { fill:none; stroke:var(--gilt); stroke-width:.8; stroke-dasharray:2 3; opacity:.9; }
-  .and-sky text { font-family:"DM Mono",Menlo,Consolas,monospace; letter-spacing:.08em; }
-  .and-sky text.card { font-size:9px; fill:var(--sky-ink); font-weight:500; } .and-sky text.card.w { fill:var(--sky-accent); }
-  .and-sky text.mo { font-size:6.4px; fill:var(--sky-label); text-transform:uppercase; } .and-sky text.mo.now { fill:var(--sky-accent); }
-  .and-sky text.con { font-size:5.6px; fill:var(--star-dim); letter-spacing:.22em; text-transform:uppercase; opacity:.75; }
-  .and-sky text.sn { font-size:5.8px; fill:var(--star-dim); }
-  .and-sky text.zg { font-family:"Segoe UI Symbol","Noto Sans Symbols","Apple Symbols","DejaVu Sans",sans-serif; font-size:8.5px; fill:var(--gilt); letter-spacing:0; }
-  .and-sky text.sm { font-size:6.5px; fill:var(--gilt); }
+  .and-sky-disc .ring { fill:none; stroke:var(--sky-line); stroke-width:.6; }
+  .and-sky-disc .hz { fill:var(--night); stroke:var(--sky-ink); stroke-width:1; }
+  .and-sky-disc .grid { fill:none; stroke:var(--star-dim); stroke-width:.35; opacity:.35; }
+  .and-sky-disc .grid.eq { stroke-width:.6; opacity:.5; }
+  .and-sky-disc .mw { fill:var(--star); opacity:.16; }
+  .and-sky-disc .st { fill:var(--star); } .and-sky-disc .st.f { opacity:.55; } .and-sky-disc .st.b { fill:#FBF4E2; }
+  .and-sky-disc .ray { stroke:#FBF4E2; stroke-width:.5; stroke-linecap:round; opacity:.8; }
+  .and-sky-disc .ecl { fill:none; stroke:var(--gilt); stroke-width:.8; stroke-dasharray:2 3; opacity:.9; }
+  .and-sky-disc text { font-family:"DM Mono",Menlo,Consolas,monospace; letter-spacing:.08em; }
+  .and-sky-disc text.card { font-size:9px; fill:var(--sky-ink); font-weight:500; } .and-sky-disc text.card.w { fill:var(--sky-accent); }
+  .and-sky-disc text.mo { font-size:6.4px; fill:var(--sky-label); text-transform:uppercase; } .and-sky-disc text.mo.now { fill:var(--sky-accent); }
+  .and-sky-disc text.con { font-size:5.6px; fill:var(--star-dim); letter-spacing:.22em; text-transform:uppercase; opacity:.75; }
+  .and-sky-disc text.sn { font-size:5.8px; fill:var(--star-dim); }
+  .and-sky-disc text.zg { font-family:"Segoe UI Symbol","Noto Sans Symbols","Apple Symbols","DejaVu Sans",sans-serif; font-size:8.5px; fill:var(--gilt); letter-spacing:0; }
+  .and-sky-disc text.sm { font-size:6.5px; fill:var(--gilt); }
   @media (max-width:520px) { .and-sky .and-sky-cap { grid-template-columns:1fr; } }
 </style>
-<div class="and-sky" id="andSky" data-lat="51.5074" data-lon="-0.1278">
-  <svg viewBox="0 0 400 400" role="img" aria-label="Sky chart for the site's coordinates, right now"><defs><clipPath id="andSkyClip"><circle cx="200" cy="200" r="146"/></clipPath></defs><g id="andSkyG"></g></svg>
+<div class="and-sky-disc" id="andSky" data-lat="51.5074" data-lon="-0.1278" aria-hidden="true">
+  <svg viewBox="0 0 400 400"><defs><clipPath id="andSkyClip"><circle cx="200" cy="200" r="146"/></clipPath></defs><g id="andSkyRing"></g><g id="andSkyG" class="and-sky-wheel"></g></svg>
+</div>
+<div class="and-sky" role="group" aria-label="Sky chart for the site's coordinates">
+  <div class="and-sky-turn"><span>Turn the sky</span>
+    <button type="button" id="andSkyBack" aria-label="One hour earlier"><svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" aria-hidden="true"><path d="M2.5 7a4.5 4.5 0 1 0 1.3-3.2M2.5 1.5v2.8h2.8"/></svg>1 h</button>
+    <button type="button" id="andSkyFwd" aria-label="One hour later">1 h<svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" aria-hidden="true"><path d="M11.5 7a4.5 4.5 0 1 1-1.3-3.2M11.5 1.5v2.8H8.7"/></svg></button>
+    <button type="button" id="andSkyNow">Now</button><span class="and-off" id="andSkyOff"></span></div>
   <div class="and-sky-cap" id="andSkyCap"></div>
   <form class="and-sky-loc" id="andSkyLoc"><label>Lat <input id="andSkyLat" type="number" step="0.0001" min="-90" max="90" aria-label="Latitude"></label><label>Lon <input id="andSkyLon" type="number" step="0.0001" min="-180" max="180" aria-label="Longitude"></label><button type="submit">Chart</button><button type="button" id="andSkyGeo">Use my location</button></form>
 </div>
 <script>
 (function () {
   var root = document.getElementById('andSky'); if (!root) return;
-  var g = document.getElementById('andSkyG'), cap = document.getElementById('andSkyCap');
+  var g = document.getElementById('andSkyG'), ringG = document.getElementById('andSkyRing'), cap = document.getElementById('andSkyCap');
+  var tOff = 0, spinning = false, offEl = document.getElementById('andSkyOff');
   var latIn = document.getElementById('andSkyLat'), lonIn = document.getElementById('andSkyLon');
   var lat = parseFloat(root.dataset.lat), lon = parseFloat(root.dataset.lon);
   latIn.value = lat; lonIn.value = lon;
@@ -96,10 +115,12 @@
     if (d) g.appendChild(el('path', { d: d, 'class': cls }));
   }
   function draw() {
-    var now = new Date(), D = jd(now) - 2451545.0;
+    var now = new Date(Date.now() + tOff * 3600000), D = jd(now) - 2451545.0;
     var gmst = (18.697374558 + 24.06570982441908 * D) % 24; LST = ((gmst + lon / 15) % 24 + 24) % 24;
     var eps = 23.439 - 0.0000004 * D;
     while (g.firstChild) g.removeChild(g.firstChild);
+    while (ringG.firstChild) ringG.removeChild(ringG.firstChild);
+    var G0 = g; g = ringG;
     /* Calendar ring: the year, with today marked */
     g.appendChild(el('circle', { cx: CX, cy: CY, r: 194, 'class': 'ring' }));
     g.appendChild(el('circle', { cx: CX, cy: CY, r: 172, 'class': 'ring' }));
@@ -113,6 +134,7 @@
     }
     var ta = yfrac * 360 * D2R;
     g.appendChild(el('path', { d: 'M' + (CX + 172 * Math.sin(ta)) + ' ' + (CY - 172 * Math.cos(ta)) + ' l' + (-4 * Math.cos(ta) + 8 * Math.sin(ta)) + ' ' + (-4 * Math.sin(ta) - 8 * Math.cos(ta)) + ' l' + (8 * Math.cos(ta)) + ' ' + (8 * Math.sin(ta)) + ' Z', fill: '#C9A14B' }));
+    g = G0;
     /* The night disc */
     g.appendChild(el('circle', { cx: CX, cy: CY, r: RH, 'class': 'hz' }));
     var sky = el('g', { 'clip-path': 'url(#andSkyClip)' }); g.appendChild(sky);
@@ -168,12 +190,28 @@
     var phaseName = illum < .03 ? 'new moon' : illum > .97 ? 'full moon' : (illum < .5 ? (waxing ? 'waxing crescent' : 'waning crescent') : (waxing ? 'waxing gibbous' : 'waning gibbous'));
     var sSign = SIGNS[Math.floor(ls / 30) % 12][0], mSign = SIGNS[Math.floor(mo[0] / 30) % 12][0];
     var latS = Math.abs(lat).toFixed(2) + '° ' + (lat >= 0 ? 'N' : 'S'), lonS = Math.abs(lon).toFixed(2) + '° ' + (lon >= 0 ? 'E' : 'W');
-    cap.innerHTML = '<span><b>' + now.toLocaleDateString([], { day: 'numeric', month: 'short', year: 'numeric' }) + '</b> · ' + now.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }) + ' local</span>' +
+    offEl.textContent = tOff === 0 ? 'now' : (tOff > 0 ? '+' : '') + tOff + ' h';
+    cap.innerHTML = '<span><b>' + now.toLocaleDateString([], { day: 'numeric', month: 'short', year: 'numeric' }) + '</b> · ' + now.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }) + (tOff === 0 ? ' local' : ' local, turned') + '</span>' +
       '<span>' + latS + ' · ' + lonS + '</span>' +
       '<span>Sun in <i>' + sSign + '</i>' + (sa[0] > 0 ? ' · above the horizon' : ' · below the horizon') + '</span>' +
       '<span>Moon in <i>' + mSign + '</i> · ' + phaseName + ' ' + Math.round(illum * 100) + '%</span>';
   }
   draw(); setInterval(draw, 30000);
+  /* Turning the wheel: the disc spins the way the sky really moves at this latitude, then redraws at the new hour. */
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  function turn(hours) {
+    if (spinning) return; spinning = true;
+    var target = tOff + hours, deg = (lat >= 0 ? -15 : 15) * hours, t0 = null;
+    if (reduce) { tOff = target; draw(); spinning = false; return; }
+    (function step(ts) {
+      if (!t0) t0 = ts; var p = Math.min(1, (ts - t0) / 700), e = 1 - Math.pow(1 - p, 3);
+      g.style.transform = 'rotate(' + (deg * e) + 'deg)';
+      if (p < 1) requestAnimationFrame(step); else { tOff = target; g.style.transform = ''; draw(); spinning = false; }
+    })(performance.now());
+  }
+  document.getElementById('andSkyBack').addEventListener('click', function () { turn(-1); });
+  document.getElementById('andSkyFwd').addEventListener('click', function () { turn(1); });
+  document.getElementById('andSkyNow').addEventListener('click', function () { if (spinning) return; tOff = 0; draw(); });
   document.getElementById('andSkyLoc').addEventListener('submit', function (e) { e.preventDefault(); var a = parseFloat(latIn.value), b = parseFloat(lonIn.value); if (isFinite(a) && isFinite(b)) { lat = Math.max(-90, Math.min(90, a)); lon = Math.max(-180, Math.min(180, b)); draw(); } });
   document.getElementById('andSkyGeo').addEventListener('click', function () {
     if (!navigator.geolocation) return;
