@@ -1,9 +1,12 @@
 <!-- ANDURIL · Code Block: The celestial sheet, a working sky chart as the hero's background. Type: HTML.
      Needs JavaScript, so it runs on the Core plan or higher. On lower plans the block shows nothing; use the contours instead.
-     Layout: the disc sits half off the right edge of the section, like a planisphere wheel in its sleeve. The rotate buttons
-     turn the wheel: each press advances or rewinds the sky by one hour; "Now" returns to the present. Place this block in the
-     hero section under the headline block; the caption and controls sit where the block is, the disc is positioned by CSS.
-     The section must clip overflow (the Custom CSS does this for the first section of the home page).
+     Layout: the disc rises from the bottom edge of the section with its top half in view, like a horizon. The chart faces
+     the way a person would stand to see the ecliptic: south in the northern hemisphere (east on the left, west on the right),
+     north in the southern. The calendar ring turns so today sits at the top under the gilt pointer. The buttons turn the
+     wheel: each press advances or rewinds the sky by one hour; "Now" returns to the present. Place this block in the hero
+     section beside or under the headline block; the caption and controls sit where the block is, the disc is positioned by
+     CSS. The section must clip overflow and reserve the half-disc's height (the Custom CSS does this for the home page's
+     first section).
      What it does: computes the sky above the site's coordinates right now (bright stars scaled by magnitude with rays on the
      brightest, a field of fainter stars, the Milky Way, the hour and declination grid, constellation names, the ecliptic with
      the twelve zodiac signs, Sun and Moon with the Moon's phase) and draws it as a night disc inside a calendar ring that marks
@@ -13,10 +16,10 @@
   .and-sky, .and-sky-disc { --sky-ink:var(--and-ink,#143D31); --sky-ink2:var(--and-ink-2,#3F6D58); --sky-label:var(--and-label,#6E8A7D); --sky-line:var(--and-line,#D3CAB4); --sky-ground:var(--and-ground,#F4EFE4); --sky-accent:var(--and-accent-ink,#7A5D18);
     --night:#0C2320; --night-2:#143D31; --star:#F4EFE4; --star-dim:#BFD0C6; --gilt:#C9A14B; }
   .and-sky { font-family:"Instrument Sans","Helvetica Neue",Arial,sans-serif; color:var(--sky-ink); display:grid; gap:14px; width:100%; max-width:520px; }
-  .and-sky-disc { position:absolute; top:50%; right:0; transform:translate(50%,-50%); width:min(78vw,1080px); aspect-ratio:1; pointer-events:none; z-index:0; }
+  .and-sky-disc { position:absolute; left:50%; bottom:0; transform:translate(-50%,54%); width:min(92vw,1240px); aspect-ratio:1; pointer-events:none; z-index:0; }
   .and-sky-disc svg { width:100%; height:100%; display:block; overflow:visible; }
   .and-sky-disc .and-sky-wheel { transform-origin:200px 200px; will-change:transform; }
-  @media (max-width:960px) { .and-sky-disc { position:relative; top:auto; right:auto; transform:translateX(30%); width:120vw; max-width:none; margin:24px 0 -30vw -24px; } }
+  @media (max-width:960px) { .and-sky-disc { width:150vw; } }
   .and-sky-turn { display:flex; flex-wrap:wrap; align-items:center; gap:8px; font-family:"DM Mono",Menlo,Consolas,monospace; font-size:10.5px; letter-spacing:.12em; text-transform:uppercase; color:var(--sky-label); }
   .and-sky-turn button { font:inherit; letter-spacing:inherit; text-transform:inherit; color:var(--sky-ink); background:none; border:1px solid var(--sky-ink); border-radius:999px; padding:8px 14px; cursor:pointer; display:inline-flex; align-items:center; gap:8px; transition:background-color .3s, border-color .3s, color .3s; }
   .and-sky-turn button:hover { background:var(--gilt); border-color:var(--gilt); color:#143D31; }
@@ -107,7 +110,7 @@
     return [alt * R2D, norm(az * R2D)];
   }
   var CX = 200, CY = 200, RH = 146;
-  function proj(alt, az) { var r = RH * (90 - alt) / 90, a = az * D2R; return [CX - r * Math.sin(a), CY - r * Math.cos(a)]; } /* looking up: east on the left */
+  function proj(alt, az) { var r = RH * (90 - alt) / 90, a = az * D2R; return lat >= 0 ? [CX - r * Math.sin(a), CY + r * Math.cos(a)] : [CX + r * Math.sin(a), CY - r * Math.cos(a)]; } /* facing south (north of the equator): east on the left, west on the right */
   function el(n, a, t) { var e = document.createElementNS('http://www.w3.org/2000/svg', n); for (var k in a) e.setAttribute(k, a[k]); if (t != null) e.textContent = t; return e; }
   function curve(pts, cls) { /* pts: [raH, dec] list; draws the above-horizon parts */
     var d = '', on = false;
@@ -125,15 +128,16 @@
     g.appendChild(el('circle', { cx: CX, cy: CY, r: 194, 'class': 'ring' }));
     g.appendChild(el('circle', { cx: CX, cy: CY, r: 172, 'class': 'ring' }));
     var y0 = new Date(now.getFullYear(), 0, 1), y1 = new Date(now.getFullYear() + 1, 0, 1), yfrac = (now - y0) / (y1 - y0);
+    var rot0 = -yfrac * 360; /* turn the ring so today is at the top */
+    function ringA(frac) { return (frac * 360 + rot0) * D2R; }
     for (var m = 0; m < 12; m++) {
-      var f0 = (new Date(now.getFullYear(), m, 1) - y0) / (y1 - y0), a0 = f0 * 360 * D2R;
+      var f0 = (new Date(now.getFullYear(), m, 1) - y0) / (y1 - y0), a0 = ringA(f0);
       g.appendChild(el('line', { x1: CX + 172 * Math.sin(a0), y1: CY - 172 * Math.cos(a0), x2: CX + 194 * Math.sin(a0), y2: CY - 194 * Math.cos(a0), 'class': 'ring' }));
-      for (var w = 8; w < 31; w += 8) { var fw = (new Date(now.getFullYear(), m, w) - y0) / (y1 - y0), aw = fw * 360 * D2R; g.appendChild(el('line', { x1: CX + 190 * Math.sin(aw), y1: CY - 190 * Math.cos(aw), x2: CX + 194 * Math.sin(aw), y2: CY - 194 * Math.cos(aw), 'class': 'ring' })); }
-      var f1 = (new Date(now.getFullYear(), m, 16) - y0) / (y1 - y0), am = f1 * 360, ar = am * D2R, tx = CX + 183 * Math.sin(ar), ty = CY - 183 * Math.cos(ar);
+      for (var w = 8; w < 31; w += 8) { var fw = (new Date(now.getFullYear(), m, w) - y0) / (y1 - y0), aw = ringA(fw); g.appendChild(el('line', { x1: CX + 190 * Math.sin(aw), y1: CY - 190 * Math.cos(aw), x2: CX + 194 * Math.sin(aw), y2: CY - 194 * Math.cos(aw), 'class': 'ring' })); }
+      var f1 = (new Date(now.getFullYear(), m, 16) - y0) / (y1 - y0), am = f1 * 360 + rot0, ar = am * D2R, tx = CX + 183 * Math.sin(ar), ty = CY - 183 * Math.cos(ar);
       g.appendChild(el('text', { x: tx, y: ty + 2.2, 'text-anchor': 'middle', 'class': 'mo' + (m === now.getMonth() ? ' now' : ''), transform: 'rotate(' + am + ' ' + tx + ' ' + ty + ')' }, MONTHS[m]));
     }
-    var ta = yfrac * 360 * D2R;
-    g.appendChild(el('path', { d: 'M' + (CX + 172 * Math.sin(ta)) + ' ' + (CY - 172 * Math.cos(ta)) + ' l' + (-4 * Math.cos(ta) + 8 * Math.sin(ta)) + ' ' + (-4 * Math.sin(ta) - 8 * Math.cos(ta)) + ' l' + (8 * Math.cos(ta)) + ' ' + (8 * Math.sin(ta)) + ' Z', fill: '#C9A14B' }));
+    g.appendChild(el('path', { d: 'M' + CX + ' ' + (CY - 168) + ' l-4.5 -9 l9 0 Z', fill: '#C9A14B' })); /* the pointer: today */
     g = G0;
     /* The night disc */
     g.appendChild(el('circle', { cx: CX, cy: CY, r: RH, 'class': 'hz' }));
@@ -201,7 +205,7 @@
   var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   function turn(hours) {
     if (spinning) return; spinning = true;
-    var target = tOff + hours, deg = (lat >= 0 ? -15 : 15) * hours, t0 = null;
+    var target = tOff + hours, deg = (lat >= 0 ? 15 : -15) * hours, t0 = null;
     if (reduce) { tOff = target; draw(); spinning = false; return; }
     (function step(ts) {
       if (!t0) t0 = ts; var p = Math.min(1, (ts - t0) / 700), e = 1 - Math.pow(1 - p, 3);

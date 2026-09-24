@@ -84,8 +84,9 @@ p { line-height: 1.55; }
 
 /* ---------- Layout ---------- */
 .content-wrapper, .header-inner { max-width: 1360px !important; }
-/* The hero section holds the celestial wheel half off its right edge: it must clip and position */
-#sections > .page-section:first-child { position: relative; overflow: hidden; min-height: min(92vh, 900px); }
+/* The hero section holds the celestial wheel rising from its bottom edge: it must clip, position and reserve the half-disc */
+#sections > .page-section:first-child { position: relative; overflow: hidden; padding-bottom: min(42vw, 560px) !important; }
+@media (max-width: 960px) { #sections > .page-section:first-child { padding-bottom: 70vw !important; } }
 .page-section { border-top: 0 !important; }
 
 /* ---------- Header: ivory bar, rose + wordmark in Fraunces italic ---------- */
