@@ -124,12 +124,12 @@ Follow `02-SITE-MAP.md`. Recipe for every section:
 3. Drop in the blocks listed. Text blocks take the copy from `copy/<page>.md`; labels marked *Coordinates* use the
    Monospace text style so the CSS sets them in DM Mono as small tracked labels.
 4. **Code Blocks**: Add block → **Code** → Type **HTML**, untick *Display source*, paste from `code-blocks/`.
-5. Hero section: one tall section, two columns. The hero block at the left and the **celestial chart** block
-   (`code-blocks/celestial-chart.html`) at the right. The chart's controls stay where the block is; its disc
-   positions itself as the section's background, a planisphere wheel rising from the bottom edge with its top half
-   in view (the Custom CSS makes the first section clip it and reserves the space). The chart faces south in the
-   northern hemisphere so the ecliptic, Sun and Moon are in the visible half. The *Turn the sky* buttons turn the
-   wheel an hour at a time, and *Now* returns to the present. The chart is a working planisphere: it computes the sky above your
+5. Hero section: one tall full-width section. The hero block, centred, with the **celestial chart** block
+   (`code-blocks/celestial-chart.html`) anywhere in the same section. The chart positions itself: its disc becomes
+   the section's background, a planisphere wheel rising from the bottom edge with its top half in view, and its
+   controls fold into a small round dial at the right, beside the wheel, that opens a panel with the *Turn the sky*
+   buttons, the caption and the coordinates (the Custom CSS makes the first section clip it and reserves the space).
+   The chart faces south in the northern hemisphere so the ecliptic, Sun and Moon are in the visible half. The chart is a working planisphere: it computes the sky above your
    coordinates right now (bright stars, the ecliptic with the twelve zodiac signs, the Sun, the Moon and its
    phase) inside a calendar ring that marks today, and refreshes every thirty seconds. Set your coordinates in the
    block's two `data-lat` / `data-lon` attributes; visitors can also type their own or press *Use my location*.

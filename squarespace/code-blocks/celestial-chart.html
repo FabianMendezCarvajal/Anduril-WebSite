@@ -3,10 +3,11 @@
      Layout: the disc rises from the bottom edge of the section with its top half in view, like a horizon. The chart faces
      the way a person would stand to see the ecliptic: south in the northern hemisphere (east on the left, west on the right),
      north in the southern. The calendar ring turns so today sits at the top under the gilt pointer. The buttons turn the
-     wheel: each press advances or rewinds the sky by one hour; "Now" returns to the present. Place this block in the hero
-     section beside or under the headline block; the caption and controls sit where the block is, the disc is positioned by
-     CSS. The section must clip overflow and reserve the half-disc's height (the Custom CSS does this for the home page's
-     first section).
+     wheel: each press advances or rewinds the sky by one hour; "Now" returns to the present. The controls live in a
+     collapsible panel behind a small round dial that sits beside the wheel, at the right; the panel holds the turn buttons,
+     the caption and the coordinates. Place this block anywhere in the hero section: the disc and the dial position
+     themselves. The section must clip overflow and reserve the half-disc's height (the Custom CSS does this for the home
+     page's first section).
      What it does: computes the sky above the site's coordinates right now (bright stars scaled by magnitude with rays on the
      brightest, a field of fainter stars, the Milky Way, the hour and declination grid, constellation names, the ecliptic with
      the twelve zodiac signs, Sun and Moon with the Moon's phase) and draws it as a night disc inside a calendar ring that marks
@@ -15,7 +16,18 @@
 <style>
   .and-sky, .and-sky-disc { --sky-ink:var(--and-ink,#143D31); --sky-ink2:var(--and-ink-2,#3F6D58); --sky-label:var(--and-label,#6E8A7D); --sky-line:var(--and-line,#D3CAB4); --sky-ground:var(--and-ground,#F4EFE4); --sky-accent:var(--and-accent-ink,#7A5D18);
     --night:#0C2320; --night-2:#143D31; --star:#F4EFE4; --star-dim:#BFD0C6; --gilt:#C9A14B; }
-  .and-sky { font-family:"Instrument Sans","Helvetica Neue",Arial,sans-serif; color:var(--sky-ink); display:grid; gap:14px; width:100%; max-width:520px; }
+  .and-sky { position:absolute; right:var(--and-gutter,clamp(22px,5vw,72px)); bottom:calc(min(42vw,560px) + 18px); z-index:3; font-family:"Instrument Sans","Helvetica Neue",Arial,sans-serif; color:var(--sky-ink); }
+  .and-sky summary { list-style:none; cursor:pointer; width:46px; height:46px; border-radius:50%; border:1px solid var(--sky-ink); background:var(--sky-ground); display:grid; place-items:center; margin-left:auto; box-shadow:0 10px 30px -18px rgba(0,0,0,.6); transition:transform .5s cubic-bezier(.22,1,.36,1), border-color .3s; }
+  .and-sky summary::-webkit-details-marker { display:none; }
+  .and-sky summary:hover { border-color:var(--gilt); }
+  .and-sky[open] summary { transform:rotate(90deg); }
+  .and-sky summary svg { width:22px; height:22px; color:var(--sky-ink); }
+  .and-sky .and-sky-panel { position:absolute; right:0; bottom:58px; width:min(360px, calc(100vw - 32px)); background:var(--sky-ground); border:1px solid var(--sky-line); border-radius:3px; padding:18px; display:grid; gap:14px; box-shadow:0 30px 60px -30px rgba(0,0,0,.5); }
+  .and-sky .and-sky-panel::before { content:""; position:absolute; inset:7px; border:1px solid var(--sky-line); pointer-events:none; }
+  .and-sky .and-sky-panel > * { position:relative; }
+  .and-sky .and-sky-head { display:flex; justify-content:space-between; font-family:"DM Mono",Menlo,Consolas,monospace; font-size:10.5px; letter-spacing:.14em; text-transform:uppercase; color:var(--sky-label); }
+  .and-sky .and-sky-head b { color:var(--sky-accent); font-weight:500; }
+  @media (max-width:960px) { .and-sky { right:16px; bottom:calc(70vw + 14px); } }
   .and-sky-disc { position:absolute; left:50%; bottom:0; transform:translate(-50%,54%); width:min(92vw,1240px); aspect-ratio:1; pointer-events:none; z-index:0; }
   .and-sky-disc svg { width:100%; height:100%; display:block; overflow:visible; }
   .and-sky-disc .and-sky-wheel { transform-origin:200px 200px; will-change:transform; }
@@ -25,7 +37,7 @@
   .and-sky-turn button:hover { background:var(--gilt); border-color:var(--gilt); color:#143D31; }
   .and-sky-turn button svg { width:13px; height:13px; }
   .and-sky-turn .and-off { color:var(--sky-accent); min-width:4.5em; }
-  .and-sky .and-sky-cap { display:grid; grid-template-columns:1fr 1fr; gap:6px 18px; max-width:520px; font-family:"DM Mono",Menlo,Consolas,monospace; font-size:10.5px; letter-spacing:.12em; text-transform:uppercase; color:var(--sky-label); border-top:1px solid var(--sky-line); padding-top:12px; }
+  .and-sky .and-sky-cap { display:grid; grid-template-columns:1fr; gap:6px 18px; font-family:"DM Mono",Menlo,Consolas,monospace; font-size:10.5px; letter-spacing:.12em; text-transform:uppercase; color:var(--sky-label); border-top:1px solid var(--sky-line); padding-top:12px; }
   .and-sky .and-sky-cap b { color:var(--sky-ink); font-weight:500; }
   .and-sky .and-sky-cap i { font-family:"Fraunces",Georgia,serif; font-style:italic; font-variation-settings:"opsz" 144,"SOFT" 30,"WONK" 1; font-size:14px; letter-spacing:0; text-transform:none; color:var(--sky-accent); }
   .and-sky .and-sky-loc { display:flex; flex-wrap:wrap; gap:8px; align-items:center; font-family:"DM Mono",Menlo,Consolas,monospace; font-size:10.5px; letter-spacing:.1em; text-transform:uppercase; color:var(--sky-label); }
@@ -48,19 +60,22 @@
   .and-sky-disc text.sn { font-size:5.8px; fill:var(--star-dim); }
   .and-sky-disc text.zg { font-family:"Segoe UI Symbol","Noto Sans Symbols","Apple Symbols","DejaVu Sans",sans-serif; font-size:8.5px; fill:var(--gilt); letter-spacing:0; }
   .and-sky-disc text.sm { font-size:6.5px; fill:var(--gilt); }
-  @media (max-width:520px) { .and-sky .and-sky-cap { grid-template-columns:1fr; } }
 </style>
 <div class="and-sky-disc" id="andSky" data-lat="51.5074" data-lon="-0.1278" aria-hidden="true">
   <svg viewBox="0 0 400 400"><defs><clipPath id="andSkyClip"><circle cx="200" cy="200" r="146"/></clipPath></defs><g id="andSkyRing"></g><g id="andSkyG" class="and-sky-wheel"></g></svg>
 </div>
-<div class="and-sky" role="group" aria-label="Sky chart for the site's coordinates">
+<details class="and-sky">
+  <summary aria-label="Open the sky chart controls" title="Chart controls"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 3v2.2M12 18.8V21M3 12h2.2M18.8 12H21"/><path d="M12 12 8.2 8.2" stroke="#C9A14B" stroke-width="1.6" stroke-linecap="round"/><path d="M12 12l2.6 2.6" stroke-linecap="round"/><circle cx="12" cy="12" r="1.2" fill="currentColor" stroke="none"/></svg></summary>
+  <div class="and-sky-panel" role="group" aria-label="Sky chart controls">
+  <div class="and-sky-head"><span>Celestial sheet</span><b>Controls</b></div>
   <div class="and-sky-turn"><span>Turn the sky</span>
     <button type="button" id="andSkyBack" aria-label="One hour earlier"><svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" aria-hidden="true"><path d="M2.5 7a4.5 4.5 0 1 0 1.3-3.2M2.5 1.5v2.8h2.8"/></svg>1 h</button>
     <button type="button" id="andSkyFwd" aria-label="One hour later">1 h<svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" aria-hidden="true"><path d="M11.5 7a4.5 4.5 0 1 1-1.3-3.2M11.5 1.5v2.8H8.7"/></svg></button>
     <button type="button" id="andSkyNow">Now</button><span class="and-off" id="andSkyOff"></span></div>
   <div class="and-sky-cap" id="andSkyCap"></div>
   <form class="and-sky-loc" id="andSkyLoc"><label>Lat <input id="andSkyLat" type="number" step="0.0001" min="-90" max="90" aria-label="Latitude"></label><label>Lon <input id="andSkyLon" type="number" step="0.0001" min="-180" max="180" aria-label="Longitude"></label><button type="submit">Chart</button><button type="button" id="andSkyGeo">Use my location</button></form>
-</div>
+  </div>
+</details>
 <script>
 (function () {
   var root = document.getElementById('andSky'); if (!root) return;
