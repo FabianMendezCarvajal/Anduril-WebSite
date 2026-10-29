@@ -92,7 +92,7 @@ Most companies' systems were never designed. They were [settled,] one tool, one 
 
 *Lede:* A world championship and a Colombian family compensation fund. Different terrain, the same method.
 
-*Code Block:* `code-blocks/clients-grid.html`. Two cells: the FIFA World Cup 26 emblem (tag: Sport · Canada, Mexico, USA) and the Colsubsidio logo (tag: Family compensation fund · Colombia). The logos are embedded in the block and keep their own colours; at night each sits on an ivory label.
+*Code Block:* `code-blocks/clients-grid.html`. Two cells: the FIFA World Cup 26 emblem (tag: Sport · Canada, Mexico, USA) and the Colsubsidio logo (tag: Family compensation fund · Colombia). The logos are embedded in the block in their one-colour white versions, with no background of their own, on a pine panel that stays pine by day and by night.
 
 *Small note under the grid:* Client logos are trademarks of their owners.
 *Button (secondary, right):* Read the field notes → `/field-notes`

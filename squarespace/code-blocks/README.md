@@ -16,7 +16,7 @@ contours, reveals, counters, bar animation, the cursor, and route links that ope
 | `services-list.html` | Home sheet 03 Routes, Services page | Vellum |
 | `method-routes.html` | Home sheet 04 The method, How we work page: five bearings and six route tabs (CSS only) | Ivory |
 | `proof-numbers.html` | Home sheet 05 Field notes | Ivory |
-| `clients-grid.html` | Home sheet 06 Charted, About page: FIFA World Cup 26 and Colsubsidio, logos embedded | Ivory |
+| `clients-grid.html` | Home sheet 06 Charted, About page: FIFA World Cup 26 and Colsubsidio, white logos embedded on a pine panel | Ivory |
 | `survey-sheet.html` | Home sheet 07 right column, Contact page | Vellum |
 | `rose-entry.html` | Home sheet 08 under the paragraph, About page | Ivory |
 | `principles.html` | Home sheet 08 right column, About page | Ivory |

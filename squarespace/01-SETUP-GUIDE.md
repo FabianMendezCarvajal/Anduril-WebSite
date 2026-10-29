@@ -150,17 +150,17 @@ Set Home as the homepage (Pages → hover Home → gear → *Set as homepage*).
 
 ## Step 9: Client logos
 
-The clients grid (`code-blocks/clients-grid.html`) shows two clients, FIFA World Cup 26 and Colsubsidio, with their logos
-embedded in the block, so it works as pasted. The source files are in `assets/clients/` (see its README for where each came from).
+The clients grid (`code-blocks/clients-grid.html`) shows two clients, FIFA World Cup 26 and Colsubsidio, with their one-colour
+white logos embedded in the block on a pine panel, so it works as pasted. The source files are in `assets/clients/` (see its README for where each came from).
 
 Before publishing:
 
 1. Confirm each client's written permission to show its logo. FIFA in particular controls every use of the FIFA World
    Cup 26 emblem; ask your FIFA contact for the approved artwork and usage terms, and swap it in if it differs.
-2. Don't recolour or crop either logo. Both brands forbid it, which is why this grid shows them in their own colours
-   rather than greyscale.
+2. Check that each brand allows its one-colour white (reverse) version on a dark background, and use the client's own white
+   artwork if they supply it. Don't crop or redraw either logo.
 
-To add a client: copy a cell, upload the logo under Design → Custom CSS → **Manage Custom Files**, click it to copy its
+To add a client: copy a cell, upload the client's white logo under Design → Custom CSS → **Manage Custom Files**, click it to copy its
 URL, and use that as the `img src` (class `tall` for upright marks, `wide` for wordmarks). Edit the `and-tag` text to the
 client's industry and place, or the route you took with them. With four or more clients, change the grid to `repeat(4,…)`.
 
