@@ -1,0 +1,23 @@
+<!-- ANDURIL · Code Block: Platforms list (Platforms page). Type: HTML. IVORY section.
+     Ten entries, each tagged with the route it belongs to. Edit or remove entries to match what you actually build in. -->
+<style>
+  .and-platforms { display:grid; grid-template-columns:repeat(2,1fr); gap:0 clamp(32px,5vw,72px); font-family:"Instrument Sans","Helvetica Neue",Arial,sans-serif; }
+  .and-platform { display:grid; grid-template-columns:210px 1fr; gap:20px; padding:20px 0; border-bottom:1px solid var(--and-line,#D3CAB4); align-items:baseline; }
+  .and-platform h3 { font-family:"Fraunces","Iowan Old Style",Georgia,serif; font-variation-settings:"opsz" 144,"SOFT" 30,"WONK" 0; font-size:19px; font-weight:500; line-height:1.2; margin:0; color:var(--and-ink,#143D31); }
+  .and-platform .and-ptag { display:block; margin-top:6px; font-family:"DM Mono",Menlo,Consolas,monospace; font-size:10.5px; letter-spacing:.14em; text-transform:uppercase; color:var(--and-label,#6E8A7D); font-weight:400; }
+  .and-platform p { margin:0; color:var(--and-ink-2,#3F6D58); font-size:15px; line-height:1.55; }
+  @media (max-width:900px) { .and-platforms { grid-template-columns:1fr; } }
+  @media (max-width:520px) { .and-platform { grid-template-columns:1fr; gap:6px; } }
+</style>
+<div class="and-platforms">
+  <div class="and-platform"><h3>Salesforce Sales &amp; Service Cloud<span class="and-ptag">CRM</span></h3><p>Lead routing, stages that match how you really sell, case routing, entitlements and forecasts reps believe.</p></div>
+  <div class="and-platform"><h3>Salesforce Marketing, Experience &amp; Revenue Cloud<span class="and-ptag">CRM</span></h3><p>Journeys on real CRM data, customer and partner portals, and quotes that finance signs off on.</p></div>
+  <div class="and-platform"><h3>CRM migrations<span class="and-ptag">CRM</span></h3><p>HubSpot, Dynamics, Zoho or spreadsheets: what is worth keeping, rehearsed twice and reconciled after cutover.</p></div>
+  <div class="and-platform"><h3>Process design &amp; architecture<span class="and-ptag">Digital transformation</span></h3><p>Current-state maps, a target operating model and a costed roadmap that each phase pays for.</p></div>
+  <div class="and-platform"><h3>Data warehouses &amp; pipelines<span class="and-ptag">Data &amp; analytics</span></h3><p>CRM, ERP and billing modelled into one warehouse, with a test on every pipeline and an owner for every metric.</p></div>
+  <div class="and-platform"><h3>Analytics &amp; BI<span class="and-ptag">Data &amp; analytics</span></h3><p>Dashboards in the BI tool your team already uses, built only on agreed metrics. CRM Analytics and Tableau included.</p></div>
+  <div class="and-platform"><h3>Integration &amp; middleware<span class="and-ptag">Integrations &amp; automation</span></h3><p>MuleSoft, REST APIs, events, Make or Workato between CRM, ERP, billing, marketing and support.</p></div>
+  <div class="and-platform"><h3>Automation &amp; AI agents<span class="and-ptag">Integrations &amp; automation</span></h3><p>Workflow automation across tools and teams, and AI agents grounded in your data, with guardrails you can explain.</p></div>
+  <div class="and-platform"><h3>Web, mobile &amp; portals<span class="and-ptag">Custom solutions</span></h3><p>Customer portals, internal tools and APIs, with the code in your repository and the docs the next developer needs.</p></div>
+  <div class="and-platform"><h3>DevOps &amp; governance<span class="and-ptag">Managed services</span></h3><p>Environments, version control, release calendars and a change board that actually meets.</p></div>
+</div>
