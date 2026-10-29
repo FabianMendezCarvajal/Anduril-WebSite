@@ -1,7 +1,7 @@
 # Services page copy
 
 **Meta title:** Services · Anduril
-**Meta description:** Salesforce implementations, org rescue, integrations, custom development, managed admin and training from an independent consultancy.
+**Meta description:** Digital transformation, CRM, data and analytics, custom solutions, integrations and managed services from one independent consultancy, run on one method.
 
 ---
 
@@ -9,92 +9,111 @@
 
 *Coordinates:* Services
 
-*H1:* Everything from first login to a fully governed org.
+*H1:* Six routes, *one map.*
 
-*Lede:* Six ways to work with us. Fixed-scope where it can be, retained where it should be. Every engagement ends with documentation your next admin can read.
+*Lede:* Transformation, CRM, data and custom software planned as one route instead of four vendors. Fixed-scope where it can be, retained where it should be. Every engagement runs on the Westward Method and ends with documentation your next team can read.
 
-*Code Block:* `code-blocks/services-grid.html`
+*Code Block:* `code-blocks/services-list.html`
 
 ---
 
 ## Service detail
 
-### New implementations & rollouts
-You are moving to Salesforce for the first time, or adding a second cloud to one that already works. We design the object model around how your team sells and serves today, not around a template, and we migrate what is worth keeping from HubSpot, Dynamics, Zoho or spreadsheets.
-- Discovery workshops with sales, service and finance
-- Object model, page layouts, permission sets and record types
-- Data migration with a full rehearsal before cutover
-- Role-based training and a 30-day hypercare window
-**Best for:** teams moving to Salesforce for the first time.
-**Typical engagement:** 6 to 14 weeks, fixed price after the Blueprint stage.
+Each service closes with a link to its route on the How we work page (`/how-we-work#and-route-…`), where the five legs, sheets and waypoints are laid out.
 
-### Org rescue & re-architecture
-Your org is more than three years old, has had several admins, and nobody can explain why a record does what it does. We audit everything, rank the findings by business impact, and pay down the debt in sprints without stopping the business.
-- Technical audit with a prioritised, costed fix list
-- Workflow Rule and Process Builder migration to Flow
-- Field, profile and report clean-up with usage evidence
-- Security review: sharing model, permission sets, login policies
-**Best for:** orgs older than three years with no single owner.
-**Typical engagement:** 2-week audit, then 2 to 6 sprints.
+### Digital transformation
+*Italic subline:* When the process is the problem
+Before any tool, the process. We map how work actually moves through the company, decide what to change first, and sequence the roadmap so each step pays for the next. Phase one is then delivered by one team that draws on the CRM, data and software routes as it needs them.
+- Process mapping with sales, service, finance and operations
+- Current systems map and target architecture
+- Prioritised, costed roadmap with early wins
+- A change plan by role, and the old tools retired on a dated plan
+**Best for:** companies that know something has to change but not where to start.
+**Typical engagement:** roadmap in 4 to 6 weeks, fixed price; 12 to 20 weeks to phase one live.
+*Link:* See the route → `/how-we-work#and-route-transform`
 
-### Integrations & data
-Salesforce has to agree with your finance system, your billing tool and your support desk. We build the integrations and the hygiene rules that keep them agreeing.
+### CRM
+*Italic subline:* Implementation, rescue, migration
+A CRM designed around how your team sells and serves, not around a template. We implement Salesforce from a blank org, rescue orgs that grew without an owner, and migrate what is worth keeping from HubSpot, Dynamics, Zoho or spreadsheets.
+- Discovery workshops, object model, permissions
+- Org rescue: Workflow Rule and Process Builder migration to Flow
+- Migration rehearsed twice before cutover, then 30 days of hypercare
+- Role-based training and adoption tracking from week one
+**Best for:** teams moving to a CRM for the first time, or living with one nobody can explain.
+**Typical engagement:** 8 to 16 weeks to go-live, fixed price after the Chart bearing.
+*Link:* See the route → `/how-we-work#and-route-crm`
+
+### Data & analytics
+*Italic subline:* When the numbers disagree
+One version of the numbers. We model your data, build the pipelines that feed it, and the dashboards people actually open on Monday morning.
+- Data audit, model and governance rules
+- Pipelines from CRM, ERP and billing into one warehouse
+- Deduplication, matching rules, master records
+- Dashboards in the BI tool your team already uses
+**Best for:** leadership teams that keep a spreadsheet "just in case".
+**Typical engagement:** 8 to 14 weeks to one version of the numbers.
+*Link:* See the route → `/how-we-work#and-route-data`
+
+### Custom solutions
+*Italic subline:* When off-the-shelf can't
+Some processes no product handles. We design and build the software that does: portals, internal tools, APIs and agents, with the tests and documentation the next developer needs. If something you already own does the job, we say so first.
+- Web and mobile apps, customer portals, internal tools
+- APIs, Apex and Lightning Web Components
+- AI agents and automations, with guardrails
+- Test coverage above 85%, version control, CI; the code lives in your repository
+**Best for:** processes no product on the market handles well.
+**Typical engagement:** 10 to 20 weeks to the first release, delivered in two-week sprints.
+*Link:* See the route → `/how-we-work#and-route-custom`
+
+### Integrations & automation
+*Italic subline:* When systems must agree
+Your CRM has to agree with your ERP, your billing tool and your support desk. We build the integrations and the automations that replace copy-and-paste.
 - ERP, billing, marketing and support integrations
-- MuleSoft, REST, platform events and middleware such as Make or Workato
-- Deduplication, matching rules and a one-time merge
-- Ongoing validation and data-quality dashboards
-**Best for:** Salesforce that has to agree with your finance system.
-**Typical engagement:** 3 to 8 weeks per integration.
+- MuleSoft, REST APIs, events, Make or Workato
+- Workflow automation across tools and teams
+- Retries, alerts and a monitoring dashboard as part of the build
+**Best for:** teams that re-key the same data into two systems.
+**Typical engagement:** 5 to 9 weeks per integration.
+*Link:* See the route → `/how-we-work#and-route-integrate`
 
-### Custom development
-Some processes clicks alone can't handle. We write the code, we write the tests, and we make sure the next developer can read both.
-- Apex, Lightning Web Components and complex Flows
-- Agentforce agents, prompt templates and guardrails
-- Test coverage above 85%, version control, CI and release management
-**Best for:** processes clicks alone can't handle.
-**Typical engagement:** scoped per feature, delivered in 2-week sprints.
-
-### Managed admin & support
-You are not ready to hire a full-time admin, but the requests keep coming. A named consultant handles them within an agreed SLA and keeps the org release-ready.
+### Managed services & adoption
+*Italic subline:* After launch
+The change only counts if people use it. A named consultant keeps your platforms current within an agreed SLA, trains people by role, and measures what sticks.
 - Monthly block of hours with a named consultant
-- Release readiness review for each Salesforce release
-- User requests handled within an agreed SLA
-- Quarterly roadmap and health report
-**Best for:** companies not ready to hire a full-time admin.
-**Typical engagement:** monthly retainer from 20 hours.
-
-### Training & adoption
-The org is built well, but people work around it. We train by role, coach your admin, and measure what sticks.
-- Role-based sessions for reps, agents and managers
-- Admin coaching so your team owns the org
-- Adoption dashboards: logins, data entry, report views
-**Best for:** orgs that are built well but underused.
-**Typical engagement:** 2 to 4 weeks.
+- Role-based training and adoption dashboards
+- Release readiness and a quarterly roadmap
+- A health score reviewed every quarter
+**Best for:** companies not ready to hire a full-time team for their platforms.
+**Typical engagement:** retainer from 20 hours a month, reviewed every quarter.
+*Link:* See the route → `/how-we-work#and-route-managed`
 
 ---
 
 ## FAQ (Accordion block)
 
 **Do we need to be a certain size?**
-No. We work with companies from about 20 to 2,000 Salesforce users. Under 20, we will usually recommend a managed-admin retainer rather than a project.
+No. We work with companies from about 20 to 2,000 people. Under 20, we will usually recommend a managed-services retainer rather than a project.
 
 **Do you work in fixed price or time and materials?**
-Implementations and rescues are fixed price after the Blueprint stage. Managed support is a monthly retainer. Custom development is scoped per feature.
+Projects are fixed price once you sign the Chart waypoint, so you see the price before we build. Managed services are a monthly retainer. Custom software after its first release is scoped per feature.
 
-**Can you work with our existing admin?**
-Yes, and we prefer it. The admin joins every sprint demo and gets the documentation first.
+**Can we combine routes?**
+Yes, and most engagements do. Digital transformation usually draws on the CRM, data and integration routes; they run on the same five bearings, so the waypoints line up.
 
-**Do you resell Salesforce licences?**
-No. We are independent, so our advice on licences is not tied to a commission.
+**Can you work with our existing team?**
+Yes, and we prefer it. Your people join every sprint demo and get the documentation first.
+
+**Do you resell licences?**
+No. We are independent, so our advice on which product to buy, or whether to buy one at all, is not tied to a commission.
 
 **What happens if we stop halfway?**
-You keep everything built so far, fully documented, and the sandbox is yours.
+You keep every sheet and everything built so far, fully documented. The code and the environments are yours.
 
 ---
 
 ## CTA (Darkest 1 section)
 
-*H2:* Not sure which one you need?
+*H2:* Not sure which *route* you need?
 
 *Paragraph:* Book the free survey. We'll tell you which of the six applies, or whether none of them does.
 

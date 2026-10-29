@@ -1,5 +1,5 @@
 <!-- ANDURIL · Settings → Advanced → Code Injection → FOOTER (Core plan or higher)
-     Adds: the star sky · the day/night switch · the sheet frame · custom cursor · scroll reveals · counters · survey bars · contours · local clock · new-tab external links.
+     Adds: the star sky · the day/night switch · the sheet frame · custom cursor · scroll reveals · route links · counters · survey bars · contours · local clock · new-tab external links.
      Every effect degrades cleanly: without this script the site is fully usable. -->
 <script>
 (function () {
@@ -62,10 +62,10 @@
 
   /* 1. The sheet frame */
   var fr = document.createElement('div'); fr.className = 'and-sheet-frame'; fr.setAttribute('aria-hidden', 'true');
-  fr.innerHTML = '<span class="v l"></span><span class="v r"></span><span class="coord">Sheet 01 · Anduril · Salesforce consultancy</span>';
+  fr.innerHTML = '<span class="v l"></span><span class="v r"></span><span class="coord">Sheet 01 · Anduril · Digital transformation</span>';
   document.body.appendChild(fr);
 
-  /* 2. Contours: the org as terrain, drawn into any <svg class="and-contours" data-seed="1.3" data-rings="9"> */
+  /* 2. Contours: your systems as terrain, drawn into any <svg class="and-contours" data-seed="1.3" data-rings="9"> */
   function contours(seed, rings) {
     var out = '';
     for (var r = 1; r <= rings; r++) {
@@ -89,12 +89,12 @@
     var cx = -100, cy = -100, tx = -100, ty = -100;
     window.addEventListener('mousemove', function (e) { tx = e.clientX; ty = e.clientY; }, { passive: true });
     (function loop() { cx += (tx - cx) * .22; cy += (ty - cy) * .22; cur.style.transform = 'translate(' + (cx - 13) + 'px,' + (cy - 13) + 'px)'; requestAnimationFrame(loop); })();
-    document.addEventListener('mouseover', function (e) { cur.classList.toggle('is-link', !!e.target.closest('a, button, summary, .and-svc')); });
+    document.addEventListener('mouseover', function (e) { cur.classList.toggle('is-link', !!e.target.closest('a, button, summary, label, .and-svc')); });
   }
 
   /* 4. Scroll reveals */
   var vh = window.innerHeight;
-  var targets = document.querySelectorAll('.sqs-block-html h1, .sqs-block-html h2, .sqs-block-html h3, .sqs-block-html p, .sqs-block-image, .sqs-block-quote, .and-ledger-row, .and-stage, .and-number, .and-case, .and-survey, .and-principles li, .and-rose-entry');
+  var targets = document.querySelectorAll('.sqs-block-html h1, .sqs-block-html h2, .sqs-block-html h3, .sqs-block-html p, .sqs-block-image, .sqs-block-quote, .and-ledger-row, .and-bearings li, .and-wp-key, .and-route-pick, .and-number, .and-case, .and-survey, .and-principles li, .and-rose-entry');
   if (!reduce && 'IntersectionObserver' in window) {
     var rvs = [];
     targets.forEach(function (el) { el.classList.add('and-rv'); if (el.getBoundingClientRect().top > vh * .92) { el.classList.add('pre'); rvs.push(el); } });
@@ -128,7 +128,27 @@
   var clocks = document.querySelectorAll('.and-clock');
   if (clocks.length) { var tick = function () { var s = new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }) + ' local'; clocks.forEach(function (c) { c.textContent = s; }); }; tick(); setInterval(tick, 30000); }
 
-  /* 7. External links open in a new tab */
+  /* 7. Routes of the method: "See the route" links and #and-route-… addresses select that route.
+        On a page that carries the method block the link stays on the page; elsewhere it opens How we work on that route. */
+  function openRoute(id, scroll) {
+    var r = document.getElementById('and-rt-' + id), m = document.getElementById('and-method');
+    if (!r || !m) return false;
+    r.checked = true;
+    if (scroll) (m.querySelector('.and-route-pick') || m).scrollIntoView({ behavior: reduce ? 'auto' : 'smooth', block: 'start' });
+    return true;
+  }
+  function fromHash(scroll) { var h = /^#and-route-([\w-]+)$/.exec(location.hash); if (h) openRoute(h[1], scroll); }
+  document.querySelectorAll('a.and-route-link').forEach(function (a) {
+    a.addEventListener('click', function (e) {
+      var h = /#and-route-([\w-]+)$/.exec(a.getAttribute('href') || '');
+      if (h && openRoute(h[1], true)) e.preventDefault();
+    });
+  });
+  fromHash(false);
+  window.addEventListener('load', function () { setTimeout(function () { fromHash(true); }, 60); });
+  window.addEventListener('hashchange', function () { fromHash(true); });
+
+  /* 8. External links open in a new tab */
   document.querySelectorAll('a[href^="http"]').forEach(function (a) { if (a.hostname !== location.hostname) { a.target = '_blank'; a.rel = 'noopener'; } });
 })();
 </script>

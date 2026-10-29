@@ -14,7 +14,7 @@
   /* Day: ivory paper, pine ink */
   --and-ground: #F4EFE4; --and-panel: #E9E2D0; --and-line: #D3CAB4; --and-ink: #143D31; --and-ink-2: #3F6D58; --and-label: #6E8A7D; --and-accent-ink: #7A5D18;
   --and-grain-blend: multiply; --and-grain-opacity: .045;
-  /* The band of clouds runs against the paper: pine by day, vellum by night */
+  /* The legend band runs against the paper: pine by day, vellum by night */
   --and-band: #123529; --and-band-line: #22493D; --and-band-ink: #BFD0C6;
   --and-display: "Fraunces","Iowan Old Style",Georgia,serif;
   --and-body: "Instrument Sans","Helvetica Neue",Arial,sans-serif;

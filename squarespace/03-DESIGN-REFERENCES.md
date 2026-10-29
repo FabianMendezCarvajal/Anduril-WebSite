@@ -19,18 +19,19 @@ winners. If you want a direct scrape, add `awwwards.com` to the environment's al
 ## Patterns the winners share (and how Anduril applies them)
 
 1. **Typography is the hero.** Oversized headline filling the viewport width, a grotesk paired with a serif
-   italic (the pairing the Awwwards typography collection returns to most often). → "Salesforce," in Bricolage
-   Grotesque 600, "reforged." in Instrument Serif italic, up to 196 px.
-2. **Two colours and one accent.** Near-black or off-white ground, one accent, nothing else. → Forge
-   black `#0B0D11`, paper `#F1EFEA` sheets, copper `#E0663A` kept for italics, marks and hover sweeps.
+   italic (the pairing the Awwwards typography collection returns to most often). → "Know the ground" in Fraunces
+   500, "before you change it." in Fraunces italic, gilt, up to the full width of the sheet.
+2. **Two colours and one accent.** Near-black or off-white ground, one accent, nothing else. → Ivory
+   `#F4EFE4` ground, pine `#143D31` ink, gilt `#C9A14B` kept for the flame: the rose's west point, waypoints and hover sweeps.
 3. **Line-mask reveals and staggered entrances,** not scattered effects. → Headline lines slide up from a
    mask on load; sections fade up once, then stay.
 4. **Meta line in the header:** local time, location, availability. → "07:16 PM local · Taking projects Q4 2026".
 5. **Full-screen overlay menu** with enormous links. → Paper overlay, five links at 104 px with serif italic index numbers.
 6. **The hover list.** Services as huge rows that invert on hover and expand on click. → Six rows, black
    fill sweeps in, ember plus-button.
-7. **Marquee ticker** between hero and body. → Clouds and tools scroll as a marquee. The band runs against the paper, pine by day and vellum by night.
-8. **Sticky card stack** for a sequence. → Five process stages stack under a fixed header offset.
+7. **Marquee ticker** between hero and body. → Services and platforms scroll as a marquee. The band runs against the paper, pine by day and vellum by night.
+8. **Sticky card stack** for a sequence. → Replaced by a route map: the five bearings in a row, then six routes as
+   CSS-only tabs whose legs sit on a dashed gilt line with a waypoint at each crossing.
 9. **Numbers that count up** and proof cards with a hover glow. → Results section.
 10. **Custom cursor** that grows over links, using `mix-blend-mode: difference`. → A small sun by day and a moon by night, with a gilt halo that grows over links.
 11. **Film grain** overlay at 5 percent. → Present site-wide.
@@ -43,7 +44,7 @@ winners. If you want a direct scrape, add `awwwards.com` to the environment's al
 ## The identity: Proposal B, the West
 
 The site applies **Proposal B** from the Anduril Visual Identity canvas (boards B, B1, B3, B4, B5): a
-map-maker's identity. A consultancy that inherits a Salesforce org inherits territory nobody has charted; it
+map-maker's identity. A consultancy that inherits a company's systems inherits territory nobody has charted; it
 surveys before it touches. The identity is that survey: paper, ink, contour lines, coordinates.
 
 | Element | The system | On the site |
@@ -53,11 +54,12 @@ surveys before it touches. The identity is that survey: paper, ink, contour line
 | Colour | Ivory `#F4EFE4` ground · Pine `#143D31` ink and dark ground · Gilt `#C9A14B` the flame · Moss `#3F6D58` · Vellum `#E9E2D0` · Rule `#D3CAB4`. Proportion 78 / 18 / 4 | Ivory pages, vellum alternate sections, one pine ground for Coordinates and the footer. Gilt Deep `#7A5D18` carries italic phrases on ivory because Gilt itself fails as text |
 | Type | Fraunces 500 opsz 144 SOFT 30 for display, italic 400 for the turn of phrase · Instrument Sans for reading · DM Mono for coordinates | Every heading, every label, every paragraph |
 | The celestial sheet | A map-maker's instrument: the sky charted for a place and a moment | A working planisphere in the hero, drawn in the manner of the nineteenth-century star atlases (Peck's Edinburgh charts): a night disc with stars as plain discs scaled by magnitude, the Milky Way stippled in, the hour and declination grid, constellation names in spaced capitals, the ecliptic and zodiac, Sun and Moon, inside a calendar ring that marks today, rising from the bottom edge of the hero with its top half in view, facing south so the ecliptic is in view, and turned by the hour from a collapsible dial panel beside it |
-| Contours | The org as terrain, behind headers and on card backs | On the field-note cards on hover |
+| Contours | Your systems as terrain, behind headers and on card backs | On the field-note cards on hover |
 | Margins | Every sheet gets a frame, ticks and coordinates | A fixed frame around the viewport with survey ticks and "Sheet 01" |
 | Legend | Services and findings as map symbols | Symbols on the terrain rows, the routes and the survey sheet |
-| The seven stars and the scale bar | A dotted route; a timeline scale | The route under the hero headline; the 0 to 90 days scale over the stages |
-| Language | "Know the org before you change it." "Salesforce, mapped." Survey, chart, route, field notes, coordinates | The headline, the tagline, the navigation and every chapter label |
+| The seven stars and the scale bar | A dotted route; a timeline scale | The route under the hero headline; a scale over each route, from 0 to its first result |
+| The method | The Westward Method: five bearings (Survey, Chart, Forge, Launch, Keep), each ending at a waypoint the client signs and a sheet the client keeps. Forge, not Build, because Andúril is the sword reforged | Sheet 04 and the How we work page: one route per service, all on the same five bearings |
+| Language | "Know the ground before you change it." "Transformation, mapped." Survey, chart, forge, route, waypoint, sheet, field notes, coordinates | The headline, the tagline, the navigation and every chapter label |
 
 The star sky: a seeded star field lies behind every sheet, printed faintly in pine by day and lit in ivory by
 night with a slow twinkle and an occasional meteor; vellum and pine sections are lightly translucent over it.
@@ -65,7 +67,7 @@ night with a slow twinkle and an occasional meteor; vellum and pine sections are
 Day and night: the site carries a night palette, the pine set reversed, switched by a sun and a moon in the
 header and remembered per device; the chart's disc stays night in both.
 
-Sheets replace chapters: 01 the hero, 02 Terrain, 03 Routes, 04 The survey, 05 Field notes, 06 Charted, 07 The
+Sheets replace chapters: 01 the hero, 02 Terrain, 03 Routes, 04 The method, 05 Field notes, 06 Charted, 07 The
 free survey, 08 The map-maker, 09 Coordinates.
 
 What was left out on purpose: the sword, elvish scripts, the seven-stars-between-moon-and-sun engraving and
@@ -77,8 +79,8 @@ Middle-earth Enterprises.
 
 * 3D scroll-driven camera work. It scores well on Awwwards but costs performance, accessibility and Squarespace
   compatibility, and a consultancy buyer is not there for it.
-* Horizontal scroll sections pinned with GSAP ScrollTrigger. Same reason. The sticky stack gives the same
-  "one stage at a time" pacing in pure CSS.
+* Horizontal scroll sections pinned with GSAP ScrollTrigger. Same reason. The route tabs give the same
+  "one route at a time" pacing in pure CSS.
 
 ## Sources
 

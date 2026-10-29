@@ -1,48 +1,76 @@
 # How we work page copy
 
-**Meta title:** How we work · Anduril
-**Meta description:** Five stages from assessment to ongoing support. You see the plan and the cost before we build anything in your Salesforce org.
+**Meta title:** How we work · The Westward Method · Anduril
+**Meta description:** Five bearings, six terrains. Every engagement runs Survey, Chart, Forge, Launch and Keep, each ending at a waypoint you sign and a sheet you keep.
 
 ---
 
 ## Intro
 
-*Eyebrow:* How we work
+*Coordinates:* How we work · The Westward Method
 
-*H1:* Five stages. *No surprises* in stage four.
+*H1:* Five bearings, *six terrains.*
 
-*Lede:* Every project follows the same sequence. You see the plan and the fixed cost before we touch production, and you see a working demo at the end of every sprint.
+*Lede:* The Westward Method is how every engagement runs: the same five bearings, each ending at a waypoint you sign before we move on. The terrain changes with the route. The method does not. Choose a route.
 
-*Code Block (Darkest 1 section):* `code-blocks/process-steps.html`
+*Code Block (Ivory section):* `code-blocks/method-routes.html`. It holds the five bearings, the key to waypoints and sheets, and the six routes. A link to `/how-we-work#and-route-crm` (or `transform`, `data`, `custom`, `integrate`, `managed`) opens the page on that route when `code-injection/footer.html` is installed; the services list uses these links.
 
 ---
 
-## Stage detail
+## Two words used on every route
 
-### 01 Survey · 1 to 2 weeks
+**Waypoint.** A decision you sign. Nothing crosses to the next bearing without it.
+
+**Sheet.** What you keep from each bearing, whether or not you go on with us.
+
+---
+
+## The five bearings
+
+### 01 Survey
 *Italic subline:* Walk the ground
-We read your org the way a surveyor reads a valley: every object, every automation, every report that has been opened in the last 90 days. Then we interview the people who use it, from the rep who hates the opportunity page to the CFO who keeps a spreadsheet.
-**You get:** an org survey with findings ranked by business impact, and a recommendation on which route fits.
+We read everything before we touch anything: every system, spreadsheet, report and hand-off, and the people who live with them, from the rep who hates the opportunity page to the CFO who keeps a spreadsheet.
+**You sign:** the findings, agreed as true.
+**You keep:** the survey sheet, findings ranked by business impact.
 
-### 02 Chart · 1 week
+### 02 Chart
 *Italic subline:* Draw the map
-We turn the findings into a design: data model changes, an automation map, an integration plan and a release sequence. Every item has a cost and a reason.
-**You get:** a fixed-price quote and a plan you can hand to anyone. You approve it before we start building.
+Every change gets a cost and a reason: the design, the architecture, the plan and the release sequence. You approve the price before we build.
+**You sign:** the design and its fixed price.
+**You keep:** a plan you could hand to anyone.
 
-### 03 Build · 2 to 10 sprints
+### 03 Forge
 *Italic subline:* Cut the route
-Two-week sprints in a sandbox. Each one ends with a demo you and your admin attend, and a written change log. Nothing lands in production unseen.
-**You get:** working features every two weeks, test coverage on every line of code, documentation written as we go.
+Two-week sprints, a demo at the end of each, nothing in production unseen. The name is the brand's: Andúril is the sword that was reforged, and this is where the work is made.
+**You sign:** acceptance by the people who will use it.
+**You keep:** the change log, test evidence and documentation written as we go.
 
-### 04 Launch · 2 weeks
+### 04 Launch
 *Italic subline:* Cross over
-Data migration is rehearsed at least once before the real cutover. We train by role, then stay on hypercare while your team gets comfortable and the first real reports run.
-**You get:** a cutover plan, training recordings, and a consultant on call for the first two weeks.
+A rehearsed cutover, training by role, and a consultant on call while your team gets comfortable and the first real numbers run.
+**You sign:** the old way switched off.
+**You keep:** the runbook and the training recordings.
 
-### 05 Keep · ongoing, optional
+### 05 Keep
 *Italic subline:* Keep the map current
-Managed hours, a review before each Salesforce release, and a quarterly roadmap so the org keeps pace with the business instead of falling behind it again.
-**You get:** a named consultant, an SLA on requests, and a health score that moves.
+Each review becomes the next survey. The route loops: managed hours, a quarterly roadmap and a health score that moves, so your systems keep pace with the business instead of falling behind it again.
+**You sign:** the next quarter's priorities.
+**You keep:** a quarterly report you can act on without us.
+
+---
+
+## Six routes, at a glance
+
+| Route | The question | Time to the first result |
+|---|---|---|
+| Digital transformation | Where should change start, and in what order? | 12 to 20 weeks to phase one live |
+| CRM | Does your CRM match how you sell and serve? | 8 to 16 weeks to go-live |
+| Data & analytics | Can everyone trust the same number? | 8 to 14 weeks to one version of the numbers |
+| Custom solutions | What should be built, because nothing off the shelf does it? | 10 to 20 weeks to the first release |
+| Integrations & automation | Do your systems agree without anyone copying data? | 5 to 9 weeks per integration |
+| Managed services & adoption | Will the change still hold a year from now? | Monthly, reviewed every quarter |
+
+Each route's five legs, sheets, times and waypoints are inside the code block; edit them there.
 
 ---
 
@@ -50,9 +78,9 @@ Managed hours, a review before each Salesforce release, and a quarterly roadmap 
 
 *H2:* What we won't do
 
-- Start building before you have approved a written plan and price.
-- Add custom code where a standard feature would do.
-- Deliver anything without documentation your next admin can read.
+- Start building before you have signed the Chart waypoint and its price.
+- Build custom software where something you already own would do.
+- Deliver anything without documentation your next team can read.
 - Hand you off to a different team after the sale.
 - Call a feature "done" before people are using it.
 
@@ -60,8 +88,8 @@ Managed hours, a review before each Salesforce release, and a quarterly roadmap 
 
 ## CTA (Darkest 1 section)
 
-*H2:* Start at *stage one.*
+*H2:* Start at *the first bearing.*
 
-*Paragraph:* The survey is free, takes thirty minutes, and you keep the findings either way.
+*Paragraph:* The survey is free, takes thirty minutes, and you keep the sheet either way.
 
 *Button:* Book a survey → `/contact`

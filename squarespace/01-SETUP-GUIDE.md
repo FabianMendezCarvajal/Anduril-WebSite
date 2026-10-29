@@ -64,7 +64,7 @@ footer script to turn it off.
 vellum becoming `#123529`, hairlines `#22493D`, and gilt reading directly on the ground. It switches with the sun
 and moon button that the footer script adds to the header, remembers the choice on the visitor's device, and
 otherwise follows the system setting. The celestial chart's disc is always night; only its ring and caption change.
-The band of clouds under the hero runs against the paper for contrast: a pine band with ivory type by day, a
+The legend band under the hero runs against the paper for contrast: a pine band with ivory type by day, a
 vellum band with moss type by night (the `--and-band` tokens).
 
 ## Step 3: Set the fonts
@@ -142,6 +142,9 @@ Follow `02-SITE-MAP.md`. Recipe for every section:
    block's two `data-lat` / `data-lon` attributes; visitors can also type their own or press *Use my location*.
    It carries its own script, so it needs the Core plan or higher; on lower plans leave the right column empty and
    the hero's contours take its place.
+6. The method (home sheet 04 and the How we work page): one **Code Block** with `code-blocks/method-routes.html`
+   under its chapter head. The six route tabs are CSS only and work on every plan. Use the same block on both pages;
+   the services list links each service to its route on How we work (`/how-we-work#and-route-crm` and so on).
 
 Set Home as the homepage (Pages → hover Home → gear → *Set as homepage*).
 
@@ -152,7 +155,7 @@ The clients grid (`code-blocks/clients-grid.html`) ships with invented placehold
 1. Get a horizontal SVG (or transparent PNG, at least 600 px wide) and written permission from each client.
 2. Design → Custom CSS → **Manage Custom Files** → upload the logo → click it to copy its URL.
 3. In the code block, replace `<span class="and-logo-text">Northwind</span>` with `<img src="PASTE-URL" alt="Client name">`.
-4. Edit the `and-tag` text to the client's industry and the cloud you worked in.
+4. Edit the `and-tag` text to the client's industry and the route you took with them.
 5. Delete the "Placeholder wordmarks" note.
 
 Native alternative without code: Add section → **Gallery** → *Grid: Simple*, 4 columns, upload the logos, and add
@@ -167,14 +170,15 @@ Contact page, right column, **Form Block**:
 | Your name | Name, required |
 | Company | Text, required |
 | Work email | Email, required |
-| Salesforce products in use | Select: Sales Cloud / Service Cloud / Sales + Service Cloud / Marketing Cloud / Several clouds / Not on Salesforce yet |
+| Where should we start? | Select: Digital transformation / CRM / Data & analytics / Custom solutions / Integrations & automation / Managed services & adoption / Not sure yet |
 | What is not working today? | Text area |
 
 Storage: **Email** to your address. Button text: *Book the survey*. Post-submit message: *Thanks. A consultant,
 not a sequence, will reply within one business day.*
 
-**Leads into Salesforce:** Form → Storage → **Zapier** (or Make). Trigger "Squarespace: New Form Submission" →
-action "Salesforce: Create Lead". Map Company, Name, Email; put the select answer in a custom Lead field.
+**Leads into your CRM:** Form → Storage → **Zapier** (or Make). Trigger "Squarespace: New Form Submission" →
+action "Create Lead" in your CRM (Salesforce, HubSpot and most others have one). Map Company, Name, Email; put the
+route from the select in a custom field so each lead arrives sorted by route.
 
 ## Step 11: Coordinates and footer
 
@@ -183,19 +187,20 @@ The contact section and the footer share one pine ground, as the identity's prop
 1. Contact page, Darkest 1 theme: `chapter-head.html` with class `pine` (09 Coordinates, "Let's *chart it.*"),
    then two columns: left the email link and the three contact lines, right the Form block.
 2. Edit → Footer, Darkest 1 theme, two sections: a row of links in Monospace style (left: Survey · Services · How we
-   work · Field notes · Clients · About · Contact; right: LinkedIn · Trailblazer · Privacy), then a full-width section,
+   work · Platforms · Field notes · Clients · About · Contact; right: LinkedIn · Privacy), then a full-width section,
    padding none, with **Code Block** `code-blocks/footer-wordmark.html` (the rose in ivory above the wordmark) and a
-   small Text block with the copyright, "Salesforce, mapped." and the two disclaimers from `copy/home.md`. Keep both disclaimers.
+   small Text block with the copyright, "Transformation, mapped." and the two disclaimers from `copy/home.md`. Keep both disclaimers.
 
 ## Step 12: SEO and launch checklist
 
-* Settings → SEO → title format `%p | Anduril · Salesforce consultancy`; description from `copy/home.md`.
+* Settings → SEO → title format `%p | Anduril · Digital transformation`; description from `copy/home.md`.
 * Each page: Page settings → SEO → paste its meta description.
-* Favicon: export `assets/favicon.svg` at 512×512 (the rose on ivory). Social sharing image 1200×630: "Know the org *before you change it.*" in Fraunces on ivory with the rose, or the profile banner from the identity canvas (board B4).
+* Favicon: export `assets/favicon.svg` at 512×512 (the rose on ivory). Social sharing image 1200×630: "Know the ground *before you change it.*" in Fraunces on ivory with the rose, or the profile banner from the identity canvas (board B4).
 * Coordinates: the celestial chart and the sheet frame use sample coordinates (51.5074° N, 0.1278° W, London). Set your office's in the chart block's `data-lat` and `data-lon` so the default sky is yours.
 * The header's centre line shows only the consultancy label and the local clock; add an availability note there if you want one.
 * Replace every placeholder: `hello@your-domain.com`, the three case cards, the three numbers, the eight client logos, the availability line.
-* Test on a phone: overlay menu opens and closes, form submits, code-block grids stack, the marquee scrolls.
+* Test on a phone: overlay menu opens and closes, form submits, code-block grids stack, the marquee scrolls, the method's route tabs switch.
+* Test the route links: open a service row on Services, click *See the route*, and check that How we work opens on that route.
 * Check the sheet frame on a phone: it tightens to 8 px and drops the coordinate label.
 * Settings → Site availability → **Public**.
 
@@ -204,6 +209,8 @@ The contact section and the footer share one pine ground, as the identity's prop
 * **Name check.** "Anduril" is also the name of Anduril Industries, a large US defence company, and Middle-earth
   names are trademarked in several categories. Check registrations in your country before investing in the domain.
   The rose, the palette and the type are yours; only the name and its meaning come from Tolkien.
-* **"Salesforce Partner" wording.** Copy says *independent Salesforce consultancy*. Say *Salesforce Consulting
-  Partner* only if registered in the partner program.
+* **Partner wording.** Copy says *independent consultancy* and names Salesforce as the CRM we implement. Say
+  *Salesforce Consulting Partner* (or any other vendor's partner title) only if registered in that partner program.
+* **Platforms.** `code-blocks/platforms-list.html` names categories for data and BI rather than products. Name the
+  warehouse and BI tools you are certified in once you have chosen which to show.
 * **Numbers and case cards** are illustrative. Replace them before going public.

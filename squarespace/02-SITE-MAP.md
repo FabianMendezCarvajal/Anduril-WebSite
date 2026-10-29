@@ -1,6 +1,6 @@
 # Site map and section blueprint
 
-Five pages plus the shared header and footer. Each row lists the Squarespace section type, the blocks inside,
+Seven pages plus the shared header and footer. Each row lists the Squarespace section type, the blocks inside,
 the section theme, and where the content comes from.
 
 Section types are the ones in Squarespace 7.1's **Add section** panel. "Blank" means a blank section you fill
@@ -21,7 +21,7 @@ Default theme Lightest 1 (ivory). "Vellum" = Lightest 2. "Pine" = Darkest 1.
 | 3 | Blank | Ivory | Text (manifesto paragraph in Fraunces) + Text (small note on the name) | `copy/home.md` §Manifesto |
 | 4 | Blank | Ivory | **Code Block** chapter head (02 Terrain), **Code Block** ledger | `copy/home.md` §Terrain + `code-blocks/symptoms-ledger.html` |
 | 5 | Blank | Vellum | **Code Block** chapter head (03 Routes), **Code Block** services list | `copy/home.md` §Routes + `code-blocks/services-list.html` |
-| 6 | Blank | Ivory | **Code Block** chapter head (04 The survey), **Code Block** process stack | `copy/home.md` §The survey + `code-blocks/process-stack.html` |
+| 6 | Blank | Ivory | **Code Block** chapter head (04 The method), **Code Block** method | `copy/home.md` §The method + `code-blocks/method-routes.html` |
 | 7 | Blank | Ivory | **Code Block** chapter head (05 Field notes), **Code Block** proof | `copy/home.md` §Field notes + `code-blocks/proof-numbers.html` |
 | 8 | Blank | Ivory | **Code Block** chapter head (06 Charted), **Code Block** clients grid, Text (note) + Button | `copy/home.md` §Charted + `code-blocks/clients-grid.html` |
 | 9 | Blank, then 2 columns | Vellum | **Code Block** chapter head (07 The free survey); below it, left: Text (lede) + Button, right: **Code Block** survey sheet | `copy/home.md` §The free survey + `code-blocks/survey-sheet.html` |
@@ -37,7 +37,7 @@ heading: a hairline with survey ticks, the number and label at left, the heading
 |---|---|---|---|---|
 | 1 | Blank | Lightest 1 | Text (eyebrow, H1, lede) | `copy/services.md` §Intro |
 | 2 | Blank | Vellum | **Code Block** services list | `code-blocks/services-list.html` |
-| 3 | Blank | Lightest 1 | Six Text blocks, one per service (H3 + paragraph + bullets + "Best for") | `copy/services.md` §Service detail |
+| 3 | Blank | Lightest 1 | Six Text blocks, one per service (H3 + paragraph + bullets + "Best for" + a *See the route* link) | `copy/services.md` §Service detail |
 | 4 | Blank | Lightest 1 | Accordion block: "Questions before you book" | `copy/services.md` §FAQ |
 | 5 | Blank | **Pine** | Text (H2) + Button | `copy/services.md` §CTA |
 
@@ -57,18 +57,22 @@ The Findings page: numbers and case sheets, plus room for written notes later.
 | # | Section | Theme | Blocks | Content |
 |---|---|---|---|---|
 | 1 | Blank | Lightest 1 | Text (eyebrow, H1, lede) | `copy/how-we-work.md` §Intro |
-| 2 | Blank | Ivory | **Code Block** process stack | `code-blocks/process-stack.html` |
-| 3 | Blank | Lightest 1 | Five Text blocks, one per stage (H3, what happens, what you get) | `copy/how-we-work.md` §Stage detail |
-| 4 | Blank | Lightest 1 | Text (H2 "What we won't do") + bullets | `copy/how-we-work.md` §Principles |
-| 5 | Blank | **Darkest 1** | Text (H2) + Button | `copy/how-we-work.md` §CTA |
+| 2 | Blank | Ivory | **Code Block** method: five bearings, the waypoint and sheet key, six route tabs | `code-blocks/method-routes.html` |
+| 3 | Blank | Lightest 1 | Text: the two words (Waypoint, Sheet) | `copy/how-we-work.md` §Two words |
+| 4 | Blank | Lightest 1 | Five Text blocks, one per bearing (H3, what happens, what you sign, what you keep) | `copy/how-we-work.md` §The five bearings |
+| 5 | Blank | Lightest 1 | Text (H2 "What we won't do") + bullets | `copy/how-we-work.md` §Principles |
+| 6 | Blank | **Darkest 1** | Text (H2) + Button | `copy/how-we-work.md` §CTA |
 
-## Clouds (`/clouds`)
+The route links (`/how-we-work#and-route-transform`, `crm`, `data`, `custom`, `integrate`, `managed`) open the page on
+that route when `code-injection/footer.html` is installed.
+
+## Platforms (`/platforms`)
 
 | # | Section | Theme | Blocks | Content |
 |---|---|---|---|---|
-| 1 | Blank | Lightest 1 | Text (eyebrow, H1, lede) | `copy/clouds.md` §Intro |
-| 2 | Blank | Ivory | **Code Block** clouds list | `code-blocks/clouds-list.html` |
-| 3 | Blank | **Darkest 1** | Text (H2) + Button | `copy/clouds.md` §CTA |
+| 1 | Blank | Lightest 1 | Text (eyebrow, H1, lede) | `copy/platforms.md` §Intro |
+| 2 | Blank | Ivory | **Code Block** platforms list | `code-blocks/platforms-list.html` |
+| 3 | Blank | **Darkest 1** | Text (H2) + Button | `copy/platforms.md` §CTA |
 
 ## About (`/about`)
 
@@ -93,5 +97,5 @@ Pine. A row of links, then the rose and the giant italic wordmark (`code-blocks/
 
 ## Not-found page
 
-Pages → Not linked → System pages → 404. Heading: *This page has been retired.* Body: *Like a Process Builder,
-it was replaced by something better. Try the menu above.* Button: Home.
+Pages → Not linked → System pages → 404. Heading: *This page is off the map.* Body: *It was retired with the old
+process. Try the menu above.* Button: Home.
