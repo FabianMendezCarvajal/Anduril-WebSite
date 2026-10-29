@@ -150,16 +150,19 @@ Set Home as the homepage (Pages → hover Home → gear → *Set as homepage*).
 
 ## Step 9: Client logos
 
-The clients grid (`code-blocks/clients-grid.html`) ships with invented placeholder wordmarks. To show real clients:
+The clients grid (`code-blocks/clients-grid.html`) shows two clients, FIFA World Cup 26 and Colsubsidio, with their logos
+embedded in the block, so it works as pasted. The source files are in `assets/clients/` (see its README for where each came from).
 
-1. Get a horizontal SVG (or transparent PNG, at least 600 px wide) and written permission from each client.
-2. Design → Custom CSS → **Manage Custom Files** → upload the logo → click it to copy its URL.
-3. In the code block, replace `<span class="and-logo-text">Northwind</span>` with `<img src="PASTE-URL" alt="Client name">`.
-4. Edit the `and-tag` text to the client's industry and the route you took with them.
-5. Delete the "Placeholder wordmarks" note.
+Before publishing:
 
-Native alternative without code: Add section → **Gallery** → *Grid: Simple*, 4 columns, upload the logos, and add
-`.gallery-grid-image img { filter: grayscale(1); opacity: .62; }` to the Custom CSS. You lose the hover tags.
+1. Confirm each client's written permission to show its logo. FIFA in particular controls every use of the FIFA World
+   Cup 26 emblem; ask your FIFA contact for the approved artwork and usage terms, and swap it in if it differs.
+2. Don't recolour or crop either logo. Both brands forbid it, which is why this grid shows them in their own colours
+   rather than greyscale.
+
+To add a client: copy a cell, upload the logo under Design → Custom CSS → **Manage Custom Files**, click it to copy its
+URL, and use that as the `img src` (class `tall` for upright marks, `wide` for wordmarks). Edit the `and-tag` text to the
+client's industry and place, or the route you took with them. With four or more clients, change the grid to `repeat(4,…)`.
 
 ## Step 10: Contact form
 
@@ -198,7 +201,7 @@ The contact section and the footer share one pine ground, as the identity's prop
 * Favicon: export `assets/favicon.svg` at 512×512 (the rose on ivory). Social sharing image 1200×630: "Know the ground *before you change it.*" in Fraunces on ivory with the rose, or the profile banner from the identity canvas (board B4).
 * Coordinates: the celestial chart and the sheet frame use sample coordinates (51.5074° N, 0.1278° W, London). Set your office's in the chart block's `data-lat` and `data-lon` so the default sky is yours.
 * The header's centre line shows only the consultancy label and the local clock; add an availability note there if you want one.
-* Replace every placeholder: `hello@your-domain.com`, the three case cards, the three numbers, the eight client logos, the availability line.
+* Replace every placeholder: `hello@your-domain.com`, the three case cards, the three numbers, the availability line.
 * Test on a phone: overlay menu opens and closes, form submits, code-block grids stack, the marquee scrolls, the method's route tabs switch.
 * Test the route links: open a service row on Services, click *See the route*, and check that How we work opens on that route.
 * Check the sheet frame on a phone: it tightens to 8 px and drops the coordinate label.

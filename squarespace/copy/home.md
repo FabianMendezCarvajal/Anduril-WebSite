@@ -90,11 +90,11 @@ Most companies' systems were never designed. They were [settled,] one tool, one 
 
 *H2:* Teams whose systems *we have charted.*
 
-*Lede:* Distribution, SaaS, professional services, manufacturing and non-profit. From 20 to 2,000 people.
+*Lede:* A world championship and a Colombian family compensation fund. Different terrain, the same method.
 
-*Code Block:* `code-blocks/clients-grid.html`. Eight cells, each a client logo (greyscale, colour on hover) with a hover tag "Industry · Route". The placeholder wordmarks are invented names; swap every one for a real logo or hide the section until you have permission to show at least six.
+*Code Block:* `code-blocks/clients-grid.html`. Two cells: the FIFA World Cup 26 emblem (tag: Sport · Canada, Mexico, USA) and the Colsubsidio logo (tag: Family compensation fund · Colombia). The logos are embedded in the block and keep their own colours; at night each sits on an ivory label.
 
-*Small note under the grid (delete once real logos are in):* Placeholder wordmarks.
+*Small note under the grid:* Client logos are trademarks of their owners.
 *Button (secondary, right):* Read the field notes → `/field-notes`
 
 ---

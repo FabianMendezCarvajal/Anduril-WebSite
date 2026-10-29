@@ -23,7 +23,7 @@ Default theme Lightest 1 (ivory). "Vellum" = Lightest 2. "Pine" = Darkest 1.
 | 5 | Blank | Vellum | **Code Block** chapter head (03 Routes), **Code Block** services list | `copy/home.md` §Routes + `code-blocks/services-list.html` |
 | 6 | Blank | Ivory | **Code Block** chapter head (04 The method), **Code Block** method | `copy/home.md` §The method + `code-blocks/method-routes.html` |
 | 7 | Blank | Ivory | **Code Block** chapter head (05 Field notes), **Code Block** proof | `copy/home.md` §Field notes + `code-blocks/proof-numbers.html` |
-| 8 | Blank | Ivory | **Code Block** chapter head (06 Charted), **Code Block** clients grid, Text (note) + Button | `copy/home.md` §Charted + `code-blocks/clients-grid.html` |
+| 8 | Blank | Ivory | **Code Block** chapter head (06 Charted), **Code Block** clients (FIFA World Cup 26, Colsubsidio), Text (note) + Button | `copy/home.md` §Charted + `code-blocks/clients-grid.html` |
 | 9 | Blank, then 2 columns | Vellum | **Code Block** chapter head (07 The free survey); below it, left: Text (lede) + Button, right: **Code Block** survey sheet | `copy/home.md` §The free survey + `code-blocks/survey-sheet.html` |
 | 10 | Blank, then 2 columns | Ivory | **Code Block** chapter head (08 The map-maker); below it, left: Text (serif paragraph) + **Code Block** rose entry, right: **Code Block** principles | `copy/home.md` §The map-maker + `code-blocks/rose-entry.html` + `code-blocks/principles.html` |
 | 11 | Blank, then 2 columns | **Pine** | **Code Block** chapter head `pine` (09 Coordinates); below it, left: Text (email link, contact lines), right: **Form block** | `copy/home.md` §Coordinates |
