@@ -90,9 +90,9 @@ Most companies' systems were never designed. They were [settled,] one tool, one 
 
 *H2:* Teams whose systems *we have charted.*
 
-*Lede:* A world championship and a Colombian family compensation fund. Different terrain, the same method.
+*Lede:* A world championship, an entertainment company, an airline, a development bank and two Colombian services for workers and their families. Different terrain, the same method.
 
-*Code Block:* `code-blocks/clients-grid.html`. Two cells: the FIFA World Cup 26 emblem (tag: Sport · Canada, Mexico, USA) and the Colsubsidio logo (tag: Family compensation fund · Colombia). The logos are embedded in the block in their one-colour white versions, with no background of their own, on a pine panel that stays pine by day and by night.
+*Code Block:* `code-blocks/clients-grid.html`. Six cells, three across on desktop, two on tablets, one on phones: the FIFA World Cup 26 emblem (tag: Sport · Canada, Mexico, USA), the Disney wordmark (tag: Entertainment · Worldwide), the Aeroméxico logo (tag: Airline · Mexico), the IDB Group logo (tag: Development bank · The Americas), the Colsubsidio logo (tag: Family compensation fund · Colombia) and the Servicio Público de Empleo logo (tag: Public employment service · Colombia). The logos are embedded in the block in their one-colour white versions, with no background of their own, on a pine panel that stays pine by day and by night. Each is sized to the same visual weight, so a wide wordmark and an upright emblem read as equals.
 
 *Small note under the grid:* Client logos are trademarks of their owners.
 *Button (secondary, right):* Read the field notes → `/field-notes`

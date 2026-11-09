@@ -150,19 +150,25 @@ Set Home as the homepage (Pages → hover Home → gear → *Set as homepage*).
 
 ## Step 9: Client logos
 
-The clients grid (`code-blocks/clients-grid.html`) shows two clients, FIFA World Cup 26 and Colsubsidio, with their one-colour
-white logos embedded in the block on a pine panel, so it works as pasted. The source files are in `assets/clients/` (see its README for where each came from).
+The clients grid (`code-blocks/clients-grid.html`) shows six clients: FIFA World Cup 26, Disney, Aeroméxico, IDB Group, Colsubsidio
+and Servicio Público de Empleo, with their one-colour white logos embedded in the block on a pine panel, so it works as pasted.
+It runs three across on desktop, two on tablets and one on phones. The source files are in `assets/clients/` (see its README
+for where each came from).
 
 Before publishing:
 
-1. Confirm each client's written permission to show its logo. FIFA in particular controls every use of the FIFA World
-   Cup 26 emblem; ask your FIFA contact for the approved artwork and usage terms, and swap it in if it differs.
+1. Confirm each client's written permission to show its logo. FIFA and Disney in particular control every use of their
+   marks; ask your contacts there for the approved artwork and usage terms, and swap it in if it differs. The IDB Group and
+   the Servicio Público de Empleo are public institutions with their own brand manuals; check those too.
 2. Check that each brand allows its one-colour white (reverse) version on a dark background, and use the client's own white
-   artwork if they supply it. Don't crop or redraw either logo.
+   artwork if they supply it. Don't crop or redraw any logo.
 
 To add a client: copy a cell, upload the client's white logo under Design → Custom CSS → **Manage Custom Files**, click it to copy its
-URL, and use that as the `img src` (class `tall` for upright marks, `wide` for wordmarks). Edit the `and-tag` text to the
-client's industry and place, or the route you took with them. With four or more clients, change the grid to `repeat(4,…)`.
+URL, and use that as the `img src`. Set `width` and `height` to the file's own size, and `--w` (its width in pixels on desktop) to
+√(21,000 × width ÷ height) as a start, so every logo covers about the same area. Then judge it by eye next to the others: go
+about 10% smaller for a heavy, wide wordmark and 10–20% larger for a thin or airy mark. Edit the `and-tag` text to the client's industry
+and place, or the route you took with them. Keep the number of clients a multiple of six, or finish the last row with empty
+cells (`<div class="and-client"></div>`), so the grid has no hole on desktop or tablet.
 
 ## Step 10: Contact form
 
